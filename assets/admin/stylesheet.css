@@ -1,0 +1,43 @@
+body{
+	background-color: black;
+}
+
+.tile{
+	
+	height: 140px;
+	width:200px ;
+	margin:5px;
+	padding:20px ;
+	border: 10px solid grey;
+	float: left;
+	/*clear: right; for overlapping cases*/
+}
+.tile-double{
+	width: 390px;
+	height: 140px;
+	margin:10px;
+	padding-left:10px ;
+	border: 3px solid grey;
+	float: left;
+	background-color: yellow;
+}
+#interview{
+	background-color: green;
+}
+.main-content{
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.yellow{
+	background-color: yellow;
+}
+.lightgrey{
+	background-color: lightgrey;
+}
+.green{
+background-color: green;
+}
+.city-image{
+	background-image: url("C:\Users\91944\Desktop\IMG_20181219_200651_1559982985670.jpg");
+}
