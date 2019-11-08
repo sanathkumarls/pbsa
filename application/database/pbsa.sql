@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 05, 2019 at 07:31 PM
+-- Generation Time: Nov 07, 2019 at 05:29 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -87,6 +87,7 @@ CREATE TABLE `c3` (
   `c31_3` int(11) DEFAULT NULL,
   `c31_4` int(11) DEFAULT NULL,
   `c31_5` int(11) DEFAULT NULL,
+  `c31_path` varchar(200) NOT NULL,
   `c31_total` int(11) DEFAULT NULL,
   `c32_1` int(11) DEFAULT NULL,
   `c32_2` int(11) DEFAULT NULL,
@@ -107,6 +108,7 @@ CREATE TABLE `c3` (
   `c32_17` int(11) DEFAULT NULL,
   `c32_18` int(11) DEFAULT NULL,
   `c32_19` int(11) DEFAULT NULL,
+  `c32_path` varchar(200) NOT NULL,
   `c32_total` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -230,13 +232,20 @@ CREATE TABLE `employee` (
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `password` varchar(500) DEFAULT NULL,
+  `password` varchar(500) DEFAULT 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db',
   `phone` varchar(10) DEFAULT NULL,
   `dob` varchar(10) DEFAULT NULL,
   `doj` varchar(10) DEFAULT NULL,
   `is_active` int(11) DEFAULT '0',
   `is_rejected` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`e_id`, `emp_id`, `role`, `department`, `first_name`, `last_name`, `email`, `password`, `phone`, `dob`, `doj`, `is_active`, `is_rejected`) VALUES
+(1, '123', 3, 6, 'Sanath', 'S', '4su17cs081@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '9481694830', NULL, NULL, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -471,7 +480,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `management`

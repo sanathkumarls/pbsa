@@ -1,3 +1,28 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: sanathls
+ * Date: 05/11/19
+ * Time: 10:16 PM
+ */
+
+require_once __DIR__."/../utilities/Constants.php";
+session_start();
+if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
+{
+    if($_SESSION['role'] == Constants::roleFaculty)
+        header('Location: faculty/index.php');
+    if($_SESSION['role'] == Constants::roleHod)
+        header('Location: hod/index.php');
+    if($_SESSION['role'] == Constants::rolePrincipal)
+        header('Location: principal/index.php');
+    if($_SESSION['role'] == Constants::roleManagement)
+        header('Location: management/index.php');
+    if($_SESSION['role'] == Constants::roleAdmin)
+        header('Location: admin/index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -79,23 +104,23 @@ margin-right:5%;
 
 	</div>-->
   <div class="col-md-3">
-              <a href="alogin.php" class="btn btn-primary btn-outline-white px-4 py-3"><span class="ion-ios-play mr-2"></span>ADMIN</a>
+              <a href="admin/index.php" class="btn btn-primary btn-outline-white px-4 py-3"><span class="ion-ios-play mr-2"></span>ADMIN</a>
               </div>
 		
 		<div class="col-md-3">
-			  <a href="mlogin.php" class="btn btn-primary btn-outline-white px-4 py-3 "><span class="ion-ios-play mr-2"></span>MANAGEMENT</a>
+			  <a href="management/index.php" class="btn btn-primary btn-outline-white px-4 py-3 "><span class="ion-ios-play mr-2"></span>MANAGEMENT</a>
 </div>
 			  
 			  <div class="col-md-3">
-			  <a href="plogin.php" class="btn btn-primary btn-outline-white px-4 py-3 "><span class="ion-ios-play mr-2"></span>PRINCIPAL</a>
+			  <a href="principal/index.php" class="btn btn-primary btn-outline-white px-4 py-3 "><span class="ion-ios-play mr-2"></span>PRINCIPAL</a>
 </div>
  <div class="col-md-3">
-			  <a href="hlogin.php" class="btn btn-primary btn-outline-white px-4 py-3 "><span class="ion-ios-play mr-2"></span>HOD</a>
+			  <a href="hod/index.php" class="btn btn-primary btn-outline-white px-4 py-3 "><span class="ion-ios-play mr-2"></span>HOD</a>
 </div>
 		
 			  
 			  <div class="col-md-3">
-			  <a href="ologin.php" class="btn btn-primary btn-outline-white px-4 py-3 "><span class="ion-ios-play mr-2"></span>FACULTY</a>
+			  <a href="faculty/index.php" class="btn btn-primary btn-outline-white px-4 py-3 "><span class="ion-ios-play mr-2"></span>FACULTY</a>
 </div>
 
 			

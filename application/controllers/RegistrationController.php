@@ -6,7 +6,7 @@
  * Time: 11:03 PM
  */
 
-require_once '../models/Employee.php';
+require_once __DIR__.'/../models/Employee.php';
 
 class RegistrationController
 {

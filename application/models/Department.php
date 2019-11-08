@@ -6,7 +6,7 @@
  * Time: 10:40 PM
  */
 
-require_once '../utilities/Database.php';
+require_once __DIR__.'/../utilities/Database.php';
 
 class Department
 {

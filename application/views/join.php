@@ -1,11 +1,30 @@
  <?php
-
- require_once '../models/Department.php';
+ /**
+  * Created by PhpStorm.
+  * User: sanathls
+  * Date: 05/11/19
+  * Time: 10:16 PM
+  */
+ require_once __DIR__.'/../utilities/Constants.php';
+ require_once __DIR__.'/../models/Department.php';
 
  $objDepartment =new Department();
 
  $departments = $objDepartment->getDepartments();
- 
+ session_start();
+ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
+ {
+     if($_SESSION['role'] == Constants::roleFaculty)
+         header('Location: faculty/index.php');
+     if($_SESSION['role'] == Constants::roleHod)
+         header('Location: hod/index.php');
+     if($_SESSION['role'] == Constants::rolePrincipal)
+         header('Location: principal/index.php');
+     if($_SESSION['role'] == Constants::roleManagement)
+         header('Location: management/index.php');
+     if($_SESSION['role'] == Constants::roleAdmin)
+         header('Location: admin/index.php');
+ }
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -126,9 +145,10 @@ width:100%;
                             <div class="form-group" > <label for="exampleInputEmail1" >Last Name</label>
                                 <input  autocomplete="off" type="text" id="name" class="form-control" name="last_name" placeholder="Last Name" required="" > </div>
 							<div class="form-group"> <label for="exampleInputPassword1">Email-Address</label> 
-							<input type="email" autocomplete="off" name="email"  class="form-control" id="email" placeholder="Email" required="" > </div>
+							<input type="email" autocomplete="off" name="email"  class="form-control" id="email" placeholder="Email" required="" pattern="<?php echo Constants::emailPattern;?>" title="<?php echo Constants::patternTitle;?>">
+                            </div>
                             <div class="form-group"> <label for="exampleInputPassword1">Phone</label>
-                                <input type="text" autocomplete="off" name="phone"  class="form-control"  placeholder="Phone" required="" maxlength="10"> </div>
+                                <input type="text" autocomplete="off" name="phone"  class="form-control" pattern="[0-9]{10}" title="ENTER ONLY NUMBERS" placeholder="Phone" required="" maxlength="10"> </div>
 
 		
 							<div class="form-group"> <label for="exampleInputPassword1">Department</label> 
@@ -155,9 +175,9 @@ width:100%;
 <option  value="">Choose a designation </option>
 
 
-<option  value="3"> Principal </option>
-<option  value="2"> HOD </option>
-<option  value="1"> Faculty </option>
+<option  value="<?php echo Constants::rolePrincipal;?>"> Principal </option>
+<option  value="<?php echo Constants::roleHod;?>"> HOD </option>
+<option  value="<?php echo Constants::roleFaculty;?>"> Faculty </option>
 
 
 
@@ -166,8 +186,9 @@ width:100%;
 							
 							
 							
-							<input type="submit" name="submit" id="a" class="btn btn-default" value="Submit" /></form> 
-					<form action="index.html">		<input type="submit" name="back" class="btn btn-default" value="Back" /></form> 
+							<input type="submit" name="submit" id="a" class="btn btn-default" value="Submit" />
+                                <a href="index.php" class="btn btn-default">BACK</a>
+</form>
 						</div>
 						
 						<br>

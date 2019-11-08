@@ -5,6 +5,22 @@
  * Date: 05/11/19
  * Time: 10:16 PM
  */
+
+require_once __DIR__."/../utilities/Constants.php";
+session_start();
+if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
+{
+    if($_SESSION['role'] == Constants::roleFaculty)
+        header('Location: faculty/index.php');
+    if($_SESSION['role'] == Constants::roleHod)
+        header('Location: hod/index.php');
+    if($_SESSION['role'] == Constants::rolePrincipal)
+        header('Location: principal/index.php');
+    if($_SESSION['role'] == Constants::roleManagement)
+        header('Location: management/index.php');
+    if($_SESSION['role'] == Constants::roleAdmin)
+        header('Location: admin/index.php');
+}
 ?>
 
 
