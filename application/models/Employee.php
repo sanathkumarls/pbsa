@@ -7,6 +7,7 @@
  */
 
 require_once __DIR__."/../utilities/Database.php";
+require_once __DIR__.'/../utilities/Constants.php';
 
 
 class Employee
@@ -14,13 +15,13 @@ class Employee
         function register($emp_id,$first_name,$last_name,$email,$phone,$department,$role)
         {
             $db = new Database();
-            $con =$db->open_connection();
+            $con = $db->open_connection();
 
-            $query = "insert into employee values (NULL,'$emp_id','$role','$department','$first_name','$last_name','$email',NULL,'$phone',NULL,NULL,0,0)";
-
+            $query = "insert into employee values (NULL,'$emp_id','$role','$department',NULL,'$first_name','$last_name','$email','".Constants::defaultPassword."','$phone',NULL,NULL,0,0,1)";
             $result = $con->query($query);
             return $result;
         }
+
 
         function checkEmail($email)
         {
@@ -55,7 +56,7 @@ class Employee
             $db = new Database();
             $con =$db->open_connection();
 
-            $query = "select * from employee where `email` = '$email' and `password` = '$password' and `role` = '$role' and `is_active` = 1";
+            $query = "select * from employee where `email` = '$email' and `password` = '$password' and `role` = '$role' and `is_active` = 1 and `is_department_active` = 1";
 
             $result = $con->query($query);
 

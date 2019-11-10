@@ -3,9 +3,31 @@
  * Created by PhpStorm.
  * User: sanathls
  * Date: 09/11/19
- * Time: 2:19 AM
+ * Time: 2:12 AM
  */
 
+require_once __DIR__."/../../models/Employee.php";
+require_once __DIR__."/../../utilities/Constants.php";
+if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
+{
+    $email =  $_SESSION['email'];
+    $role = $_SESSION['role'];
+    $changePassword = $_SESSION['changePassword'];
+
+    $objEmployee = new Employee();
+    if(!$objEmployee->checkEmailRole($email,Constants::roleFaculty))//check realtime role
+    {
+        header("Location: ../../controllers/LogoutController.php");
+    }
+    if($changePassword == 1)
+    {
+        header("Location: changePassword.php");
+    }
+}
+else
+{
+    header('Location: index.php');
+}
 ?>
 
 <div class="sidebar-menu">
@@ -37,9 +59,18 @@
             <li><a class="tooltips" href="edit.php?id=<?php //echo $val;?>"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
             <li><a class="tooltips" href="r.php?id=<?php //echo $val;?>" ><span>Remove Photo</span><i class="lnr lnr-picture"></i></a></li>
 
-            <li><a class="tooltips" href="../../controllers/LogoutController.php"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+            <li><a class="tooltips" href="../../controllers/LogoutController.php" onclick="logout()"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
         </ul>
     </div>
+    <script>
+        function logout()
+        {
+            if (confirm("Are you sure you want to Logout"))
+            {
+                window.location.href = '../../controllers/LogoutController.php';
+            }
+        }
+    </script>
     <!--//down-->
     <div class="menu">
         <ul id="menu" >

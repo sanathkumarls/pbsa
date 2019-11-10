@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 07, 2019 at 05:29 PM
+-- Generation Time: Nov 09, 2019 at 10:18 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `a_id` int(11) NOT NULL,
+  `initial` varchar(5) DEFAULT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -121,10 +122,15 @@ CREATE TABLE `c3` (
 CREATE TABLE `c4` (
   `c4_id` int(11) NOT NULL,
   `c41` int(11) DEFAULT NULL,
+  `c41_path` varchar(50) DEFAULT NULL,
   `c42` int(11) DEFAULT NULL,
+  `c42_path` varchar(50) DEFAULT NULL,
   `c43` int(11) DEFAULT NULL,
+  `c43_path` varchar(50) DEFAULT NULL,
   `c44` int(11) DEFAULT NULL,
+  `c44_path` varchar(50) DEFAULT NULL,
   `c45` int(11) DEFAULT NULL,
+  `c45_path` varchar(50) DEFAULT NULL,
   `total` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -137,8 +143,11 @@ CREATE TABLE `c4` (
 CREATE TABLE `c5` (
   `c5_id` int(11) NOT NULL,
   `c51` int(11) DEFAULT NULL,
+  `c51_path` varchar(50) DEFAULT NULL,
   `c52` int(11) DEFAULT NULL,
+  `c52_path` varchar(50) DEFAULT NULL,
   `c53` int(11) DEFAULT NULL,
+  `c53_path` varchar(50) DEFAULT NULL,
   `total` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -151,9 +160,13 @@ CREATE TABLE `c5` (
 CREATE TABLE `c6` (
   `c6_id` int(11) NOT NULL,
   `c61` int(11) DEFAULT NULL,
+  `c61_path` varchar(50) DEFAULT NULL,
   `c62` int(11) DEFAULT NULL,
+  `c62_path` varchar(50) DEFAULT NULL,
   `c63` int(11) DEFAULT NULL,
+  `c63_path` varchar(50) DEFAULT NULL,
   `c64` int(11) DEFAULT NULL,
+  `c64_path` varchar(50) DEFAULT NULL,
   `total` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -166,9 +179,13 @@ CREATE TABLE `c6` (
 CREATE TABLE `c7` (
   `c7_id` int(11) NOT NULL,
   `c71` int(11) DEFAULT NULL,
+  `c71_path` varchar(50) DEFAULT NULL,
   `c72` int(11) DEFAULT NULL,
+  `c72_path` varchar(50) DEFAULT NULL,
   `c73` int(11) DEFAULT NULL,
+  `c73_path` varchar(50) DEFAULT NULL,
   `c74` int(11) DEFAULT NULL,
+  `c74_path` varchar(50) DEFAULT NULL,
   `total` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -181,11 +198,17 @@ CREATE TABLE `c7` (
 CREATE TABLE `c8` (
   `c8_id` int(11) NOT NULL,
   `c81` int(11) DEFAULT NULL,
+  `c81_path` varchar(50) DEFAULT NULL,
   `c82` int(11) DEFAULT NULL,
+  `c82_path` varchar(50) DEFAULT NULL,
   `c83` int(11) DEFAULT NULL,
+  `c83_path` varchar(50) DEFAULT NULL,
   `c84` int(11) DEFAULT NULL,
+  `c84_path` varchar(50) DEFAULT NULL,
   `c85` int(11) DEFAULT NULL,
+  `c85_path` varchar(50) DEFAULT NULL,
   `c86` int(11) DEFAULT NULL,
+  `c86_path` varchar(50) DEFAULT NULL,
   `total` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -198,25 +221,26 @@ CREATE TABLE `c8` (
 CREATE TABLE `department` (
   `d_id` int(11) NOT NULL,
   `d_name` varchar(50) NOT NULL,
-  `d_abbr` varchar(20) NOT NULL
+  `d_abbr` varchar(20) NOT NULL,
+  `is_active` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `department`
 --
 
-INSERT INTO `department` (`d_id`, `d_name`, `d_abbr`) VALUES
-(1, 'Biotechnology', 'Biotechnology'),
-(2, 'Chemistry', 'Chemistry'),
-(3, 'Centre for Interdisciplinary Research in Humanitie', 'CIRHS'),
-(4, 'Commerce', 'Commerce'),
-(5, 'Economics', 'Economics'),
-(6, 'English', 'English'),
-(7, 'Physics', 'Physics'),
-(8, 'Department of Journalism and Mass Communication', 'MCJ'),
-(9, 'Department of Masters in Social Work', 'MSW'),
-(10, 'Psychology', 'Psychology'),
-(11, 'Statistics', 'Statistics');
+INSERT INTO `department` (`d_id`, `d_name`, `d_abbr`, `is_active`) VALUES
+(1, 'Biotechnology', 'Biotechnology', 1),
+(2, 'Chemistry', 'Chemistry', 1),
+(3, 'Centre for Interdisciplinary Research in Humanitie', 'CIRHS', 1),
+(4, 'Commerce', 'Commerce', 1),
+(5, 'Economics', 'Economics', 1),
+(6, 'English', 'English', 1),
+(7, 'Physics', 'Physics', 1),
+(8, 'Department of Journalism and Mass Communication', 'MCJ', 1),
+(9, 'Department of Masters in Social Work', 'MSW', 1),
+(10, 'Psychology', 'Psychology', 1),
+(11, 'Statistics', 'Statistics', 1);
 
 -- --------------------------------------------------------
 
@@ -229,6 +253,7 @@ CREATE TABLE `employee` (
   `emp_id` varchar(50) DEFAULT NULL,
   `role` int(11) DEFAULT NULL,
   `department` int(11) DEFAULT NULL,
+  `initial` varchar(5) DEFAULT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
@@ -237,15 +262,18 @@ CREATE TABLE `employee` (
   `dob` varchar(10) DEFAULT NULL,
   `doj` varchar(10) DEFAULT NULL,
   `is_active` int(11) DEFAULT '0',
-  `is_rejected` int(11) DEFAULT '0'
+  `is_rejected` int(11) DEFAULT '0',
+  `is_department_active` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`e_id`, `emp_id`, `role`, `department`, `first_name`, `last_name`, `email`, `password`, `phone`, `dob`, `doj`, `is_active`, `is_rejected`) VALUES
-(1, '123', 3, 6, 'Sanath', 'S', '4su17cs081@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '9481694830', NULL, NULL, 1, 0);
+INSERT INTO `employee` (`e_id`, `emp_id`, `role`, `department`, `initial`, `first_name`, `last_name`, `email`, `password`, `phone`, `dob`, `doj`, `is_active`, `is_rejected`, `is_department_active`) VALUES
+(1, '123', 1, 6, NULL, 'Sanath', 'S', '4su17cs081@sdmit.in', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec', '9481694830', NULL, NULL, 1, 0, 1),
+(2, '1245656', 2, 1, NULL, 'abvbsvbv', 'bvbvabv', 'aasgg@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '2656526526', NULL, NULL, 0, 0, 1),
+(3, '4434', 3, 3, NULL, 'dfdfdfd', 'dfdfdfd', 'ccvcvc@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '1234567766', NULL, NULL, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -255,6 +283,7 @@ INSERT INTO `employee` (`e_id`, `emp_id`, `role`, `department`, `first_name`, `l
 
 CREATE TABLE `management` (
   `m_id` int(11) NOT NULL,
+  `initial` varchar(5) DEFAULT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -310,7 +339,7 @@ INSERT INTO `role` (`r_id`, `r_name`) VALUES
 (1, 'Faculty'),
 (2, 'HOD'),
 (3, 'Principal'),
-(4, 'Secretary'),
+(4, 'Management'),
 (5, 'Admin');
 
 --
@@ -480,7 +509,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `management`

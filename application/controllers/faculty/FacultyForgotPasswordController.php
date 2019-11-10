@@ -26,7 +26,6 @@ class FacultyForgotPasswordController
             {
                 $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                 $newPassword = '';
-
                 for ($i = 0; $i < Constants::forgotPasswordLength; $i++)
                 {
                     $index = rand(0, strlen($characters) - 1);

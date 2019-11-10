@@ -15,6 +15,6 @@ class LogoutController
     {
         session_start();
         session_destroy();
-        echo '<script>alert("Logged Out Successfully"); window.location.href="../views/index.php"</script>';
+        echo '<script>window.location.href="../views/index.php"</script>';
     }
 }
