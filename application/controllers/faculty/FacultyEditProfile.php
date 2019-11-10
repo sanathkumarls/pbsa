@@ -1,14 +1,14 @@
 <?php
 
-require_once __DIR__.'/../../models/Admin.php';
+require_once __DIR__.'/../../models/Employee.php';
 if(isset($_POST['submit']))
 {
-    $admineditprofile=new AdminEditProfile();
-    $admineditprofile->getInput();
+    $objFacultyEdit=new FacultyEditProfile();
+    $objFacultyEdit->getInput();
 }
 
 
-class AdminEditProfile
+class FacultyEditProfile
 {
     public function getInput()
     {
@@ -19,8 +19,9 @@ class AdminEditProfile
         $email=$_SESSION['email'];
         $phone=$_POST['phone'];
         $dob=$_POST['dob'];
-        $objAdmin = new Admin();
-        $result = $objAdmin->getUserDetails($email);
+        $doj=$_POST['doj'];
+        $objEmployee = new Employee();
+        $result = $objEmployee->getUserDetails($email);
         $row = $result->fetch_assoc();
         $photo = $row['photo'];
         if(!empty($_FILES['photo']['name']))
@@ -30,7 +31,7 @@ class AdminEditProfile
             if (($size > 5242880))
             {
                 $message = 'File too large. File must be less than 5 megabytes.';
-                echo '<script type="text/javascript">alert("'.$message.'");window.location.href="../../views/admin/editProfile.php"</script>';
+                echo '<script type="text/javascript">alert("'.$message.'");window.location.href="../../views/faculty/editProfile.php"</script>';
             }
             elseif ($type != "image/jpg" && $type != "image/jpeg" && $type != "image/png")
             {
@@ -47,34 +48,34 @@ class AdminEditProfile
                     $index = rand(0, strlen($characters) - 1);
                     $img .= $characters[$index];
                 }
-                move_uploaded_file($_FILES['photo']['tmp_name'],__DIR__.'/../../../uploads/admin/profile/'.$img.".".$extention);
-                $photo="uploads/admin/profile/".$img.".".$extention;
+                move_uploaded_file($_FILES['photo']['tmp_name'],__DIR__.'/../../../uploads/faculty/profile/'.$img.".".$extention);
+                $photo="uploads/faculty/profile/".$img.".".$extention;
             }
         }
-        if($initial!=null && $firstName!=null && $lastName!=null && $email!=null && $dob!=null && $phone!=null)
+        if($initial!=null && $firstName!=null && $lastName!=null && $email!=null && $dob!=null && $doj!=null && $phone!=null)
         {
-            $this->adminProfileEdit($initial,$firstName,$lastName,$email,$dob,$phone,$photo);
+            $this->employeeProfileEdit($initial,$firstName,$lastName,$email,$dob,$doj,$phone,$photo);
         }
         else
         {
             echo "<script>alert('Fill All Fields.');
-                window.location.href='../../views/admin/editProfile.php';</script>";
+                window.location.href='../../views/faculty/editProfile.php';</script>";
         }
     }
 
-    function adminProfileEdit($initial,$firstName,$lastName,$email,$dob,$phone,$photo)
+    function employeeProfileEdit($initial,$firstName,$lastName,$email,$dob,$doj,$phone,$photo)
     {
-        $objEditPrfile=new Admin();
-        $user=$objEditPrfile->adminUpdateProfile($initial,$firstName,$lastName,$email,$dob,$phone,$photo);
+        $objEmployee = new Employee();
+        $user=$objEmployee->employeeUpdateProfile($initial,$firstName,$lastName,$email,$dob,$doj,$phone,$photo);
         if($user)
         {
-            echo "<script>alert('Updated Successfully'); window.location.href='../../views/admin/home.php';</script>";
+            echo "<script>alert('Updated Successfully'); window.location.href='../../views/faculty/home.php';</script>";
 
         }
         else
         {
             echo "<script>alert('Profile Edit Failed');
-                window.location.href='../../views/admin/editProfile.php';</script>";
+                window.location.href='../../views/faculty/editProfile.php';</script>";
         }
     }
 

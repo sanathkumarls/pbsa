@@ -187,42 +187,6 @@ else
         </div>
         <input type="submit" name="submit" class="btn blue" id="submit"  value="Submit" disabled></form > <a href="index.php" class="btn blue">Back</a><br><br>
 
-        <?php
-//
-//        if(isset($_POST["submit"]))
-//        {
-//
-//            $pass=MD5($_POST["pass"]);
-//            $cpass=MD5($_POST["cpass"]);
-//            try{
-//                $m = new MongoClient();
-//                $db = $m->mydb;
-//                if($pass==$cpass){
-//                    $cursor = $db->admin->update(['_id'=>"100"],['$set'=>array("password"=>$pass ,"Confirm Password"=>$cpass)]);
-////$cursor['password'];
-////$cursor1 = $db->admin->update(array("adminEmailCheck"=>$uname),array('$set'=>array("Confirm Password"=>$cpass)));
-//
-//                    if($cursor )//&& cursor1)
-//                    {?>
-<!--                        <div class="alert alert-info" role="alert"><strong>Done!</strong> Password has been changed</div>-->
-<!--                        --><?php
-//
-//                    }
-//                }
-//                else{?>
-<!--                    <div class="alert alert-danger" role="alert"><strong>Error!</strong> Password and Confirm Password doesnot match.</div>-->
-<!---->
-<!--                    --><?php
-//                }
-//            }
-//            catch(Exception $e){
-//                ?>
-<!--                <div class="alert alert-danger" role="alert"><strong>Error!</strong> Try again.</div>-->
-<!---->
-<!--                --><?php
-//            }
-//        }
-//        ?>
     </div>
 <script>
     function checkPassword()

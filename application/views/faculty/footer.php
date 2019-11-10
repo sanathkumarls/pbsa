@@ -39,8 +39,21 @@ else
     <div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
     <!--/down-->
     <div class="down">
-<!--      display employee image-->
-            <a href="#"><img id="image1" src="../../../assets/faculty/images/a.png" ></a>
+        <?php
+        $result = $objEmployee->getUserDetails($email);
+        if($result->num_rows > 0)
+        {
+            while($row = $result->fetch_assoc())
+            {
+                $initial = $row['initial'];
+                $firstname = $row['first_name'];
+                $lastname = $row['last_name'];
+                $photo = $row['photo'];
+            }
+        }
+        ?>
+        <!--      display employee image-->
+        <a href="#"><img id="image1" src="../../../<?php echo $photo;?>" ></a>
 
 
 
@@ -48,16 +61,13 @@ else
 
 
         <a href="#"><span class=" name-caret">
-<!--                --><?php
-//                $in=$dat1["initial"];
-//                $nm=$dat1["Name"];
-//                echo $in.$nm;?>
+<?php echo $initial." ".$firstname." ".$lastname;?>
 <!--                diplsay name and initial-->
 	</span></a>
-        <p>Employee </p>
+        <p>Faculty</p>
         <ul>
-            <li><a class="tooltips" href="edit.php?id=<?php //echo $val;?>"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
-            <li><a class="tooltips" href="r.php?id=<?php //echo $val;?>" ><span>Remove Photo</span><i class="lnr lnr-picture"></i></a></li>
+            <li><a class="tooltips" href="editProfile.php"><span>Edit Profile</span><i class="lnr lnr-user"></i></a></li>
+            <li><a class="tooltips" href="changePassword.php" ><span>ChangePassword</span><i class="fa fa-key"></i></a></li>
 
             <li><a class="tooltips" href="../../controllers/LogoutController.php" onclick="logout()"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
         </ul>
@@ -75,7 +85,7 @@ else
     <div class="menu">
         <ul id="menu" >
 
-            <li><a href="emenu.php?id=<?php //echo $val;?>"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
+            <li><a href="home.php"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
             <!--	<li><a href="pbsa.php?id=<php echo $val;?>"><i class="fa fa-edit"></i> <span>PBSA</span></a></li>-->
 
             <!-- uncomment the below line to add skills module also remove the "//" for echo -->
@@ -84,7 +94,7 @@ else
             <!-- <li id="menu-academico" ><a href="ratem.php?id=<?php //echo $val;?>"><i class="lnr lnr-star-half"></i><span>&nbsp;Rate HOD/Manager</span></a>
 
 										</li> -->
-            <li id="menu-academico" ><a href="view.php?id=<?php //echo $val;?>"><i class="fa fa-bar-chart-o"></i> <span>View Performance</span></a>  </li>
+            <li id="menu-academico" ><a href="viewPerformance.php"><i class="fa fa-bar-chart-o"></i> <span>View Performance</span></a>  </li>
             <!-- <li><a href="project.php?id=<?php //echo $val;?>"><i class="lnr lnr-select"></i> <span>Projects </span></a></li> -->
 
 
@@ -95,41 +105,7 @@ else
     <div class="clearfix"></div>
 </div>
 </div>
-<script>
-    $(document).ready(function(){
 
-        function load_unseen_notification(view = '')
-        {
-            $.ajax({
-                url:"fetch.php",
-                method:"POST",
-                data:{view:view},
-                dataType:"json",
-                success:function(data)
-                {
-
-                    if(data.unseen_notification >0)
-                    {
-                        $('.count').html(data.unseen_notification);
-
-                    }
-                }
-            });
-        }
-
-        load_unseen_notification();
-        $(document).on('click', '.xyz', function(){
-            $('.count').html('');
-            load_unseen_notification('yes');
-        });
-
-
-        setInterval(function(){
-            load_unseen_notification();;
-        }, 5000);
-
-    });
-</script>
 <script>
     var toggle = true;
 

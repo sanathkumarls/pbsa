@@ -1,5 +1,12 @@
 <?php
-require_once __DIR__."/../../models/Admin.php";
+/**
+ * Created by PhpStorm.
+ * User: sanathls
+ * Date: 09/11/19
+ * Time: 2:12 AM
+ */
+
+require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../utilities/Constants.php";
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
@@ -7,8 +14,9 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     $email =  $_SESSION['email'];
     $role = $_SESSION['role'];
     $changePassword = $_SESSION['changePassword'];
-    $objAdmin= new Admin();
-    if(!$objAdmin->checkEmail($email))//check realtime role
+
+    $objEmployee = new Employee();
+    if(!$objEmployee->checkEmailRole($email,Constants::roleFaculty))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
     }
@@ -21,7 +29,6 @@ else
 {
     header('Location: index.php');
 }
-
 ?>
 
 <!DOCTYPE HTML>
@@ -265,12 +272,12 @@ else
 
                             <?php
 
-                            $result = $objAdmin->getUserDetails($email);
+                            $result = $objEmployee->getUserDetails($email);
                             if($result->num_rows > 0)
                             {
                             $row = $result->fetch_assoc();
                             ?>
-                            <form method="post" name="f1" action="../../controllers/admin/AdminEditProfile.php"
+                            <form method="post" name="f1" action="../../controllers/faculty/FacultyEditProfile.php"
                                   enctype="multipart/form-data">
                                 <div class="form-body">
 
@@ -279,8 +286,7 @@ else
                                         <div class="col-md-8">
 
                                             <select id="select" class="form-control" required name="initial"
-                                                    value='<?php echo $row['initial']; ?>' onchange="enableUpdate()"
-                                                    disabled>
+                                                    value='<?php echo $row['initial']; ?>' onchange="enableUpdate()" disabled>
                                                 <option value="Mr.">Mr</option>
                                                 <option value="Ms.">Ms</option>
                                                 <option value="Dr.">Dr</option>
@@ -291,10 +297,8 @@ else
                                     <br>
                                     <div class="form-group"><label id="email" for="email"><br>First Name</label> <br>
                                         <div class="col-md-8">
-                                            <input type="text" class="form-control" disabled name="firstName"
-                                                   id="firstname"
-                                                   value='<?php echo $row['first_name']; ?>' onchange="enableUpdate()"
-                                                   required>
+                                            <input type="text" class="form-control" disabled name="firstName" id="firstname"
+                                                   value='<?php echo $row['first_name']; ?>' onchange="enableUpdate()" required>
                                         </div>
 
                                         <br>
@@ -304,10 +308,8 @@ else
 
                                     <div class="form-group"><label id="email" for="email"><br>Last Name</label> <br>
                                         <div class="col-md-8">
-                                            <input type="text" class="form-control" disabled name="lastName"
-                                                   id="lastname"
-                                                   value='<?php echo $row['last_name']; ?>' onchange="enableUpdate()"
-                                                   required>
+                                            <input type="text" class="form-control" disabled name="lastName" id="lastname"
+                                                   value='<?php echo $row['last_name']; ?>' onchange="enableUpdate()" required>
                                         </div>
 
                                         <br>
@@ -318,7 +320,7 @@ else
                                     <div class="form-group"><label id="email" for="email"><br>Upload Photo</label> <br>
                                         <div class="col-md-8">
                                             <input type="file" class="form-control" disabled name="photo" id="photo"
-                                                   accept="image/jpg,image/jpeg,image/png" onchange="enableUpdate()">
+                                                   accept="image/jpg,image/jpeg,image/png" onchange="enableUpdate()" >
                                         </div>
 
                                         <br>
@@ -328,8 +330,7 @@ else
                                     <div class="form-group"><label id="email" for="email"><br>Email</label> <br>
                                         <div class="col-md-8">
                                             <input type="email" class="form-control" disabled name="email" id="mail"
-                                                   value='<?php echo $row['email']; ?>' onchange="enableUpdate()"
-                                                   required>
+                                                   value='<?php echo $row['email']; ?>' onchange="enableUpdate()" required>
                                         </div>
                                         <br>
 
@@ -337,20 +338,23 @@ else
                                     <br>
                                     <div class="form-group"><label id="no" for="no"><br>Mobile Number</label> <br>
                                         <div class="col-md-8">
-                                            <input type="text" class="form-control" disabled name="phone"
-                                                   pattern="[0-9]{10}" title="10 Digit Mobile only Allowed"
-                                                   maxlength="10" id="phone" value='<?php echo $row['phone']; ?>'
-                                                   onchange="enableUpdate()" required>
+                                            <input type="text" class="form-control" disabled name="phone" pattern="[0-9]{10}" title="10 Digit Mobile only Allowed" maxlength="10" id="phone" value='<?php echo $row['phone']; ?>' onchange="enableUpdate()" required>
                                         </div>
                                         <br>
 
                                     </div>
                                     <br>
-                                    <div class="form-group"><label id="dob" for="dob"><br>Date of birth </label> <br>
+                                    <div class="form-group"><label id="dob" for="dob"><br>Date Of Birth </label> <br>
                                         <div class="col-md-8">
-                                            <input type="date" class="form-control" disabled name="dob" id="dateofbirth"
-                                                   value='<?php echo $row['dob']; ?>' onchange="enableUpdate()"
-                                                   required>
+                                            <input type="date" class="form-control" disabled name="dob" id="dateofbirth" value='<?php echo $row['dob']; ?>' onchange="enableUpdate()" required>
+                                        </div>
+                                        <br>
+
+                                    </div>
+                                    <br>
+                                    <div class="form-group"><label id="dob" for="dob"><br>Date of Join </label> <br>
+                                        <div class="col-md-8">
+                                            <input type="date" class="form-control" disabled name="doj" id="dateofjoin" value='<?php echo $row['doj']; ?>' onchange="enableUpdate()" required>
                                         </div>
                                         <br>
 
@@ -368,9 +372,10 @@ else
                         <br>
 
 
-                        <button class="btn btn-primary" id="update" name="submit" value="submit" disabled><i
-                                    class="fa fa-refresh a"
-                                    style="font-size:25px;"></i>&nbsp;&nbsp;Update
+
+
+                        <button class="btn btn-primary" id="update" name="submit" value="submit" disabled><i class="fa fa-refresh a"
+                                                                                                             style="font-size:25px;"></i>&nbsp;&nbsp;Update
                         </button>
                         </form>
 
@@ -395,7 +400,8 @@ else
 
 
     <script>
-        function enableDisabled() {
+        function enableDisabled()
+        {
             //document.f1.initial.disabled = false;
             document.getElementById("select").removeAttribute('disabled');
             document.getElementById('firstname').removeAttribute('disabled');
@@ -403,9 +409,10 @@ else
             document.getElementById('photo').removeAttribute('disabled');
             document.getElementById('phone').removeAttribute('disabled');
             document.getElementById('dateofbirth').removeAttribute('disabled');
+            document.getElementById('dateofjoin').removeAttribute('disabled');
         }
-
-        function enableUpdate() {
+        function enableUpdate()
+        {
             document.getElementById("update").removeAttribute("disabled");
         }
     </script>
@@ -417,5 +424,5 @@ else
 
     <?php
     }
-                            include 'footer.php';
+    include 'footer.php';
     ?>

@@ -31,11 +31,10 @@ else
 }
 ?>
 
-
-<!DOCTYPE HTML>
+    <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Faculty Dashboard</title>
+    <title>View Performance</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Skill" />
@@ -149,14 +148,22 @@ else
             box-shadow: 0 5px #666;
             transform: translateY(4px);
         }
-        #bt{
-            float:left;
-            margin-right:5%;
-            margin-bottom:100px;
-            margin-top:2.2%;
+        .col-md-5{
+            text-align:center;
+
         }
-        #btx{
-            margin-top:-150px;
+        hr{
+            background-color:#221375;
+            height:2px;
+            width:200px;
+        }
+        #img1{
+            height:150px;
+            width:200px;
+        }
+        #img2{
+            height:150px;
+            width:180px;
         }
     </style>
     <!--//skycons-icons-->
@@ -193,9 +200,17 @@ else
                 <!--custom-widgets-->
                 <div class="sub-heard-part">
                     <ol class="breadcrumb m-b-0">
-
-                        <li>Home</li>
-                        <li></li>
+<!--                        --><?php
+//                        $val=$_GET['id'];
+//                        //$m = new MongoClient();
+//                        $db=$m->mydb;
+//                        $coll=$db->login;
+//                        $dat=$coll->findOne(["empid"=>"$val"]);
+//                        $dbn=$dat["dept"];
+//                        ?>
+<!--                        <li><a href="home.php?id=--><?php //echo $val;?><!--">Home</a></li>-->
+                        <li><a href="home.php">Home</a></li>
+                        <li>View Performance </li>
                     </ol>
                 </div>
 
@@ -208,43 +223,32 @@ else
 
 
                         <div id="center"><div id="fig">
+                                <center><h3 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;">View Performance</h3></center>
+                                <hr>
+                                <br>
+                                <div class="col-md-1"></div>
+                                <!-- after adding skills remove style inside the div tag -->
 
-                                <h1 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;">
-
-                                    Welcome to<br><br>
-                                    PBSA System.....</h1>
-
-
-                                <br> <br> <?php 	//$val=$_GET['id'];?>
+                                <div class="col-md-5" style="padding-left: 420px"><a href="view1.php?id=<?php echo $val;?>"><img id="img2" src="images/pbsa.png"><h3 style="font-family:'Copperplate Gothic Light';color:black;">PBSA Performance</h3></a></div>
 
 
                                 <!-- uncomment the below line to add skills module also remove the "//" for echo -->
 
-                                <!-- s -->
-                                <form action="pbsaSystem.php?id=<?php //echo $val;?>" method="post">
+                                <!-- <div class="col-md-5"><a href="perfg.php?id=<?php //echo $val;?>"><img id="img1" src="images/v.gif"><h3 style="font-family:'Copperplate Gothic Light';color:black;">Skills Performance</h3></a></div> -->
+                                <div class="col-md-1"></div>
 
 
-                                    <button id="btx" class="button">&nbsp;&nbsp;PBSA System&nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>
 
-                                    <br> <br>
-                                </form>
-                                <br><br>
-                                <form action="comments.php?id=<?php //echo $val;?>" method="post" >
-
-
-                                    <button id="btx" class="button">&nbsp;&nbsp;Comments&nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>
-
-                                    <br> <br>
-                                </form>
                             </div>
 
+
+                            <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
 
                         </div>
 
-                    </div>														<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-
-
+                    </div>
+                    <br> <br> <br> <br> <br> <br>
                 </div>
                 <!--/candile-->
 
@@ -252,7 +256,7 @@ else
 
                 <!--//content-inner-->
                 <!--/sidebar-menu-->
-                <?php
-                include 'footer.php';
+<?php
+include 'footer.php';
 
-                ?>
+?>

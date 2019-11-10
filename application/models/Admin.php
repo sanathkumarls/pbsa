@@ -35,7 +35,7 @@ class Admin
         return $result;
     }
 
-    function CheckPassword($email,$hashedpassword)
+    function checkPassword($email,$hashedpassword)
     {
         $db = new Database();
         $con = $db->open_connection();
@@ -50,7 +50,7 @@ class Admin
     {
         $db=new Database();
         $con=$db->open_connection();
-        $query="UPDATE `admin` SET `initial`='$initial',`first_name`='$firstName',`last_name`='$lastName',`dob`='$dob',`phone`='$phone',`photo` = '$photo' WHERE email='$email'";
+        $query="UPDATE `admin` SET `initial`='$initial',`first_name`='$firstName',`last_name`='$lastName',`dob`='$dob',`phone`='$phone',`photo` = '$photo' WHERE `email`='$email'";
         return $con->query($query);
     }
 

@@ -17,7 +17,7 @@ class Employee
             $db = new Database();
             $con = $db->open_connection();
 
-            $query = "insert into employee values (NULL,'$emp_id','$role','$department',NULL,'$first_name','$last_name','$email','".Constants::defaultPassword."','$phone',NULL,NULL,0,0,1)";
+            $query = "insert into employee values (NULL,'$emp_id','$role','$department',NULL,'$first_name','$last_name','$email','".Constants::defaultPassword."','$phone',NULL,NULL,NULL,0,0,1)";
             $result = $con->query($query);
             return $result;
         }
@@ -65,6 +65,17 @@ class Employee
             return false;
         }
 
+        function checkPassword($email,$hashedpassword)
+        {
+           $db = new Database();
+           $con = $db->open_connection();
+            $query = "select * from employee where email='$email' and password='$hashedpassword' and is_active=1";
+            $result = $con->query($query);
+            if($result->num_rows > 0)
+                return true;
+            return false;
+        }
+
         function updatePassword($email,$password)
         {
             $db = new Database();
@@ -96,30 +107,49 @@ class Employee
             return $con->query($query);
         }
 
-    function rejectEmployee($id)
-    {
-        $db = new Database();
-        $con =$db->open_connection();
+        function rejectEmployee($id)
+        {
+            $db = new Database();
+            $con =$db->open_connection();
 
-        $query = "update employee set `is_rejected` = 1 where `e_id` = '$id'";
+            $query = "update employee set `is_rejected` = 1 where `e_id` = '$id'";
+
+            return $con->query($query);
+        }
+
+        function getEmail($id)
+        {
+            $db = new Database();
+            $con =$db->open_connection();
+
+            $query = "select * from employee where `e_id`='$id'";
+
+            $result = $con->query($query);
+
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                return $row['email'];
+            }
+            return "";
+        }
+
+    function getUserDetails($email)
+    {
+        $db=new Database();
+        $con=$db->open_connection();
+
+        $query = "select * from employee where `email` = '$email' and `is_active` = 1";
 
         return $con->query($query);
     }
 
-    function getEmail($id)
+    function employeeUpdateProfile($initial,$firstName,$lastName,$email,$dob,$doj,$phone,$photo)
     {
-        $db = new Database();
-        $con =$db->open_connection();
+        $db=new Database();
+        $con=$db->open_connection();
 
-        $query = "select * from employee where `e_id`='$id'";
-
-        $result = $con->query($query);
-
-        if($result->num_rows > 0)
-        {
-            $row = $result->fetch_assoc();
-            return $row['email'];
-        }
-        return "";
+        $query="UPDATE `employee` SET `initial`='$initial',`first_name`='$firstName',`last_name`='$lastName',`dob`='$dob',`doj`= '$doj',`phone`='$phone',`photo` = '$photo' WHERE `email`='$email'";
+        return $con->query($query);
     }
 }

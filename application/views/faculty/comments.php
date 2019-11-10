@@ -31,11 +31,10 @@ else
 }
 ?>
 
-
-<!DOCTYPE HTML>
+    <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Faculty Dashboard</title>
+    <title>Comments</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Skill" />
@@ -73,10 +72,14 @@ else
         }
         #b{
             background:#ddd;
+
         }
         #image1{
             width:130px;
             height:130px;
+        }
+        .btn{
+            margin-left:20%;
         }
         body{
 
@@ -128,6 +131,7 @@ else
             margin-left:20%;
         }
         .button {
+
             display: inline-block;
             padding: 15px 25px;
             font-size: 20px;
@@ -136,29 +140,66 @@ else
             text-decoration: none;
             outline: none;
             color: #fff;
-            background-color:#011D4A;
+            background-color: #4CAF50;
             border: none;
             border-radius: 15px;
             box-shadow: 0 9px #999;
         }
 
-        .button:hover {background-color: #00C6D7}
+        .button:hover {background-color: #3e8e41}
 
         .button:active {
-            background-color: #011D4A;
+            background-color: #3e8e41;
             box-shadow: 0 5px #666;
             transform: translateY(4px);
         }
-        #bt{
-            float:left;
-            margin-right:5%;
-            margin-bottom:100px;
-            margin-top:2.2%;
+        #select{
+            padding-bottom:5px;
+            padding-top:5px;
+            margin-left:10%;
         }
-        #btx{
-            margin-top:-150px;
+        .alert{
+            width:100%;
+
+            margin-left:0%;
+        }
+        hr{
+            background-color:#221375;
+            height:2px;
+            width:200px;
+        }
+        .lev{
+
+            margin-left:10%;
+        }
+        #btn{
+            margin-left:60%;
+            width:120px;
+            margin-top:-10%;
+        }
+        #vp{
+            margin-left:40%;
+        }
+        #fname{
+            width:100%;
+            height:400px;
+
+        }
+        #xabc{
+            width:100%;
+            height:250px;
+            margin-left:2%;
+        }
+        #mb{
+            height:550px;
+        }
+        #p{
+            margin-left:10%;
         }
     </style>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js">
+    </script>
     <!--//skycons-icons-->
 </head>
 <body id="b">
@@ -191,68 +232,62 @@ else
             <!-- //header-ends -->
             <div class="outter-wp">
                 <!--custom-widgets-->
-                <div class="sub-heard-part">
-                    <ol class="breadcrumb m-b-0">
 
-                        <li>Home</li>
-                        <li></li>
-                    </ol>
-                </div>
+                <div>
+                    <div class="candile">
+                        <div class="candile-inner">
 
+                            <center><h3 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;">Comments</h3></center>
+                            <hr>
 
-
-                <!--//custom-widgets-->
-                <!--/candile-->
-                <div class="candile">
-                    <div class="candile-inner">
-
-
-                        <div id="center"><div id="fig">
-
-                                <h1 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;">
-
-                                    Welcome to<br><br>
-                                    PBSA System.....</h1>
-
-
-                                <br> <br> <?php 	//$val=$_GET['id'];?>
-
-
-                                <!-- uncomment the below line to add skills module also remove the "//" for echo -->
-
-                                <!-- s -->
-                                <form action="pbsaSystem.php?id=<?php //echo $val;?>" method="post">
-
-
-                                    <button id="btx" class="button">&nbsp;&nbsp;PBSA System&nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>
-
-                                    <br> <br>
-                                </form>
-                                <br><br>
-                                <form action="comments.php?id=<?php //echo $val;?>" method="post" >
-
-
-                                    <button id="btx" class="button">&nbsp;&nbsp;Comments&nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>
-
-                                    <br> <br>
-                                </form>
-                            </div>
-
-
-
+                            <br>
                         </div>
 
-                    </div>														<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+
+                        <form method="get" action="">
 
 
-                </div>
-                <!--/candile-->
+                            <!-- <textarea type="text" rows="15" cols="156" placeholder="No Comments" name="comments">	</textarea>
+                                     -->
 
-                <!--/charts-->
+                            <!-- <input name="fname" class="form-control" id="fname" type="text" placeholder="No Comments"  -->
+<!--                            --><?php //$m = new MongoClient();
+//
+//                            $val=$_GET['id'];
+//                            $db=$m->mydb;
+//                            $coll=$db->login;
+//                            $dat=$coll->findOne(["username"=>"$val"]);
+//
+//                            $em=$dat["dept"];
+//
+//                            $db = $m->$em;
+//
+//                            $coll = $db->Comments;
+//
+//                            $txt=$coll->findOne(["id"=>"$val"]);
+//                            $t=$txt["text"];
+//                            //echo gettype($t);
+//                            $string=$t;
+//                            //echo gettype($string);
+//                            //echo "$s";
+//                            $token = strtok($string, "\n");
+//
+//                            while ($token !== false)
+//                            {
+//                                echo "$token"."<br>";
+//                                $token = strtok("\n");
+//                            }
+//                            if($t==null)
+//                            {
+//                                echo "No Comments";
+//                            }
 
-                <!--//content-inner-->
-                <!--/sidebar-menu-->
-                <?php
-                include 'footer.php';
 
-                ?>
+                            ?> </div>
+                    </div>
+
+<?php
+
+include 'footer.php';
+
+?>

@@ -1,15 +1,22 @@
 <?php
-require_once __DIR__."/../../models/Admin.php";
+/**
+ * Created by PhpStorm.
+ * User: sanathls
+ * Date: 10/11/19
+ * Time: 10:02 PM
+ */
+
+require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../utilities/Constants.php";
+
 if(isset($_POST['submit']))
 {
-    $objpassword=new AdminChangePassword();
+    $objpassword=new FacultyChangePassword();
     $objpassword->getInput();
 }
 
-class AdminChangePassword
+class FacultyChangePassword
 {
-
     function getInput()
     {
         session_start();
@@ -18,11 +25,11 @@ class AdminChangePassword
         $newpassword = $_POST['newpassword'];
         $cpassword = $_POST['cpassword'];
         $hashedpassword = hash("SHA512", $oldpassword);
-        $objAdmin = new Admin();
+        $objEmployee = new Employee();
 
         if ($email != null && $oldpassword != null && $newpassword != null && $cpassword != null)
         {
-            if ($objAdmin->checkPassword($email, $hashedpassword))
+            if ($objEmployee->checkPassword($email,$hashedpassword))
             {
                 if ($newpassword == $cpassword)
                 {
@@ -30,22 +37,22 @@ class AdminChangePassword
                 }
                 else
                 {
-                    echo "<script>alert('Passwords not matching.');
-                    window.location.href='../../views/admin/changePassword.php';</script>";
+                    echo "<script>alert('Password not matching.');
+                    window.location.href='../../views/faculty/changePassword.php';</script>";
                 }
 
             }
             else
             {
-                    echo "<script>alert('Old Password not matching.');
-                 window.location.href='../../views/admin/changePassword.php';</script>";
+                echo "<script>alert('Old Password not matching.');
+                 window.location.href='../../views/faculty/changePassword.php';</script>";
             }
 
         }
         else
         {
-            echo "<script>alert('Fill All Fields');
-             window.location.href='../../views/admin/changePassword.php';</script>";
+            echo "<script>alert('Form is empty.');
+             window.location.href='../../views/faculty/changePassword.php';</script>";
 
         }
     }
@@ -55,26 +62,17 @@ class AdminChangePassword
     function changePassword($email, $newpassword)
     {
         $hashednewpassword = hash("SHA512", "$newpassword");
-        $objAdmin = new Admin();
-        if($objAdmin->updatePassword($email, $hashednewpassword))
+        $objEmployee = new Employee();
+        if($objEmployee->updatePassword($email, $hashednewpassword))
         {
             echo "<script>alert('Password Changed Successfully'); </script>";
             session_destroy();
-            echo "<script>window.location.href='../../views/admin/index.php'</script>";
+            echo "<script>window.location.href='../../views/faculty/index.php'</script>";
         }
         else
         {
             echo '<script>alert("Password Change Failed"); 
-            window.location.href="../../views/admin/changePassword.php"</script>';
+            window.location.href="../../views/faculty/changePassword.php"</script>';
         }
     }
-
 }
-
-
-
-
-
-
-   
-

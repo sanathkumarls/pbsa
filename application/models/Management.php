@@ -30,7 +30,7 @@ class Management
         $db = new Database();
         $con = $db->open_connection();
 
-        $query="insert into management values (NULL,'$initial','$firstName','$lastName','$email','$password',NULL,'$phone',1)";
+        $query="insert into management values (NULL,'$initial','$firstName','$lastName','$email','$password','$phone',NULL,NULL,1)";
 
         return $con->query($query);
     }
