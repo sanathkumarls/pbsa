@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__."/../../models/Admin.php";
 require_once __DIR__."/../../utilities/Constants.php";
+require_once __DIR__."/../../models/Employee.php";
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
     $email =  $_SESSION['email'];
@@ -21,7 +22,11 @@ else
 {
     header('Location: index.php');
 }
-
+$objEmployee = new Employee();
+$result = $objEmployee->pendingEmployee();
+$count = 0;
+while($result->fetch_assoc())
+$count++;
 ?>
 <div class="sidebar-menu">
     <header class="logo">
@@ -62,9 +67,9 @@ else
 	</span></a>
         <p>Administrator </p>
         <ul>
-            <li><a class="tooltips" href="editProfile.php"><span>Edit Profile</span><i class="lnr lnr-user"></i></a></li>
-            <li><a class="tooltips" href="addManagement.php"><span>AddManagement</span><i class="fa fa-edit fa-5x"></i></a></li>
-            <li><a class="tooltips" href="changePassword.php" ><span>ChangePassword</span><i class="lnr lnr-picture"></i></a></li>
+            <li><a class="tooltips" href="editProfile.php"><span>Edit Profile</span><i class="fa fa-edit fa-5x"></i></a></li>
+            <li><a class="tooltips" href="addManagement.php"><span>AddManagement</span><i class="lnr lnr-user"></i></a></li>
+            <li><a class="tooltips" href="changePassword.php" ><span>ChangePassword</span><i class="fa fa-key"></i></a></li>
             <li><a class="tooltips"  onclick="logout()" href="../../controllers/LogoutController.php"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
         </ul>
     </div>
@@ -85,10 +90,10 @@ else
             <li id="menu-academico" ><a href="organization.php"><i class="lnr lnr-apartment"></i><span>	&nbsp;Organization</span> </a>
 
             </li>
-            <li id="menu-academico" class="xyz" ><a href="employees.php"><i class="fa fa-users"></i> <span>Employees </span> <span class="badge count"></span></a>
+            <li id="menu-academico" class="xyz" ><a href="employees.php"><i class="fa fa-users"></i> <span>Employees </span> <span class="badge count"><?php echo $count;?></span></a>
             </li>
 
-            	<li id="menu-academico" ><a href="import.php"><i class="fa fa-upload"></i> <span>Import Employees</span></span></a>
+            	<li id="menu-academico" ><a href="importEmployees.php"><i class="fa fa-upload"></i> <span>Import Employees</span></span></a>
 
             </li>
 
@@ -99,41 +104,41 @@ else
     <div class="clearfix"></div>
 </div>
 </div>
-<script>
-    $(document).ready(function(){
-
-        function load_unseen_notification(view ='')
-        {
-            $.ajax({
-                url:"fetch.php",
-                method:"POST",
-                data:{view:view},
-                dataType:"json",
-                success:function(data)
-                {
-                    load_unseen_notification('yes');
-                    if(data.unseen_notification != 0)
-                    {
-                        $('.count').html(data.unseen_notification);
-
-                    }
-                }
-            });
-        }
-
-        load_unseen_notification();
-        $(document).on('click', '.xyz', function(){
-            $('.count').html('');
-            load_unseen_notification('yes');
-        });
-
-
-        setInterval(function(){
-            load_unseen_notification();;
-        }, 5000);
-
-    });
-</script>
+<!--<script>-->
+<!--    $(document).ready(function(){-->
+<!---->
+<!--        function load_unseen_notification(view ='')-->
+<!--        {-->
+<!--            $.ajax({-->
+<!--                url:"fetch.php",-->
+<!--                method:"POST",-->
+<!--                data:{view:view},-->
+<!--                dataType:"json",-->
+<!--                success:function(data)-->
+<!--                {-->
+<!--                    load_unseen_notification('yes');-->
+<!--                    if(data.unseen_notification != 0)-->
+<!--                    {-->
+<!--                        $('.count').html(data.unseen_notification);-->
+<!---->
+<!--                    }-->
+<!--                }-->
+<!--            });-->
+<!--        }-->
+<!---->
+<!--        load_unseen_notification();-->
+<!--        $(document).on('click', '.xyz', function(){-->
+<!--            $('.count').html('');-->
+<!--            load_unseen_notification('yes');-->
+<!--        });-->
+<!---->
+<!---->
+<!--        setInterval(function(){-->
+<!--            load_unseen_notification();;-->
+<!--        }, 5000);-->
+<!---->
+<!--    });-->
+<!--</script>-->
 <script>
     var toggle = true;
 

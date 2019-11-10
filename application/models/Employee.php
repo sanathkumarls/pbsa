@@ -75,4 +75,51 @@ class Employee
             $result = $con->query($query);
             return $result;
         }
+
+        function pendingEmployee()
+        {
+            $db = new Database();
+            $con =$db->open_connection();
+
+            $query = "select * from employee where `is_active` = 0 and `is_rejected` = 0";
+
+            return $con->query($query);
+        }
+
+        function approveEmployee($id)
+        {
+            $db = new Database();
+            $con =$db->open_connection();
+
+            $query = "update employee set `is_active` = 1 where `e_id` = '$id'";
+
+            return $con->query($query);
+        }
+
+    function rejectEmployee($id)
+    {
+        $db = new Database();
+        $con =$db->open_connection();
+
+        $query = "update employee set `is_rejected` = 1 where `e_id` = '$id'";
+
+        return $con->query($query);
+    }
+
+    function getEmail($id)
+    {
+        $db = new Database();
+        $con =$db->open_connection();
+
+        $query = "select * from employee where `e_id`='$id'";
+
+        $result = $con->query($query);
+
+        if($result->num_rows > 0)
+        {
+            $row = $result->fetch_assoc();
+            return $row['email'];
+        }
+        return "";
+    }
 }

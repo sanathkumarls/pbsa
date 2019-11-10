@@ -26,17 +26,6 @@ class Admin
         return false;
     }
 
-    function deleteDept($deptId)
-    {
-        $db=new Database();
-        $con=$db->open_connection();
-        $query="UPDATE `department` SET `is_active`=0 WHERE d_id='$deptId' ";
-        $result=$con->query($query);
-        if($result)
-            return true;
-        return false;
-    }
-
     function updatePassword($email,$password)
     {
         $db = new Database();
@@ -46,16 +35,6 @@ class Admin
         return $result;
     }
 
-    function addDepartment($deptAbbr,$deptName)
-    {
-        $db=new Database();
-        $con=$db->open_connection();
-        $query="INSERT INTO `department`( `d_name`, `d_abbr`,`is_active`) VALUES ('$deptName','$deptAbbr',1);";
-        $result=$con->query($query);
-        if ($result)
-            return true;
-        return false;
-    }
     function CheckPassword($email,$hashedpassword)
     {
         $db = new Database();
@@ -66,29 +45,7 @@ class Admin
             return true;
         return false;
     }
-    function checkDeptName($deptAbbr)
-    {
-        $db=new Database();
-        $con=$db->open_connection();
-        $query="SELECT * from department where d_abbr='$deptAbbr' and is_active=1";
-        $result=$con->query($query);
-        if($result->num_rows>0)
-            return true;
-        return false;
 
-    }
-    function addManagement($initial,$firstName,$lastName,$email,$phone,$password)
-    {
-        $db=new Database();
-        $con=$db->open_connection();
-        $query="INSERT INTO `management`(`initial`, `first_name`, `last_name`, `email`, `password`,  `phone`, `is_active`, `is_rejected`) VALUES
- ('$initial','$firstName','$lastName','$email','$password','$password',1,0)";
-        $result=$con->query($query);
-        if($result)
-            return true;
-        return false;
-
-    }
     function adminUpdateProfile($initial,$firstName,$lastName,$email,$dob,$phone,$photo)
     {
         $db=new Database();

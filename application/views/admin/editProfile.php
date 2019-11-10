@@ -8,7 +8,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     $role = $_SESSION['role'];
     $changePassword = $_SESSION['changePassword'];
     $objAdmin= new Admin();
-    if($objAdmin->checkEmailRole($email,Constants::roleAdmin))//check realtime role
+    if(!$objAdmin->checkEmail($email))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
     }
@@ -381,7 +381,6 @@ else
         </div>
 
     </div>
-</div>
 
 
 <script>
