@@ -7,6 +7,11 @@
  */
 
 require_once __DIR__.'/../../utilities/Constants.php';
+session_start();
+if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
+{
+    header('Location: home.php');
+}
 ?>
 
 <html><head>

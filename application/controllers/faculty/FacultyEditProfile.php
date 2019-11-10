@@ -1,6 +1,34 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: sanathls
+ * Date: 09/11/19
+ * Time: 2:12 AM
+ */
 require_once __DIR__.'/../../models/Employee.php';
+require_once __DIR__."/../../utilities/Constants.php";
+session_start();
+if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
+{
+    $email =  $_SESSION['email'];
+    $role = $_SESSION['role'];
+    $changePassword = $_SESSION['changePassword'];
+
+    $objEmployee = new Employee();
+    if(!$objEmployee->checkEmailRole($email,Constants::roleFaculty))//check realtime role
+    {
+        header("Location: ../LogoutController.php");
+    }
+    if($changePassword == 1)
+    {
+        header("Location: ../../views/faculty/changePassword.php");
+    }
+}
+else
+{
+    header('Location: ../../views/faculty/index.php');
+}
+
 if(isset($_POST['submit']))
 {
     $objFacultyEdit=new FacultyEditProfile();
@@ -12,7 +40,6 @@ class FacultyEditProfile
 {
     public function getInput()
     {
-        session_start();
         $initial=$_POST['initial'];
         $firstName=$_POST['firstName'];
         $lastName=$_POST['lastName'];

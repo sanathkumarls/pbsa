@@ -9,6 +9,23 @@
 require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../utilities/Constants.php";
 
+session_start();
+if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
+{
+    $email =  $_SESSION['email'];
+    $role = $_SESSION['role'];
+
+    $objEmployee = new Employee();
+    if(!$objEmployee->checkEmailRole($email,Constants::roleFaculty))//check realtime role
+    {
+        header("Location: ../LogoutController.php");
+    }
+}
+else
+{
+    header('Location: ../../views/faculty/index.php');
+}
+
 if(isset($_POST['submit']))
 {
     $objpassword=new FacultyChangePassword();
@@ -19,7 +36,6 @@ class FacultyChangePassword
 {
     function getInput()
     {
-        session_start();
         $email = $_SESSION['email'];
         $oldpassword = $_POST['oldpassword'];
         $newpassword = $_POST['newpassword'];

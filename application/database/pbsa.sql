@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 09, 2019 at 10:18 AM
+-- Generation Time: Nov 10, 2019 at 06:41 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -31,15 +31,22 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `a_id` int(11) NOT NULL,
   `initial` varchar(5) DEFAULT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(500) NOT NULL,
-  `dob` date NOT NULL,
-  `phone` varchar(10) NOT NULL,
-  `is_active` int(11) NOT NULL DEFAULT '0',
-  `is_rejected` int(11) NOT NULL DEFAULT '0'
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `password` varchar(500) DEFAULT NULL,
+  `photo` varchar(100) DEFAULT 'assets/admin/images/a.png' COMMENT 'assets/admin/images/a.png',
+  `dob` date DEFAULT NULL,
+  `phone` varchar(10) DEFAULT NULL,
+  `is_active` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`a_id`, `initial`, `first_name`, `last_name`, `email`, `password`, `photo`, `dob`, `phone`, `is_active`) VALUES
+(1, 'Mr.', 'Santhosh', 'Kumar', '4su17cs082@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', 'uploads/admin/profile/b5Nq7n6iDv.jpeg', '2019-02-04', '6544334443', 1);
 
 -- --------------------------------------------------------
 
@@ -88,7 +95,7 @@ CREATE TABLE `c3` (
   `c31_3` int(11) DEFAULT NULL,
   `c31_4` int(11) DEFAULT NULL,
   `c31_5` int(11) DEFAULT NULL,
-  `c31_path` varchar(200) NOT NULL,
+  `c31_path` varchar(200) DEFAULT NULL,
   `c31_total` int(11) DEFAULT NULL,
   `c32_1` int(11) DEFAULT NULL,
   `c32_2` int(11) DEFAULT NULL,
@@ -109,7 +116,7 @@ CREATE TABLE `c3` (
   `c32_17` int(11) DEFAULT NULL,
   `c32_18` int(11) DEFAULT NULL,
   `c32_19` int(11) DEFAULT NULL,
-  `c32_path` varchar(200) NOT NULL,
+  `c32_path` varchar(200) DEFAULT NULL,
   `c32_total` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -236,11 +243,21 @@ INSERT INTO `department` (`d_id`, `d_name`, `d_abbr`, `is_active`) VALUES
 (4, 'Commerce', 'Commerce', 1),
 (5, 'Economics', 'Economics', 1),
 (6, 'English', 'English', 1),
-(7, 'Physics', 'Physics', 1),
+(7, 'Physics', 'Physics', 0),
 (8, 'Department of Journalism and Mass Communication', 'MCJ', 1),
 (9, 'Department of Masters in Social Work', 'MSW', 1),
 (10, 'Psychology', 'Psychology', 1),
 (11, 'Statistics', 'Statistics', 1);
+
+--
+-- Triggers `department`
+--
+DELIMITER $$
+CREATE TRIGGER `department status` AFTER UPDATE ON `department` FOR EACH ROW BEGIN
+UPDATE employee set `is_department_active` = NEW.is_active where department = OLD.d_id;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -257,23 +274,26 @@ CREATE TABLE `employee` (
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `password` varchar(500) DEFAULT 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db',
+  `password` varchar(500) DEFAULT 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db' COMMENT 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db',
   `phone` varchar(10) DEFAULT NULL,
+  `photo` varchar(50) DEFAULT 'assets/faculty/images/a.png' COMMENT 'assets/faculty/images/a.png',
   `dob` varchar(10) DEFAULT NULL,
   `doj` varchar(10) DEFAULT NULL,
   `is_active` int(11) DEFAULT '0',
   `is_rejected` int(11) DEFAULT '0',
-  `is_department_active` int(11) NOT NULL DEFAULT '1'
+  `is_department_active` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`e_id`, `emp_id`, `role`, `department`, `initial`, `first_name`, `last_name`, `email`, `password`, `phone`, `dob`, `doj`, `is_active`, `is_rejected`, `is_department_active`) VALUES
-(1, '123', 1, 6, NULL, 'Sanath', 'S', '4su17cs081@sdmit.in', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec', '9481694830', NULL, NULL, 1, 0, 1),
-(2, '1245656', 2, 1, NULL, 'abvbsvbv', 'bvbvabv', 'aasgg@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '2656526526', NULL, NULL, 0, 0, 1),
-(3, '4434', 3, 3, NULL, 'dfdfdfd', 'dfdfdfd', 'ccvcvc@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '1234567766', NULL, NULL, 0, 0, 1);
+INSERT INTO `employee` (`e_id`, `emp_id`, `role`, `department`, `initial`, `first_name`, `last_name`, `email`, `password`, `phone`, `photo`, `dob`, `doj`, `is_active`, `is_rejected`, `is_department_active`) VALUES
+(1, '123', 1, 6, 'Mr.', 'Sanath', 'L S', '4su17cs081@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '9481694830', 'uploads/faculty/profile/Js5kb0LC2u.jpeg', '1999-09-16', '2019-11-09', 1, 0, 1),
+(2, '1245656', 2, 1, NULL, 'Santhosh', 'Kumar', 'aasgg@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '2656526526', NULL, NULL, NULL, 1, 0, 1),
+(3, '4434', 3, 3, NULL, 'Sudhanva', 'Hebbar', 'ccvcvc@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '1234567766', NULL, NULL, NULL, 0, 1, 1),
+(4, '555656', 2, 2, NULL, 'Goutham', 'C P', 'freekash@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '9663361747', NULL, NULL, NULL, 1, 0, 1),
+(5, '123', 3, 6, NULL, 'Subramanya', 'Kashyap', '4su17cs099@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '1234567890', NULL, NULL, NULL, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -284,15 +304,22 @@ INSERT INTO `employee` (`e_id`, `emp_id`, `role`, `department`, `initial`, `firs
 CREATE TABLE `management` (
   `m_id` int(11) NOT NULL,
   `initial` varchar(5) DEFAULT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(500) NOT NULL,
-  `dob` date NOT NULL,
-  `phone` varchar(10) NOT NULL,
-  `is_active` int(11) NOT NULL DEFAULT '0',
-  `is_rejected` int(11) NOT NULL DEFAULT '0'
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `password` varchar(500) DEFAULT NULL,
+  `phone` varchar(10) DEFAULT NULL,
+  `photo` varchar(50) DEFAULT NULL,
+  `dob` varchar(10) DEFAULT NULL,
+  `is_active` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `management`
+--
+
+INSERT INTO `management` (`m_id`, `initial`, `first_name`, `last_name`, `email`, `password`, `phone`, `photo`, `dob`, `is_active`) VALUES
+(1, 'Mr.', 'Sanath', 'S', 'sanathlslokanathapura@gmail.com', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '9481694830', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -302,22 +329,23 @@ CREATE TABLE `management` (
 
 CREATE TABLE `pbsa` (
   `id` int(11) NOT NULL,
-  `emp_id` int(11) NOT NULL,
-  `c1_id` int(11) NOT NULL,
-  `c2_id` int(11) NOT NULL,
-  `c3_id` int(11) NOT NULL,
-  `c4_id` int(11) NOT NULL,
-  `c5_id` int(11) NOT NULL,
-  `c6_id` int(11) NOT NULL,
-  `c7_id` int(11) NOT NULL,
-  `c8_id` int(11) NOT NULL,
-  `year` date NOT NULL,
-  `is_saved` int(11) NOT NULL DEFAULT '0',
-  `is_submitted` int(11) NOT NULL DEFAULT '0',
-  `is_accepted` int(11) NOT NULL DEFAULT '0',
-  `is_rejected` int(11) NOT NULL DEFAULT '0',
-  `comments` varchar(10000) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `emp_id` int(11) DEFAULT NULL,
+  `c1_id` int(11) DEFAULT NULL,
+  `c2_id` int(11) DEFAULT NULL,
+  `c3_id` int(11) DEFAULT NULL,
+  `c4_id` int(11) DEFAULT NULL,
+  `c5_id` int(11) DEFAULT NULL,
+  `c6_id` int(11) DEFAULT NULL,
+  `c7_id` int(11) DEFAULT NULL,
+  `c8_id` int(11) DEFAULT NULL,
+  `year` date DEFAULT NULL,
+  `is_saved` int(11) DEFAULT '0',
+  `is_submitted` int(11) DEFAULT '0',
+  `is_accepted` int(11) DEFAULT '0',
+  `is_rejected` int(11) DEFAULT '0',
+  `rejected_comments` varchar(5000) DEFAULT NULL,
+  `emp_comments` varchar(10000) DEFAULT NULL,
+  `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -449,7 +477,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `c1`
@@ -503,19 +531,19 @@ ALTER TABLE `c8`
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `management`
 --
 ALTER TABLE `management`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pbsa`

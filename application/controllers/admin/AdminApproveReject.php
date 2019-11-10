@@ -6,6 +6,30 @@
  * Time: 7:42 PM
  */
 
+require_once __DIR__."/../../models/Admin.php";
+require_once __DIR__."/../../utilities/Constants.php";
+session_start();
+if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
+{
+    $email =  $_SESSION['email'];
+    $role = $_SESSION['role'];
+    $changePassword = $_SESSION['changePassword'];
+    $objAdmin= new Admin();
+
+    if(!$objAdmin->checkEmail($email))//check realtime role
+    {
+        header("Location: ../LogoutController.php");
+    }
+    if($changePassword == 1)
+    {
+        header("Location: ../../views/admin/changePassword.php");
+    }
+}
+else
+{
+    header('Location: ../../views/admin/index.php');
+}
+
 require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../models/Email/Email.php";
 

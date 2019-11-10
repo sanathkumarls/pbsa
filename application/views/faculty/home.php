@@ -221,7 +221,7 @@ else
                                 <!-- uncomment the below line to add skills module also remove the "//" for echo -->
 
                                 <!-- s -->
-                                <form action="pbsaSystem.php?id=<?php //echo $val;?>" method="post">
+                                <form action="pbsaSystem.php" method="post">
 
 
                                     <button id="btx" class="button">&nbsp;&nbsp;PBSA System&nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>
@@ -229,7 +229,7 @@ else
                                     <br> <br>
                                 </form>
                                 <br><br>
-                                <form action="comments.php?id=<?php //echo $val;?>" method="post" >
+                                <form action="comments.php" method="post" >
 
 
                                     <button id="btx" class="button">&nbsp;&nbsp;Comments&nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>

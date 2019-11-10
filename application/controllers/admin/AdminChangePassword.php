@@ -1,6 +1,30 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: santhosh
+ * Date: 09/11/19
+ * Time: 2:12 AM
+ */
+
 require_once __DIR__."/../../models/Admin.php";
 require_once __DIR__."/../../utilities/Constants.php";
+session_start();
+if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
+{
+    $email =  $_SESSION['email'];
+    $role = $_SESSION['role'];
+    $objAdmin= new Admin();
+
+    if(!$objAdmin->checkEmail($email))//check realtime role
+    {
+        header("Location: ../LogoutController.php");
+    }
+}
+else
+{
+    header('Location: ../../views/admin/index.php');
+}
+
 if(isset($_POST['submit']))
 {
     $objpassword=new AdminChangePassword();
@@ -12,7 +36,6 @@ class AdminChangePassword
 
     function getInput()
     {
-        session_start();
         $email = $_SESSION['email'];
         $oldpassword = $_POST['oldpassword'];
         $newpassword = $_POST['newpassword'];
