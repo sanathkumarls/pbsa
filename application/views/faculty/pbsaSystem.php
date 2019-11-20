@@ -8,7 +8,11 @@
 
 require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../utilities/Constants.php";
+require_once __DIR__."/../../models/Pbsa.php";
+
+
 header('Cache-Control: no cache'); //no cache
+header('Pragma: no-cache');
 session_cache_limiter('private_no_expire'); // works
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
@@ -31,6 +35,76 @@ else
 {
     header('Location: index.php');
 }
+
+$e_id = $objEmployee->getEid($_SESSION['email']);
+
+$year=date("Y");
+if(isset($_GET['year']) && isset($_GET['edit']))
+{
+    $selectedYear=$_GET['year'];
+    if($selectedYear > date("Y") || $selectedYear < date("Y")-1)
+    {
+        echo "<script>window.location.href='pbsaSystem.php?year=".date('Y')."&edit=true'</script>";
+        exit();
+    }
+}
+elseif (isset($_GET['year']))
+{
+    $selectedYear=$_GET['year'];
+    if($selectedYear > date("Y") || $selectedYear < date("Y")-1)
+    {
+        echo "<script>window.location.href='pbsaSystem.php?year=".date('Y')."'</script>";
+        exit();
+    }
+}
+else
+{
+    $selectedYear=date("Y");
+    echo "<script>window.location.href='pbsaSystem.php?year=".date('Y')."&edit=true'</script>";
+    exit();
+}
+
+$objPbsa = new Pbsa();
+$result = $objPbsa->getPbsaCriteria($e_id,$selectedYear);
+
+$c11="";$c11_path="";$c12="";$c12_path="";
+
+$c21="";$c21_path="";$c22="";$c22_path="";$c23="";$c23_path="";$c24="";$c24_path="";
+
+$c31_1="";$c31_2="";$c31_3="";$c31_4="";$c31_5="";$c31_path="";$c32_1="";$c32_2="";$c32_3="";$c32_4="";$c32_5="";$c32_6="";$c32_7="";$c32_8="";$c32_9="";$c32_10="";$c32_11="";$c32_12="";$c32_13="";$c32_14="";$c32_15="";$c32_16="";$c32_17="";$c32_18="";$c32_19="";$c32_path="";
+
+$c41="";$c41_path="";$c42="";$c42_path="";$c43="";$c43_path="";$c44="";$c44_path="";$c45="";$c45_path="";
+
+$c51_1="";$c51_2="";$c51_3="";$c51_path="";$c52="";$c52_path="";$c53="";$c53_path="";
+
+$c61="";$c61_path="";$c62="";$c62_path="";$c63="";$c63_path="";$c64="";$c64_path="";
+
+$c71="";$c71_path="";$c72="";$c72_path="";$c73="";$c73_path="";$c74="";$c74_path="";
+
+$c81="";$c81_path="";$c82="";$c82_path="";$c83="";$c83_path="";$c84="";$c84_path="";$c85="";$c85_path="";$c86="";$c86_path="";
+
+if($result)
+{
+    $row = $result->fetch_assoc();
+
+    $c11=$row['c11'];$c11_path=$row['c11_path'];$c12=$row['c12'];$c12_path=$row['c12_path'];
+
+    $c21=$row['c21'];$c21_path=$row['c21_path'];$c22=$row['c22'];$c22_path=$row['c22_path'];$c23=$row['c23'];$c23_path=$row['c23_path'];$c24=$row['c24'];$c24_path=$row['c24_path'];
+
+    $c31_1=$row['c31_1'];$c31_2=$row['c31_2'];$c31_3=$row['c31_3'];$c31_4=$row['c31_4'];$c31_5=$row['c31_5'];$c31_path=$row['c31_path'];$c32_1=$row['c32_1'];$c32_2=$row['c32_2'];$c32_3=$row['c32_3'];$c32_4=$row['c32_4'];$c32_5=$row['c32_5'];$c32_6=$row['c32_6'];$c32_7=$row['c32_7'];$c32_8=$row['c32_8'];$c32_9=$row['c32_9'];$c32_10=$row['c32_10'];$c32_11=$row['c32_11'];$c32_12=$row['c32_12'];$c32_13=$row['c32_13'];$c32_14=$row['c32_14'];$c32_15=$row['c32_15'];$c32_16=$row['c32_16'];$c32_17=$row['c32_17'];$c32_18=$row['c32_18'];$c32_19=$row['c32_19'];$c32_path=$row['c32_path'];
+
+    $c41=$row['c41'];$c41_path=$row['c41_path'];$c42=$row['c42'];$c42_path=$row['c42_path'];$c43=$row['c43'];$c43_path=$row['c43_path'];$c44=$row['c44'];$c44_path=$row['c44_path'];$c45=$row['c45'];$c45_path=$row['c45_path'];
+
+    $c51_1=$row['c51_1'];$c51_2=$row['c51_2'];$c51_3=$row['c51_3'];$c51_path=$row['c51_path'];$c52=$row['c52'];$c52_path=$row['c52_path'];$c53=$row['c53'];$c53_path=$row['c53_path'];
+
+    $c61=$row['c61'];$c61_path=$row['c61_path'];$c62=$row['c62'];$c62_path=$row['c62_path'];$c63=$row['c63'];$c63_path=$row['c63_path'];$c64=$row['c64'];$c64_path=$row['c64_path'];
+
+    $c71=$row['c71'];$c71_path=$row['c71_path'];$c72=$row['c72'];$c72_path=$row['c72_path'];$c73=$row['c73'];$c73_path=$row['c73_path'];$c74=$row['c74'];$c74_path=$row['c74_path'];
+
+    $c81=$row['c81'];$c81_path=$row['c81_path'];$c82=$row['c82'];$c82_path=$row['c82_path'];$c83=$row['c83'];$c83_path=$row['c83_path'];$c84=$row['c84'];$c84_path=$row['c84_path'];$c85=$row['c85'];$c85_path=$row['c85_path'];$c86=$row['c86'];$c86_path=$row['c86_path'];
+
+}
+
 ?>
 
 
@@ -265,31 +339,7 @@ else
                                         <?php } else {?>
                                        <label>You Are Viewing PBSA Of The Year : </label>
                                        <?php }
-                                        $year=date("Y");
-                                        if(isset($_GET['year']) && isset($_GET['edit']))
-                                        {
-                                            $selectedYear=$_GET['year'];
-                                            if($selectedYear > date("Y") || $selectedYear < date("Y")-1)
-                                            {
-                                                echo "<script>window.location.href='pbsaSystem.php?year=".date('Y')."&edit=true'</script>";
-                                                exit();
-                                            }
-                                        }
-                                        elseif (isset($_GET['year']))
-                                        {
-                                            $selectedYear=$_GET['year'];
-                                            if($selectedYear > date("Y") || $selectedYear < date("Y")-1)
-                                            {
-                                                echo "<script>window.location.href='pbsaSystem.php?year=".date('Y')."'</script>";
-                                                exit();
-                                            }
-                                        }
-                                        else
-                                        {
-                                            $selectedYear=date("Y");
-                                            echo "<script>window.location.href='pbsaSystem.php?year=".date('Y')."&edit=true'</script>";
-                                            exit();
-                                        }
+
                                         ?>
                                         <select name="year" id="year" onchange="checkIsValid(this.form.year.value)" required>
                                             <option value="<?php echo $selectedYear;?>"><?php echo $selectedYear;?></option>
@@ -371,19 +421,27 @@ else
                                                             <tr>
                                                                 <td>1</td>
                                                                 <td>Student Feedback (Out Of 100)</td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" min="0" value="<?php //echo $c['a1']; ?>" name="c11" id="c11" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" min="0" value="<?php echo $c11; ?>" name="c11" id="c11" readonly/></td>
                                                                 <td>15</td>
                                                                 <td><input type="file"  name="c11_path" id="c11_path" accept="application/pdf" disabled>Upload Student Feedback Report Issued By The College<br>
-                                                                <input type="button" value="View Documents"> </td>
+                                                               <?php if($c11_path != "") {?>
+                                                                        <a href="../../../<?php echo $c11_path;?>" target="_blank">
+                                                                <input type="button" value="View Uploaded Document">
+                                                                            <?php }?>
+                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>2</td>
                                                                 <td>Average Result Of All The Classes Conducted - In Percentage (%)
                                                                     (Avg Result Of Previous Odd & Even Semester)</td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['a2']; ?>" min="0"  name="c12" id="c12" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php echo $c12; ?>"  name="c12" id="c12" readonly/></td>
                                                                 <td>15</td>
                                                                 <td><input type="file" name="c12_path" id="c12_path" accept="application/pdf" disabled>Upload Average Result Report In The Prescribed Format-1
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>
+                                                                    <?php if($c12_path != "") {?>
+                                                                        <a href="../../../<?php echo $c12_path;?>">
+                                                                    <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
 
@@ -411,9 +469,7 @@ else
                                                                 <th>SCORE(OUT OF 10)</th>
                                                                 <th>WEIGHTAGE</th>
                                                                 <th>Attach the relevent documents here</th>
-                                                                <?php
-                                                                //$c=$db->A2->findOne(array("empid"=>"$empid"));
-                                                                ?>
+
                                                             </tr>
                                                             </thead>
                                                             <tbody>
@@ -428,21 +484,27 @@ else
                                                                     12 to 16 hr shortage ,60 %<br>
                                                                     above 16 hr shortage ,0 marks
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b1'];?>"  min="0" name="c21" id="c21" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php echo $c21;?>"  min="0" name="c21" id="c21" readonly/></td>
                                                                 <td>3</td>
                                                                 <td><input type="file" name="c21_path" id="c21_path" accept="application/pdf" disabled>
                                                                     Upload The Yearly Biometric Report Issued By The College
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c21_path != "") {?>
+                                                                        <a href="../../../<?php echo $c21_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>2</td>
                                                                 <td>Library usage in the college library(80 hrs per year then 100 marks)other wise percentage           </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b2'];?>"  min="0" name="c22" id="c22" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php echo $c22;?>"  min="0" name="c22" id="c22" readonly/></td>
                                                                 <td>4</td>
                                                                 <td><input type="file" name="c22_path" id="c22_path" accept="application/pdf" disabled>
                                                                     Upload The Library Usage Report Issued By The College
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c22_path != "") {?>
+                                                                        <a href="../../../<?php echo $c22_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
 
                                                             </tr>
@@ -452,11 +514,14 @@ else
                                                                     80 % =100 marks
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b3'];?>"  min="0" name="c23" id="c23" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php echo $c23;?>"  min="0" name="c23" id="c23" readonly/></td>
                                                                 <td>2</td>
                                                                 <td><input type="file" name="c23_path"  id="c23_path" accept="application/pdf" disabled>
                                                                     Upload Classes Conducted Report Issued By The College
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c23_path != "") {?>
+                                                                        <a href="../../../<?php echo $c23_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -467,10 +532,13 @@ else
                                                                     100%=100 marks
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c24" id="c24" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php echo $c24;?>"  min="0" name="c24" id="c24" readonly/></td>
                                                                 <td>1</td>
                                                                 <td><input type="file" name="c24_path" id="c24_path" accept="application/pdf" disabled>	Upload Percentage of Seats Filled Report Signed By HOI
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c24_path != "") {?>
+                                                                        <a href="../../../<?php echo $c24_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             </tbody>
@@ -482,9 +550,6 @@ else
                                                 </div>
                                             </div>
 
-                                            <?php
-                                           // $c=$db->A3->findOne(array("empid"=>"$empid"));
-                                            ?>
 
                                             <div class="panel-default">
                                                 <div class="panel-heading" role="tab" id="headingThree">
@@ -516,18 +581,22 @@ else
                                                                 <td>NUMBERS(#)</td>
                                                                 <td  rowspan="26">10</td>
                                                                 <td rowspan="6"><input type="file" name="c31_path" id="c31_path" accept="application/pdf" disabled>	Mandatory Initiatives- Upload The Report In The Prescribed Format-2
-
+                                                                  <br>
+                                                                    <?php if($c31_path != "") {?>
+                                                                        <a href="../../../<?php echo $c31_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>1</td>
                                                                 <td>AV contents developed</td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed"  value="<?php //echo ?>" min="0" name="c31_1" id="c31_1" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed"  value="<?php echo $c31_1?>" min="0" name="c31_1" id="c31_1" readonly/></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>2</td>
                                                                 <td>Self recorded lectures</td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed"  min="0" value="<?php //echo $c['c31_2'];?>" name="c31_2" id="c31_2" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed"  min="0" value="<?php echo $c31_2;?>" name="c31_2" id="c31_2" readonly/></td>
                                                             </tr>
 
                                                             <tr>
@@ -535,7 +604,7 @@ else
                                                                 <td>Expand lectures
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed"  min="0" value="<?php //echo $c['c31_3'];?>" name="c31_3" id="c31_3" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed"  min="0" value="<?php echo $c31_3;?>" name="c31_3" id="c31_3" readonly/></td>
                                                             </tr>
 
                                                             <tr>
@@ -543,7 +612,7 @@ else
                                                                 <td>relevant video classes
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed"  min="0"  value="<?php //echo $c['c4'];?>" name="c31_4" id="c31_4" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed"  min="0"  value="<?php echo $c31_4;?>" name="c31_4" id="c31_4" readonly/></td>
                                                             </tr>
 
                                                             <tr>
@@ -551,7 +620,7 @@ else
                                                                 <td>student assignments
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed"  min="0" value="<?php //echo $c['c5'];?>" name="c31_5" id="c31_5" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed"  min="0" value="<?php echo $c31_5;?>" name="c31_5" id="c31_5" readonly/></td>
                                                             </tr>
 
                                                             <tr>
@@ -568,8 +637,13 @@ else
                                                                 <td>Value education pgms
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed"  min="0" value="<?php //echo $c['c6'];?>" name="c32_1" id="c32_1" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed"  min="0" value="<?php echo $c32_1?>" name="c32_1" id="c32_1" readonly/></td>
                                                                 <td rowspan="19"><input type="file" name="c32_path" id="c32_path" accept="application/pdf" disabled>Optional Initiatives - Upload The Report In The Prescribed Format-3
+                                                               <br>
+                                                                    <?php if($c32_path != "") {?>
+                                                                        <a href="../../../<?php echo $c32_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -577,77 +651,77 @@ else
                                                                 <td>Current affairs
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed"  value="<?php //echo $c['c7'];?>" min="0" name="c32_2" id="c32_2" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed"  value="<?php echo $c32_2;?>" min="0" name="c32_2" id="c32_2" readonly/></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>3</td>
                                                                 <td>SRPs/inhouse projects
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c8'];?>"  min="0" name="c32_3" id="c32_3" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php echo $c32_3;?>"  min="0" name="c32_3" id="c32_3" readonly/></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>4</td>
                                                                 <td>Alumni interaction programs
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c9'];?>"  min="0" name="c32_4" id="c32_4" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c9'];?>"  min="0" name="c32_4" id="c32_4" readonly/></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>5</td>
                                                                 <td>Contribution to learning corners
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c10'];?>"  min="0" name="c32_5" id="c32_5" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c10'];?>"  min="0" name="c32_5" id="c32_5" readonly/></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>6</td>
                                                                 <td>Units of notes/lesson plan uploaded
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c11'];?>"  min="0" name="c32_6" id="c32_6" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c11'];?>"  min="0" name="c32_6" id="c32_6" readonly/></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>7</td>
                                                                 <td>CC courses handled
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c12'];?>"  min="0" name="c32_7" id="c32_7" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c12'];?>"  min="0" name="c32_7" id="c32_7" readonly/></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>8
                                                                 </td>
                                                                 <td>Interdisciplinary pgm in college
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c13'];?>"  min="0" name="c32_8" id="c32_8" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c13'];?>"  min="0" name="c32_8" id="c32_8" readonly/></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>9</td>
                                                                 <td>Contribution to our alumni our pride
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c14'];?>"  min="0" name="c32_9" id="c32_9" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c14'];?>"  min="0" name="c32_9" id="c32_9" readonly/></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>10</td>
                                                                 <td>Guest lectures arranged in regular classes
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed"  min="0" value="<?php //echo $c['c15'];?>" name="c32_10" id="c32_10" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed"  min="0" value="<?php //echo $c['c15'];?>" name="c32_10" id="c32_10" readonly/></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>11</td>
                                                                 <td>Career guidance programmes
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed"  value="<?php //echo $c['c16'];?>" min="0" name="c32_11" id="c32_11" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed"  value="<?php //echo $c['c16'];?>" min="0" name="c32_11" id="c32_11" readonly/></td>
                                                             </tr>
                                                             <tr >
                                                                 <td >12</td>
                                                                 <td>Contribution to W4H
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_12" id="c32_12" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_12" id="c32_12" readonly/></td>
                                                             </tr>
 
                                                             <tr >
@@ -655,7 +729,7 @@ else
                                                                 <td>Parent faculty
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_13" id="c32_13" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_13" id="c32_13" readonly/></td>
                                                             </tr>
 
                                                             <tr >
@@ -663,7 +737,7 @@ else
                                                                 <td>Film shows
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_14" id="c32_14" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_14" id="c32_14" readonly/></td>
                                                             </tr>
 
 
@@ -672,7 +746,7 @@ else
                                                                 <td>Alumni Faculty
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_15" id="c32_15" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_15" id="c32_15" readonly/></td>
                                                             </tr>
 
                                                             <tr >
@@ -680,7 +754,7 @@ else
                                                                 <td>Exhibitions arranged
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_16" id="c32_16" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_16" id="c32_16" readonly/></td>
                                                             </tr>
 
                                                             <tr >
@@ -688,7 +762,7 @@ else
                                                                 <td>Faculty exchange
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_17" id="c32_17" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_17" id="c32_17" readonly/></td>
                                                             </tr>
 
 
@@ -697,7 +771,7 @@ else
                                                                 <td>In-house sharing of expertise
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_18" id="c32_18" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_18" id="c32_18" readonly/></td>
                                                             </tr>
 
                                                             <tr >
@@ -705,7 +779,7 @@ else
                                                                 <td>contribution to green campus
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_19" id="c32_19" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['c17'];?>"  min="0" name="c32_19" id="c32_19" readonly/></td>
                                                             </tr>
                                                             </tbody>
                                                         </table>
@@ -769,11 +843,14 @@ else
 
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b1'];?>"  min="0" name="c41" id="c41" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b1'];?>"  min="0" name="c41" id="c41" readonly/></td>
                                                                 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c41_path" id="c41_path" accept="application/pdf" disabled>
                                                                     Upload The first page of Pubslished Report.
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c41_path != "") {?>
+                                                                        <a href="../../../<?php echo $c41_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -783,11 +860,14 @@ else
                                                                     fund less than 3 lakhs -10 marks<br>
                                                                     3 lakhs and more -20 marks
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b2'];?>"  min="0" name="c42" id="c42" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b2'];?>"  min="0" name="c42" id="c42" readonly/></td>
                                                                 <!--                                                                <td> </td>-->
                                                                 <td><input type="file" name="c42_path" id="c42_path" accept="application/pdf" disabled>
                                                                     Upload The first page of Sanctioned Letter.
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c42_path != "") {?>
+                                                                        <a href="../../../<?php echo $c42_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
 
                                                             </tr>
@@ -797,29 +877,38 @@ else
                                                                     fund less than 3 lakhs -5 marks<br>
                                                                     3 lakhs and more -10 marks
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b3'];?>"  min="0" name="c43" id="c43" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b3'];?>"  min="0" name="c43" id="c43" readonly/></td>
                                                                 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c43_path" id="c43_path" accept="application/pdf" disabled>
                                                                     Upload The first page of Sanctioned Letter.
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c43_path != "") {?>
+                                                                        <a href="../../../<?php echo $c43_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>4</td>
                                                                 <td>Number of Patents in pipeline for submission-10 marks
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c44" id="c44" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c44" id="c44" readonly/></td>
                                                                 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c44_path" id="c44_path" accept="application/pdf" disabled>	Upload The Relevant Letter.
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c44_path != "") {?>
+                                                                        <a href="../../../<?php echo $c44_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>5</td>
                                                                 <td>Patents awarded -30 per patent
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c45" id="c45" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c45" id="c45" readonly/></td>
                                                                 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c45_path" id="c45_path" accept="application/pdf" disabled>	Upload The Relevant Letter.
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c45_path != "") {?>
+                                                                        <a href="../../../<?php echo $c45_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
 
@@ -860,11 +949,6 @@ else
                                                                 <th></th><th></th><th></th>
                                                             </tr>
 
-                                                            <?php
-                                                            //  $c=$db->A4->findOne(array("empid"=>"$empid"));
-                                                            ?>
-
-
 
                                                             <tr>
                                                                 <td rowspan="5">1</td>
@@ -874,7 +958,10 @@ else
                                                                 <td></td>
                                                                 <td rowspan="07">10</td>
                                                                 <td rowspan="05"><input  id="c51_path" type="file" name="c51_path" accept="application/pdf" disabled>Upload The Letter Of PhD Registration
-                                                                    <br> <input type="button" value="View Documents">     </td>
+                                                                    <br>  <?php if($c51_path != "") {?>
+                                                                        <a href="../../../<?php echo $c51_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>     </td>
 
                                                             </tr>
                                                             <tr>
@@ -894,7 +981,7 @@ else
                                                             </tr>
                                                             <tr>
                                                                 <td> 1.2)<span id="ab">half yearly reports -10 marks per report</span></td>
-                                                                <td><input id="c51_2" name="c51_2" min="0" value="<?php //echo $c['d2'];?>"  type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed"  readonly></td>
+                                                                <td><input id="c51_2" name="c51_2" min="0" value="<?php //echo $c['d2'];?>"  type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed"  readonly></td>
 <!--                                                                <td><input disabled id="d21" type="file" name="f11[]"  multiple="multiple">Upload The First Page Of The Report-->
 <!--                                                                </td>-->
                                                             </tr>
@@ -902,7 +989,7 @@ else
                                                                 <td> 1.3)<span id="ab">For  PhD holders with guide-ship
  Number  of PhD Students  guiding in the year 10 marks per one PhD student –for  4 years
 </span></td>
-                                                                <td><input id="c51_3" name="c51_3" min="0" value="<?php //echo $c['d2'];?>"  type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed"  readonly></td>
+                                                                <td><input id="c51_3" name="c51_3" min="0" value="<?php //echo $c['d2'];?>"  type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed"  readonly></td>
 <!--                                                                <td><input disabled id="d21" type="file" name="f11[]"  multiple="multiple">Upload The First Page Of The Report-->
 <!--                                                                </td>-->
                                                             </tr>
@@ -913,10 +1000,13 @@ else
                                                                     international-10 marks<br>
                                                                     National – 5 Marks
 
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c52" id="c52" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c52" id="c52" readonly/></td>
                                                                 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c52_path" id="c52_path" accept="application/pdf" disabled>	Upload Percentage of Seats Filled Report Signed By HOI
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c52_path != "") {?>
+                                                                        <a href="../../../<?php echo $c52_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -925,10 +1015,13 @@ else
                                                                     International/National  events
                                                                     5 marks each
 
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c53" id="c53" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c53" id="c53" readonly/></td>
                                                                 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c53_path" id="c53_path" accept="application/pdf" disabled>	Upload Percentage of Seats Filled Report Signed By HOI
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c53_path != "") {?>
+                                                                        <a href="../../../<?php echo $c53_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
 
@@ -943,14 +1036,6 @@ else
                                                 </div>
                                             </div>
 
-
-
-
-
-
-                                            <?php
-                                           // $c=$db->A5->findOne(array("empid"=>"$empid"));
-                                            ?>
 
                                             <div class="panel-default">
                                                 <div class="panel-heading" role="tab" id="headingFive">
@@ -1000,11 +1085,14 @@ else
 
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b1'];?>"  min="0" name="c61" id="c61" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b1'];?>"  min="0" name="c61" id="c61" readonly/></td>
                                                                 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c61_path" id="c61_path" accept="application/pdf" disabled>
                                                                     Upload The Yearly Biometric Report Issued By The College
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c61_path != "") {?>
+                                                                        <a href="../../../<?php echo $c61_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1013,11 +1101,14 @@ else
                                                                     (sharing subject knowledge with other academic institutions/ public, ON INVITATION/REQUEST ) –
                                                                     . Number of activities-5 mark per each activity
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b2'];?>"  min="0" name="c62" id="c62" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b2'];?>"  min="0" name="c62" id="c62" readonly/></td>
                                                                 <!--                                                                <td> </td>-->
                                                                 <td><input type="file" name="c62_path" id="c62_path" accept="application/pdf" disabled>
                                                                     Upload The Library Usage Report Issued By The College
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c62_path != "") {?>
+                                                                        <a href="../../../<?php echo $c62_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
 
                                                             </tr>
@@ -1037,11 +1128,14 @@ else
 
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b3'];?>"  min="0" name="c63" id="c63" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b3'];?>"  min="0" name="c63" id="c63" readonly/></td>
                                                                 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c63_path" id="c63_path" accept="application/pdf" disabled>
                                                                     Upload Classes Conducted Report Issued By The College
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c63_path != "") {?>
+                                                                        <a href="../../../<?php echo $c63_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1049,20 +1143,15 @@ else
                                                                 <td>Quiz /debate/group discussion/etc 5 mark per each (minimum duration 45 minutes)  max 2 pgms
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c64" id="c64" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c64" id="c64" readonly/></td>
                                                                 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c64_path" id="c64_path" accept="application/pdf" disabled>	Upload Percentage of Seats Filled Report Signed By HOI
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c64_path != "") {?>
+                                                                        <a href="../../../<?php echo $c64_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
-
-
-
-
-
-
-
-
 
 
                                                             </tbody>
@@ -1080,9 +1169,6 @@ else
                                                 </div>
                                             </div>
 
-                                            <?php
-                                            //$c=$db->A6->findOne(array("empid"=>"$empid"));
-                                            ?>
 
                                             <div class="panel-default">
                                                 <div class="panel-heading" role="tab" id="headingSix">
@@ -1138,21 +1224,27 @@ else
 
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b1'];?>"  min="0" name="c71" id="c71" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b1'];?>"  min="0" name="c71" id="c71" readonly/></td>
                                                                 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c71_path" id="c71_path" accept="application/pdf" disabled>
                                                                     Upload The Yearly Biometric Report Issued By The College
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c71_path != "") {?>
+                                                                        <a href="../../../<?php echo $c71_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>2</td>
                                                                 <td>for proposals submitted for any of the above 50% of allotted marks       </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b2'];?>"  min="0" name="c72" id="c72" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b2'];?>"  min="0" name="c72" id="c72" readonly/></td>
                                                                 <!--                                                                <td> </td>-->
                                                                 <td><input type="file" name="c72_path" id="c72_path" accept="application/pdf" disabled>
                                                                     Upload The Library Usage Report Issued By The College
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c72_path != "") {?>
+                                                                        <a href="../../../<?php echo $c72_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
 
                                                             </tr>
@@ -1164,20 +1256,26 @@ else
 
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b3'];?>"  min="0" name="c73" id="c73" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b3'];?>"  min="0" name="c73" id="c73" readonly/></td>
                                                                 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c73_path" id="c73_path" accept="application/pdf" disabled>
                                                                     Upload Classes Conducted Report Issued By The College
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c73_path != "") {?>
+                                                                        <a href="../../../<?php echo $c73_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>4</td>
                                                                 <td>.Organising   industrial/field  visits/study tours/exhibitions/ any such pgms  -minimum 1 days  -5 marks
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c74" id="c74" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c74" id="c74" readonly/></td>
                                                                 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c74_path" id="c74_path" accept="application/pdf" disabled>	Upload Percentage of Seats Filled Report Signed By HOI
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c74_path != "") {?>
+                                                                        <a href="../../../<?php echo $c74_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
 
@@ -1191,9 +1289,6 @@ else
                                                 </div>
                                             </div>
 
-                                            <?php
-                                           // $c=$db->A7->findOne(array("empid"=>"$empid"));
-                                            ?>
 
                                             <div class="panel-default">
                                                 <div class="panel-heading" role="tab" id="headingSeven">
@@ -1242,21 +1337,27 @@ else
                                                                     Invited as resource person/ inaugurator/Judge-10 marks
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b1'];?>"  min="0" name="c81" id="c81" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b1'];?>"  min="0" name="c81" id="c81" readonly/></td>
 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c81_path" id="c81_path" accept="application/pdf" disabled>
                                                                     Upload The Yearly Biometric Report Issued By The College
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c81_path != "") {?>
+                                                                        <a href="../../../<?php echo $c81_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>2</td>
                                                                 <td>BOE/BOS members of other Institutions – 10 Marks/institution          </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b2'];?>"  min="0" name="c82" id="c82" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b2'];?>"  min="0" name="c82" id="c82" readonly/></td>
 <!--                                                                <td> </td>-->
                                                                 <td><input type="file" name="c82_path" id="c82_path" accept="application/pdf" disabled>
                                                                     Upload The Library Usage Report Issued By The College
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c82_path != "") {?>
+                                                                        <a href="../../../<?php echo $c82_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
 
                                                             </tr>
@@ -1271,11 +1372,14 @@ else
 
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b3'];?>"  min="0" name="c83" id="c83" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b3'];?>"  min="0" name="c83" id="c83" readonly/></td>
 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c83_path" id="c83_path" accept="application/pdf" disabled>
                                                                     Upload Classes Conducted Report Issued By The College
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c83_path != "") {?>
+                                                                        <a href="../../../<?php echo $c83_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1296,10 +1400,13 @@ else
                                                                     d.	No of General Articles published in magazines / newspapers/online publications  (min 2 pages in A4 size)– 5/article
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c84" id="c84" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c84" id="c84" readonly/></td>
 <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c84_path" id="c84_path" accept="application/pdf" disabled>	Upload Percentage of Seats Filled Report Signed By HOI
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c84_path != "") {?>
+                                                                        <a href="../../../<?php echo $c84_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
 
@@ -1309,10 +1416,13 @@ else
                                                                     5 marks/pgm
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c85" id="c85" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c85" id="c85" readonly/></td>
 <!--                                                                <td> </td>-->
                                                                 <td><input type="file" name="c85_path" id="c85_path" accept="application/pdf" disabled>	Upload Percentage of Seats Filled Report Signed By HOI
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c85_path != "") {?>
+                                                                        <a href="../../../<?php echo $c85_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
 
@@ -1324,10 +1434,13 @@ else
 
 
                                                                 </td>
-                                                                <td class="style1"><input type="text" pattern="[0-9]{3}" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c86" id="c86" readonly/></td>
+                                                                <td class="style1"><input type="text" pattern="[0-9][0-9][0-9]" maxlength="3" title="Numbers Only Allowed" value="<?php //echo $c['b4'];?>"  min="0" name="c86" id="c86" readonly/></td>
 <!--                                                                <td>1</td>-->
                                                                 <td><input type="file" name="c86_path" id="c86_path" accept="application/pdf" disabled>	Upload Percentage of Seats Filled Report Signed By HOI
-                                                                    <br> <input type="button" value="View Documents">
+                                                                    <br>  <?php if($c86_path != "") {?>
+                                                                        <a href="../../../<?php echo $c86_path;?>">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
                                                                 </td>
                                                             </tr>
 

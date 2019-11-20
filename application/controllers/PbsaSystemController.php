@@ -160,6 +160,30 @@ class PbsaSystemController
                 }
             }
 
+            if(!empty($_FILES['c12_path']['name']))
+            {
+                $size = $_FILES['c12_path']['size'];
+                $type = $_FILES['c12_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c12_path = $year."_c12_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c12_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c12_path.".".$extention);
+                    $c12_path="uploads/".$path."/documents/".$c12_path.".".$extention;
+                }
+            }
+
             //validate fields for submit c1 and update total
             if(isset($_POST['submit']))
             {
@@ -175,6 +199,103 @@ class PbsaSystemController
             $c23 = $_POST['c23']; //echo $c23;
             $c24 = $_POST['c24']; //echo $c24;
             $c2_total = 0;
+
+            if(!empty($_FILES['c21_path']['name']))
+            {
+                $size = $_FILES['c21_path']['size'];
+                $type = $_FILES['c21_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c21_path = $year."_c21_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c21_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c21_path.".".$extention);
+                    $c21_path="uploads/".$path."/documents/".$c21_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c22_path']['name']))
+            {
+                $size = $_FILES['c22_path']['size'];
+                $type = $_FILES['c22_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c22_path = $year."_c22_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c22_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c22_path.".".$extention);
+                    $c22_path="uploads/".$path."/documents/".$c22_path.".".$extention;
+                }
+            }
+
+
+            if(!empty($_FILES['c23_path']['name']))
+            {
+                $size = $_FILES['c23_path']['size'];
+                $type = $_FILES['c23_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c23_path = $year."_c23_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c23_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c23_path.".".$extention);
+                    $c23_path="uploads/".$path."/documents/".$c23_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c24_path']['name']))
+            {
+                $size = $_FILES['c24_path']['size'];
+                $type = $_FILES['c24_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c24_path = $year."_c24_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c24_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c24_path.".".$extention);
+                    $c24_path="uploads/".$path."/documents/".$c24_path.".".$extention;
+                }
+            }
 
             //validate fields for submit c2 and update total
             if(isset($_POST['submit']))
@@ -215,6 +336,54 @@ class PbsaSystemController
             $c32_19 = $_POST['c32_19']; //echo $c32_19;
             $c32_total = 0;
 
+            if(!empty($_FILES['c31_path']['name']))
+            {
+                $size = $_FILES['c31_path']['size'];
+                $type = $_FILES['c31_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c31_path = $year."_c31_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c31_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c31_path.".".$extention);
+                    $c31_path="uploads/".$path."/documents/".$c31_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c32_path']['name']))
+            {
+                $size = $_FILES['c32_path']['size'];
+                $type = $_FILES['c32_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c32_path = $year."_c32_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c32_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c32_path.".".$extention);
+                    $c32_path="uploads/".$path."/documents/".$c32_path.".".$extention;
+                }
+            }
+
             //validate fields for submit
             if(isset($_POST['submit']))
             {
@@ -231,6 +400,127 @@ class PbsaSystemController
             $c44 = $_POST['c44']; //echo $c44;
             $c45 = $_POST['c45']; //echo $c45;
             $c4_total = 0;
+
+            if(!empty($_FILES['c41_path']['name']))
+            {
+                $size = $_FILES['c41_path']['size'];
+                $type = $_FILES['c41_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c41_path = $year."_c41_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c41_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c41_path.".".$extention);
+                    $c41_path="uploads/".$path."/documents/".$c41_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c42_path']['name']))
+            {
+                $size = $_FILES['c42_path']['size'];
+                $type = $_FILES['c42_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c42_path = $year."_c42_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c42_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c42_path.".".$extention);
+                    $c42_path="uploads/".$path."/documents/".$c42_path.".".$extention;
+                }
+            }
+
+
+            if(!empty($_FILES['c43_path']['name']))
+            {
+                $size = $_FILES['c43_path']['size'];
+                $type = $_FILES['c43_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c43_path = $year."_c43_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c43_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c43_path.".".$extention);
+                    $c43_path="uploads/".$path."/documents/".$c43_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c44_path']['name']))
+            {
+                $size = $_FILES['c44_path']['size'];
+                $type = $_FILES['c44_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c44_path = $year."_c44_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c44_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c44_path.".".$extention);
+                    $c44_path="uploads/".$path."/documents/".$c44_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c45_path']['name']))
+            {
+                $size = $_FILES['c45_path']['size'];
+                $type = $_FILES['c45_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c45_path = $year."_c45_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c45_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c45_path.".".$extention);
+                    $c45_path="uploads/".$path."/documents/".$c45_path.".".$extention;
+                }
+            }
 
             //validate fields for submit c4 and update total
             if(isset($_POST['submit']))
@@ -249,6 +539,79 @@ class PbsaSystemController
             $c53 = $_POST['c53']; //echo $c53;
             $c5_total = 0;
 
+
+            if(!empty($_FILES['c51_path']['name']))
+            {
+                $size = $_FILES['c51_path']['size'];
+                $type = $_FILES['c51_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c51_path = $year."_c51_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c51_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c51_path.".".$extention);
+                    $c51_path="uploads/".$path."/documents/".$c51_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c52_path']['name']))
+            {
+                $size = $_FILES['c52_path']['size'];
+                $type = $_FILES['c52_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c52_path = $year."_c52_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c52_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c52_path.".".$extention);
+                    $c52_path="uploads/".$path."/documents/".$c52_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c53_path']['name']))
+            {
+                $size = $_FILES['c53_path']['size'];
+                $type = $_FILES['c53_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c53_path = $year."_c53_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c53_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c53_path.".".$extention);
+                    $c53_path="uploads/".$path."/documents/".$c53_path.".".$extention;
+                }
+            }
+
             //validate fields for submit c5 and update total
             if(isset($_POST['submit']))
             {
@@ -264,6 +627,104 @@ class PbsaSystemController
             $c64 = $_POST['c64']; //echo $c64;
             $c6_total = 0;
 
+
+            if(!empty($_FILES['c61_path']['name']))
+            {
+                $size = $_FILES['c61_path']['size'];
+                $type = $_FILES['c61_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c61_path = $year."_c61_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c61_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c61_path.".".$extention);
+                    $c61_path="uploads/".$path."/documents/".$c61_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c62_path']['name']))
+            {
+                $size = $_FILES['c62_path']['size'];
+                $type = $_FILES['c62_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c62_path = $year."_c62_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c62_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c62_path.".".$extention);
+                    $c62_path="uploads/".$path."/documents/".$c62_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c63_path']['name']))
+            {
+                $size = $_FILES['c63_path']['size'];
+                $type = $_FILES['c63_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c63_path = $year."_c63_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c63_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c63_path.".".$extention);
+                    $c63_path="uploads/".$path."/documents/".$c63_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c64_path']['name']))
+            {
+                $size = $_FILES['c64_path']['size'];
+                $type = $_FILES['c64_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c64_path = $year."_c64_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c64_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c64_path.".".$extention);
+                    $c64_path="uploads/".$path."/documents/".$c64_path.".".$extention;
+                }
+            }
+
+
             //validate fields for submit c6 and update total
             if(isset($_POST['submit']))
             {
@@ -278,6 +739,104 @@ class PbsaSystemController
             $c73 = $_POST['c73']; //echo $c73;
             $c74 = $_POST['c74']; //echo $c74;
             $c7_total = 0;
+
+
+            if(!empty($_FILES['c71_path']['name']))
+            {
+                $size = $_FILES['c71_path']['size'];
+                $type = $_FILES['c71_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c71_path = $year."_c71_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c71_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c71_path.".".$extention);
+                    $c71_path="uploads/".$path."/documents/".$c71_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c72_path']['name']))
+            {
+                $size = $_FILES['c72_path']['size'];
+                $type = $_FILES['c72_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c72_path = $year."_c72_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c72_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c72_path.".".$extention);
+                    $c72_path="uploads/".$path."/documents/".$c72_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c73_path']['name']))
+            {
+                $size = $_FILES['c73_path']['size'];
+                $type = $_FILES['c73_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c73_path = $year."_c73_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c73_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c73_path.".".$extention);
+                    $c73_path="uploads/".$path."/documents/".$c73_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c74_path']['name']))
+            {
+                $size = $_FILES['c74_path']['size'];
+                $type = $_FILES['c74_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c74_path = $year."_c74_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c74_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c74_path.".".$extention);
+                    $c74_path="uploads/".$path."/documents/".$c74_path.".".$extention;
+                }
+            }
+
 
             //validate fields for submit c7 and update total
             if(isset($_POST['submit']))
@@ -295,6 +854,151 @@ class PbsaSystemController
             $c85 = $_POST['c85']; //echo $c85;
             $c86 = $_POST['c86']; //echo $c86;
             $c8_total = 0;
+
+
+            if(!empty($_FILES['c81_path']['name']))
+            {
+                $size = $_FILES['c81_path']['size'];
+                $type = $_FILES['c81_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c81_path = $year."_c81_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c81_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c81_path.".".$extention);
+                    $c81_path="uploads/".$path."/documents/".$c81_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c82_path']['name']))
+            {
+                $size = $_FILES['c82_path']['size'];
+                $type = $_FILES['c82_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c82_path = $year."_c82_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c82_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c82_path.".".$extention);
+                    $c82_path="uploads/".$path."/documents/".$c82_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c83_path']['name']))
+            {
+                $size = $_FILES['c83_path']['size'];
+                $type = $_FILES['c83_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c83_path = $year."_c83_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c83_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c83_path.".".$extention);
+                    $c83_path="uploads/".$path."/documents/".$c83_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c84_path']['name']))
+            {
+                $size = $_FILES['c84_path']['size'];
+                $type = $_FILES['c84_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c84_path = $year."_c84_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c84_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c84_path.".".$extention);
+                    $c84_path="uploads/".$path."/documents/".$c84_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c85_path']['name']))
+            {
+                $size = $_FILES['c85_path']['size'];
+                $type = $_FILES['c85_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c85_path = $year."_c85_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c85_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c85_path.".".$extention);
+                    $c85_path="uploads/".$path."/documents/".$c85_path.".".$extention;
+                }
+            }
+
+            if(!empty($_FILES['c86_path']['name']))
+            {
+                $size = $_FILES['c86_path']['size'];
+                $type = $_FILES['c86_path']['type'];
+                if (($size > 5242880))
+                {
+                    $message = 'File too large. File must be less than 5 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c86_path = $year."_c86_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c86_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c86_path.".".$extention);
+                    $c86_path="uploads/".$path."/documents/".$c86_path.".".$extention;
+                }
+            }
 
 
             //validate fields for submit c8 and update total
