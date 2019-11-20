@@ -69,7 +69,7 @@ class FacultyEditProfile
             {
                 $extention= substr_replace($type,"",0,6);
                 $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                $img = '';
+                $img = $row['e_id'];
                 for ($i = 0; $i < 10; $i++)
                 {
                     $index = rand(0, strlen($characters) - 1);

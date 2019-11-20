@@ -55,7 +55,7 @@ class Department
         $db = new Database();
         $con = $db->open_connection();
 
-        $query = "select * from department where `d_id` = '$id'";
+        $query = "select * from department where `d_id` = '$id' and `is_active` = 1";
 
         $result=$con->query($query);
         if($result->num_rows > 0)

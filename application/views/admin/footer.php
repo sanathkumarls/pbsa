@@ -28,11 +28,7 @@ else
 {
     header('Location: index.php');
 }
-$objEmployee = new Employee();
-$result = $objEmployee->pendingEmployee();
-$count = 0;
-while($result->fetch_assoc())
-$count++;
+
 ?>
 <div class="sidebar-menu">
     <header class="logo">
@@ -96,7 +92,7 @@ $count++;
             <li id="menu-academico" ><a href="organization.php"><i class="lnr lnr-apartment"></i><span>	&nbsp;Organization</span> </a>
 
             </li>
-            <li id="menu-academico" class="xyz" ><a href="employees.php"><i class="fa fa-users"></i> <span>Employees </span> <span class="badge count"><?php echo $count;?></span></a>
+            <li id="menu-academico" class="xyz" ><a href="employees.php"><i class="fa fa-users"></i> <span>Employees </span> <span class="badge count"></span></a>
             </li>
 
             	<li id="menu-academico" ><a href="importEmployees.php"><i class="fa fa-upload"></i> <span>Import Employees</span></span></a>
@@ -110,6 +106,42 @@ $count++;
     <div class="clearfix"></div>
 </div>
 </div>
+<script>
+    $(document).ready(function(){
+
+        function load_unseen_notification(view ='')
+        {
+            $.ajax({
+                url:"../../controllers/admin/AdminLiveEmployeeFetch.php",
+                method:"POST",
+                data:{view:view},
+                dataType:"json",
+                success:function(data)
+                {
+                    load_unseen_notification('yes');
+                    if(data.count >= 0)
+                    {
+                        $('.count').html(data.count);
+
+                    }
+                }
+            });
+        }
+
+        load_unseen_notification();
+        $(document).on('click', '.xyz', function(){
+            $('.count').html('');
+            load_unseen_notification('yes');
+        });
+
+
+        setInterval(function(){
+            load_unseen_notification();;
+        }, 5000);
+
+    });
+</script>
+
 
 <script>
     var toggle = true;

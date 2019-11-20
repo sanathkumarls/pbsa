@@ -122,7 +122,7 @@ class Employee
             $db = new Database();
             $con =$db->open_connection();
 
-            $query = "select * from employee where `e_id`='$id'";
+            $query = "select * from employee where `e_id`='$id'";//dont check for isactive since mail is also sent for rejected employee
 
             $result = $con->query($query);
 
@@ -133,6 +133,23 @@ class Employee
             }
             return "";
         }
+
+    function getEid($email)
+    {
+        $db = new Database();
+        $con =$db->open_connection();
+
+        $query = "select * from employee where `email`='$email' and `is_active` = 1";
+
+        $result = $con->query($query);
+
+        if($result->num_rows > 0)
+        {
+            $row = $result->fetch_assoc();
+            return $row['e_id'];
+        }
+        return "";
+    }
 
     function getUserDetails($email)
     {

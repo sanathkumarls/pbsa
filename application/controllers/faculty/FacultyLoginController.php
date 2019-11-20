@@ -8,12 +8,38 @@
 
 require_once __DIR__.'/../../models/Employee.php';
 require_once __DIR__.'/../../utilities/Constants.php';
-
-if(isset($_POST['submit']))
+session_start();
+if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
-    $obj = new FacultyLoginController();
-    $obj->getUserInput();
+    $email =  $_SESSION['email'];
+    $role = $_SESSION['role'];
+    $changePassword = $_SESSION['changePassword'];
+
+    $objEmployee = new Employee();
+    if(!$objEmployee->checkEmailRole($email,Constants::roleFaculty))//check realtime role
+    {
+        header("Location: ../LogoutController.php");
+    }
+    if($changePassword == 1)
+    {
+        header("Location: ../../views/faculty/changePassword.php");
+    }
+    else
+    {
+        header("Location: ../../views/faculty/home.php");
+    }
 }
+else
+{
+    if(isset($_POST['submit']))
+    {
+        $obj = new FacultyLoginController();
+        $obj->getUserInput();
+    }
+}
+
+
+
 
 class FacultyLoginController
 {
@@ -35,7 +61,6 @@ class FacultyLoginController
         $objEmployee = new Employee();
         if($objEmployee->canLogin($email,$hashPassword,Constants::roleFaculty))
         {
-            session_start();
             $_SESSION['email'] = $email;
             $_SESSION['role'] = Constants::roleFaculty;
             $_SESSION['changePassword'] = 0;

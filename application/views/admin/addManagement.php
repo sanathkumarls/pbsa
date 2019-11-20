@@ -324,15 +324,15 @@ else
 
                                 </div>
                                 <br>
-                                <div class="form-group"><label id="pass" for="pass"><br>Password </label> <br>
-                                    <div class="col-md-8">
-                                        <input type="password" class="form-control"  name="password" id="pass"
-                                               placeholder="New Password" required>
-                                    </div>
-                                    <br>
-
-                                </div>
-                                <br>
+<!--                                <div class="form-group"><label id="pass" for="pass"><br>Password </label> <br>-->
+<!--                                    <div class="col-md-8">-->
+<!--                                        <input type="password" class="form-control"  name="password" id="pass"-->
+<!--                                               placeholder="New Password" required>-->
+<!--                                    </div>-->
+<!--                                    <br>-->
+<!---->
+<!--                                </div>-->
+<!--                                <br>-->
 
 
                         </div>

@@ -1,12 +1,35 @@
 <?php
  require_once __DIR__."/../../models/Admin.php";
  require_once __DIR__."/../../utilities/Constants.php";
-
-if(isset($_POST['submit']))
+session_start();
+if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
-    $loginController = new AdminLoginController();
-    $loginController->getUserInput();
+    $email =  $_SESSION['email'];
+    $role = $_SESSION['role'];
+    $changePassword = $_SESSION['changePassword'];
+    $objAdmin= new Admin();
+    if(!$objAdmin->checkEmail($email))//check realtime role
+    {
+        header("Location: ../LogoutController.php");
+    }
+    if($changePassword == 1)
+    {
+        header("Location: ../../views/admin/changePassword.php");
+    }
+    else
+    {
+        header('Location: ../../views/admin/home.php');
+    }
 }
+else
+{
+    if(isset($_POST['submit']))
+    {
+        $loginController = new AdminLoginController();
+        $loginController->getUserInput();
+    }
+}
+
 class AdminLoginController
 {
     public function getUserInput()
@@ -29,7 +52,6 @@ class AdminLoginController
         $objAdmin = new Admin();
         if($objAdmin->canLogin($email,$hashPassword))
         {
-            session_start();
             $_SESSION['email'] = $email;
             $_SESSION['role'] = Constants::roleAdmin;
             $_SESSION['changePassword'] = 0;

@@ -221,18 +221,18 @@ else
                                 <!-- uncomment the below line to add skills module also remove the "//" for echo -->
 
                                 <!-- s -->
-                                <form action="pbsaSystem.php" method="post">
+                                <form action="pbsaSystem.php?year=<?php echo date('Y');?>&edit=true" method="post">
 
 
-                                    <button id="btx" class="button">&nbsp;&nbsp;PBSA System&nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>
+                                    <button id="btx" class="button">&nbsp;&nbsp;Fill PBSA&nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>
 
                                     <br> <br>
                                 </form>
                                 <br><br>
-                                <form action="comments.php" method="post" >
+                                <form action="pbsaSystem.php?year=<?php echo date('Y');?>" method="post" >
 
 
-                                    <button id="btx" class="button">&nbsp;&nbsp;Comments&nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>
+                                    <button id="btx" class="button">&nbsp;&nbsp;View PBSA&nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>
 
                                     <br> <br>
                                 </form>

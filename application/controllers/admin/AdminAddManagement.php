@@ -44,15 +44,13 @@ class AdminAddManagement
         $lastName=$_POST['lastName'];
         $email=$_POST['email'];
         $phone=$_POST['phone'];
-        $password=$_POST['password'];
-        if($initial!=null && $firstName!=null && $lastName!=null && $email!=null && $phone!=null &&  $password!=null)
+        if($initial!=null && $firstName!=null && $lastName!=null && $email!=null && $phone!=null)
         {
             //check already exists
             $objManagement = new Management();
             if(!$objManagement->checkEmail($email))
             {
-                $hashedpassword=hash("SHA512",$password);
-                $this->addManagement($initial,$firstName,$lastName,$email,$phone,$hashedpassword);
+                $this->addManagement($initial,$firstName,$lastName,$email,$phone);
             }
             else
             {
@@ -67,10 +65,10 @@ class AdminAddManagement
         }
     }
 
-    function addManagement($initial,$firstName,$lastName,$email,$phone,$hashedpassword)
+    function addManagement($initial,$firstName,$lastName,$email,$phone)
     {
         $objManagement = new Management();
-        $user=$objManagement->addManagement($initial,$firstName,$lastName,$email,$phone,$hashedpassword);
+        $user=$objManagement->addManagement($initial,$firstName,$lastName,$email,$phone);
         if($user)
         {
             echo "<script>alert('New Management User Added');

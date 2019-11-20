@@ -229,7 +229,7 @@ else
                                 <div class="col-md-1"></div>
                                 <!-- after adding skills remove style inside the div tag -->
 
-                                <div class="col-md-5" style="padding-left: 420px"><a href="view1.php?id=<?php echo $val;?>"><img id="img2" src="images/pbsa.png"><h3 style="font-family:'Copperplate Gothic Light';color:black;">PBSA Performance</h3></a></div>
+                                <div class="col-md-5" style="padding-left: 420px"><a href="view1.php?id=<?php //echo $val;?>"><img id="img2" src="images/pbsa.png"><h3 style="font-family:'Copperplate Gothic Light';color:black;">PBSA Performance</h3></a></div>
 
 
                                 <!-- uncomment the below line to add skills module also remove the "//" for echo -->

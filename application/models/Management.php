@@ -7,6 +7,7 @@
  */
 
 require_once __DIR__."/../utilities/Database.php";
+require_once __DIR__."/../utilities/Constants.php";
 
 class Management
 {
@@ -15,22 +16,44 @@ class Management
         $db = new Database();
         $con = $db->open_connection();
 
-        $query ="select * from management";
+        $query ="select * from management where `email` = '$email'";
 
         $result = $con->query($query);
 
         if($result->num_rows > 0)
             return true;
         return false;
-
     }
 
-    function addManagement($initial,$firstName,$lastName,$email,$phone,$password)
+    function canLogin($email,$password)
+    {
+        $db = new Database();
+        $con =$db->open_connection();
+
+        $query = "select * from management where `email` = '$email' and `password` = '$password' and `is_active` = 1";
+
+        $result = $con->query($query);
+
+        if($result->num_rows > 0)
+            return true;
+        return false;
+    }
+
+    function updatePassword($email,$password)
+    {
+        $db = new Database();
+        $con =$db->open_connection();
+        $query = "update management set `password` = '$password' where `email` = '$email'";
+        $result = $con->query($query);
+        return $result;
+    }
+
+    function addManagement($initial,$firstName,$lastName,$email,$phone)
     {
         $db = new Database();
         $con = $db->open_connection();
 
-        $query="insert into management values (NULL,'$initial','$firstName','$lastName','$email','$password','$phone',NULL,NULL,1)";
+        $query="insert into management values (NULL,'$initial','$firstName','$lastName','$email','".Constants::defaultPassword."','$phone',NULL,NULL,1)";
 
         return $con->query($query);
     }
