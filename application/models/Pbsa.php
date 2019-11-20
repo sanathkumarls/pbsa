@@ -29,5 +29,31 @@ class Pbsa
         return $con->query($query);
     }
 
-//select * from pbsa p join employee e on p.e_id=e.e_id where e.email='$email' and p.year='$year'
+    function getPbsaCriteria($e_id,$year)
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+        $query = "select * from pbsa p join c1 on p.pbsa_id = c1.c1_id join c2 on p.pbsa_id = c2.c2_id join c3 c32 on p.pbsa_id = c32.c3_id join c4 c42 on p.pbsa_id = c42.c4_id join c5 c52 on p.pbsa_id = c52.c5_id join c6 c62 on p.pbsa_id = c62.c6_id join c7 c72 on p.pbsa_id = c72.c7_id join c8 c82 on p.pbsa_id = c82.c8_id where p.e_id = '$e_id' and year = '$year'";
+        $result = $con->query($query);
+        if($result->num_rows > 0)
+            return $result;
+        return false;
+    }
+
+    function savePbsa($e_id,$year)
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+        $query = "update pbsa set `is_saved` = 1 where `e_id` = '$e_id' and `year` = '$year'";
+        return $con->query($query);
+    }
+
+    function submitPbsa($e_id,$year)
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+        $query = "update pbsa set `is_submitted` = 1 where `e_id` = '$e_id' and `year` = '$year'";
+        return $con->query($query);
+    }
+
 }
