@@ -1010,10 +1010,11 @@ class PbsaSystemController
             $objC8 = new C8();
             $objC8->setC8($c81,$c81_path,$c82,$c82_path,$c83,$c83_path,$c84,$c84_path,$c85,$c85_path,$c86,$c86_path,$c8_total,$pbsaId);
 
+            $emp_comments = $_POST['emp_comments'];
 
             if(isset($_POST['submit']))
             {
-                if($objPbsaModel->submitPbsa($e_id,$year))
+                if($objPbsaModel->submitPbsa($e_id,$year,$emp_comments))
                 {
                     echo '<script>alert("PBSA SUBMITTED SUCCESSFULLY");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
@@ -1024,7 +1025,7 @@ class PbsaSystemController
             }
             elseif (isset($_POST['save']))
             {
-                if($objPbsaModel->savePbsa($e_id,$year))
+                if($objPbsaModel->savePbsa($e_id,$year,$emp_comments))
                 {
                     echo '<script>alert("PBSA SAVED SUCCESSFULLY");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'&edit=true";</script>';
                 }

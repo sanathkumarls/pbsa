@@ -40,19 +40,19 @@ class Pbsa
         return false;
     }
 
-    function savePbsa($e_id,$year)
+    function savePbsa($e_id,$year,$emp_comments)
     {
         $db = new Database();
         $con = $db->open_connection();
-        $query = "update pbsa set `is_saved` = 1 where `e_id` = '$e_id' and `year` = '$year'";
+        $query = "update pbsa set `is_saved` = 1 , `emp_comments` = '$emp_comments' where `e_id` = '$e_id' and `year` = '$year'";
         return $con->query($query);
     }
 
-    function submitPbsa($e_id,$year)
+    function submitPbsa($e_id,$year,$emp_comments)
     {
         $db = new Database();
         $con = $db->open_connection();
-        $query = "update pbsa set `is_submitted` = 1 where `e_id` = '$e_id' and `year` = '$year'";
+        $query = "update pbsa set `is_submitted` = 1 , `emp_comments` = '$emp_comments' where `e_id` = '$e_id' and `year` = '$year'";
         return $con->query($query);
     }
 
