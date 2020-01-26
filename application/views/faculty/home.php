@@ -56,7 +56,7 @@ else
     <script src="../../../assets/faculty/js/serial.js"></script>
     <script src="../../../assets/faculty/js/light.js"></script>
     <script src="../../../assets/faculty/js/radar.js"></script>
-    <link href="../../../assets/faculty/css/barChart.css" rel='stylesheet' type='text/css' />
+    <link href="../../../assets/faculty/css/bars.css" rel='stylesheet' type='text/css' />
     <link href="../../../assets/faculty/css/fabochart.css" rel='stylesheet' type='text/css' />
     <!--clock init-->
     <script src="../../../assets/faculty/js/css3clock.js"></script>
@@ -64,7 +64,7 @@ else
     <!--skycons-icons-->
     <script src="../../../assets/faculty/js/skycons.js"></script>
 
-    <script src="../../../assets/faculty/js/jquery.easydropdown.js"></script>
+<!--    <script src="../../../assets/faculty/js/jquery.easydropdown.js"></script>-->
     <style>
         #logo{
             width:50px;
@@ -221,21 +221,21 @@ else
                                 <!-- uncomment the below line to add skills module also remove the "//" for echo -->
 
                                 <!-- s -->
-                                <form action="pbsaSystem.php?year=<?php echo date('Y');?>&edit=true" method="post">
-
+                                <form action="pbsaSystem.php?year=<?php echo date('Y');?>" method="post">
+<!--                                    &edit=true-->
 
                                     <button id="btx" class="button">&nbsp;&nbsp;Fill PBSA&nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>
 
                                     <br> <br>
                                 </form>
                                 <br><br>
-                                <form action="pbsaSystem.php?year=<?php echo date('Y');?>" method="post" >
-
-
-                                    <button id="btx" class="button">&nbsp;&nbsp;View PBSA&nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>
-
-                                    <br> <br>
-                                </form>
+<!--                                <form action="pbsaSystem.php?year=--><?php //echo date('Y');?><!--" method="post" >-->
+<!---->
+<!---->
+<!--                                    <button id="btx" class="button">&nbsp;&nbsp;View PBSA&nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>-->
+<!---->
+<!--                                    <br> <br>-->
+<!--                                </form>-->
                             </div>
 
 
