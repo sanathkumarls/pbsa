@@ -192,7 +192,11 @@ class PbsaSystemController
                 //validate fields for submit c1 and update total
                 if(isset($_POST['submit']))
                 {
+                    $c11_x = $c11 / 10.0;
+                    $c12_x = $c12 / 10.0;
+                    $c1_total = ( ($c11_x * 15) + ($c12_x * 15) ) / 30;
 
+                    //echo "c11 :".$c11." c11x :".$c11_x."c12 : ".$c12." c12x : ".$c12_x."c1t :".$c1_total;return;
                 }
 
                 $objC1 = new C1();
@@ -312,7 +316,11 @@ class PbsaSystemController
                 //validate fields for submit c2 and update total
                 if(isset($_POST['submit']))
                 {
-
+                    $c21_x = $c21 / 10.0;
+                    $c22_x = $c22 / 10.0;
+                    $c23_x = $c23 / 10.0;
+                    $c24_x = $c24 / 10.0;
+                    $c2_total = ( ($c21_x * 3) + ($c22_x * 4) + ($c23_x * 2) + ($c24_x * 1)) / 10;
                 }
 
                 $objC2 = new C2();
@@ -374,41 +382,169 @@ class PbsaSystemController
             }
 
 
-            $c31_1 = floatval($_POST['c31_1']); //echo $c31_1;
-            $c31_2 = floatval($_POST['c31_2']); //echo $c31_2;
-            $c31_3 = floatval($_POST['c31_3']); //echo $c31_3;
-            $c31_4 = floatval($_POST['c31_4']); //echo $c31_4;
-            $c31_5 = floatval($_POST['c31_5']); //echo $c31_5;
+            $c31_1 = intval($_POST['c31_1']); //echo $c31_1;
+            $c31_2 = intval($_POST['c31_2']); //echo $c31_2;
+            $c31_3 = intval($_POST['c31_3']); //echo $c31_3;
+            $c31_4 = intval($_POST['c31_4']); //echo $c31_4;
+            $c31_5 = intval($_POST['c31_5']); //echo $c31_5;
 
 
-            $c32_1 = floatval($_POST['c32_1']); //echo $c32_1;
-            $c32_2 = floatval($_POST['c32_2']); //echo $c32_2;
-            $c32_3 = floatval($_POST['c32_3']); //echo $c32_3;
-            $c32_4 = floatval($_POST['c32_4']); //echo $c32_4;
-            $c32_5 = floatval($_POST['c32_5']); //echo $c32_5;
-            $c32_6 = floatval($_POST['c32_6']); //echo $c32_6;
-            $c32_7 = floatval($_POST['c32_7']); //echo $c32_7;
-            $c32_8 = floatval($_POST['c32_8']); //echo $c32_8;
-            $c32_9 = floatval($_POST['c32_9']); //echo $c32_9;
-            $c32_10 = floatval($_POST['c32_10']); //echo $c32_10;
-            $c32_11 = floatval($_POST['c32_11']); //echo $c32_11;
-            $c32_12 = floatval($_POST['c32_12']); //echo $c32_12;
-            $c32_13 = floatval($_POST['c32_13']); //echo $c32_13;
-            $c32_14 = floatval($_POST['c32_14']); //echo $c32_14;
-            $c32_15 = floatval($_POST['c32_15']); //echo $c32_15;
-            $c32_16 = floatval($_POST['c32_16']); //echo $c32_16;
-            $c32_17 = floatval($_POST['c32_17']); //echo $c32_17;
-            $c32_18 = floatval($_POST['c32_18']); //echo $c32_18;
-            $c32_19 = floatval($_POST['c32_19']); //echo $c32_19;
+            $c32_1 = intval($_POST['c32_1']); //echo $c32_1;
+            $c32_2 = intval($_POST['c32_2']); //echo $c32_2;
+            $c32_3 = intval($_POST['c32_3']); //echo $c32_3;
+            $c32_4 = intval($_POST['c32_4']); //echo $c32_4;
+            $c32_5 = intval($_POST['c32_5']); //echo $c32_5;
+            $c32_6 = intval($_POST['c32_6']); //echo $c32_6;
+            $c32_7 = intval($_POST['c32_7']); //echo $c32_7;
+            $c32_8 = intval($_POST['c32_8']); //echo $c32_8;
+            $c32_9 = intval($_POST['c32_9']); //echo $c32_9;
+            $c32_10 = intval($_POST['c32_10']); //echo $c32_10;
+            $c32_11 = intval($_POST['c32_11']); //echo $c32_11;
+            $c32_12 = intval($_POST['c32_12']); //echo $c32_12;
+            $c32_13 = intval($_POST['c32_13']); //echo $c32_13;
+            $c32_14 = intval($_POST['c32_14']); //echo $c32_14;
+            $c32_15 = intval($_POST['c32_15']); //echo $c32_15;
+            $c32_16 = intval($_POST['c32_16']); //echo $c32_16;
+            $c32_17 = intval($_POST['c32_17']); //echo $c32_17;
+            $c32_18 = intval($_POST['c32_18']); //echo $c32_18;
+            $c32_19 = intval($_POST['c32_19']); //echo $c32_19;
             $c3_total = 0;
 
 
 
-            if(true)
+            if($c31_1 >= 0 && $c31_1 <= 100 && $c31_2 >= 0 && $c31_2 <= 100 && $c31_3 >= 0 && $c31_3 <= 100 && $c31_4 >= 0 && $c31_4 <= 100 && $c31_5 >= 0 && $c31_5 <= 100 && $c32_1 >= 0 && $c32_1 <= 100 && $c32_2 >= 0 && $c32_2 <= 100 && $c32_3 >= 0 && $c32_3 <= 100 && $c32_4 >= 0 && $c32_4 <= 100 && $c32_5 >= 0 && $c32_5 <= 100 && $c32_6 >= 0 && $c32_6 <= 100 && $c32_7 >= 0 && $c32_7 <= 100 && $c32_8 >= 0 && $c32_8 <= 100 && $c32_9 >= 0 && $c32_9 <= 100 && $c32_10 >= 0 && $c32_10 <= 100 && $c32_11 >= 0 && $c32_11 <= 100 && $c32_12 >= 0 && $c32_12 <= 100 && $c32_13 >= 0 && $c32_13 <= 100 && $c32_14 >= 0 && $c32_14 <= 100 && $c32_15 >= 0 && $c32_15 <= 100 && $c32_16 >= 0 && $c32_16 <= 100 && $c32_17 >= 0 && $c32_17 <= 100 && $c32_18 >= 0 && $c32_18 <= 100 && $c32_19 >= 0 && $c32_19 <= 100)
             {
                 //validate fields for submit c3
                 if(isset($_POST['submit']))
                 {
+                    if($c31_1 >= 5)
+                        $c31_1_x = 10;
+                    else
+                        $c31_1_x = $c31_1 * 2;//simplified logic
+
+                    if($c31_2 >= 10)
+                        $c31_2_x = 10;
+                    else
+                        $c31_2_x = $c31_2;
+
+                    if($c31_3 >= 2)
+                        $c31_3_x = 10;
+                    else
+                        $c31_3_x = $c31_3 * 5;
+
+                    if($c31_4 >= 2)
+                        $c31_4_x = 10;
+                    else
+                        $c31_4_x = $c31_4 * 5;
+
+                    if($c31_5 >= 4)
+                        $c31_5_x = 10;
+                    else
+                        $c31_5_x = $c31_5 * 2.5;
+
+                    $c31_x = $c31_1_x + $c31_2_x + $c31_3_x + $c31_4_x + $c31_5_x;//for 50
+
+                    if($c32_1 >= 20)
+                        $c32_1_x = 10;
+                    else
+                        $c32_1_x = $c32_1 * 0.5;
+
+                    if($c32_2 >= 20)
+                        $c32_2_x = 10;
+                    else
+                        $c32_2_x = $c32_2 * 0.5;
+
+                    if($c32_3 >= 5)
+                        $c32_3_x = 10;
+                    else
+                        $c32_3_x = $c32_3 * 2;
+
+                    if($c32_4 >= 1)
+                        $c32_4_x = 10;
+                    else
+                        $c32_4_x = 0;
+
+                    if($c32_5 >= 5)
+                        $c32_5_x = 10;
+                    else
+                        $c32_5_x = $c32_5 * 2;
+
+                    if($c32_6 >= 2)
+                        $c32_6_x = 10;
+                    else
+                        $c32_6_x = $c32_6 * 5;
+
+                    if($c32_7 >= 1)
+                        $c32_7_x = 10;
+                    else
+                        $c32_7_x = 0;
+
+                    if($c32_8 >= 1)
+                        $c32_8_x = 10;
+                    else
+                        $c32_8_x = 0;
+
+                    if($c32_9 >= 2)
+                        $c32_9_x = 10;
+                    else
+                        $c32_9_x = $c32_9 * 5;
+
+                    if($c32_10 >= 1)
+                        $c32_10_x = 10;
+                    else
+                        $c32_10_x = 0;
+
+                    if($c32_11 >= 2)
+                        $c32_11_x = 10;
+                    else
+                        $c32_11_x = $c32_11 * 5;
+
+                    if($c32_12 >= 2)
+                        $c32_12_x = 10;
+                    else
+                        $c32_12_x = $c32_12 * 5;
+
+                    if($c32_13 >= 2)
+                        $c32_13_x = 10;
+                    else
+                        $c32_13_x = $c32_13 * 5;
+
+                    if($c32_14 >= 1)
+                        $c32_14_x = 10;
+                    else
+                        $c32_14_x = 0;
+
+                    if($c32_15 >= 1)
+                        $c32_15_x = 10;
+                    else
+                        $c32_15_x = 0;
+
+                    if($c32_16 >= 1)
+                        $c32_16_x = 10;
+                    else
+                        $c32_16_x = 0;
+
+                    if($c32_17 >= 1)
+                        $c32_17_x = 10;
+                    else
+                        $c32_17_x = 0;
+
+                    if($c32_18 >= 2)
+                        $c32_18_x = 10;
+                    else
+                        $c32_18_x = $c32_18 * 5;
+
+                    if($c32_19 >= 2)
+                        $c32_19_x = 10;
+                    else
+                        $c32_19_x = $c32_19 * 5;
+
+                    $c32_x = $c32_1_x + $c32_2_x + $c32_3_x + $c32_4_x + $c32_5_x + $c32_6_x + $c32_7_x + $c32_8_x + $c32_9_x + $c32_10_x + $c32_11_x + $c32_12_x + $c32_13_x + $c32_14_x + $c32_15_x + $c32_16_x + $c32_17_x + $c32_18_x + $c32_19_x ;
+
+                    if($c32_x >= 50)//190 can be achieved but max is 50
+                        $c32_x = 50;
+
+                    $c3_total = ($c31_x + $c32_x) / 10;
 
                 }
 
@@ -552,7 +688,7 @@ class PbsaSystemController
             $c4_total = 0;
 
 
-            if(true)
+            if($c41 >= 0 && $c41 <= 100 && $c42 >= 0 && $c42 <= 100 && $c43 >= 0 && $c43 <= 100 && $c44 >= 0 && $c44 <= 100 && $c45 >= 0 && $c45 <= 100)
             {
                 //validate fields for submit c4 and update total
                 if(isset($_POST['submit']))
@@ -649,7 +785,7 @@ class PbsaSystemController
                 }
             }
 
-
+            //date
             $c51_1 = $_POST['c51_1']; //echo $c51_1;
             $c51_2 = floatval($_POST['c51_2']); //echo $c51_2;
             $c51_3 = floatval($_POST['c51_3']); //echo $c51_3;
@@ -659,7 +795,7 @@ class PbsaSystemController
             $c5_total = 0;
 
 
-            if(true)
+            if($c51_2 >= 0 && $c51_2 <= 100 && $c51_3 >= 0 && $c51_3 <= 100 && $c52 >= 0 && $c52 <= 100 && $c53 >= 0 && $c53 <= 100 )
             {
                 //validate fields for submit c5 and update total
                 if(isset($_POST['submit']))
@@ -783,7 +919,7 @@ class PbsaSystemController
             $c6_total = 0;
 
 
-            if(true)
+            if($c61 >= 0 && $c61 <= 100 && $c62 >= 0 && $c62 <= 100 && $c63 >= 0 && $c63 <= 100 && $c64 >= 0 && $c64 <= 100 )
             {
                 //validate fields for submit c6 and update total
                 if(isset($_POST['submit']))
@@ -906,7 +1042,7 @@ class PbsaSystemController
             $c7_total = 0;
 
 
-            if(true)
+            if($c71 >= 0 && $c71 <= 100 && $c72 >= 0 && $c72 <= 100 && $c73 >= 0 && $c73 <= 100 && $c74 >= 0 && $c74 <= 100 )
             {
                 //validate fields for submit c7 and update total
                 if(isset($_POST['submit']))
@@ -1079,7 +1215,7 @@ class PbsaSystemController
             $c8_total = 0;
 
 
-            if(true)
+            if($c81 >= 0 && $c81 <= 100 && $c82 >= 0 && $c82 <= 100 && $c83 >= 0 && $c83 <= 100 && $c84 >= 0 && $c84 <= 100 && $c85 >= 0 && $c85 <= 100 && $c86 >= 0 && $c86 <= 100)
             {
                 //validate fields for submit c8 and update total
                 if(isset($_POST['submit']))
