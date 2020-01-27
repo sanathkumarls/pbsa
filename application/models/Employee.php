@@ -17,7 +17,7 @@ class Employee
             $db = new Database();
             $con = $db->open_connection();
 
-            $query = "insert into employee values (NULL,'$emp_id','$role','$department',NULL,'$first_name','$last_name','$email','".Constants::defaultPassword."','$phone',NULL,NULL,NULL,0,0,1)";
+            $query = "insert into employee values (NULL,'$emp_id','$role','$department',NULL,'$first_name','$last_name','$email','".Constants::defaultPassword."','$phone',NULL,NULL,NULL,0,0)";
             $result = $con->query($query);
             return $result;
         }
@@ -42,7 +42,7 @@ class Employee
             $db = new Database();
             $con =$db->open_connection();
 
-            $query = "select * from employee where `email`='$email' and `role` = '$role' and `is_active` = 1";
+            $query = "select * from employee where `email`='$email' and `role` = '$role' and `is_active` = 1 and `is_rejected` = 0";
 
             $result = $con->query($query);
 
@@ -56,7 +56,7 @@ class Employee
             $db = new Database();
             $con =$db->open_connection();
 
-            $query = "select * from employee where `email` = '$email' and `password` = '$password' and `role` = '$role' and `is_active` = 1 and `is_department_active` = 1";
+            $query = "select * from employee where `email` = '$email' and `password` = '$password' and `role` = '$role' and `is_active` = 1 and `is_rejected` = 0";
 
             $result = $con->query($query);
 
@@ -69,7 +69,7 @@ class Employee
         {
            $db = new Database();
            $con = $db->open_connection();
-            $query = "select * from employee where email='$email' and password='$hashedpassword' and is_active=1";
+            $query = "select * from employee where email='$email' and password='$hashedpassword' and is_active=1 and `is_rejected` = 0";
             $result = $con->query($query);
             if($result->num_rows > 0)
                 return true;
@@ -139,7 +139,7 @@ class Employee
         $db = new Database();
         $con =$db->open_connection();
 
-        $query = "select * from employee where `email`='$email' and `is_active` = 1";
+        $query = "select * from employee where `email`='$email' and `is_active` = 1 and `is_rejected` = 0";
 
         $result = $con->query($query);
 
@@ -156,7 +156,7 @@ class Employee
         $db=new Database();
         $con=$db->open_connection();
 
-        $query = "select * from employee where `email` = '$email' and `is_active` = 1";
+        $query = "select * from employee where `email` = '$email' and `is_active` = 1 and `is_rejected` = 0";
 
         return $con->query($query);
     }
