@@ -15,7 +15,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     $role = $_SESSION['role'];
 
     $objEmployee = new Employee();
-    if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
+    if(!$objEmployee->checkEmailRole($email,Constants::roleHod))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
     }
@@ -177,7 +177,7 @@ else
             <h3>Change Password</h3>
         </div>
         <div class="modal-body">
-            <form method="post"  action="../../controllers/principal/PrincipalChangePassword.php">
+            <form method="post"  action="../../controllers/hod/HodChangePassword.php">
                 <div class="form-group"> <label for="exampleInputPassword1">Old Password</label>
                     <input type="password" autocomplete="off" name="oldpassword"  class="form-control" placeholder="Old Password" required="" > </div>
                 <div class="form-group"> <label for="exampleInputPassword1">New Password</label>

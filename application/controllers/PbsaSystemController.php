@@ -17,6 +17,7 @@ require_once __DIR__."/../models/C5.php";
 require_once __DIR__."/../models/C6.php";
 require_once __DIR__."/../models/C7.php";
 require_once __DIR__."/../models/C8.php";
+require_once __DIR__."/../models/email/Email.php";
 
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
@@ -26,7 +27,15 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     $changePassword = $_SESSION['changePassword'];
 
     $objEmployee = new Employee();
-    if(!$objEmployee->checkEmailRole($email,Constants::roleFaculty))//check realtime role
+    if($role == Constants::roleFaculty)
+    {
+        if(!$objEmployee->checkEmailRole($email,Constants::roleFaculty))//check realtime role
+        {
+            header("Location: ../LogoutController.php");
+            exit();
+        }
+    }
+    elseif($role == Constants::roleHod)
     {
         if(!$objEmployee->checkEmailRole($email,Constants::roleHod))
         {
@@ -34,6 +43,12 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
             exit();
         }
     }
+    else
+    {
+        header("Location: ../LogoutController.php");
+        exit();
+    }
+
     if($changePassword == 1)
     {
         if($role == Constants::roleFaculty)
@@ -50,7 +65,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
 }
 else
 {
-    header('Location: ../../views/faculty/index.php');
+    header('Location: ../../views/index.php');
     exit();
 }
 
@@ -78,8 +93,8 @@ class PbsaSystemController
                 $path = "hod";
 
 
-            $objEmployeeModel = new Employee();
-            $e_id = $objEmployeeModel->getEid($_SESSION['email']);
+            $objEmployee = new Employee();
+            $e_id = $objEmployee->getEid($_SESSION['email']);
 
             $objPbsaModel = new Pbsa();
             if(!$objPbsaModel->getPbsa($e_id,$year))
@@ -1237,6 +1252,36 @@ class PbsaSystemController
             {
                 if($objPbsaModel->submitPbsa($e_id,$year,$emp_comments,$role))
                 {
+                    //send mail to both , one for submission and another for higher authority.
+                    $objEmail = new Email();
+                    $from = "PBSA SYSTEM";
+                    $submit_name = $objEmployee->getName($e_id);
+                    $subject = "PBSA Submitted By '$submit_name";
+                    $message = "PBSA Has Been Submitted By '$submit_name' Of The Year '$year' , Please Login And Review Their Submission.";
+                    if($role == Constants::roleFaculty)
+                    {
+                        //send mail to his HOD
+                        $toHod = $objEmployee->getHodEmail($e_id);
+                        $objEmail->sendMail($from,$toHod,$subject,$message);
+                    }
+
+                    if($role == Constants::roleHod)
+                    {
+                        //send mail to Principal
+                        $toPrincipal = $objEmployee->getPrincipalEmail();
+                        $objEmail->sendMail($from,$toPrincipal,$subject,$message);
+                    }
+
+                    //send mail to submitter.
+                    $to1 = $objEmployee->getEmail($e_id);
+                    $subject1 = "PBSA Submitted SuccessFully";
+                    if($role == Constants::roleFaculty)
+                        $message1 = "PBSA Submitted Successfully For The Year '$year' , Please Wait For Approval From HOD.";
+                    if($role == Constants::roleHod)
+                        $message1 = "PBSA Submitted Successfully For The Year '$year' , Please Wait For Approval From Principal.";
+
+                    $objEmail->sendMail($from,$to1,$subject1,$message1);
+
                     echo '<script>alert("PBSA SUBMITTED SUCCESSFULLY");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 else

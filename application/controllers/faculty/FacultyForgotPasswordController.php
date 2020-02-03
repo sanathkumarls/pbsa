@@ -6,7 +6,7 @@
  * Time: 4:02 AM
  */
 
-require_once __DIR__.'/../../models/Email/Email.php';
+require_once __DIR__ . '/../../models/email/Email.php';
 require_once __DIR__.'/../../models/Employee.php';
 require_once __DIR__.'/../../utilities/Constants.php';
 if(isset($_POST['submit']))
@@ -31,7 +31,7 @@ class FacultyForgotPasswordController
                     $index = rand(0, strlen($characters) - 1);
                     $newPassword .= $characters[$index];
                 }
-                $from = "PBSA";
+                $from = "PBSA System";
                 $subject = "Password Reset Successful";
                 $message = "Hello , Here Is Your New Password For Logging In To PBSA : ".$newPassword;
                 //echo $subject.'<br>'.$message;

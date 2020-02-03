@@ -25,4 +25,21 @@ class Role
         }
         return "";
     }
+
+    function getRoleNameFromEmployeeId($e_id)
+    {
+        $db = new Database();
+        $con =$db->open_connection();
+
+        $query = "select r_name from role where `r_id` = (select role from employee where `e_id` = '$e_id')";
+
+        $result = $con->query($query);
+
+        if($result->num_rows > 0)
+        {
+            $row = $result->fetch_assoc();
+            return $row['r_name'];
+        }
+        return "";
+    }
 }

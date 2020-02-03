@@ -150,11 +150,40 @@ width:100%;
                             <div class="form-group"> <label for="exampleInputPassword1">Phone</label>
                                 <input type="text" autocomplete="off" name="phone"  class="form-control" pattern="[0-9]{10}" title="ENTER ONLY NUMBERS" placeholder="Phone" required="" maxlength="10"> </div>
 
-		
-							<div class="form-group"> <label for="exampleInputPassword1">Department</label> 
-							<select class="form-control" id="select" name="department" required="">
 
-<option  value="">Choose a department  </option>
+                            <div class="form-group"> <label for="exampleInputPassword1">Designation</label>
+                                <select class="form-control" id="designation" name="role" onchange="showDepartment()" required>
+                                    <option  value="">Choose a designation </option>
+                                    <option  value="<?php echo Constants::rolePrincipal;?>"> Principal </option>
+                                    <option  value="<?php echo Constants::roleHod;?>"> HOD </option>
+                                    <option  value="<?php echo Constants::roleFaculty;?>"> Faculty </option>
+                                </select>
+                                <br>
+                            </div>
+                            <script>
+                                function showDepartment()
+                                {
+                                    let des = document.getElementById("designation").value;
+                                    if(des != "")
+                                    {
+                                        if(des != <?php echo Constants::rolePrincipal;?>)
+                                        {
+                                            document.getElementById("department").removeAttribute("hidden");
+                                            document.getElementById("selectDept").setAttribute("required","");
+                                        }
+                                        else
+                                        {
+                                            document.getElementById("department").setAttribute("hidden","");
+                                            document.getElementById("selectDept").removeAttribute("required");
+                                        }
+                                    }
+                                }
+                            </script>
+		
+							<div class="form-group" id="department" hidden> <label for="exampleInputPassword1">Department</label>
+							<select class="form-control" id="selectDept" name="department">
+
+<option  value="">Choose a Department  </option>
                                 <?php
                                         if($departments->num_rows > 0)
                                         {
@@ -169,28 +198,13 @@ width:100%;
 
 </select>			
 							<br>
-							<div class="form-group"> <label for="exampleInputPassword1">Designation</label> 
-							<select class="form-control" id="select" name="role" required="">
 
-<option  value="">Choose a designation </option>
-
-
-<option  value="<?php echo Constants::rolePrincipal;?>"> Principal </option>
-<option  value="<?php echo Constants::roleHod;?>"> HOD </option>
-<option  value="<?php echo Constants::roleFaculty;?>"> Faculty </option>
-
-
-
-</select>			
-							<br>
-							
-							
-							
+                            </div>
 							<input type="submit" name="submit" id="a" class="btn btn-default" value="Submit" />
                                 <a href="index.php" class="btn btn-default">BACK</a>
+
+
 </form>
-						</div>
-						
 						<br>
 						<br>
 					
@@ -199,7 +213,7 @@ width:100%;
 						<br>	
 
 	
-			</div>		</div>	
+				</div>
 			
 			
 	

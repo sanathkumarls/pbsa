@@ -22,7 +22,7 @@ class Email
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = "tls";
         $mail->Port = 587;
-        $mail->Username = Constants::username;  /*Username*/
+        $mail->Username = Constants::username;  /**Username**/
         $mail->Password = Constants::password;    /**Password**/
 
         $mail->From = Constants::username;    /*From address required*/

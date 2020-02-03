@@ -15,7 +15,7 @@ class Department
         $db=new Database();
         $con=$db->open_connection();
 
-        $query="select * from department where `is_active` = 1";
+        $query="select * from department";
 
         $result=$con->query($query);
         return $result;
@@ -25,7 +25,7 @@ class Department
     {
         $db=new Database();
         $con=$db->open_connection();
-        $query="INSERT INTO `department`( `d_name`, `d_abbr`,`is_active`) VALUES ('$deptName','$deptAbbr',1);";
+        $query="INSERT INTO `department`( `d_name`, `d_abbr`) VALUES ('$deptName','$deptAbbr');";
         return $con->query($query);
 
     }
@@ -34,7 +34,7 @@ class Department
     {
         $db=new Database();
         $con=$db->open_connection();
-        $query="SELECT * from department where d_abbr='$deptAbbr' or `d_name`='$deptName' and is_active=1";
+        $query="SELECT * from department where d_abbr='$deptAbbr' or `d_name`='$deptName'";
         $result=$con->query($query);
         if($result->num_rows > 0)
             return true;
@@ -46,7 +46,7 @@ class Department
     {
         $db=new Database();
         $con=$db->open_connection();
-        $query="UPDATE `department` SET `is_active`=0 WHERE d_id='$deptId' ";
+        $query="delete from department where `d_id` = '$deptId' ";
         return $con->query($query);
     }
 
@@ -55,9 +55,26 @@ class Department
         $db = new Database();
         $con = $db->open_connection();
 
-        $query = "select * from department where `d_id` = '$id' and `is_active` = 1";
+        $query = "select * from department where `d_id` = '$id'";
 
         $result=$con->query($query);
+        if($result->num_rows > 0)
+        {
+            $row = $result->fetch_assoc();
+            return $row['d_abbr'];
+        }
+        return "";
+    }
+
+    function getDepartmentNameFromEmployeeId($e_id)
+    {
+        $db = new Database();
+        $con =$db->open_connection();
+
+        $query = "select d_abbr from department where `d_id` = (select department from employee where `e_id` = '$e_id')";
+
+        $result = $con->query($query);
+
         if($result->num_rows > 0)
         {
             $row = $result->fetch_assoc();

@@ -15,7 +15,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     $changePassword = $_SESSION['changePassword'];
 
     $objEmployee = new Employee();
-    if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
+    if(!$objEmployee->checkEmailRole($email,Constants::roleHod))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
     }
@@ -29,10 +29,11 @@ else
     header('Location: index.php');
 }
 ?>
+
 <div class="sidebar-menu">
     <header class="logo">
         <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#"> <span id="logo"> <h1 id="h1" style="font-size:30px;margin-bottom:-20px; margin-left:25px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>PBSA</B></h1></span>
-            <img id="logo" style="margin-top:-20px;"src="../../../assets/principal/images/logo.png" alt="Logo"/>
+            <img id="logo" style="margin-top:-20px;"src="../../../assets/hod/images/logo.png" alt="Logo"/>
         </a>
     </header>
     <div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
@@ -63,32 +64,30 @@ else
 <?php echo $initial." ".$firstname." ".$lastname;?>
 <!--                diplsay name and initial-->
 	</span></a>
-        <p>Principal</p>
+        <p>HOD</p>
         <ul>
             <li><a class="tooltips" href="editProfile.php"><span>Edit Profile</span><i class="lnr lnr-user"></i></a></li>
             <li><a class="tooltips" href="changePassword.php" ><span>ChangePassword</span><i class="fa fa-key"></i></a></li>
 
-
             <li><a class="tooltips" href="#" onclick="logout()"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
         </ul>
-        <script>
-            function logout()
-            {
-                if (confirm("Are you sure you want to Logout"))
-                {
-                    window.location.href = '../../controllers/LogoutController.php';
-                }
-            }
-        </script>
     </div>
+    <script>
+        function logout()
+        {
+            if (confirm("Are you sure you want to Logout"))
+            {
+                window.location.href = '../../controllers/LogoutController.php';
+            }
+        }
+    </script>
     <!--//down-->
     <div class="menu">
         <ul id="menu" >
 
             <li><a href="home.php"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
+
             <li id="menu-academico" class="xyz" ><a href="verifyPbsa.php"><i class="fa fa-bar-chart-o"></i> <span>Verify PBSA</span> <span class="badge count"></span></a>  </li>
-
-
 
         </ul>
 
@@ -103,7 +102,7 @@ else
         function load_unseen_notification(view ='')
         {
             $.ajax({
-                url:"../../controllers/principal/PrincipalLivePbsaFetch.php",
+                url:"../../controllers/hod/HodLivePbsaFetch.php",
                 method:"POST",
                 data:{view:view},
                 dataType:"json",
@@ -132,7 +131,6 @@ else
 
     });
 </script>
-
 <script>
     var toggle = true;
 
@@ -154,15 +152,15 @@ else
     });
 </script>
 <!--js -->
-<link rel="stylesheet" href="../../../assets/principal/css/vroom.css">
-<script type="text/javascript" src="../../../assets/principal/js/vroom.js"></script>
-<script type="text/javascript" src="../../../assets/principal/js/TweenLite.min.js"></script>
-<script type="text/javascript" src="../../../assets/principal/js/CSSPlugin.min.js"></script>
-<script src="../../../assets/principal/js/jquery.nicescroll.js"></script>
-<script src="../../../assets/principal/js/scripts.js"></script>
+<link rel="stylesheet" href="../../../assets/hod/css/vroom.css">
+<script type="text/javascript" src="../../../assets/hod/js/vroom.js"></script>
+<script type="text/javascript" src="../../../assets/hod/js/TweenLite.min.js"></script>
+<script type="text/javascript" src="../../../assets/hod/js/CSSPlugin.min.js"></script>
+<script src="../../../assets/hod/js/jquery.nicescroll.js"></script>
+<script src="../../../assets/hod/js/scripts.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../../../assets/principal/js/bootstrap.min.js"></script>
+<script src="../../../assets/hod/js/bootstrap.min.js"></script>
 
 </div>
 </div>

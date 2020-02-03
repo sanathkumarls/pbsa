@@ -2,9 +2,10 @@
 /**
  * Created by PhpStorm.
  * User: sanathls
- * Date: 09/11/19
- * Time: 2:12 AM
+ * Date: 29/01/20
+ * Time: 8:40 PM
  */
+
 
 require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../utilities/Constants.php";
@@ -16,56 +17,55 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     $changePassword = $_SESSION['changePassword'];
 
     $objEmployee = new Employee();
-    if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
+    if(!$objEmployee->checkEmailRole($email,Constants::roleHod))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
-        exit();
     }
     if($changePassword == 1)
     {
         header("Location: changePassword.php");
-        exit();
     }
 }
 else
 {
     header('Location: index.php');
-    exit();
 }
 ?>
+
+
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Principal Dashboard</title>
+    <title>PBSA System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Skill" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Bootstrap Core CSS -->
-    <link href="../../../assets/principal/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="../../../assets/hod/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <!-- Custom CSS -->
-    <link href="../../../assets/principal/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="../../../assets/hod/css/style.css" rel='stylesheet' type='text/css' />
     <!-- Graph CSS -->
-    <link href="../../../assets/principal/css/font-awesome.css" rel="stylesheet">
+    <link href="../../../assets/hod/css/font-awesome.css" rel="stylesheet">
     <!-- jQuery -->
     <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
     <!-- lined-icons -->
-    <link rel="stylesheet" href="../../../assets/principal/css/icon-font.min.css" type='text/css' />
+    <link rel="stylesheet" href="../../../assets/hod/css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
-    <script src="../../../assets/principal/js/jquery-1.10.2.min.js"></script>
-    <script src="../../../assets/principal/js/amcharts.js"></script>
-    <script src="../../../assets/principal/js/serial.js"></script>
-    <script src="../../../assets/principal/js/light.js"></script>
-    <script src="../../../assets/principal/js/radar.js"></script>
-    <link href="../../../assets/principal/css/barChart.css" rel='stylesheet' type='text/css' />
-    <link href="../../../assets/principal/css/fabochart.css" rel='stylesheet' type='text/css' />
+    <script src="../../../assets/hod/js/jquery-1.10.2.min.js"></script>
+    <script src="../../../assets/hod/js/amcharts.js"></script>
+    <script src="../../../assets/hod/js/serial.js"></script>
+    <script src="../../../assets/hod/js/light.js"></script>
+    <script src="../../../assets/hod/js/radar.js"></script>
+    <link href="../../../assets/hod/css/barChart.css" rel='stylesheet' type='text/css' />
+    <link href="../../../assets/hod/css/fabochart.css" rel='stylesheet' type='text/css' />
     <!--clock init-->
-    <script src="../../../assets/principal/js/css3clock.js"></script>
+    <script src="../../../assets/hod/js/css3clock.js"></script>
     <!--Easy Pie Chart-->
     <!--skycons-icons-->
-    <script src="../../../assets/principal/js/skycons.js"></script>
+    <script src="../../../assets/hod/js/skycons.js"></script>
 
-    <script src="../../../assets/principal/js/jquery.easydropdown.js"></script>
+    <script src="../../../assets/hod/js/jquery.easydropdown.js"></script>
     <style>
         #logo{
             width:50px;
@@ -150,14 +150,14 @@ else
             box-shadow: 0 5px #666;
             transform: translateY(4px);
         }
-        #bt{
-            float:left;
-            margin-right:5%;
-            margin-bottom:100px;
-            margin-top:2.2%;
+        .col-md-5{
+            text-align:center;
+
         }
-        #btx{
-            margin-top:-150px;
+        hr{
+            background-color:#221375;
+            height:2px;
+            width:200px;
         }
     </style>
     <!--//skycons-icons-->
@@ -169,7 +169,7 @@ else
         <div class="inner-content">
             <!-- header-starts -->
             <div class="header-section">
-                <!--menu-right-->
+
                 <div class="top_menu">
 
 
@@ -184,9 +184,9 @@ else
 
 
                     <div class="clearfix"></div>
-                    <!--//profile_details-->
+
                 </div>
-                <!--//menu-right-->
+
                 <div class="clearfix"></div>
             </div>
             <!-- //header-ends -->
@@ -195,8 +195,7 @@ else
                 <div class="sub-heard-part">
                     <ol class="breadcrumb m-b-0">
 
-                        <li>Home</li>
-                        <li></li>
+                        <li><a href="home.php">Home</a></li>
                     </ol>
                 </div>
 
@@ -214,22 +213,25 @@ else
 
                                     Welcome to<br><br>
                                     PBSA System.....</h1>
-
-
-                                <br> <br>
+                               <br><br>
                                 <div class="col-md-1"></div>
-                                <div class="col-md-5"><a href="verifyPbsa.php"><img src="../../../assets/hod/images/fill.png"><h3 style="font-family:'Copperplate Gothic Light';color:black;">Verify PBSA</h3></a></div>
-                                <div class="col-md-5"><a href="performance.php"><img src="../../../assets/hod/images/verify.png"><h3 style="font-family:'Copperplate Gothic Light';color:black;">View Performance</h3></a></div>
-                                <div class="col-md-1"></div><br><br><br><br><br><br><br>
+                                <div class="col-md-5"><a href="pbsaSystem.php"><img src="../../../assets/hod/images/fill.png"><h3 style="font-family:'Copperplate Gothic Light';color:black;">Fill PBSA</h3></a></div>
+                                <div class="col-md-5"><a href="verifyPbsa.php"><img src="../../../assets/hod/images/verify.png"><h3 style="font-family:'Copperplate Gothic Light';color:black;">Verify PBSA</h3></a></div>
+                                <div class="col-md-1"></div>
+
+
+
+
                             </div>
 
+
+                            <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
 
                         </div>
 
-                    </div>														<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-
-
+                    </div>
+                    <br> <br> <br> <br> <br> <br>
                 </div>
                 <!--/candile-->
 
@@ -238,7 +240,5 @@ else
                 <!--//content-inner-->
                 <!--/sidebar-menu-->
                 <?php
-                include 'footer.php';
-
-                ?>
-
+				include 'footer.php';
+				?>

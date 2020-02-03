@@ -189,7 +189,7 @@ else
                 <div class="sub-heard-part">
                     <ol class="breadcrumb m-b-0">
                         <li><a href="home.php">Home</a></li>
-                        <li>Organization
+                        <li>Department
                         </li>
                     </ol>
                 </div>

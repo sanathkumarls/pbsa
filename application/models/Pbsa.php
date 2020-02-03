@@ -60,6 +60,65 @@ class Pbsa
         return $con->query($query);
     }
 
+    function getPbsaApprovalsHodFetch($email)
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+        $query = "select count(*) as 'count' from pbsa where (`is_rejected` = 0 or `is_rejected` = 2) and `is_submitted` = 1 and `is_accepted` = 0 and `e_id` in (select employee.e_id from employee where `department` = (select department from employee where email = '$email'))";
+        return $con->query($query);
+    }
+
+    function getPbsaApprovalsHod($email)
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+        $query = "select * from pbsa where (`is_rejected` = 0 or `is_rejected` = 2) and `is_submitted` = 1 and `is_accepted` = 0 and `e_id` in (select employee.e_id from employee where `department` = (select department from employee where email = '$email')) order by `timestamp`";
+        return $con->query($query);
+    }
+
+    function getPbsaApprovalsPrincipalFetch()
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+        $query = "select count(*) as 'count' from pbsa where `is_submitted` = 1 and `is_accepted` = 2 ";
+        return $con->query($query);
+    }
+
+    function getPbsaApprovalsPrincipal()
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+        $query = "select * from pbsa where `is_submitted` = 1 and `is_accepted` = 2 order by `timestamp` ";
+        return $con->query($query);
+    }
+
+    function checkPbsaSubmitted($e_id,$year)
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+        $query = "select e_id from pbsa where `e_id` = '$e_id' and `year` = '$year' and `is_submitted` = 1";
+        $result = $con->query($query);
+        if($result->num_rows > 0)
+            return true;
+        return false;
+    }
+
+    function approvePbsa($e_id,$year,$role)
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+        $query = "update pbsa set `is_accepted` = '$role' where  `e_id` = '$e_id' and `year` = '$year'";
+        return $con->query($query);
+    }
+
+    function rejectPbsa($e_id,$year,$role,$comments)
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+        $query = "update pbsa set `is_rejected` = '$role' , `is_submitted` = 0 , `rejected_comments` = '$comments' where  `e_id` = '$e_id' and `year` = '$year'";
+        return $con->query($query);
+    }
+
 //    function getPbsaStatus($e_id,$year)
 //    {
 //        $db = new Database();

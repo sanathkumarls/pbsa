@@ -17,9 +17,25 @@ class Employee
             $db = new Database();
             $con = $db->open_connection();
 
-            $query = "insert into employee values (NULL,'$emp_id','$role','$department',NULL,'$first_name','$last_name','$email','".Constants::defaultPassword."','$phone',NULL,NULL,NULL,0,0)";
-            $result = $con->query($query);
-            return $result;
+            $photo = "";
+            if($role == Constants::roleFaculty)
+                $photo = "assets/faculty/images/a.png";
+            elseif ($role == Constants::roleHod)
+                $photo = "assets/hod/images/a.png";
+            elseif ($role == Constants::rolePrincipal)
+                $photo = "assets/principal/images/a.png";
+
+            $query = "insert into employee values (NULL,'$emp_id','$role',";
+
+            if($department == NULL)
+                $query.="NULL";
+            else
+                $query.="'$department'";
+
+
+            $query.= ",NULL,'$first_name','$last_name','$email','".Constants::defaultPassword."','$phone','$photo',NULL,NULL,0)";
+
+            return $con->query($query);
         }
 
 
@@ -42,7 +58,7 @@ class Employee
             $db = new Database();
             $con =$db->open_connection();
 
-            $query = "select * from employee where `email`='$email' and `role` = '$role' and `is_active` = 1 and `is_rejected` = 0";
+            $query = "select * from employee where `email`='$email' and `role` = '$role' and `is_active` = 1 ";
 
             $result = $con->query($query);
 
@@ -56,7 +72,7 @@ class Employee
             $db = new Database();
             $con =$db->open_connection();
 
-            $query = "select * from employee where `email` = '$email' and `password` = '$password' and `role` = '$role' and `is_active` = 1 and `is_rejected` = 0";
+            $query = "select * from employee where `email` = '$email' and `password` = '$password' and `role` = '$role' and `is_active` = 1 ";
 
             $result = $con->query($query);
 
@@ -65,11 +81,11 @@ class Employee
             return false;
         }
 
-        function checkPassword($email,$hashedpassword)
+        function checkPassword($email,$hashedpassword)//to check old password
         {
            $db = new Database();
            $con = $db->open_connection();
-            $query = "select * from employee where email='$email' and password='$hashedpassword' and is_active=1 and `is_rejected` = 0";
+            $query = "select * from employee where email='$email' and password='$hashedpassword' and is_active=1 ";
             $result = $con->query($query);
             if($result->num_rows > 0)
                 return true;
@@ -87,12 +103,22 @@ class Employee
             return $result;
         }
 
-        function pendingEmployee()
+        function pendingEmployeeFetch()
         {
             $db = new Database();
             $con =$db->open_connection();
 
-            $query = "select * from employee where `is_active` = 0 and `is_rejected` = 0";
+            $query = "select count(*) as 'count' from employee where `is_active` = 0 ";
+
+            return $con->query($query);
+        }
+
+        function pendingEmployee()
+        {
+            $db = new Database();
+            $con = $db->open_connection();
+
+            $query = "select * from employee where `is_active` = 0 ";
 
             return $con->query($query);
         }
@@ -112,7 +138,7 @@ class Employee
             $db = new Database();
             $con =$db->open_connection();
 
-            $query = "update employee set `is_rejected` = 1 where `e_id` = '$id'";
+            $query = "delete from employee where `e_id` = '$id'";
 
             return $con->query($query);
         }
@@ -122,7 +148,7 @@ class Employee
             $db = new Database();
             $con =$db->open_connection();
 
-            $query = "select * from employee where `e_id`='$id'";//dont check for isactive since mail is also sent for rejected employee
+            $query = "select email from employee where `e_id`='$id'";
 
             $result = $con->query($query);
 
@@ -134,39 +160,132 @@ class Employee
             return "";
         }
 
-    function getEid($email)
-    {
-        $db = new Database();
-        $con =$db->open_connection();
-
-        $query = "select * from employee where `email`='$email' and `is_active` = 1 and `is_rejected` = 0";
-
-        $result = $con->query($query);
-
-        if($result->num_rows > 0)
+        function getName($id)
         {
-            $row = $result->fetch_assoc();
-            return $row['e_id'];
+            $db = new Database();
+            $con =$db->open_connection();
+
+            $query = "select first_name,last_name from employee where `e_id`='$id'";
+
+            $result = $con->query($query);
+
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                return $row['first_name']." ".$row['last_name'];
+            }
+            return "";
         }
-        return "";
-    }
 
-    function getUserDetails($email)
-    {
-        $db=new Database();
-        $con=$db->open_connection();
+        function getEid($email)//email is unique
+        {
+            $db = new Database();
+            $con =$db->open_connection();
 
-        $query = "select * from employee where `email` = '$email' and `is_active` = 1 and `is_rejected` = 0";
+            $query = "select e_id from employee where `email`='$email' ";
 
-        return $con->query($query);
-    }
+            $result = $con->query($query);
 
-    function employeeUpdateProfile($initial,$firstName,$lastName,$email,$dob,$doj,$phone,$photo)
-    {
-        $db=new Database();
-        $con=$db->open_connection();
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                return $row['e_id'];
+            }
+            return "";
+        }
 
-        $query="UPDATE `employee` SET `initial`='$initial',`first_name`='$firstName',`last_name`='$lastName',`dob`='$dob',`doj`= '$doj',`phone`='$phone',`photo` = '$photo' WHERE `email`='$email'";
-        return $con->query($query);
-    }
+        function getEmpid($id)//only for viewing purpose
+        {
+            $db = new Database();
+            $con =$db->open_connection();
+
+            $query = "select emp_id from employee where `e_id`='$id'";
+
+            $result = $con->query($query);
+
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                return $row['emp_id'];
+            }
+            return "";
+        }
+
+        function getUserDetails($email)
+        {
+            $db=new Database();
+            $con=$db->open_connection();
+
+            $query = "select * from employee where `email` = '$email'";
+
+            return $con->query($query);
+        }
+
+        function employeeUpdateProfile($initial,$firstName,$lastName,$email,$dob,$doj,$phone,$photo)
+        {
+            $db=new Database();
+            $con=$db->open_connection();
+
+            $query = "UPDATE `employee` SET `initial`='$initial',`first_name`='$firstName',`last_name`='$lastName',`dob`='$dob',`doj`= '$doj',`phone`='$phone',`photo` = '$photo' WHERE `email`='$email'";
+            return $con->query($query);
+        }
+
+        function checkSameDepartment($e_id,$hod_email)
+        {
+            $db=new Database();
+            $con=$db->open_connection();
+
+            $query1 = "select department from employee where `e_id` = '$e_id'";
+
+            $query2 = "select department from employee where `email` = '$hod_email' ";
+
+            $result1 = $con->query($query1);
+            $result2 = $con->query($query2);
+
+            if($result1->num_rows > 0 && $result2->num_rows > 0)
+            {
+                $row1 = $result1->fetch_assoc();
+                $row2 = $result2->fetch_assoc();
+
+                if($row1['department'] == $row2['department'])
+                    return true;
+            }
+            return false;
+        }
+
+        function getHodEmail($faculty_id)
+        {
+            $db=new Database();
+            $con=$db->open_connection();
+
+            $role = Constants::roleHod;
+            $query = "SELECT email from employee where `role` = '$role' and `is_active` = 1 and  `department` = (SELECT department from employee where `e_id` = '$faculty_id')";
+            $result = $con->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                return $row['email'];
+            }
+            return "";
+        }
+
+        function getPrincipalEmail()
+        {
+            $db=new Database();
+            $con=$db->open_connection();
+
+            $role = Constants::rolePrincipal;
+
+            $query = "SELECT email from employee where `role` = '$role' and `is_active` = 1";
+            $result = $con->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                return $row['email'];
+            }
+            return "";
+        }
 }
+
+//$objEmployee = new Employee();
+//echo $objEmployee->checkSameDepartment(8,"hodbio@sdmit.in");

@@ -22,7 +22,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     $changePassword = $_SESSION['changePassword'];
 
     $objEmployee = new Employee();
-    if(!$objEmployee->checkEmailRole($email,Constants::roleFaculty))//check realtime role
+    if(!$objEmployee->checkEmailRole($email,Constants::roleHod))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
     }

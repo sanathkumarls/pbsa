@@ -69,7 +69,7 @@ else
             <li><a class="tooltips" href="editProfile.php"><span>Edit Profile</span><i class="lnr lnr-user"></i></a></li>
             <li><a class="tooltips" href="changePassword.php" ><span>ChangePassword</span><i class="fa fa-key"></i></a></li>
 
-            <li><a class="tooltips" href="../../controllers/LogoutController.php" onclick="logout()"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+            <li><a class="tooltips" href="#" onclick="logout()"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
         </ul>
     </div>
     <script>

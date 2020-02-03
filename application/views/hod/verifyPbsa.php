@@ -2,12 +2,13 @@
 /**
  * Created by PhpStorm.
  * User: sanathls
- * Date: 09/11/19
- * Time: 2:12 AM
+ * Date: 30/01/20
+ * Time: 10:08 PM
  */
 
 require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../utilities/Constants.php";
+require_once __DIR__."/../../models/Pbsa.php";
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
@@ -16,7 +17,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     $changePassword = $_SESSION['changePassword'];
 
     $objEmployee = new Employee();
-    if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
+    if(!$objEmployee->checkEmailRole($email,Constants::roleHod))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
     }
@@ -29,41 +30,45 @@ else
 {
     header('Location: index.php');
 }
+
 ?>
+
+
+
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Department Performance</title>
+    <title>VERIFY PBSA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Skill" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Bootstrap Core CSS -->
-    <link href="../../../assets/principal/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="../../../assets/hod/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <!-- Custom CSS -->
-    <link href="../../../assets/principal/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="../../../assets/hod/css/style.css" rel='stylesheet' type='text/css' />
     <!-- Graph CSS -->
-    <link href="../../../assets/principal/css/font-awesome.css" rel="stylesheet">
+    <link href="../../../assets/hod/css/font-awesome.css" rel="stylesheet">
     <!-- jQuery -->
     <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
     <!-- lined-icons -->
-    <link rel="stylesheet" href="../../../assets/principal/css/icon-font.min.css" type='text/css' />
+    <link rel="stylesheet" href="../../../assets/hod/css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
-    <script src="../../../assets/principal/js/jquery-1.10.2.min.js"></script>
-    <script src="../../../assets/principal/js/amcharts.js"></script>
-    <script src="../../../assets/principal/js/serial.js"></script>
-    <script src="../../../assets/principal/js/light.js"></script>
-    <script src="../../../assets/principal/js/radar.js"></script>
-    <link href="../../../assets/principal/css/barChart.css" rel='stylesheet' type='text/css' />
-    <link href="../../../assets/principal/css/fabochart.css" rel='stylesheet' type='text/css' />
+    <script src="../../../assets/hod/js/jquery-1.10.2.min.js"></script>
+    <script src="../../../assets/hod/js/amcharts.js"></script>
+    <script src="../../../assets/hod/js/serial.js"></script>
+    <script src="../../../assets/hod/js/light.js"></script>
+    <script src="../../../assets/hod/js/radar.js"></script>
+    <link href="../../../assets/hod/css/barChart.css" rel='stylesheet' type='text/css' />
+    <link href="../../../assets/hod/css/fabochart.css" rel='stylesheet' type='text/css' />
     <!--clock init-->
-    <script src="../../../assets/principal/js/css3clock.js"></script>
+    <script src="../../../assets/hod/js/css3clock.js"></script>
     <!--Easy Pie Chart-->
     <!--skycons-icons-->
-    <script src="../../../assets/principal/js/skycons.js"></script>
+    <script src="../../../assets/hod/js/skycons.js"></script>
 
-    <script src="../../../assets/principal/js/jquery.easydropdown.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../../assets/principal/DataTables/media/css/jquery.dataTables.css">
+    <script src="../../../assets/hod/js/jquery.easydropdown.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../assets/hod/DataTables/media/css/jquery.dataTables.css">
 
     <style>
         #hr{
@@ -161,13 +166,9 @@ else
             <div class="outter-wp">
                 <div class="sub-heard-part">
                     <ol class="breadcrumb m-b-0">
-                        <?php
-
-//                        $m = new MongoClient();
-//                        $db=$m->mydb;
-
-                        ?>	<li><a href="home.php">Home</a></li>
-                        <li>Departments </li>
+                    <li><a href="home.php">Home</a></li>
+                        <li>Verify PBSA
+                        </li>
                     </ol>
                 </div>
                 <!--custom-widgets-->
@@ -178,21 +179,10 @@ else
 
                     <div class="candile-inner">
 
-                        <center><h3 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;">Department Performance</h3></center>
+                        <center><h3 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;">PBSA Submissions</h3></center>
                         <hr id="hr">
 
                         <div id="center"><div id="fig">
-                                <?php
-//
-//
-//
-//                                $i=1;
-//                                $m = new MongoClient();
-//                                $dbases = $m->listDBs();
-//                                ?>
-<!---->
-<!---->
-
 
 
                                 <section class="contact-section">
@@ -203,36 +193,36 @@ else
                                                 <tr>
 
                                                     <th>&nbsp;Sl No</th>
-                                                    <th>&nbsp;Department</th>
+                                                    <th>&nbsp;Employee Id</th>
+                                                    <th>&nbsp;Employee Name</th>
+                                                    <th>&nbsp;Year</th>
                                                     <th>&nbsp;Action</th>
-
 
 
                                                 </tr>
                                                 </thead>
 
                                                 <tbody>
-<!--                                                --><?php //foreach ($dbases['databases'] as $dbs) {
-//
-//                                                    $dbname = $dbs['name'];
-//                                                    if($dbname!='mydb'  and $dbname!='local' and $dbname!='config' and $dbname!='admin'){
-//
-//                                                        $e=$m->$dbname->HOD->findOne();
-//                                                        $empid=$e['empid'];
-//                                                        ?>
-                                                        <tr>
-                                                            <td><?php// echo $i;?></td>
-                                                            <td><?php //echo $dbname; ?></td>
+                                                <?php
+                                                    $objPbsa = new Pbsa();
+                                                    $result = $objPbsa->getPbsaApprovalsHod($email);
+                                                    if($result->num_rows > 0)
+                                                    {
+                                                        $i=0;
+                                                        while($row = $result->fetch_assoc())
+                                                        {
+                                                            echo '<tr>
+                                                                    <td>'.++$i.'</td>
+                                                                    <td>'.$objEmployee->getEmpid($row["e_id"]).'</td>
+                                                                    <td>'.$objEmployee->getName($row["e_id"]).'</td>
+                                                                    <td>'.$row["year"].'</td>
 
-                                                            <td> <form method="post" action="hverify1.php?empid=<?php //echo $empid; ?>&dept=<?php// echo $dbname; ?>" ><button name="approve[<?php// echo $i?>]" id="app" class="btn btn-primary" value='<?php  // echo $dbname; ?>'>View</button></form> </td>
-                                                        </tr>
-<!--                                                        --><?php
-//                                                        $i++;
-//                                                    }
-//                                                }
-//                                                ?>
+                                                                    <td> <form method="post" action="viewPbsa.php"><input name="faculty_id" value="'.$row["e_id"].'" hidden readonly><input name="year" value="'.$row["year"].'" hidden readonly> <button name="approve" id="app" class="btn btn-primary">View</button></form> </td>
+                                                                  </tr>';
+                                                        }
+                                                    }
 
-
+                                                ?>
 
 
                                                 </tbody>
@@ -247,18 +237,18 @@ else
                                 <!-- End contact section -->
 
 
-                                <script type="text/javascript" src="../../../assets/principal/js/jquery.min.js"></script>
-                                <script type="text/javascript" src="../../../assets/principal/js/jquery.migrate.js"></script>
-                                <script type="text/javascript" src="../../../assets/principal/js/bootstrap.min.js"></script>
-                                <script type="text/javascript" src="../../../assets/principal/js/jquery.imagesloaded.min.js"></script>
-                                <script type="text/javascript" src="../../../assets/principal/js/retina-1.1.0.min.js"></script>
-                                <script type="text/javascript" src="../../../assets/principal/js/script.js"></script>
+                                <script type="text/javascript" src="../../../assets/hod/js/jquery.min.js"></script>
+                                <script type="text/javascript" src="../../../assets/hod/js/jquery.migrate.js"></script>
+                                <script type="text/javascript" src="../../../assets/hod/js/bootstrap.min.js"></script>
+                                <script type="text/javascript" src="../../../assets/hod/js/jquery.imagesloaded.min.js"></script>
+                                <script type="text/javascript" src="../../../assets/hod/js/retina-1.1.0.min.js"></script>
+                                <script type="text/javascript" src="../../../assets/hod/js/script.js"></script>
 
                                 <!-- ############## Data table coding starts here -->
                                 <script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.12.4.js"></script>
-                                <script type="text/javascript" language="javascript" src="../../../assets/principal/DataTables/media/js/jquery.dataTables.js"></script>
-                                <script type="text/javascript" language="javascript" src="../../../assets/principal/DataTables/examples/resources/syntax/shCore.js"></script>
-                                <script type="text/javascript" language="javascript" src="../../../assets/principal/DataTables/examples/resources/demo.js"></script>
+                                <script type="text/javascript" language="javascript" src="../../../assets/hod/DataTables/media/js/jquery.dataTables.js"></script>
+                                <script type="text/javascript" language="javascript" src="../../../assets/hod/DataTables/examples/resources/syntax/shCore.js"></script>
+                                <script type="text/javascript" language="javascript" src="../../../assets/hod/DataTables/examples/resources/demo.js"></script>
                                 <script type="text/javascript" language="javascript" class="init">
                                     $(document).ready(function() {
                                         $('#example').DataTable( {
@@ -281,8 +271,24 @@ else
                 </div>
 
             </div>
+            <!--/candile-->
 
-<?php
-include 'footer.php';
+            <!--/charts-->
 
-?>
+
+
+
+
+
+
+            <!--//custom-widgets-->
+
+            <!--/charts-->
+
+
+
+            <!--//content-inner-->
+            <!--/sidebar-menu-->
+            <?php
+				include 'footer.php';
+				?>

@@ -8,7 +8,7 @@
 
 require_once __DIR__."/../../models/Admin.php";
 require_once __DIR__."/../../models/Employee.php";
-require_once __DIR__."/../../utilities/Constants.php";
+
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
@@ -38,11 +38,7 @@ class AdminLiveEmployeeFetch
     function fetch()
     {
         $objEmployee = new Employee();
-        $result = $objEmployee->pendingEmployee();
-        $count = 0;
-        while($result->fetch_assoc())
-            $count++;
-        $value['count']=$count;
-        echo json_encode($value);
+        $result = $objEmployee->pendingEmployeeFetch();
+        echo json_encode($result->fetch_assoc());
     }
 }

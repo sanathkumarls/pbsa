@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 27, 2020 at 01:55 PM
+-- Generation Time: Feb 03, 2020 at 03:53 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -68,8 +68,11 @@ CREATE TABLE `c1` (
 --
 
 INSERT INTO `c1` (`c1_id`, `c11`, `c11_path`, `c12`, `c12_path`, `c1_total`) VALUES
-(3, 1, 'uploads/faculty/documents/2020_c11_1.pdf', 100, '', 5.05),
-(4, 0, '', 0, '', 0);
+(1, 0, '', 0, '', 0),
+(2, 100, '', 100, '', 10),
+(3, 0, '', 0, '', 0),
+(4, 0, '', 0, '', 0),
+(5, 0, '', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -95,8 +98,11 @@ CREATE TABLE `c2` (
 --
 
 INSERT INTO `c2` (`c2_id`, `c21`, `c21_path`, `c22`, `c22_path`, `c23`, `c23_path`, `c24`, `c24_path`, `c2_total`) VALUES
-(3, 0, '', 100, '', 0, '', 100, '', 5),
-(4, 0, '', 0, '', 0, '', 0, '', 0);
+(1, 0, '', 0, '', 0, '', 0, '', 0),
+(2, 100, '', 100, '', 100, '', 100, '', 10),
+(3, 0, '', 0, '', 0, '', 0, '', 0),
+(4, 0, '', 0, '', 0, '', 0, '', 0),
+(5, 0, '', 0, '', 0, '', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -140,8 +146,11 @@ CREATE TABLE `c3` (
 --
 
 INSERT INTO `c3` (`c3_id`, `c31_1`, `c31_2`, `c31_3`, `c31_4`, `c31_5`, `c31_path`, `c32_1`, `c32_2`, `c32_3`, `c32_4`, `c32_5`, `c32_6`, `c32_7`, `c32_8`, `c32_9`, `c32_10`, `c32_11`, `c32_12`, `c32_13`, `c32_14`, `c32_15`, `c32_16`, `c32_17`, `c32_18`, `c32_19`, `c32_path`, `c3_total`) VALUES
+(1, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0),
+(2, 5, 10, 2, 2, 4, '', 20, 20, 5, 20, 20, 20, 20, 20, 20, 20, 20, 2, 2, 0, 0, 0, 0, 0, 0, '', 10),
 (3, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0),
-(4, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0);
+(4, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0),
+(5, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -169,8 +178,11 @@ CREATE TABLE `c4` (
 --
 
 INSERT INTO `c4` (`c4_id`, `c41`, `c41_path`, `c42`, `c42_path`, `c43`, `c43_path`, `c44`, `c44_path`, `c45`, `c45_path`, `c4_total`) VALUES
+(1, 0, '', 0, '', 0, '', 0, '', 0, '', 0),
+(2, 0, '', 0, '', 0, '', 0, '', 0, '', 0),
 (3, 0, '', 0, '', 0, '', 0, '', 0, '', 0),
-(4, 0, '', 0, '', 0, '', 0, '', 0, '', 0);
+(4, 0, '', 0, '', 0, '', 0, '', 0, '', 0),
+(5, 0, '', 0, '', 0, '', 0, '', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -197,8 +209,11 @@ CREATE TABLE `c5` (
 --
 
 INSERT INTO `c5` (`c5_id`, `phd`, `c51_1`, `c51_2`, `c51_3`, `c51_path`, `c52`, `c52_path`, `c53`, `c53_path`, `c5_total`) VALUES
+(1, 0, '', 0, 0, '', 0, '', 0, '', 0),
+(2, 0, '', 0, 0, '', 0, '', 0, '', 0),
 (3, 0, '', 0, 0, '', 0, '', 0, '', 0),
-(4, 0, '', 0, 0, '', 0, '', 0, '', 0);
+(4, 0, '', 0, 0, '', 0, '', 0, '', 0),
+(5, 0, '', 0, 0, '', 0, '', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -224,8 +239,11 @@ CREATE TABLE `c6` (
 --
 
 INSERT INTO `c6` (`c6_id`, `c61`, `c61_path`, `c62`, `c62_path`, `c63`, `c63_path`, `c64`, `c64_path`, `c6_total`) VALUES
+(1, 0, '', 0, '', 0, '', 0, '', 0),
+(2, 0, '', 0, '', 0, '', 0, '', 0),
 (3, 0, '', 0, '', 0, '', 0, '', 0),
-(4, 0, '', 0, '', 0, '', 0, '', 0);
+(4, 0, '', 0, '', 0, '', 0, '', 0),
+(5, 0, '', 0, '', 0, '', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -251,8 +269,11 @@ CREATE TABLE `c7` (
 --
 
 INSERT INTO `c7` (`c7_id`, `c71`, `c71_path`, `c72`, `c72_path`, `c73`, `c73_path`, `c74`, `c74_path`, `c7_total`) VALUES
+(1, 0, '', 0, '', 0, '', 0, '', 0),
+(2, 0, '', 0, '', 0, '', 0, '', 0),
 (3, 0, '', 0, '', 0, '', 0, '', 0),
-(4, 0, '', 0, '', 0, '', 0, '', 0);
+(4, 0, '', 0, '', 0, '', 0, '', 0),
+(5, 0, '', 0, '', 0, '', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -282,8 +303,11 @@ CREATE TABLE `c8` (
 --
 
 INSERT INTO `c8` (`c8_id`, `c81`, `c81_path`, `c82`, `c82_path`, `c83`, `c83_path`, `c84`, `c84_path`, `c85`, `c85_path`, `c86`, `c86_path`, `c8_total`) VALUES
+(1, 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0),
+(2, 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0),
 (3, 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0),
-(4, 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0);
+(4, 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0),
+(5, 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -294,36 +318,25 @@ INSERT INTO `c8` (`c8_id`, `c81`, `c81_path`, `c82`, `c82_path`, `c83`, `c83_pat
 CREATE TABLE `department` (
   `d_id` int(11) NOT NULL,
   `d_name` varchar(50) NOT NULL,
-  `d_abbr` varchar(20) NOT NULL,
-  `is_active` int(11) NOT NULL DEFAULT '1'
+  `d_abbr` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `department`
 --
 
-INSERT INTO `department` (`d_id`, `d_name`, `d_abbr`, `is_active`) VALUES
-(1, 'Biotechnology', 'Biotechnology', 1),
-(2, 'Chemistry', 'Chemistry', 1),
-(3, 'Centre for Interdisciplinary Research in Humanitie', 'CIRHS', 1),
-(4, 'Commerce', 'Commerce', 1),
-(5, 'Economics', 'Economics', 1),
-(6, 'English', 'English', 1),
-(7, 'Physics', 'Physics', 1),
-(8, 'Department of Journalism and Mass Communication', 'MCJ', 1),
-(9, 'Department of Masters in Social Work', 'MSW', 1),
-(10, 'Psychology', 'Psychology', 1),
-(11, 'Statistics', 'Statistics', 1);
-
---
--- Triggers `department`
---
-DELIMITER $$
-CREATE TRIGGER `department status` AFTER UPDATE ON `department` FOR EACH ROW BEGIN
-UPDATE employee set `is_active` = NEW.is_active where department = OLD.d_id and `is_rejected` = 0;
-END
-$$
-DELIMITER ;
+INSERT INTO `department` (`d_id`, `d_name`, `d_abbr`) VALUES
+(1, 'Biotechnology', 'Biotechnology'),
+(2, 'Chemistry', 'Chemistry'),
+(3, 'Centre for Interdisciplinary Research in Humanitie', 'CIRHS'),
+(4, 'Commerce', 'Commerce'),
+(5, 'Economics', 'Economics'),
+(6, 'English', 'English'),
+(7, 'Physics', 'Physics'),
+(8, 'Department of Journalism and Mass Communication', 'MCJ'),
+(9, 'Department of Masters in Social Work', 'MSW'),
+(10, 'Psychology', 'Psychology'),
+(11, 'Statistics', 'Statistics');
 
 -- --------------------------------------------------------
 
@@ -345,22 +358,19 @@ CREATE TABLE `employee` (
   `photo` varchar(50) DEFAULT 'assets/faculty/images/a.png' COMMENT 'assets/faculty/images/a.png',
   `dob` varchar(10) DEFAULT NULL,
   `doj` varchar(10) DEFAULT NULL,
-  `is_active` int(11) DEFAULT '0',
-  `is_rejected` int(11) DEFAULT '0'
+  `is_active` int(11) DEFAULT '0' COMMENT '0 - pending , 1 - active , 2 - deleted'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`e_id`, `emp_id`, `role`, `department`, `initial`, `first_name`, `last_name`, `email`, `password`, `phone`, `photo`, `dob`, `doj`, `is_active`, `is_rejected`) VALUES
-(1, '123', 1, 6, 'Mr.', 'Sanath', 'L S', '4su17cs081@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '9481694830', 'uploads/faculty/profile/Js5kb0LC2u.jpeg', '1999-09-16', '2019-11-09', 1, 0),
-(2, '1245656', 2, 1, NULL, 'Santhosh', 'Kumar', 'aasgg@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '2656526526', NULL, NULL, NULL, 1, 0),
-(3, '4434', 3, 3, NULL, 'Sudhanva', 'Hebbar', 'ccvcvc@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '1234567766', NULL, NULL, NULL, 0, 1),
-(4, '555656', 2, 2, NULL, 'Goutham', 'C P', 'freekash@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '9663361747', NULL, NULL, NULL, 1, 0),
-(5, '123', 3, 6, 'Mr.', 'Subramanya', 'Kashyap', '4su17cs099@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '1234567890', 'uploads/principal/profile/N2SEeywchN.jpeg', '2019-10-28', '2019-10-28', 1, 0),
-(6, '44545', 2, 3, NULL, 'Test', 't', 'test@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '3232323232', NULL, NULL, NULL, 1, 0),
-(7, '43434', 3, 10, NULL, 'vvc vcvv', 'hjhhjh', '4434767@sdmit.in', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '3556162565', NULL, NULL, NULL, 1, 0);
+INSERT INTO `employee` (`e_id`, `emp_id`, `role`, `department`, `initial`, `first_name`, `last_name`, `email`, `password`, `phone`, `photo`, `dob`, `doj`, `is_active`) VALUES
+(6, '1', 3, NULL, NULL, 'Principal', 'Sdmit', 'principal@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '1212121212', 'assets/principal/images/a.png', NULL, NULL, 1),
+(7, '2', 2, 1, NULL, 'hod', 'bio', 'hodbio@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '1212121212', 'assets/hod/images/a.png', NULL, NULL, 1),
+(8, '3', 2, 2, NULL, 'hod', 'che', 'hodche@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '1212121212', 'assets/hod/images/a.png', NULL, NULL, 1),
+(9, '4', 1, 1, NULL, 'faculty', 'bio', 'facultybio@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '1212121212', 'assets/faculty/images/a.png', NULL, NULL, 1),
+(10, '5', 1, 2, NULL, 'faculty', 'che', 'facultyche@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '1211212121', 'assets/faculty/images/a.png', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -412,8 +422,11 @@ CREATE TABLE `pbsa` (
 --
 
 INSERT INTO `pbsa` (`pbsa_id`, `e_id`, `year`, `is_submitted`, `is_accepted`, `is_rejected`, `rejected_comments`, `emp_comments`, `timestamp`) VALUES
-(3, 1, '2020', 0, 0, 0, '', '', '2020-01-26 11:07:34'),
-(4, 1, '2019', 0, 0, 0, NULL, '', '2020-01-26 14:01:34');
+(1, 10, '2020', 1, 3, 0, '', '', '2020-02-03 14:42:24'),
+(2, 9, '2020', 1, 3, 0, '', '', '2020-02-03 14:43:21'),
+(3, 7, '2020', 1, 3, 0, '', '', '2020-02-03 14:46:08'),
+(4, 8, '2020', 1, 3, 0, '', '', '2020-02-03 14:46:28'),
+(5, 9, '2019', 1, 3, 0, '', '', '2020-02-03 14:51:57');
 
 --
 -- Triggers `pbsa`
@@ -524,6 +537,8 @@ ALTER TABLE `department`
 --
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`e_id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `email_2` (`email`),
   ADD KEY `employee_ibfk_1` (`role`),
   ADD KEY `branch` (`department`);
 
@@ -566,7 +581,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `management`
@@ -578,7 +593,7 @@ ALTER TABLE `management`
 -- AUTO_INCREMENT for table `pbsa`
 --
 ALTER TABLE `pbsa`
-  MODIFY `pbsa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pbsa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `role`

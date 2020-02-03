@@ -162,7 +162,7 @@ else
                 <div class="sub-heard-part">
                     <ol class="breadcrumb m-b-0">
                         <li><a href="home.php">Home</a></li>
-                        <li>Employees</li>
+                        <li>Approvals</li>
 
                     </ol>
                 </div>
@@ -194,13 +194,14 @@ if($result->num_rows > 0)
     <?php
     while($row = $result->fetch_assoc())
     {
+        $department = $objDept->getDepartmentName($row['department']);
     ?>
                                             <div class="media-body">
                                                 <div class="pull-left">
                                                     <div class="lg-item-heading">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Employee Id :&nbsp;<?php echo $row['emp_id'];?></div>
                                                     <div class="lg-item-heading" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name :&nbsp;<?php echo $row['first_name']." ".$row['last_name'];?></div>
                                                     <div class="lg-item-heading">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail :&nbsp;<?php echo $row['email'];?></div>
-                                                    <div class="lg-item-heading">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Department :&nbsp;<?php echo $objDept->getDepartmentName($row['department']) ;?></div>
+                                                    <?php if($department != "") { ?><div class="lg-item-heading">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Department :&nbsp;<?php echo $department ;?></div><?php }?>
                                                     <div class="lg-item-heading">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Designation :&nbsp;<?php echo $objRole->getRoleName($row['role']);?></div>
                                                 </div>
                                                 <br>

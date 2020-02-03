@@ -6,14 +6,14 @@
  * Time: 2:12 AM
  */
 require_once __DIR__.'/../../models/Department.php';
+require_once __DIR__ . "/../../models/Admin.php";
+require_once __DIR__ . "/../../utilities/Constants.php";
 
 $objDepartment =new Department();
-
 $departments = $objDepartment->getDepartments();
 
 
-require_once __DIR__ . "/../../models/Admin.php";
-require_once __DIR__ . "/../../utilities/Constants.php";
+
 session_start();
 if (isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
@@ -202,7 +202,7 @@ else
                 <div class="sub-heard-part">
                     <ol class="breadcrumb m-b-0">
                         <li><a href="home.php">Home</a></li>
-                        <li><a href="organization.php">Organization</a></li>
+                        <li><a href="department.php">Department</a></li>
                         <li>Remove Department </li>
 
                     </ol>
@@ -255,30 +255,33 @@ else
 
                                                         </select>
                                                         <br>
-                                                        <script>
-                                                            function confirm1()
-                                                            {
-                                                                var deptid=0;
-                                                                deptid=document.getElementById('select').value;
-                                                                //alert(deptid);
-                                                                if (deptid!=0)
-                                                                {
-                                                                    if (confirm("Are you sure you want to delete department")) {
-                                                                        window.location.href = '../../controllers/admin/AdminRemoveDept.php';
-                                                                    }
-                                                                }
-                                                            }
-
-
-                                                        </script>
-
 
 
                                                     </div>
 
 
                                                     <div class="col-sm-6">
-                                                        <button type="submit" name="submit"  onclick="confirm1()" class="btn btn-default">Submit</button> </form>
+                                                       <div hidden> <button type="submit" name="submit" id="submit" class="btn btn-default">Submit</button></div>
+                                    </form>
+<!--                                    dummy-->
+                                    <a href="#" class="btn btn-primary" onclick="confirmDelete()">Submit</a>
+                                    <script>
+                                        function confirmDelete()
+                                        {
+                                            let deptid=0;
+                                            deptid=document.getElementById('select').value;
+                                            //alert(deptid);
+                                            if (deptid!=0)
+                                            {
+                                                if(confirm("Employees Under This Department Will Also Be Deleted . Are You Sure You Want To Delete This Department?"))
+                                                {
+                                                    document.getElementById("submit").click();
+                                                }
+                                            }
+                                        }
+                                    </script>
+
+                                    <!--                                    dummy-->
                                 </div>
                             </div></div>
 

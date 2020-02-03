@@ -2,27 +2,27 @@
 /**
  * Created by PhpStorm.
  * User: sanathls
- * Date: 10-11-2019
- * Time: 08:43
+ * Date: 09/11/19
+ * Time: 4:02 AM
  */
 
 require_once __DIR__ . '/../../models/email/Email.php';
-require_once __DIR__.'/../../models/Management.php';
+require_once __DIR__.'/../../models/Employee.php';
 require_once __DIR__.'/../../utilities/Constants.php';
 if(isset($_POST['submit']))
 {
-    $objForgotPassword = new ManagementForgotPasswordController();
+    $objForgotPassword = new HodForgotPasswordController();
     $objForgotPassword->getUserEmail();
 }
-class ManagementForgotPasswordController
+class HodForgotPasswordController
 {
     function getUserEmail()
     {
         $email = $_POST['email'];
         if($email != null)
         {
-            $objManagement = new Management();
-            if($objManagement->checkEmail($email))
+            $objEmployee = new Employee();
+            if($objEmployee->checkEmailRole($email,Constants::roleHod))
             {
                 $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                 $newPassword = '';
@@ -40,28 +40,29 @@ class ManagementForgotPasswordController
                 {
                     //update password in database if mail is sent
                     $hashPassword = hash("SHA512",$newPassword);
-                    if($objManagement->updatePassword($email,$hashPassword))
+                    if($objEmployee->updatePassword($email,$hashPassword))
                     {
-                        echo '<script>alert("Password Reset Success. New Password Has Been Sent To Your Registered Email Id"); window.location.href="../../views/management/index.php"</script>';
+                        echo '<script>alert("Password Reset Success. New Password Has Been Sent To Your Registered Email Id"); window.location.href="../../views/hod/index.php"</script>';
                     }
                     else
                     {
-                        echo '<script>alert("Password Reset Failed. Try Again Later"); window.location.href="../../views/management/index.php"</script>';
+                        echo '<script>alert("Password Reset Failed. Try Again Later"); window.location.href="../../views/hod/index.php"</script>';
                     }
                 }
                 else
                 {
-                    echo '<script>alert("Password Reset Failed. Try Again Later"); window.location.href="../../views/management/index.php"</script>';
+                    echo '<script>alert("Password Reset Failed. Try Again Later"); window.location.href="../../views/hod/index.php"</script>';
                 }
             }
             else
             {
-                echo '<script>alert("Email Id Does Not Exist"); window.location.href="../../views/management/index.php"</script>';
+                echo '<script>alert("Email Id Does Not Exist"); window.location.href="../../views/hod/index.php"</script>';
             }
         }
         else
         {
-            echo '<script>alert("Please Enter Your Email Id"); window.location.href="../../views/management/index.php"</script>';
+            echo '<script>alert("Please Enter Your Email Id"); window.location.href="../../views/hod/index.php"</script>';
         }
+
     }
 }

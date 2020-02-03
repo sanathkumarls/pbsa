@@ -6,7 +6,7 @@
  * Time: 4:02 AM
  */
 
-require_once __DIR__.'/../../models/Email/Email.php';
+require_once __DIR__ . '/../../models/email/Email.php';
 require_once __DIR__.'/../../models/Employee.php';
 require_once __DIR__.'/../../utilities/Constants.php';
 if(isset($_POST['submit']))

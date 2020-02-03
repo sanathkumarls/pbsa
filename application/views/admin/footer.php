@@ -72,7 +72,7 @@ else
             <li><a class="tooltips" href="editProfile.php"><span>Edit Profile</span><i class="fa fa-edit fa-5x"></i></a></li>
             <li><a class="tooltips" href="addManagement.php"><span>AddManagement</span><i class="lnr lnr-user"></i></a></li>
             <li><a class="tooltips" href="changePassword.php" ><span>ChangePassword</span><i class="fa fa-key"></i></a></li>
-            <li><a class="tooltips"  onclick="logout()" href="../../controllers/LogoutController.php"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
+            <li><a class="tooltips"  onclick="logout()" href="#"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
         </ul>
     </div>
     <!--//down-->
@@ -89,13 +89,13 @@ else
         <ul id="menu" >
 
             <li><a href="home.php"><i class="fa fa-info"></i> <span>Basic Information</span></a></li>
-            <li id="menu-academico" ><a href="organization.php"><i class="lnr lnr-apartment"></i><span>	&nbsp;Organization</span> </a>
+            <li id="menu-academico" ><a href="department.php"><i class="lnr lnr-apartment"></i><span>Department</span> </a>
 
             </li>
-            <li id="menu-academico" class="xyz" ><a href="employees.php"><i class="fa fa-users"></i> <span>Employees </span> <span class="badge count"></span></a>
+            <li id="menu-academico" class="xyz" ><a href="approvals.php"><i class="fa fa-users"></i> <span>Approvals </span> <span class="badge count"></span></a>
             </li>
 
-            	<li id="menu-academico" ><a href="importEmployees.php"><i class="fa fa-upload"></i> <span>Import Employees</span></span></a>
+            	<li id="menu-academico" ><a href="employees.php"><i class="fa fa-users"></i> <span>Employees</span></span></a>
 
             </li>
 

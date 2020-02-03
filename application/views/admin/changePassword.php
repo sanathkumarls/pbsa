@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: santhosh
+ * User: sanathls
  * Date: 09/11/19
  * Time: 2:12 AM
  */
@@ -181,24 +181,30 @@ else
                 <div class="form-group"> <label for="exampleInputPassword1">Old Password</label>
                     <input type="password" autocomplete="off" name="oldpassword"  class="form-control" placeholder="Old Password" required="" > </div>
                 <div class="form-group"> <label for="exampleInputPassword1">New Password</label>
-                    <input type="password" autocomplete="off" name="newpassword"  class="form-control" id="pass" placeholder="New Password" required="" > </div>
+                    <input type="password" autocomplete="off" name="newpassword" onchange="checkPassword()"  class="form-control" id="pass" placeholder="New Password" required="" > </div>
                 <div class="form-group"> <label for="exampleInputPassword1">Confirm Password</label>
                     <input type="password" autocomplete="off" name="cpassword"  onchange="checkPassword()" class="form-control" id="cpass" placeholder="Confirm Password" required="" > </div>
         </div>
         <input type="submit" name="submit" class="btn blue" id="submit"  value="Submit" disabled></form > <a href="index.php" class="btn blue">Back</a><br><br>
 
     </div>
-<script>
-    function checkPassword()
-    {
-        var password=document.getElementById("pass").value;
-        var cpassword=document.getElementById("cpass").value;
-        if(password != cpassword)
-            alert("Passwords Not Matching");
-        else
-            document.getElementById("submit").removeAttribute("disabled");
-    }
-</script>
+    <script>
+        function checkPassword()
+        {
+
+            let password=document.getElementById("pass").value;
+            let cpassword=document.getElementById("cpass").value;
+
+            if(password != "" && cpassword != "")
+            {
+                if(password != cpassword)
+                    alert("Passwords Not Matching");
+                else
+                    document.getElementById("submit").removeAttribute("disabled");
+            }
+
+        }
+    </script>
 
 
 

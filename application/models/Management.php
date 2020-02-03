@@ -44,8 +44,7 @@ class Management
         $db = new Database();
         $con =$db->open_connection();
         $query = "update management set `password` = '$password' where `email` = '$email'";
-        $result = $con->query($query);
-        return $result;
+        return $con->query($query);
     }
 
     function addManagement($initial,$firstName,$lastName,$email,$phone)

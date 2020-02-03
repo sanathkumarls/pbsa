@@ -8,6 +8,8 @@
 
 require_once __DIR__."/../../models/Admin.php";
 require_once __DIR__."/../../utilities/Constants.php";
+require_once __DIR__."/../../models/Employee.php";
+require_once __DIR__ . "/../../models/email/Email.php";
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
@@ -30,8 +32,7 @@ else
     header('Location: ../../views/admin/index.php');
 }
 
-require_once __DIR__."/../../models/Employee.php";
-require_once __DIR__."/../../models/Email/Email.php";
+
 
 if(isset($_POST['approve']))
 {
@@ -52,27 +53,27 @@ class AdminApproveReject
         if($objEmployee->approveEmployee($id))
         {
             $to = $objEmployee->getEmail($id);
-            $from = "PBSA";
+            $from = "PBSA System";
             $sub = "Your Join Request Has Been Approved";
             $msg = "Welcome to PBSA<br>Please Login And Change Your default Password<br>Contact Admin For default Password<br>Otherwise You Can Create Your New Password By Clicking Forgot Password";
             $objEmail = new Email();
             $objEmail->sendMail($from,$to,$sub,$msg);
-            echo '<script>alert("Employee Approved"); window.location.href="../../views/admin/employees.php"</script>';
+            echo '<script>alert("Employee Approved"); window.location.href="../../views/admin/approvals.php"</script>';
         }
     }
 
     function rejectEmployee($id)
     {
         $objEmployee = new Employee();
-        if($objEmployee->rejectEmployee($id))
+        $to = $objEmployee->getEmail($id);
+        if($objEmployee->rejectEmployee($id))//delete join request
         {
-            $to = $objEmployee->getEmail($id);
-            $from = "PBSA";
+            $from = "PBSA System";
             $sub = "Your Join Request Has Been Rejected";
-            $msg = "Your Join Request Has Been Rejected<br>Please Contact Admin For Rejecting.";
+            $msg = "Your Join Request Has Been Rejected.<br>Please Contact Admin For Rejecting and Submit Join Request Again.";
             $objEmail = new Email();
             $objEmail->sendMail($from,$to,$sub,$msg);
-            echo '<script>alert("Employee Rejected"); window.location.href="../../views/admin/employees.php"</script>';
+            echo '<script>alert("Employee Rejected"); window.location.href="../../views/admin/approvals.php"</script>';
         }
     }
 

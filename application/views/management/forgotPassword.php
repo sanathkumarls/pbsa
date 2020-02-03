@@ -1,11 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: subramanyakashyap
- * Date: 07-11-2019
- * Time: 10:36
- */
-?>
+
 <?php
 /**
  * Created by PhpStorm.
@@ -14,7 +7,7 @@
  * Time: 2:01 AM
  */
 
-require_once '../../utilities/Constants.php';
+require_once __DIR__.'../../utilities/Constants.php';
 ?>
 
 <html><head>

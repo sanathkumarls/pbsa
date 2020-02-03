@@ -177,11 +177,11 @@ else
             <h3>Change Password</h3>
         </div>
         <div class="modal-body">
-            <form method="post"  action="../../controllers/faculty/FacultyChangePassword.php">
+            <form method="post" id="changePass" action="../../controllers/faculty/FacultyChangePassword.php">
                 <div class="form-group"> <label for="exampleInputPassword1">Old Password</label>
                     <input type="password" autocomplete="off" name="oldpassword"  class="form-control" placeholder="Old Password" required="" > </div>
                 <div class="form-group"> <label for="exampleInputPassword1">New Password</label>
-                    <input type="password" autocomplete="off" name="newpassword"  class="form-control" id="pass" placeholder="New Password" required="" > </div>
+                    <input type="password" autocomplete="off" name="newpassword" onchange="checkPassword()"  class="form-control" id="pass" placeholder="New Password" required="" > </div>
                 <div class="form-group"> <label for="exampleInputPassword1">Confirm Password</label>
                     <input type="password" autocomplete="off" name="cpassword"  onchange="checkPassword()" class="form-control" id="cpass" placeholder="Confirm Password" required="" > </div>
         </div>
@@ -191,12 +191,18 @@ else
     <script>
         function checkPassword()
         {
-            var password=document.getElementById("pass").value;
-            var cpassword=document.getElementById("cpass").value;
-            if(password != cpassword)
-                alert("Passwords Not Matching");
-            else
-                document.getElementById("submit").removeAttribute("disabled");
+
+            let password=document.getElementById("pass").value;
+            let cpassword=document.getElementById("cpass").value;
+
+            if(password != "" && cpassword != "")
+            {
+                if(password != cpassword)
+                    alert("Passwords Not Matching");
+                else
+                    document.getElementById("submit").removeAttribute("disabled");
+            }
+
         }
     </script>
 

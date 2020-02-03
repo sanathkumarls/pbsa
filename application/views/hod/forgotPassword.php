@@ -2,30 +2,18 @@
 /**
  * Created by PhpStorm.
  * User: sanathls
- * Date: 09/11/19
- * Time: 3:14 AM
+ * Date: 07/11/19
+ * Time: 2:01 AM
  */
 
-require_once __DIR__."/../../utilities/Constants.php";
-require_once __DIR__."/../../models/Employee.php";
+require_once __DIR__.'/../../utilities/Constants.php';
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
-    $email =  $_SESSION['email'];
-    $role = $_SESSION['role'];
-
-    $objEmployee = new Employee();
-    if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
-    {
-        header("Location: ../../controllers/LogoutController.php");
-    }
+    header('Location: home.php');
 }
-else
-{
-    header('Location: index.php');
-}
-
 ?>
+
 <html><head>
     <style>
         :root {
@@ -53,15 +41,16 @@ else
             z-index: 1;
             left: 0;
             top: 0;
-            height: 100%;
-            width: 100%;
+
+
             overflow: auto;
 
         }
 
         .modal-content {
             margin: 10% auto;
-            width: 60%;
+            width: 40%;
+            height:250px;
             box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
             animation-name: modalopen;
             animation-duration: var(--modal-duration);
@@ -128,10 +117,10 @@ else
 
     </style>
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <script src="../../../assets/js/jquery.nicescroll.js"></script>
-    <script src="../../../assets/js/scripts.js"></script>
+    <script src="../../../assets/hod/js/jquery.nicescroll.js"></script>
+    <script src="../../../assets/hod/js/scripts.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../../assets/js/bootstrap.min.js"></script>
+    <script src="../../../assets/hod/js/bootstrap.min.js"></script>
 
     <link href="../../../assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -174,40 +163,69 @@ else
 <div id="my-modal" class="a">
     <div class="modal-content">
         <div class="modal-header">
-            <h3>Change Password</h3>
+            <h3>Reset Password</h3>
         </div>
         <div class="modal-body">
-            <form method="post"  action="../../controllers/principal/PrincipalChangePassword.php">
-                <div class="form-group"> <label for="exampleInputPassword1">Old Password</label>
-                    <input type="password" autocomplete="off" name="oldpassword"  class="form-control" placeholder="Old Password" required="" > </div>
-                <div class="form-group"> <label for="exampleInputPassword1">New Password</label>
-                    <input type="password" autocomplete="off" name="newpassword" onchange="checkPassword()" class="form-control" id="pass" placeholder="New Password" required="" > </div>
-                <div class="form-group"> <label for="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" autocomplete="off" name="cpassword"  onchange="checkPassword()" class="form-control" id="cpass" placeholder="Confirm Password" required="" > </div>
+            <form method="post" action="../../controllers/hod/HodForgotPasswordController.php" >
+                <div class="form-group"> <label for="exampleInputPassword1">Email Address</label> <br> <br>
+                    <input type="text" autocomplete="off" name="email" pattern="<?php echo Constants::emailPattern;?>" title="<?php echo Constants::patternTitle;?>" class="form-control" placeholder="E-mail" required="" > </div>
+
+
         </div>
-        <input type="submit" name="submit" class="btn blue" id="submit"  value="Submit" disabled></form > <a href="index.php" class="btn blue">Back</a><br><br>
+        <input type="submit" name="submit" class="btn blue" value="Submit"></form > <a href="index.php" class="btn blue">Back</a><br><br>
+
+<!--        --><?php
+//
+//        if(isset($_POST["submit"]))
+//        {
+//
+//            $m = new MongoClient();
+//            $db = $m->mydb;
+//            $uname=$_POST['uname'];
+//
+//            $c = $db->login->findOne(array("Email" =>"$uname"));
+//            if($c){
+//                $to = $uname;
+//                $subject = 'Reset your Password.';
+//                //Let's Prepare The Message For The E-mail
+//                $message ='Hello ,press the below link to reset your password '.'http://localhost/project/employee/forgotpass.php?email="'.$c['Email'].'"';
+//                if(mail($to, $subject, $message ))
+//
+//                {
+//                    ?><!--<div class="alert alert-info" role="alert"><strong>Done!</strong> Wait till you receive the mail with link to change username</div><br><br>-->
+<!---->
+<!---->
+<!--                --><?php	//}
+//                else
+//                {?>
+<!---->
+<!---->
+<!--                    <div class="alert alert-danger" role="alert"><strong>Error!</strong> Please try again</div><br>-->
+<!--                    <br>-->
+<!---->
+<!--                    --><?php
+//
+//                }
+//
+//            }
+//            else{
+//                echo '<div class="alert alert-danger" role="alert"><strong>Error!</strong> Please Enter Valid mail id</div><br>
+//	<br>';
+//
+//            }
+//        }
+//
+//
+//
+//        ?>
 
     </div>
-    <script>
-        function checkPassword()
-        {
 
-            let password=document.getElementById("pass").value;
-            let cpassword=document.getElementById("cpass").value;
 
-            if(password != "" && cpassword != "")
-            {
-                if(password != cpassword)
-                    alert("Passwords Not Matching");
-                else
-                    document.getElementById("submit").removeAttribute("disabled");
-            }
 
-        }
-    </script>
+
 
 </div>
 </body>
 </html>
-
 

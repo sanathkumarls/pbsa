@@ -7,6 +7,7 @@
  */
 require_once __DIR__."/../../models/Admin.php";
 require_once __DIR__."/../../utilities/Constants.php";
+require_once __DIR__.'/../../models/Department.php';
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
@@ -28,7 +29,7 @@ else
     header('Location: ../../views/admin/index.php');
 }
 
-require_once __DIR__.'/../../models/Department.php';
+
 if(isset($_POST['submit']))
 {
     $addDept = new AdminAddDept();
@@ -63,16 +64,16 @@ public function getDeptInput()
 public function addDepartment($deptAbbr,$deptName)
 {
     $objAddDept=new Department();
-    $user=$objAddDept->addDepartment($deptAbbr,$deptName);
-    if($user)
+
+    if($objAddDept->addDepartment($deptAbbr,$deptName))
     {
         echo "<script>alert('Department Name Added.');
-window.location.href='../../views/admin/newDepartment.php';</script>";
+                window.location.href='../../views/admin/newDepartment.php';</script>";
     }
     else
     {
-        echo "<script>alert('Failed.');
-window.location.href='../../views/admin/newDepartment.php';</script>";
+        echo "<script>alert('Department Add Failed.');
+                window.location.href='../../views/admin/newDepartment.php';</script>";
 
     }
 

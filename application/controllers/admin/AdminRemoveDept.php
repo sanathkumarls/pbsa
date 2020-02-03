@@ -8,6 +8,7 @@
 
 require_once __DIR__ . "/../../models/Admin.php";
 require_once __DIR__ . "/../../utilities/Constants.php";
+require_once __DIR__."/../../models/Department.php";
 session_start();
 if (isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
@@ -29,8 +30,9 @@ else
     header('Location: ../../views/admin/index.php');
 }
 
-require_once __DIR__."/../../models/Department.php";
-if(isset($_POST['submit'])) {
+
+if(isset($_POST['submit']))
+{
     $obj = new AdminRemoveDept();
     $obj->getDeptInput();
 }
@@ -44,7 +46,7 @@ class AdminRemoveDept
             $this->deleteDept($deptId);
         else
             echo "<script>alert('Please select department');
-              window.location.href='../../views/home.php';</script>";
+              window.location.href='../../views/admin/removeDepartment.php';</script>";
 
     }
 
@@ -55,12 +57,12 @@ class AdminRemoveDept
         if($user)
         {
             echo "<script>alert('Successfully Deleted Department');
-                   window.location.href='../../views/admin/home.php';</script>";
+                   window.location.href='../../views/admin/removeDepartment.php';</script>";
         }
         else
         {
            echo "<script>alert('Department Delete Failed');
-                   window.location.href='../../views/admin/home.php';</script>";
+                   window.location.href='../../views/admin/removeDepartment.php';</script>";
         }
     }
 }

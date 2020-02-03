@@ -3,8 +3,9 @@
  * Created by PhpStorm.
  * User: sanathls
  * Date: 06/11/19
- * Time: 10:45 PM
+ * Time: 10:44 PM
  */
+
 require_once __DIR__.'/../../utilities/Constants.php';
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
@@ -12,6 +13,8 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     header('Location: home.php');
 }
 ?>
+
+
 <!DOCTYPE HTML>
 <html lang="en">
 
@@ -47,14 +50,14 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
 </head>
 
 <body>
-<h1>MANAGEMENT LOGIN </h1>
+<h1>HOD LOGIN </h1>
 <div class="w3ls-login box box--big">
 
-    <form action="../../controllers/management/ManagementLoginController.php" method="post" autocomplete="off">
+    <form action="../../controllers/hod/HodLoginController.php" method="post" autocomplete="off">
         <div class="agile-field-txt">
             <label>
                 <i class="fa fa" aria-hidden="true"></i> Username </label>
-            <input autocomplete="off" type="text" name="email" placeholder="Enter your E-Mail " required="" />
+            <input autocomplete="off" type="text" name="email" placeholder="Enter your E-Mail " required="" pattern="<?php echo Constants::emailPattern;?>" title="<?php echo Constants::patternTitle;?>"/>
         </div>
         <div class="agile-field-txt">
             <label>

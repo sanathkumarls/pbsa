@@ -3,7 +3,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: santhosh
+ * User: sanathls
  * Date: 09/11/19
  * Time: 2:12 AM
  */
@@ -170,7 +170,7 @@ else
                                             <div class="panel-heading" role="tab" id="headingOne">
                                                 <h4 class="panel-title">
                                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
-                                                        Organization
+                                                        Department
                                                     </a>
                                                 </h4>
                                             </div>
@@ -178,7 +178,7 @@ else
                                                 <div class="panel-body">
                                                     <ul>
                                                         <!--	<li>Add levels in Organization </li>-->
-                                                        <li>Create Database </li>	<li>Remove Database </li>
+                                                        <li>Create Department </li>	<li>Remove Department </li>
 
                                                     </ul>
                                                 </div>
@@ -188,7 +188,7 @@ else
                                             <div class="panel-heading" role="tab" id="headingTwo">
                                                 <h4 class="panel-title">
                                                     <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                                        Employee
+                                                        Approvals
                                                     </a>
                                                 </h4>
                                             </div>
@@ -247,13 +247,13 @@ else
                                             <div class="panel-heading" role="tab" id="headingFour">
                                                 <h4 class="panel-title">
                                                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                                        Import
+                                                        Employees
                                                     </a>
                                                 </h4>
                                             </div>
                                             <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" aria-expanded="false" style="height: 0px;">
                                                 <div class="panel-body">
-                                                    <ul><li>Import Employees using csv file</li>
+                                                    <ul><li>List All Active Employees</li>
                                                     </ul>
                                                 </div>
                                             </div>
