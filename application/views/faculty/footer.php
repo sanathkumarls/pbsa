@@ -18,15 +18,18 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     if(!$objEmployee->checkEmailRole($email,Constants::roleFaculty))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
+        exit();
     }
     if($changePassword == 1)
     {
         header("Location: changePassword.php");
+        exit();
     }
 }
 else
 {
     header('Location: index.php');
+    exit();
 }
 ?>
 
@@ -87,7 +90,7 @@ else
 
             <li><a href="home.php"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
 
-            <li id="menu-academico" ><a href="performance.php"><i class="fa fa-bar-chart-o"></i> <span>View Performance</span></a>  </li>
+            <li id="menu-academico" ><a href="viewPerformance.php"><i class="fa fa-bar-chart-o"></i> <span>View Performance</span></a>  </li>
 
 
         </ul>

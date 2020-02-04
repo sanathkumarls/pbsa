@@ -21,7 +21,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     $changePassword = $_SESSION['changePassword'];
 
     $objEmployee = new Employee();
-    if(!$objEmployee->checkEmailRole($email,Constants::roleHod))//check realtime role
+    if(!$objEmployee->checkEmailRole($email,Constants::roleFaculty))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
         exit();
@@ -38,26 +38,17 @@ else
     exit();
 }
 
-if(isset($_POST['e_id']))
-    $e_id = $_POST['e_id'];
-else
-    $e_id = $objEmployee->getEid($email);
+
+$e_id = $objEmployee->getEid($email);
 
 if(isset($_POST['year']))
     $year = $_POST['year'];
 else
 {
-    header("Location: performance.php");
+    header("Location: viewPerformance.php");
     exit();
 }
 
-
-//check for same department
-if(!$objEmployee->checkSameDepartment($e_id,$email))
-{
-    header("Location: performance.php");
-    exit();
-}
 
 ?>
 
@@ -263,7 +254,7 @@ if(!$objEmployee->checkSameDepartment($e_id,$email))
                 <div class="sub-heard-part">
                     <ol class="breadcrumb m-b-0">
                         <li><a href="home.php">Home</a></li>
-                        <li> <a href="performance.php">View Performance </a></li>
+                        <li> <a href="viewPerformance.php">View Performance </a></li>
                         <li><?php echo $objEmployee->getName($e_id);?></li>
                         <li><?php echo $year;?></li>
                     </ol>

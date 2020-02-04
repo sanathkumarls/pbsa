@@ -44,7 +44,10 @@ else
 
 //check for same department
 if(!$objEmployee->checkSameDepartment($e_id,$email))
+{
     header("Location: performance.php");
+    exit();
+}
 
 ?>
 

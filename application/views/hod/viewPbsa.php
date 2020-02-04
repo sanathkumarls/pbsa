@@ -24,15 +24,18 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     if(!$objEmployee->checkEmailRole($email,Constants::roleHod))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
+        exit();
     }
     if($changePassword == 1)
     {
         header("Location: changePassword.php");
+        exit();
     }
 }
 else
 {
     header('Location: index.php');
+    exit();
 }
 
 if(isset($_POST['faculty_id']) && isset($_POST['year']))
@@ -44,16 +47,23 @@ if(isset($_POST['faculty_id']) && isset($_POST['year']))
 
     //check for same department
     if(!$objEmployee->checkSameDepartment($faculty_id,$email))
+    {
         header("Location: verifyPbsa.php");
+        exit();
+    }
 
     //check for submitted
     $objPbsa = new Pbsa();
     if(!$objPbsa->checkPbsaSubmitted($faculty_id,$year))
+    {
         header("Location: verifyPbsa.php");
+        exit();
+    }
 }
 else
 {
     header("Location: verifyPbsa.php");
+    exit();
 }
 
 

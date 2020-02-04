@@ -7,10 +7,14 @@
  */
 
 require_once __DIR__.'/../../utilities/Constants.php';
+header('Cache-Control: no cache'); //no cache
+header('Pragma: no-cache');
+session_cache_limiter('private_no_expire'); // works
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
     header('Location: home.php');
+    exit();
 }
 ?>
 

@@ -18,15 +18,18 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     if(!$objEmployee->checkEmailRole($email,Constants::roleHod))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
+        exit();
     }
     if($changePassword == 1)
     {
         header("Location: changePassword.php");
+        exit();
     }
 }
 else
 {
     header('Location: index.php');
+    exit();
 }
 ?>
 
@@ -109,7 +112,6 @@ else
                 dataType:"json",
                 success:function(data)
                 {
-                    load_unseen_notification('yes');
                     if(data.count >= 0)
                     {
                         $('.count').html(data.count);
@@ -118,12 +120,6 @@ else
                 }
             });
         }
-
-        load_unseen_notification();
-        $(document).on('click', '.xyz', function(){
-            $('.count').html('');
-            load_unseen_notification('yes');
-        });
 
 
         setInterval(function(){

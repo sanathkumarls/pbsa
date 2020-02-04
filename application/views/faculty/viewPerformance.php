@@ -9,7 +9,9 @@
 require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../utilities/Constants.php";
 require_once __DIR__."/../../models/Pbsa.php";
-
+header('Cache-Control: no cache'); //no cache
+header('Pragma: no-cache');
+session_cache_limiter('private_no_expire'); // works
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
@@ -248,7 +250,7 @@ $e_id = $objEmployee->getEid($email);
                                                                     <td>'.$grade.'</td>
                                                                     <td>'.$row["timestamp"].'</td>
 
-                                                                    <td> <form method="post" action="viewPerformance.php"><input name="faculty_id" value="'.$e_id.'" hidden readonly><input name="year" value="'.$row["year"].'" hidden readonly> <button name="view" id="app" class="btn btn-primary">View</button></form> </td>
+                                                                    <td> <form method="post" action="pbsaPerformance.php"><input name="year" value="'.$row["year"].'" hidden readonly> <button name="view" id="app" class="btn btn-primary">View</button></form> </td>
                                                                   </tr>';
                                                     }
 

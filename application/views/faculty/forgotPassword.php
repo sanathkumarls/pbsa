@@ -7,10 +7,14 @@
  */
 
 require_once __DIR__.'/../../utilities/Constants.php';
+header('Cache-Control: no cache'); //no cache
+header('Pragma: no-cache');
+session_cache_limiter('private_no_expire'); // works
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
     header('Location: home.php');
+    exit();
 }
 ?>
 
@@ -174,50 +178,6 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
         </div>
         <input type="submit" name="submit" class="btn blue" value="Submit"></form > <a href="index.php" class="btn blue">Back</a><br><br>
 
-<!--        --><?php
-//
-//        if(isset($_POST["submit"]))
-//        {
-//
-//            $m = new MongoClient();
-//            $db = $m->mydb;
-//            $uname=$_POST['uname'];
-//
-//            $c = $db->login->findOne(array("Email" =>"$uname"));
-//            if($c){
-//                $to = $uname;
-//                $subject = 'Reset your Password.';
-//                //Let's Prepare The Message For The E-mail
-//                $message ='Hello ,press the below link to reset your password '.'http://localhost/project/employee/forgotpass.php?email="'.$c['Email'].'"';
-//                if(mail($to, $subject, $message ))
-//
-//                {
-//                    ?><!--<div class="alert alert-info" role="alert"><strong>Done!</strong> Wait till you receive the mail with link to change username</div><br><br>-->
-<!---->
-<!---->
-<!--                --><?php	//}
-//                else
-//                {?>
-<!---->
-<!---->
-<!--                    <div class="alert alert-danger" role="alert"><strong>Error!</strong> Please try again</div><br>-->
-<!--                    <br>-->
-<!---->
-<!--                    --><?php
-//
-//                }
-//
-//            }
-//            else{
-//                echo '<div class="alert alert-danger" role="alert"><strong>Error!</strong> Please Enter Valid mail id</div><br>
-//	<br>';
-//
-//            }
-//        }
-//
-//
-//
-//        ?>
 
     </div>
 

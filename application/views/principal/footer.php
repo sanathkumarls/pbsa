@@ -109,7 +109,6 @@ else
                 dataType:"json",
                 success:function(data)
                 {
-                    load_unseen_notification('yes');
                     if(data.count >= 0)
                     {
                         $('.count').html(data.count);
@@ -118,12 +117,6 @@ else
                 }
             });
         }
-
-        load_unseen_notification();
-        $(document).on('click', '.xyz', function(){
-            $('.count').html('');
-            load_unseen_notification('yes');
-        });
 
 
         setInterval(function(){
