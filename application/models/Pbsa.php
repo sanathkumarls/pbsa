@@ -119,6 +119,32 @@ class Pbsa
         return $con->query($query);
     }
 
+    function getIndividualPerformance($e_id)
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+        $query = "select c1.c1_total,c2.c2_total,c3.c3_total,c4.c4_total,c5.c5_total,c6.c6_total,c7.c7_total,c8.c8_total,year,timestamp from pbsa p join c1 on p.pbsa_id = c1.c1_id join c2 on p.pbsa_id = c2.c2_id join c3 on p.pbsa_id = c3.c3_id join c4 on p.pbsa_id = c4.c4_id join c5 on p.pbsa_id = c5.c5_id join c6 on p.pbsa_id = c6.c6_id join c7 on p.pbsa_id = c7.c7_id join c8 on p.pbsa_id = c8.c8_id where `e_id` = '$e_id' and `is_accepted` = 3 order by year desc";
+        return $con->query($query);
+    }
+
+    function getDepartmentPerformance($d_id)
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+
+        $query = "select avg(c1_total) as 'c1_total',avg(c2_total) as 'c2_total',avg(c3_total) as 'c3_total',avg(c4_total) as 'c4_total',avg(c5_total) as 'c5_total',avg(c6_total) as 'c6_total',avg(c7_total) as 'c7_total',avg(c8_total) as 'c8_total',e.first_name,e.last_name,e.role,p.e_id from pbsa p join c1 on p.pbsa_id = c1.c1_id join c2 on p.pbsa_id = c2.c2_id join c3 on p.pbsa_id = c3.c3_id join c4 on p.pbsa_id = c4.c4_id join c5 on p.pbsa_id = c5.c5_id join c6 on p.pbsa_id = c6.c6_id join c7 on p.pbsa_id = c7.c7_id join c8 on p.pbsa_id = c8.c8_id join employee e on p.e_id=e.e_id where `is_accepted` = 3 and department = '$d_id' group by p.e_id ";
+        return $con->query($query);
+    }
+
+    function getIndividualPerformanceYear($e_id,$year)
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+
+        $query = "select c1.c1_total,c2.c2_total,c3.c3_total,c4.c4_total,c5.c5_total,c6.c6_total,c7.c7_total,c8.c8_total from pbsa p join c1 on p.pbsa_id = c1.c1_id join c2 on p.pbsa_id = c2.c2_id join c3 on p.pbsa_id = c3.c3_id join c4 on p.pbsa_id = c4.c4_id join c5 on p.pbsa_id = c5.c5_id join c6 on p.pbsa_id = c6.c6_id join c7 on p.pbsa_id = c7.c7_id join c8 on p.pbsa_id = c8.c8_id where `e_id` = '$e_id' and `year` = '$year' and `is_accepted` = 3";
+        return $con->query($query);
+    }
+
 //    function getPbsaStatus($e_id,$year)
 //    {
 //        $db = new Database();

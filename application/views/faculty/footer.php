@@ -86,16 +86,8 @@ else
         <ul id="menu" >
 
             <li><a href="home.php"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
-            <!--	<li><a href="pbsa.php?id=<php echo $val;?>"><i class="fa fa-edit"></i> <span>PBSA</span></a></li>-->
 
-            <!-- uncomment the below line to add skills module also remove the "//" for echo -->
-
-            <!--  <li><a href="skills.php?id=<?php //echo $val;?>"><i class="lnr lnr-layers"></i> <span>Manage Skills </span></a></li> -->
-            <!-- <li id="menu-academico" ><a href="ratem.php?id=<?php //echo $val;?>"><i class="lnr lnr-star-half"></i><span>&nbsp;Rate HOD/Manager</span></a>
-
-										</li> -->
-            <li id="menu-academico" ><a href="viewPerformance.php"><i class="fa fa-bar-chart-o"></i> <span>View Performance</span></a>  </li>
-            <!-- <li><a href="project.php?id=<?php //echo $val;?>"><i class="lnr lnr-select"></i> <span>Projects </span></a></li> -->
+            <li id="menu-academico" ><a href="performance.php"><i class="fa fa-bar-chart-o"></i> <span>View Performance</span></a>  </li>
 
 
         </ul>

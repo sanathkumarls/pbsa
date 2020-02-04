@@ -285,6 +285,22 @@ class Employee
             }
             return "";
         }
+
+        function getDepartmentFromEmail($email)
+        {
+            $db=new Database();
+            $con=$db->open_connection();
+
+            $query = "select department from employee where `email` = '$email'";
+
+            $result = $con->query($query);
+            if($result->num_rows > 0)
+            {
+                $row = $result->fetch_assoc();
+                return $row['department'];
+            }
+            return "";
+        }
 }
 
 //$objEmployee = new Employee();
