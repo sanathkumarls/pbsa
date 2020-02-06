@@ -123,7 +123,7 @@ class Pbsa
     {
         $db = new Database();
         $con = $db->open_connection();
-        $query = "select c1.c1_total,c2.c2_total,c3.c3_total,c4.c4_total,c5.c5_total,c6.c6_total,c7.c7_total,c8.c8_total,year,timestamp from pbsa p join c1 on p.pbsa_id = c1.c1_id join c2 on p.pbsa_id = c2.c2_id join c3 on p.pbsa_id = c3.c3_id join c4 on p.pbsa_id = c4.c4_id join c5 on p.pbsa_id = c5.c5_id join c6 on p.pbsa_id = c6.c6_id join c7 on p.pbsa_id = c7.c7_id join c8 on p.pbsa_id = c8.c8_id where `e_id` = '$e_id' and `is_accepted` = 3 order by year desc";
+        $query = "select c1.c1_total,c2.c2_total,c3.c3_total,c4.c4_total,c5.c5_total,c6.c6_total,c7.c7_total,c8.c8_total,year,timestamp from pbsa p join c1 on p.pbsa_id = c1.c1_id join c2 on p.pbsa_id = c2.c2_id join c3 on p.pbsa_id = c3.c3_id join c4 on p.pbsa_id = c4.c4_id join c5 on p.pbsa_id = c5.c5_id join c6 on p.pbsa_id = c6.c6_id join c7 on p.pbsa_id = c7.c7_id join c8 on p.pbsa_id = c8.c8_id join employee e on p.e_id=e.e_id where p.`e_id` = '$e_id' and `is_accepted` = 3 and `is_active` = 1 order by year desc";
         return $con->query($query);
     }
 
@@ -132,7 +132,7 @@ class Pbsa
         $db = new Database();
         $con = $db->open_connection();
 
-        $query = "select avg(c1_total) as 'c1_total',avg(c2_total) as 'c2_total',avg(c3_total) as 'c3_total',avg(c4_total) as 'c4_total',avg(c5_total) as 'c5_total',avg(c6_total) as 'c6_total',avg(c7_total) as 'c7_total',avg(c8_total) as 'c8_total',e.first_name,e.last_name,e.role,p.e_id from pbsa p join c1 on p.pbsa_id = c1.c1_id join c2 on p.pbsa_id = c2.c2_id join c3 on p.pbsa_id = c3.c3_id join c4 on p.pbsa_id = c4.c4_id join c5 on p.pbsa_id = c5.c5_id join c6 on p.pbsa_id = c6.c6_id join c7 on p.pbsa_id = c7.c7_id join c8 on p.pbsa_id = c8.c8_id join employee e on p.e_id=e.e_id where `is_accepted` = 3 and department = '$d_id' group by p.e_id ";
+        $query = "select avg(c1_total) as 'c1_total',avg(c2_total) as 'c2_total',avg(c3_total) as 'c3_total',avg(c4_total) as 'c4_total',avg(c5_total) as 'c5_total',avg(c6_total) as 'c6_total',avg(c7_total) as 'c7_total',avg(c8_total) as 'c8_total',e.first_name,e.last_name,e.role,p.e_id from pbsa p join c1 on p.pbsa_id = c1.c1_id join c2 on p.pbsa_id = c2.c2_id join c3 on p.pbsa_id = c3.c3_id join c4 on p.pbsa_id = c4.c4_id join c5 on p.pbsa_id = c5.c5_id join c6 on p.pbsa_id = c6.c6_id join c7 on p.pbsa_id = c7.c7_id join c8 on p.pbsa_id = c8.c8_id join employee e on p.e_id=e.e_id where `is_accepted` = 3 and department = '$d_id' and `is_active` = 1 group by p.e_id ";
         return $con->query($query);
     }
 
@@ -141,59 +141,29 @@ class Pbsa
         $db = new Database();
         $con = $db->open_connection();
 
-        $query = "select c1.c1_total,c2.c2_total,c3.c3_total,c4.c4_total,c5.c5_total,c6.c6_total,c7.c7_total,c8.c8_total from pbsa p join c1 on p.pbsa_id = c1.c1_id join c2 on p.pbsa_id = c2.c2_id join c3 on p.pbsa_id = c3.c3_id join c4 on p.pbsa_id = c4.c4_id join c5 on p.pbsa_id = c5.c5_id join c6 on p.pbsa_id = c6.c6_id join c7 on p.pbsa_id = c7.c7_id join c8 on p.pbsa_id = c8.c8_id where `e_id` = '$e_id' and `year` = '$year' and `is_accepted` = 3";
+        $query = "select c1.c1_total,c2.c2_total,c3.c3_total,c4.c4_total,c5.c5_total,c6.c6_total,c7.c7_total,c8.c8_total from pbsa p join c1 on p.pbsa_id = c1.c1_id join c2 on p.pbsa_id = c2.c2_id join c3 on p.pbsa_id = c3.c3_id join c4 on p.pbsa_id = c4.c4_id join c5 on p.pbsa_id = c5.c5_id join c6 on p.pbsa_id = c6.c6_id join c7 on p.pbsa_id = c7.c7_id join c8 on p.pbsa_id = c8.c8_id join employee e on p.e_id=e.e_id where p.`e_id` = '$e_id' and `year` = '$year' and `is_accepted` = 3 and `is_active` = 1";
         return $con->query($query);
     }
 
-//    function getPbsaStatus($e_id,$year)
-//    {
-//        $db = new Database();
-//        $con = $db->open_connection();
-//        //pending for approval by hod.
-//        $query1 = "select * from pbsa where (`is_rejected` = 0 or `is_rejected` = 2) and `is_submitted` = 1 and `is_accepted` = 0 and `e_id` = '$e_id' and `year` = '$year' ";
-//        //approved by hod and pending for approval by principal
-//        $query2 = "select * from pbsa where (`is_rejected` = 0 or `is_rejected` = 2 or `is_rejected` = 3 ) and `is_submitted` = 1 and `is_accepted` = 2 and `e_id` = '$e_id' and `year` = '$year' ";
-//        //approved by principal
-//        $query3 = "select * from pbsa where `is_submitted` = 1 and `is_accepted` = 3 and `e_id` = '$e_id' and `year` = '$year' ";
-//
-//        $result1 = $con->query($query1);
-//        $result2 = $con->query($query2);
-//        $result3 = $con->query($query3);
-//
-//        $msg = "";
-//
-//        if($result1->num_rows > 0)
-//            $msg = "Pending For Approval By HOD";
-//        elseif ($result2->num_rows > 0)
-//            $msg = "Approved By HOD , Waiting For Approval From Principal";
-//        elseif ($result3->num_rows > 0)
-//            $msg = "Approved By Principal";
-//
-//        return $msg;
-//    }
-//
-//    function getPbsaRejectedStatus($e_id,$year)
-//    {
-//        $db = new Database();
-//        $con = $db->open_connection();
-//
-//        //rejected by hod
-//        $query1 = "select * from pbsa where `is_rejected` = 2 and `is_submitted` = 0 and `e_id` = '$e_id' and `year` = '$year' ";
-//        //rejected by principal
-//        $query2 = "select * from pbsa where `is_rejected` = 3 and `is_submitted` = 0 and `e_id` = '$e_id' and `year` = '$year' ";
-//
-//        $result1 = $con->query($query1);
-//        $result2 = $con->query($query2);
-//
-//        $msg = "";
-//
-//        if($result1->num_rows > 0)
-//            $msg = "Rejected By HOD";
-//        elseif ($result2->num_rows > 0)
-//            $msg = "Rejected By Principal";
-//
-//        return $msg;
-//    }
+    function getIndividualDepartmentPerformanceYear($d_id)
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+
+        $query = "select avg(c1_total) as 'c1_total',avg(c2_total) as 'c2_total',avg(c3_total) as 'c3_total',avg(c4_total) as 'c4_total',avg(c5_total) as 'c5_total',avg(c6_total) as 'c6_total',avg(c7_total) as 'c7_total',avg(c8_total) as 'c8_total',year from pbsa p join c1 on p.pbsa_id = c1.c1_id join c2 on p.pbsa_id = c2.c2_id join c3 on p.pbsa_id = c3.c3_id join c4 on p.pbsa_id = c4.c4_id join c5 on p.pbsa_id = c5.c5_id join c6 on p.pbsa_id = c6.c6_id join c7 on p.pbsa_id = c7.c7_id join c8 on p.pbsa_id = c8.c8_id join employee e on p.e_id=e.e_id where `is_accepted` = 3 and department = '$d_id' and `is_active` = 1 group by year ";
+        return $con->query($query);
+    }
+
+    function getDepartmentPerformanceYear($d_id,$year)
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+
+        $query = "select c1.c1_total,c2.c2_total,c3.c3_total,c4.c4_total,c5.c5_total,c6.c6_total,c7.c7_total,c8.c8_total,e.department,p.e_id,e.first_name,e.last_name,e.role from pbsa p join c1 on p.pbsa_id = c1.c1_id join c2 on p.pbsa_id = c2.c2_id join c3 on p.pbsa_id = c3.c3_id join c4 on p.pbsa_id = c4.c4_id join c5 on p.pbsa_id = c5.c5_id join c6 on p.pbsa_id = c6.c6_id join c7 on p.pbsa_id = c7.c7_id join c8 on p.pbsa_id = c8.c8_id join employee e on p.e_id=e.e_id where `is_accepted` = 3 and department = '$d_id' and year = '$year' group by p.e_id ";
+        return $con->query($query);
+    }
+
+
 
 }
 //for hod get pbsa where is_submitted =1 and is_rejected = (2 or 0) after approval set is_accepted = 2.

@@ -8,6 +8,9 @@
 
 require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../utilities/Constants.php";
+header('Cache-Control: no cache'); //no cache
+header('Pragma: no-cache');
+session_cache_limiter('private_no_expire'); // works
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
@@ -219,7 +222,7 @@ else
                                 <br> <br>
                                 <div class="col-md-1"></div>
                                 <div class="col-md-5"><a href="verifyPbsa.php"><img src="../../../assets/hod/images/fill.png"><h3 style="font-family:'Copperplate Gothic Light';color:black;">Verify PBSA</h3></a></div>
-                                <div class="col-md-5"><a href="performance.php"><img src="../../../assets/hod/images/verify.png"><h3 style="font-family:'Copperplate Gothic Light';color:black;">View Performance</h3></a></div>
+                                <div class="col-md-5"><a href="deptPerformance.php"><img src="../../../assets/hod/images/verify.png"><h3 style="font-family:'Copperplate Gothic Light';color:black;">View Performance</h3></a></div>
                                 <div class="col-md-1"></div><br><br><br><br><br><br><br>
                             </div>
 

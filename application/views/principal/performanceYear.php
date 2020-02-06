@@ -2,12 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: sanathls
- * Date: 09/11/19
- * Time: 2:12 AM
+ * Date: 05/02/20
+ * Time: 10:00 PM
  */
 
 require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../utilities/Constants.php";
+require_once __DIR__."/../../models/Pbsa.php";
+require_once __DIR__."/../../models/Department.php";
+header('Cache-Control: no cache'); //no cache
+header('Pragma: no-cache');
+session_cache_limiter('private_no_expire'); // works
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
@@ -19,17 +24,29 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
+        exit();
     }
     if($changePassword == 1)
     {
         header("Location: changePassword.php");
+        exit();
     }
 }
 else
 {
     header('Location: index.php');
+    exit();
+}
+
+if(isset($_POST['d_id']))
+    $department = $_POST['d_id'];
+else
+{
+    header('Location: deptPerformance.php');
+    exit();
 }
 ?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -164,7 +181,10 @@ else
 
 
                         <li><a href="home.php">Home</a></li>
-                        <li>Departments </li>
+                        <li><a href="deptPerformance.php"> View Performance </a></li>
+                        <li><?php
+                            $objDep = new Department();
+                            echo $objDep->getDepartmentName($department);?></li>
                     </ol>
                 </div>
                 <!--custom-widgets-->
@@ -175,22 +195,10 @@ else
 
                     <div class="candile-inner">
 
-                        <center><h3 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;">Department Performance</h3></center>
+                        <center><h3 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;"><?php echo $objDep->getDepartmentName($department);?> Department Performance</h3></center>
                         <hr id="hr">
 
                         <div id="center"><div id="fig">
-                                <?php
-//
-//
-//
-//                                $i=1;
-//                                $m = new MongoClient();
-//                                $dbases = $m->listDBs();
-//                                ?>
-
-
-
-
 
                                 <section class="contact-section">
                                     <div class="container">
@@ -200,39 +208,92 @@ else
                                                 <tr>
 
                                                     <th>&nbsp;Sl No</th>
-                                                    <th>&nbsp;Department</th>
+                                                    <th>&nbsp;Year</th>
+                                                    <th>CGPA(10)</th>
+                                                    <th>Grade</th>
                                                     <th>&nbsp;Action</th>
-
-
 
                                                 </tr>
                                                 </thead>
 
                                                 <tbody>
-<!--                                                --><?php //foreach ($dbases['databases'] as $dbs) {
-//
-//                                                    $dbname = $dbs['name'];
-//                                                    if($dbname!='mydb'  and $dbname!='local' and $dbname!='config' and $dbname!='admin'){
-                                                        ?>
-                                                        <tr>
-                                                            <td><?php //echo $i;?></td>
-                                                            <td><?php //echo $dbname; ?></td>
+                                                <?php
+                                                $objPbsa = new Pbsa();
+                                                $result = $objPbsa->getIndividualDepartmentPerformanceYear($department);
+                                                if($result->num_rows > 0)
+                                                {
+                                                    $i=0;
+                                                    $cgpa_total=0;
+                                                    while ($row = $result->fetch_assoc())
+                                                    {
+                                                        $cgpa = (($row['c1_total'] * 30) + ($row['c2_total'] * 10) + ($row['c3_total'] * 10) + ($row['c4_total'] * 20) + ($row['c5_total'] * 10) + ($row['c6_total'] * 10) + ($row['c7_total'] * 5) + ($row['c8_total'] * 5)) /100;
+                                                        $cgpa_total+=$cgpa;
+                                                        $grade = "";
+                                                        if($cgpa >= 9.6 && $cgpa <= 10)
+                                                            $grade = "A++";
+                                                        elseif ($cgpa >= 8.6 && $cgpa <= 9.5)
+                                                            $grade = "A+";
+                                                        elseif ($cgpa >= 7.6 && $cgpa <= 8.5)
+                                                            $grade = "A";
+                                                        elseif ($cgpa >= 7.1 && $cgpa <= 7.5)
+                                                            $grade = "B++";
+                                                        elseif ($cgpa >= 6.6 && $cgpa <= 7)
+                                                            $grade = "B+";
+                                                        elseif ($cgpa >= 6.1 && $cgpa <= 6.5)
+                                                            $grade = "B";
+                                                        elseif ($cgpa >= 5.6 && $cgpa <= 6)
+                                                            $grade = "C++";
+                                                        elseif ($cgpa >= 5.1 && $cgpa <= 5.5)
+                                                            $grade = "C+";
+                                                        elseif ($cgpa <= 5)
+                                                            $grade = "C";
 
-                                                            <td> <form method="post" action="dep1.php?dept=<?php//echo $dbname; ?>" ><button name="approve[<?php// echo $i?>]" id="app" class="btn btn-primary" value='<?php  // echo $dbname; ?>'>View</button></form> </td>
-                                                        </tr>
-                                                        <?php
-//                                                        $i++;
-//                                                    }
-//                                                }
+                                                        echo '
+                                            <tr>
+                                            <td>'.++$i.'</td>
+                                            <td>'.$row["year"].'</td>
+                                             <td>'.$cgpa.'</td>
+                                             <td>'.$grade.'</td>
+
+                                            <td><form method="post" action="deptPerformanceYear.php"><input name="year" value="'.$row["year"].'" readonly hidden><input name="d_id" value="'.$department.'" readonly hidden><button name="view" class="btn btn-primary">View</button></form> </td>
+                                            </tr>';
+                                                    }
+
+                                                    $avg = $cgpa_total/$i;
+
+                                                    $grade_avg = "";
+                                                    if($avg >= 9.6 && $avg <= 10)
+                                                        $grade_avg = "A++";
+                                                    elseif ($avg >= 8.6 && $avg <= 9.5)
+                                                        $grade_avg = "A+";
+                                                    elseif ($avg >= 7.6 && $avg <= 8.5)
+                                                        $grade_avg = "A";
+                                                    elseif ($avg >= 7.1 && $avg <= 7.5)
+                                                        $grade_avg = "B++";
+                                                    elseif ($avg >= 6.6 && $avg <= 7)
+                                                        $grade_avg = "B+";
+                                                    elseif ($avg >= 6.1 && $avg <= 6.5)
+                                                        $grade_avg = "B";
+                                                    elseif ($avg >= 5.6 && $avg <= 6)
+                                                        $grade_avg = "C++";
+                                                    elseif ($avg >= 5.1 && $avg <= 5.5)
+                                                        $grade_avg = "C+";
+                                                    elseif ($avg <= 5)
+                                                        $grade_avg = "C";
+
+                                                    echo '<div class="col-md-12"><table class="display" cellspacing="0" align="center"><center><h3 style="font-family:Copperplate Gothic Light;color:black;font-size:40px;">Overall Performance</h3></center>
+                                                    <hr id="hr"><thead>
+                                                    <tr><th>CGPA(10)</th>
+                                                    <th style="padding-left: 50px">Grade</th></tr></thead>
+                                                    <tbody><tr><td  style="padding-top: 25px">'.$avg.'</td><td style="padding-left: 50px;padding-top: 25px">'.$grade_avg.'</td></tr></tbody></table></div>';
+                                                }
                                                 ?>
-
-
-
 
                                                 </tbody>
 
                                             </table>
                                         </div>
+
                                     </div>
                                 </section>
 
@@ -276,7 +337,7 @@ else
 
             </div>
 
-<?php
-include 'footer.php';
+            <?php
+            include 'footer.php';
 
-?>
+            ?>

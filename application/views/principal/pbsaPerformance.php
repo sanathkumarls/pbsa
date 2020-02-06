@@ -2,14 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: sanathls
- * Date: 04/02/20
- * Time: 1:18 PM
+ * Date: 05/02/20
+ * Time: 10:12 PM
  */
-
 
 require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../utilities/Constants.php";
 require_once __DIR__."/../../models/Pbsa.php";
+require_once __DIR__."/../../models/Department.php";
 header('Cache-Control: no cache'); //no cache
 header('Pragma: no-cache');
 session_cache_limiter('private_no_expire'); // works
@@ -21,7 +21,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     $changePassword = $_SESSION['changePassword'];
 
     $objEmployee = new Employee();
-    if(!$objEmployee->checkEmailRole($email,Constants::roleHod))//check realtime role
+    if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
         exit();
@@ -38,24 +38,20 @@ else
     exit();
 }
 
+
 if(isset($_POST['e_id']))
     $e_id = $_POST['e_id'];
 else
-    $e_id = $objEmployee->getEid($email);
+{
+    header('Location: deptPerformance.php');
+    exit();
+}
 
 if(isset($_POST['year']))
     $year = $_POST['year'];
 else
 {
-    header("Location: performance.php");
-    exit();
-}
-
-
-//check for same department
-if(!$objEmployee->checkSameDepartment($e_id,$email))
-{
-    header("Location: performance.php");
+    header("Location: deptPerformance.php");
     exit();
 }
 
@@ -263,7 +259,8 @@ if(!$objEmployee->checkSameDepartment($e_id,$email))
                 <div class="sub-heard-part">
                     <ol class="breadcrumb m-b-0">
                         <li><a href="home.php">Home</a></li><?php $e_name = $objEmployee->getName($e_id);?>
-                        <li> <a href="performance.php">View Performance </a></li>
+                        <li> <a href="performance.php">View Performance </a></li><?php $objDep = new Department();?>
+                        <li><?php echo $objDep->getDepartmentNameFromEmployeeId($e_id);?></li>
                         <li><?php echo $e_name;?></li>
                         <li><?php echo $year;?></li>
                     </ol>
@@ -276,134 +273,134 @@ if(!$objEmployee->checkSameDepartment($e_id,$email))
                     <div class="candile-inner">
 
                         <?php
-                            $objPbsa = new Pbsa();
-                            $result = $objPbsa->getIndividualPerformanceYear($e_id,$year);
-                            if($result->num_rows > 0)
-                            {
-                                $row = $result->fetch_assoc();
+                        $objPbsa = new Pbsa();
+                        $result = $objPbsa->getIndividualPerformanceYear($e_id,$year);
+                        if($result->num_rows > 0)
+                        {
+                            $row = $result->fetch_assoc();
 
-                                $cgpa = (($row['c1_total'] * 30) + ($row['c2_total'] * 10) + ($row['c3_total'] * 10) + ($row['c4_total'] * 20) + ($row['c5_total'] * 10) + ($row['c6_total'] * 10) + ($row['c7_total'] * 5) + ($row['c8_total'] * 5)) /100;
+                            $cgpa = (($row['c1_total'] * 30) + ($row['c2_total'] * 10) + ($row['c3_total'] * 10) + ($row['c4_total'] * 20) + ($row['c5_total'] * 10) + ($row['c6_total'] * 10) + ($row['c7_total'] * 5) + ($row['c8_total'] * 5)) /100;
 
-                                $grade = "";
-                                if($cgpa >= 9.6 && $cgpa <= 10)
-                                    $grade = "A++";
-                                elseif ($cgpa >= 8.6 && $cgpa <= 9.5)
-                                    $grade = "A+";
-                                elseif ($cgpa >= 7.6 && $cgpa <= 8.5)
-                                    $grade = "A";
-                                elseif ($cgpa >= 7.1 && $cgpa <= 7.5)
-                                    $grade = "B++";
-                                elseif ($cgpa >= 6.6 && $cgpa <= 7)
-                                    $grade = "B+";
-                                elseif ($cgpa >= 6.1 && $cgpa <= 6.5)
-                                    $grade = "B";
-                                elseif ($cgpa >= 5.6 && $cgpa <= 6)
-                                    $grade = "C++";
-                                elseif ($cgpa >= 5.1 && $cgpa <= 5.5)
-                                    $grade = "C+";
-                                elseif ($cgpa <= 5)
-                                    $grade = "C";
+                            $grade = "";
+                            if($cgpa >= 9.6 && $cgpa <= 10)
+                                $grade = "A++";
+                            elseif ($cgpa >= 8.6 && $cgpa <= 9.5)
+                                $grade = "A+";
+                            elseif ($cgpa >= 7.6 && $cgpa <= 8.5)
+                                $grade = "A";
+                            elseif ($cgpa >= 7.1 && $cgpa <= 7.5)
+                                $grade = "B++";
+                            elseif ($cgpa >= 6.6 && $cgpa <= 7)
+                                $grade = "B+";
+                            elseif ($cgpa >= 6.1 && $cgpa <= 6.5)
+                                $grade = "B";
+                            elseif ($cgpa >= 5.6 && $cgpa <= 6)
+                                $grade = "C++";
+                            elseif ($cgpa >= 5.1 && $cgpa <= 5.5)
+                                $grade = "C+";
+                            elseif ($cgpa <= 5)
+                                $grade = "C";
 
-                        ?>
-                        <div id="center" ><div id="fig">
-                                <center><h3 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;">PBSA Performance - <?php echo $e_name." - ".$year;?></h3></center>
-                                <hr>
+                            ?>
+                            <div id="center" ><div id="fig">
+                                    <center><h3 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;">PBSA Performance - <?php echo $e_name." - ".$year;?></h3></center>
+                                    <hr>
 
-                                <table class="table table-bordered">
-                                    <thead>
-                                    <tr>
-                                        <th>Category</th>
-                                        <th>Marks Out of 10(X)</th>
-                                        <th>Weightage(W)</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-
-                                    <tr>
-                                        <th scope="row">ACADEMICS-A</th>
-                                        <td><?php echo $row['c1_total'];?></td>
-                                        <td>30</td>
-                                    </tr>
-                                    <tr>
-
-                                        <th scope="row">ACADEMICS-B</th>
-                                        <td><?php echo $row['c2_total'];?></td>
-                                        <td>10</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <th scope="row">IMPLEMENTATION OF INSTITUTIONAL INITIATIVES</th>
-                                        <td><?php echo $row['c3_total'];?></td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-
-                                        <th scope="row">RESEARCH - A</th>
-                                        <td><?php echo $row['c4_total'];?></td>
-                                        <td>20</td>
-                                    </tr>
-                                    <tr>
-
-                                        <th scope="row">RESEARCH - B</th>
-                                        <td><?php echo $row['c5_total'];?></td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-
-                                        <th scope="row">EXTENSION CONSULTANCY AND STUDENT SUPPORT</th>
-                                        <td><?php echo $row['c6_total'];?></td>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-
-                                        <th scope="row">ORGANIZATION OF PROGRAMMES</th>
-                                        <td><?php echo $row['c7_total'];?></td>
-                                        <td>5</td>
-                                    </tr>
-                                    <tr>
-
-                                        <th scope="row">ACADEMIC GROWTH</th>
-                                        <td><?php echo $row['c8_total'];?></td>
-                                        <td>5</td>
-                                    </tr>
-
-
-                                    </tbody>
-                                </table>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <center><h4 style="font-family:'Copperplate Gothic Light';color:black;font-size:30px;">Final Result</h4></center><br>
-
-                                <div class="tables">
                                     <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>Category</th>
+                                            <th>Marks Out of 10(X)</th>
+                                            <th>Weightage(W)</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
 
                                         <tr>
-                                            <th><h4 style="font-family:'Copperplate Gothic Light';color:black;font-size:20px;"> OVERALL GRADE POINT AVERAGE :</h4> </th>
-                                            <td><h4 style="font-family:'Copperplate Gothic Light';color:black;font-size:20px;">	<?php echo $cgpa; ?> </h4> </td>
+                                            <th scope="row">ACADEMICS-A</th>
+                                            <td><?php echo $row['c1_total'];?></td>
+                                            <td>30</td>
                                         </tr>
-
                                         <tr>
-                                            <th><h4 style="font-family:'Copperplate Gothic Light';color:black;font-size:20px;"> GRADE OBTAINED : 	</h4></th>
-                                            <td><h4 style="font-family:'Copperplate Gothic Light';color:black;font-size:20px;">	<?php echo $grade; ?> </h4> </td>
+
+                                            <th scope="row">ACADEMICS-B</th>
+                                            <td><?php echo $row['c2_total'];?></td>
+                                            <td>10</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <th scope="row">IMPLEMENTATION OF INSTITUTIONAL INITIATIVES</th>
+                                            <td><?php echo $row['c3_total'];?></td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+
+                                            <th scope="row">RESEARCH - A</th>
+                                            <td><?php echo $row['c4_total'];?></td>
+                                            <td>20</td>
+                                        </tr>
+                                        <tr>
+
+                                            <th scope="row">RESEARCH - B</th>
+                                            <td><?php echo $row['c5_total'];?></td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+
+                                            <th scope="row">EXTENSION CONSULTANCY AND STUDENT SUPPORT</th>
+                                            <td><?php echo $row['c6_total'];?></td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+
+                                            <th scope="row">ORGANIZATION OF PROGRAMMES</th>
+                                            <td><?php echo $row['c7_total'];?></td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+
+                                            <th scope="row">ACADEMIC GROWTH</th>
+                                            <td><?php echo $row['c8_total'];?></td>
+                                            <td>5</td>
                                         </tr>
 
+
+                                        </tbody>
                                     </table>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <center><h4 style="font-family:'Copperplate Gothic Light';color:black;font-size:30px;">Final Result</h4></center><br>
+
+                                    <div class="tables">
+                                        <table class="table table-bordered">
+
+                                            <tr>
+                                                <th><h4 style="font-family:'Copperplate Gothic Light';color:black;font-size:20px;"> OVERALL GRADE POINT AVERAGE :</h4> </th>
+                                                <td><h4 style="font-family:'Copperplate Gothic Light';color:black;font-size:20px;">	<?php echo $cgpa; ?> </h4> </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th><h4 style="font-family:'Copperplate Gothic Light';color:black;font-size:20px;"> GRADE OBTAINED : 	</h4></th>
+                                                <td><h4 style="font-family:'Copperplate Gothic Light';color:black;font-size:20px;">	<?php echo $grade; ?> </h4> </td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+                                    <br>
+
                                 </div>
-                                <br>
 
                             </div>
 
-                        </div>
-
                         <?php   }
-                                else
-                                {
-                                    echo "No Result Found";
-                                }
-                            ?>
+                        else
+                        {
+                            echo "No Result Found";
+                        }
+                        ?>
                         <br> <br> <br> 		<br> <br> <br>
                     </div>
 
@@ -419,5 +416,6 @@ if(!$objEmployee->checkSameDepartment($e_id,$email))
 
 
                 <?php
-				include 'footer.php';
-				?>
+                include 'footer.php';
+                ?>
+

@@ -2,13 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: sanathls
- * Date: 04/02/20
- * Time: 10:49 AM
+ * Date: 06/02/20
+ * Time: 5:39 PM
  */
 
 require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../utilities/Constants.php";
 require_once __DIR__."/../../models/Pbsa.php";
+require_once __DIR__."/../../models/Role.php";
+require_once __DIR__."/../../models/Department.php";
 header('Cache-Control: no cache'); //no cache
 header('Pragma: no-cache');
 session_cache_limiter('private_no_expire'); // works
@@ -20,7 +22,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     $changePassword = $_SESSION['changePassword'];
 
     $objEmployee = new Employee();
-    if(!$objEmployee->checkEmailRole($email,Constants::roleHod))//check realtime role
+    if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
         exit();
@@ -37,15 +39,19 @@ else
     exit();
 }
 
-if(isset($_POST['e_id']))
-    $e_id = $_POST['e_id'];
+if(isset($_POST['d_id']))
+    $department = $_POST['d_id'];
 else
-    $e_id = $objEmployee->getEid($email);
-
-//check for same department
-if(!$objEmployee->checkSameDepartment($e_id,$email))
 {
-    header("Location: performance.php");
+    header('Location: deptPerformance.php');
+    exit();
+}
+
+if(isset($_POST['year']))
+    $year = $_POST['year'];
+else
+{
+    header('Location: deptPerformance.php');
     exit();
 }
 
@@ -183,9 +189,10 @@ if(!$objEmployee->checkSameDepartment($e_id,$email))
             <div class="outter-wp">
                 <div class="sub-heard-part">
                     <ol class="breadcrumb m-b-0">
-                        <li><a href="home.php">Home</a></li>
-                        <li><a href="performance.php">View Performance</a></li><?php $e_name = $objEmployee->getName($e_id);?>
-                        <li><?php echo $e_name;?></li>
+                        <li><a href="home.php">Home</a></li><?php $objDep = new Department();?>
+                        <li><a href="deptPerformance.php">View Performance</a></li><?php $d_name = $objDep->getDepartmentName($department);?>
+                        <li><?php echo $d_name;?></li>
+                        <li><?php echo $year;?></li>
                     </ol>
                 </div>
                 <!--custom-widgets-->
@@ -196,7 +203,7 @@ if(!$objEmployee->checkSameDepartment($e_id,$email))
 
                     <div class="candile-inner">
 
-                        <center><h3 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;">PBSA Performance - <?php echo $e_name;?></h3></center>
+                        <center><h3 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;">PBSA Performance - <?php echo $d_name." - ".$year;?></h3></center>
                         <hr id="hr">
 
                         <div id="center"><div id="fig">
@@ -210,10 +217,10 @@ if(!$objEmployee->checkSameDepartment($e_id,$email))
                                                 <tr>
 
                                                     <th>&nbsp;Sl No</th>
-                                                    <th>&nbsp;Year</th>
+                                                    <th>&nbsp;Name</th>
+                                                    <th>&nbsp;Designation</th>
                                                     <th>&nbsp;CGPA(10)</th>
                                                     <th>&nbsp;Grade</th>
-                                                    <th>&nbsp;Submitted On</th>
                                                     <th>&nbsp;Action</th>
 
 
@@ -223,7 +230,8 @@ if(!$objEmployee->checkSameDepartment($e_id,$email))
                                                 <tbody>
                                                 <?php
                                                 $objPbsa = new Pbsa();
-                                                $result = $objPbsa->getIndividualPerformance($e_id);
+                                                $objRole = new Role();
+                                                $result = $objPbsa->getDepartmentPerformanceYear($department,$year);
                                                 if($result->num_rows > 0)
                                                 {
                                                     $i=0;
@@ -255,12 +263,12 @@ if(!$objEmployee->checkSameDepartment($e_id,$email))
 
                                                         echo '<tr>
                                                                     <td>'.++$i.'</td>
-                                                                    <td>'.$row["year"].'</td>
+                                                                    <td>'.$row["first_name"]." ".$row["last_name"].'</td>
+                                                                    <td>'.$objRole->getRoleName($row["role"]).'</td>
                                                                     <td>'.$cgpa.'</td>
                                                                     <td>'.$grade.'</td>
-                                                                    <td>'.$row["timestamp"].'</td>
 
-                                                                    <td> <form method="post" action="pbsaPerformance.php"><input name="e_id" value="'.$e_id.'" hidden readonly><input name="year" value="'.$row["year"].'" hidden readonly> <button name="view" id="app" class="btn btn-primary">View</button></form> </td>
+                                                                    <td> <form method="post" action="pbsaPerformance.php"><input name="e_id" value="'.$row["e_id"].'" hidden readonly><input name="year" value="'.$year.'" hidden readonly> <button name="view" id="app" class="btn btn-primary">View</button></form> </td>
                                                                   </tr>';
                                                     }
 
@@ -342,25 +350,10 @@ if(!$objEmployee->checkSameDepartment($e_id,$email))
                 </div>
 
             </div>
-            <!--/candile-->
 
-            <!--/charts-->
-
-
-
-
-
-
-
-            <!--//custom-widgets-->
-
-            <!--/charts-->
-
-
-
-            <!--//content-inner-->
-            <!--/sidebar-menu-->
             <?php
             include 'footer.php';
             ?>
+
+
 

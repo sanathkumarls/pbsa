@@ -127,6 +127,7 @@ else
             });
         }
 
+        load_unseen_notification();
 
         setInterval(function(){
             load_unseen_notification();

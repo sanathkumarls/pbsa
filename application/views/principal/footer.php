@@ -18,15 +18,18 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
+        exit();
     }
     if($changePassword == 1)
     {
         header("Location: changePassword.php");
+        exit();
     }
 }
 else
 {
     header('Location: index.php');
+    exit();
 }
 ?>
 <div class="sidebar-menu">
@@ -86,8 +89,8 @@ else
         <ul id="menu" >
 
             <li><a href="home.php"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
-            <li id="menu-academico" class="xyz" ><a href="verifyPbsa.php"><i class="fa fa-bar-chart-o"></i> <span>Verify PBSA</span> <span class="badge count"></span></a>  </li>
-
+            <li id="menu-academico" class="xyz" ><a href="verifyPbsa.php"><i class="fa fa-check-square-o"></i> <span>Verify PBSA</span> <span class="badge count"></span></a>  </li>
+            <li><a href="deptPerformance.php"><i class="fa fa-bar-chart-o"></i> <span>View Performance</span></a></li>
 
 
         </ul>
@@ -118,12 +121,15 @@ else
             });
         }
 
+        load_unseen_notification();
 
         setInterval(function(){
             load_unseen_notification();;
         }, 5000);
 
     });
+
+
 </script>
 
 <script>

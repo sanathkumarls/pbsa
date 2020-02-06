@@ -2,13 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: sanathls
- * Date: 04/02/20
- * Time: 10:49 AM
+ * Date: 05/02/20
+ * Time: 10:08 PM
  */
 
 require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../utilities/Constants.php";
 require_once __DIR__."/../../models/Pbsa.php";
+require_once __DIR__."/../../models/Department.php";
 header('Cache-Control: no cache'); //no cache
 header('Pragma: no-cache');
 session_cache_limiter('private_no_expire'); // works
@@ -20,7 +21,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     $changePassword = $_SESSION['changePassword'];
 
     $objEmployee = new Employee();
-    if(!$objEmployee->checkEmailRole($email,Constants::roleHod))//check realtime role
+    if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
         exit();
@@ -39,13 +40,10 @@ else
 
 if(isset($_POST['e_id']))
     $e_id = $_POST['e_id'];
-else
-    $e_id = $objEmployee->getEid($email);
 
-//check for same department
-if(!$objEmployee->checkSameDepartment($e_id,$email))
+else
 {
-    header("Location: performance.php");
+    header('Location: deptPerformance.php');
     exit();
 }
 
@@ -183,8 +181,9 @@ if(!$objEmployee->checkSameDepartment($e_id,$email))
             <div class="outter-wp">
                 <div class="sub-heard-part">
                     <ol class="breadcrumb m-b-0">
-                        <li><a href="home.php">Home</a></li>
-                        <li><a href="performance.php">View Performance</a></li><?php $e_name = $objEmployee->getName($e_id);?>
+                        <li><a href="home.php">Home</a></li><?php $e_name = $objEmployee->getName($e_id);?>
+                        <li><a href="performance.php">View Performance</a></li><?php $objDep = new Department();?>
+                        <li><?php echo $objDep->getDepartmentNameFromEmployeeId($e_id);?></li>
                         <li><?php echo $e_name;?></li>
                     </ol>
                 </div>
@@ -363,4 +362,5 @@ if(!$objEmployee->checkSameDepartment($e_id,$email))
             <?php
             include 'footer.php';
             ?>
+
 
