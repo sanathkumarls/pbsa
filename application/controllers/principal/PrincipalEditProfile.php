@@ -18,15 +18,18 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
     {
         header("Location: ../LogoutController.php");
+        exit();
     }
     if($changePassword == 1)
     {
         header("Location: ../../views/principal/changePassword.php");
+        exit();
     }
 }
 else
 {
     header('Location: ../../views/principal/index.php');
+    exit();
 }
 
 if(isset($_POST['submit']))
@@ -40,7 +43,6 @@ class PrincipalEditProfile
 {
     public function getInput()
     {
-        session_start();
         $initial=$_POST['initial'];
         $firstName=$_POST['firstName'];
         $lastName=$_POST['lastName'];
@@ -59,12 +61,12 @@ class PrincipalEditProfile
             if (($size > 5242880))
             {
                 $message = 'File too large. File must be less than 5 megabytes.';
-                echo '<script type="text/javascript">alert("'.$message.'");window.location.href="../../views/principal/editProfile.php"</script>';
+                echo '<script type="text/javascript">alert("'.$message.'");window.location.href="../../views/principal/editProfile.php";</script>';
             }
             elseif ($type != "image/jpg" && $type != "image/jpeg" && $type != "image/png")
             {
                 $message = 'Invalid file type';
-                echo '<script type="text/javascript">alert("'.$message.'");</script>';
+                echo '<script type="text/javascript">alert("'.$message.'");window.location.href="../../views/principal/editProfile.php";</script>';
             }
             else
             {

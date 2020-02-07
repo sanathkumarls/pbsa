@@ -27,7 +27,10 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
 
         //check for submitted
         if(!$objPbsa->checkPbsaSubmitted($e_id,$year))
+        {
             header("Location: verifyPbsa.php");
+            exit();
+        }
     }
     else
     {
@@ -46,7 +49,10 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
 
         //check for same department
         if(!$objEmployee->checkSameDepartment($e_id,$email))
+        {
             header("Location: verifyPbsa.php");
+            exit();
+        }
     }
     elseif($role == Constants::rolePrincipal)
     {

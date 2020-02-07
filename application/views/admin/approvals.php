@@ -20,15 +20,23 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     if(!$objAdmin->checkEmail($email))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
+        exit();
+    }
+    if($role != Constants::roleAdmin)
+    {
+        header("Location: ../../controllers/LogoutController.php");
+        exit();
     }
     if($changePassword == 1)
     {
         header("Location: changePassword.php");
+        exit();
     }
 }
 else
 {
     header('Location: index.php');
+    exit();
 }
 
 ?>
@@ -39,7 +47,7 @@ else
     <title>Notifications</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Skill" />
+    <meta name="keywords" content="PBSA" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Bootstrap Core CSS -->
     <link href="../../../assets/admin/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
@@ -128,7 +136,7 @@ else
     </style>
     <!--//skycons-icons-->
 </head>
-<body>
+<body oncontextmenu="return false">
 <div class="page-container">
     <!--/content-inner-->
     <div class="left-content">

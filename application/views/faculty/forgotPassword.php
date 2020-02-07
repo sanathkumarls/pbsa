@@ -160,10 +160,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
 
 
 </head>
-<body class="body" >
-
-
-
+<body class="body" oncontextmenu="return false">
 <div id="my-modal" class="a">
     <div class="modal-content">
         <div class="modal-header">

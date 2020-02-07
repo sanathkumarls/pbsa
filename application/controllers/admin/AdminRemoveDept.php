@@ -19,15 +19,23 @@ if (isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['ch
     if (!$objAdmin->checkEmail($email))//check realtime role
     {
         header("Location: ../LogoutController.php");
+        exit();
+    }
+    if($role != Constants::roleAdmin)
+    {
+        header("Location: ../LogoutController.php");
+        exit();
     }
     if ($changePassword == 1)
     {
         header("Location: ../../views/admin/changePassword.php");
+        exit();
     }
 }
 else
 {
     header('Location: ../../views/admin/index.php');
+    exit();
 }
 
 

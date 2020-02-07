@@ -10,6 +10,7 @@ session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
     header('Location: home.php');
+    exit();
 }
 ?>
 <!DOCTYPE HTML>
@@ -45,8 +46,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
         }
     </style>
 </head>
-
-<body>
+<body oncontextmenu="return false">
 <h1>ADMIN LOGIN </h1>
 <div class="w3ls-login box box--big">
 

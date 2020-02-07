@@ -46,7 +46,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     </style>
 </head>
 
-<body>
+<body oncontextmenu="return false">
 <h1>MANAGEMENT LOGIN </h1>
 <div class="w3ls-login box box--big">
 

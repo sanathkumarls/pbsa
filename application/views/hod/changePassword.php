@@ -172,10 +172,7 @@ else
 
 
 </head>
-<body class="body" >
-
-
-
+<body class="body" oncontextmenu="return false">
 <div id="my-modal" class="a">
     <div class="modal-content">
         <div class="modal-header">

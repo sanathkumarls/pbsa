@@ -11,6 +11,7 @@ session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
     header('Location: home.php');
+    exit();
 }
 ?>
 ?>
@@ -156,7 +157,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
 
 
 </head>
-<body class="body" >
+<body class="body" oncontextmenu="return false">
 
 
 

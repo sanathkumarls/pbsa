@@ -18,15 +18,23 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     if(!$objAdmin->checkEmail($email))//check realtime role
     {
         header("Location: ../LogoutController.php");
+        exit();
+    }
+    if($role != Constants::roleAdmin)
+    {
+        header("Location: ../LogoutController.php");
+        exit();
     }
     if($changePassword == 1)
     {
         header("Location: ../../views/admin/changePassword.php");
+        exit();
     }
 }
 else
 {
     header('Location: ../../views/admin/index.php');
+    exit();
 }
 
 
@@ -38,45 +46,43 @@ if(isset($_POST['submit']))
 }
 class AdminAddDept
 {
-public function getDeptInput()
-{
-    $objAddDept=new Department();
-    $deptName=$_POST['deptName'];
-    $deptAbbr=$_POST['deptAbbr'];
-    if($deptName!=null && $deptAbbr!=null)
+    public function getDeptInput()
     {
-        if($objAddDept->checkDeptName($deptName,$deptAbbr))
+        $objAddDept=new Department();
+        $deptName=$_POST['deptName'];
+        $deptAbbr=$_POST['deptAbbr'];
+        if($deptName!=null && $deptAbbr!=null)
         {
-            echo "<script>alert('Department Name Already Exists.');
+            if($objAddDept->checkDeptName($deptName,$deptAbbr))
+            {
+                echo "<script>alert('Department Name Already Exists.');
                     window.location.href='../../views/admin/newDepartment.php';</script>";
+            }
+            else
+            {
+                $this->addDepartment($deptAbbr,$deptName);
+            }
         }
         else
         {
-            $this->addDepartment($deptAbbr,$deptName);
+            echo "<script>alert('Fill All Fields');
+            window.location.href='../../views/admin/newDepartment.php';</script>";
         }
     }
-    else
-    {
-        echo "<script>alert('Fill All Fields');
-            window.location.href='../../views/admin/newDepartment.php';</script>";
-    }
-}
-public function addDepartment($deptAbbr,$deptName)
-{
-    $objAddDept=new Department();
 
-    if($objAddDept->addDepartment($deptAbbr,$deptName))
+    public function addDepartment($deptAbbr,$deptName)
     {
-        echo "<script>alert('Department Name Added.');
+        $objAddDept=new Department();
+
+        if($objAddDept->addDepartment($deptAbbr,$deptName))
+        {
+            echo "<script>alert('Department Name Added.');
                 window.location.href='../../views/admin/newDepartment.php';</script>";
-    }
-    else
-    {
-        echo "<script>alert('Department Add Failed.');
+        }
+        else
+        {
+            echo "<script>alert('Department Add Failed.');
                 window.location.href='../../views/admin/newDepartment.php';</script>";
-
+        }
     }
-
-
-}
 }

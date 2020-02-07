@@ -2,13 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: sanathls
- * Date: 06/02/20
- * Time: 4:48 PM
+ * Date: 05/02/20
+ * Time: 10:00 PM
  */
 
 require_once __DIR__."/../../models/Employee.php";
 require_once __DIR__."/../../utilities/Constants.php";
 require_once __DIR__."/../../models/Pbsa.php";
+require_once __DIR__."/../../models/Department.php";
+require_once __DIR__."/../../models/Management.php";
 header('Cache-Control: no cache'); //no cache
 header('Pragma: no-cache');
 session_cache_limiter('private_no_expire'); // works
@@ -19,12 +21,19 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     $role = $_SESSION['role'];
     $changePassword = $_SESSION['changePassword'];
 
-    $objEmployee = new Employee();
-    if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
+    $objManagement = new Management();
+    if(!$objManagement->checkEmail($email))
     {
         header("Location: ../../controllers/LogoutController.php");
         exit();
     }
+
+    if($role != Constants::roleManagement)
+    {
+        header("Location: ../../controllers/LogoutController.php");
+        exit();
+    }
+
     if($changePassword == 1)
     {
         header("Location: changePassword.php");
@@ -44,52 +53,42 @@ else
     header('Location: deptPerformance.php');
     exit();
 }
-
-if(isset($_POST['year']))
-    $year = $_POST['year'];
-else
-{
-    header('Location: deptPerformance.php');
-    exit();
-}
-
 ?>
-
 
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>PBSA Performance</title>
+    <title>Department Performance</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Skill" />
+    <meta name="keywords" content="PBSA" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Bootstrap Core CSS -->
-    <link href="../../../assets/hod/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="../../../assets/principal/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <!-- Custom CSS -->
-    <link href="../../../assets/hod/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="../../../assets/principal/css/style.css" rel='stylesheet' type='text/css' />
     <!-- Graph CSS -->
-    <link href="../../../assets/hod/css/font-awesome.css" rel="stylesheet">
+    <link href="../../../assets/principal/css/font-awesome.css" rel="stylesheet">
     <!-- jQuery -->
     <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
     <!-- lined-icons -->
-    <link rel="stylesheet" href="../../../assets/hod/css/icon-font.min.css" type='text/css' />
+    <link rel="stylesheet" href="../../../assets/principal/css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
-    <script src="../../../assets/hod/js/jquery-1.10.2.min.js"></script>
-    <script src="../../../assets/hod/js/amcharts.js"></script>
-    <script src="../../../assets/hod/js/serial.js"></script>
-    <script src="../../../assets/hod/js/light.js"></script>
-    <script src="../../../assets/hod/js/radar.js"></script>
-    <link href="../../../assets/hod/css/barChart.css" rel='stylesheet' type='text/css' />
-    <link href="../../../assets/hod/css/fabochart.css" rel='stylesheet' type='text/css' />
+    <script src="../../../assets/principal/js/jquery-1.10.2.min.js"></script>
+    <script src="../../../assets/principal/js/amcharts.js"></script>
+    <script src="../../../assets/principal/js/serial.js"></script>
+    <script src="../../../assets/principal/js/light.js"></script>
+    <script src="../../../assets/principal/js/radar.js"></script>
+    <link href="../../../assets/principal/css/barChart.css" rel='stylesheet' type='text/css' />
+    <link href="../../../assets/principal/css/fabochart.css" rel='stylesheet' type='text/css' />
     <!--clock init-->
-    <script src="../../../assets/hod/js/css3clock.js"></script>
+    <script src="../../../assets/principal/js/css3clock.js"></script>
     <!--Easy Pie Chart-->
     <!--skycons-icons-->
-    <script src="../../../assets/hod/js/skycons.js"></script>
+    <script src="../../../assets/principal/js/skycons.js"></script>
 
-    <script src="../../../assets/hod/js/jquery.easydropdown.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../../assets/hod/DataTables/media/css/jquery.dataTables.css">
+    <script src="../../../assets/principal/js/jquery.easydropdown.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../assets/principal/DataTables/media/css/jquery.dataTables.css">
 
     <style>
         #hr{
@@ -156,7 +155,7 @@ else
     </style>
     <!--//skycons-icons-->
 </head>
-<body>
+<body oncontextmenu="return false">
 <div class="page-container">
     <!--/content-inner-->
     <div class="left-content">
@@ -187,8 +186,13 @@ else
             <div class="outter-wp">
                 <div class="sub-heard-part">
                     <ol class="breadcrumb m-b-0">
+
+
                         <li><a href="home.php">Home</a></li>
-                        <li>View Performance</li>
+                        <li><a href="deptPerformance.php"> View Performance </a></li>
+                        <li><?php
+                            $objDep = new Department();
+                            echo $objDep->getDepartmentName($department);?></li>
                     </ol>
                 </div>
                 <!--custom-widgets-->
@@ -199,11 +203,10 @@ else
 
                     <div class="candile-inner">
 
-                        <center><h3 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;">PBSA Performance</h3></center>
+                        <center><h3 style="font-family:'Copperplate Gothic Light';color:black;font-size:40px;"><?php echo $objDep->getDepartmentName($department);?> Department Performance</h3></center>
                         <hr id="hr">
 
                         <div id="center"><div id="fig">
-
 
                                 <section class="contact-section">
                                     <div class="container">
@@ -213,12 +216,10 @@ else
                                                 <tr>
 
                                                     <th>&nbsp;Sl No</th>
-                                                    <th>&nbsp;Name</th>
-                                                    <th>&nbsp;Designation</th>
-                                                    <th>&nbsp;CGPA(10)</th>
-                                                    <th>&nbsp;Grade</th>
+                                                    <th>&nbsp;Year</th>
+                                                    <th>CGPA(10)</th>
+                                                    <th>Grade</th>
                                                     <th>&nbsp;Action</th>
-
 
                                                 </tr>
                                                 </thead>
@@ -226,15 +227,13 @@ else
                                                 <tbody>
                                                 <?php
                                                 $objPbsa = new Pbsa();
-                                                $objRole = new Role();
-                                                $result = $objPbsa->getDepartmentPerformance($department);
+                                                $result = $objPbsa->getIndividualDepartmentPerformanceYear($department);
                                                 if($result->num_rows > 0)
                                                 {
                                                     $i=0;
                                                     $cgpa_total=0;
-                                                    while($row = $result->fetch_assoc())
+                                                    while ($row = $result->fetch_assoc())
                                                     {
-
                                                         $cgpa = (($row['c1_total'] * 30) + ($row['c2_total'] * 10) + ($row['c3_total'] * 10) + ($row['c4_total'] * 20) + ($row['c5_total'] * 10) + ($row['c6_total'] * 10) + ($row['c7_total'] * 5) + ($row['c8_total'] * 5)) /100;
                                                         $cgpa_total+=$cgpa;
                                                         $grade = "";
@@ -257,15 +256,15 @@ else
                                                         elseif ($cgpa <= 5)
                                                             $grade = "C";
 
-                                                        echo '<tr>
-                                                                    <td>'.++$i.'</td>
-                                                                    <td>'.$row["first_name"]." ".$row["last_name"].'</td>
-                                                                    <td>'.$objRole->getRoleName($row["role"]).'</td>
-                                                                    <td>'.$cgpa.'</td>
-                                                                    <td>'.$grade.'</td>
+                                                        echo '
+                                            <tr>
+                                            <td>'.++$i.'</td>
+                                            <td>'.$row["year"].'</td>
+                                             <td>'.$cgpa.'</td>
+                                             <td>'.$grade.'</td>
 
-                                                                    <td> <form method="post" action="viewPerformance.php"><input name="e_id" value="'.$row["e_id"].'" hidden readonly> <button name="view" id="app" class="btn btn-primary">View</button></form> </td>
-                                                                  </tr>';
+                                            <td><form method="post" action="deptPerformanceYear.php"><input name="year" value="'.$row["year"].'" readonly hidden><input name="d_id" value="'.$department.'" readonly hidden><button name="view" class="btn btn-primary">View</button></form> </td>
+                                            </tr>';
                                                     }
 
                                                     $avg = $cgpa_total/$i;
@@ -296,14 +295,13 @@ else
                                                     <th style="padding-left: 50px">Grade</th></tr></thead>
                                                     <tbody><tr><td  style="padding-top: 25px">'.$avg.'</td><td style="padding-left: 50px;padding-top: 25px">'.$grade_avg.'</td></tr></tbody></table></div>';
                                                 }
-
                                                 ?>
-
 
                                                 </tbody>
 
                                             </table>
                                         </div>
+
                                     </div>
                                 </section>
 
@@ -312,18 +310,18 @@ else
                                 <!-- End contact section -->
 
 
-                                <script type="text/javascript" src="../../../assets/hod/js/jquery.min.js"></script>
-                                <script type="text/javascript" src="../../../assets/hod/js/jquery.migrate.js"></script>
-                                <script type="text/javascript" src="../../../assets/hod/js/bootstrap.min.js"></script>
-                                <script type="text/javascript" src="../../../assets/hod/js/jquery.imagesloaded.min.js"></script>
-                                <script type="text/javascript" src="../../../assets/hod/js/retina-1.1.0.min.js"></script>
-                                <script type="text/javascript" src="../../../assets/hod/js/script.js"></script>
+                                <script type="text/javascript" src="../../../assets/principal/js/jquery.min.js"></script>
+                                <script type="text/javascript" src="../../../assets/principal/js/jquery.migrate.js"></script>
+                                <script type="text/javascript" src="../../../assets/principal/js/bootstrap.min.js"></script>
+                                <script type="text/javascript" src="../../../assets/principal/js/jquery.imagesloaded.min.js"></script>
+                                <script type="text/javascript" src="../../../assets/principal/js/retina-1.1.0.min.js"></script>
+                                <script type="text/javascript" src="../../../assets/principal/js/script.js"></script>
 
                                 <!-- ############## Data table coding starts here -->
                                 <script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.12.4.js"></script>
-                                <script type="text/javascript" language="javascript" src="../../../assets/hod/DataTables/media/js/jquery.dataTables.js"></script>
-                                <script type="text/javascript" language="javascript" src="../../../assets/hod/DataTables/examples/resources/syntax/shCore.js"></script>
-                                <script type="text/javascript" language="javascript" src="../../../assets/hod/DataTables/examples/resources/demo.js"></script>
+                                <script type="text/javascript" language="javascript" src="../../../assets/principal/DataTables/media/js/jquery.dataTables.js"></script>
+                                <script type="text/javascript" language="javascript" src="../../../assets/principal/DataTables/examples/resources/syntax/shCore.js"></script>
+                                <script type="text/javascript" language="javascript" src="../../../assets/principal/DataTables/examples/resources/demo.js"></script>
                                 <script type="text/javascript" language="javascript" class="init">
                                     $(document).ready(function() {
                                         $('#example').DataTable( {
@@ -346,27 +344,8 @@ else
                 </div>
 
             </div>
-            <!--/candile-->
 
-            <!--/charts-->
-
-
-
-
-
-
-
-            <!--//custom-widgets-->
-
-            <!--/charts-->
-
-
-
-            <!--//content-inner-->
-            <!--/sidebar-menu-->
             <?php
             include 'footer.php';
+
             ?>
-
-
-

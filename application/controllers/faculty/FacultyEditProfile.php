@@ -18,15 +18,18 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     if(!$objEmployee->checkEmailRole($email,Constants::roleFaculty))//check realtime role
     {
         header("Location: ../LogoutController.php");
+        exit();
     }
     if($changePassword == 1)
     {
         header("Location: ../../views/faculty/changePassword.php");
+        exit();
     }
 }
 else
 {
     header('Location: ../../views/faculty/index.php');
+    exit();
 }
 
 if(isset($_POST['submit']))

@@ -18,11 +18,13 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
     {
         header("Location: ../LogoutController.php");
+        exit();
     }
 }
 else
 {
     header('Location: ../../views/principal/index.php');
+    exit();
 }
 
 
@@ -36,7 +38,6 @@ class PrincipalChangePassword
 {
     function getInput()
     {
-        session_start();
         $email = $_SESSION['email'];
         $oldpassword = $_POST['oldpassword'];
         $newpassword = $_POST['newpassword'];
@@ -54,7 +55,7 @@ class PrincipalChangePassword
                 }
                 else
                 {
-                    echo "<script>alert('Password not matching.');
+                    echo "<script>alert('Passwords not matching.');
                     window.location.href='../../views/principal/changePassword.php';</script>";
                 }
 

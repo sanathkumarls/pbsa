@@ -21,15 +21,23 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     if(!$objAdmin->checkEmail($email))//check realtime role
     {
         header("Location: ../../controllers/LogoutController.php");
+        exit();
+    }
+    if($role != Constants::roleAdmin)
+    {
+        header("Location: ../../controllers/LogoutController.php");
+        exit();
     }
     if($changePassword == 1)
     {
         header("Location: changePassword.php");
+        exit();
     }
 }
 else
 {
     header('Location: index.php');
+    exit();
 }
 
 ?>
@@ -41,7 +49,7 @@ else
     <title>Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Skill" />
+    <meta name="keywords" content="PBSA" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Bootstrap Core CSS -->
     <link href="../../../assets/admin/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
@@ -111,7 +119,7 @@ else
     </style>
     <!--//skycons-icons-->
 </head>
-<body>
+<body oncontextmenu="return false">
 <div class="page-container">
     <!--/content-inner-->
     <div class="left-content">
@@ -202,47 +210,6 @@ else
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--   <div class="panel-default">
-                                            <div class="panel-heading" role="tab" id="headingThree">
-                                              <h4 class="panel-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    Skills
-                                                </a>
-                                              </h4>
-                                            </div>
-                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
-                                              <div class="panel-body">
-                                                <ul><li>Add Skill Categories</li>
-                                                <li>Remove Skill Categories</li>
-                                                <li>Edit Skill Categories</li>
-
-                                                <li>Change skill status
-                                                </li>
-                                    <li>Skills can be then Assigned to Department by HOD</li>
-                                                        </ul>
-                                              </div>
-                                            </div>
-                                          </div>
-                                      <div class="panel-default">
-                                        <div class="panel-heading" role="tab" id="headingFour">
-                                          <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                            Project
-                                            </a>
-                                          </h4>
-                                        </div>
-                                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" aria-expanded="false" style="height: 0px;">
-                                          <div class="panel-body">
-                                        <ul><li>Make Project inventory</li>
-
-                                                    <li>Remove Project </li>
-                                                    <li>Update Project Information</li>
-                                                    <li>Change Project status</li>
-<li>Assign Project for Department </li>
-</ul>
-                                          </div>
-                                        </div>
-                                      </div> -->
                                         <div class="panel-default">
                                             <div class="panel-heading" role="tab" id="headingFour">
                                                 <h4 class="panel-title">
@@ -258,27 +225,7 @@ else
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="panel-default">
-                                            <div class="panel-heading" role="tab" id="headingFour">
-                                              <h4 class="panel-title">
-                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseFive">
-                                                Customize Rating
-                                                </a>
-                                              </h4>
-                                            </div>
-                                            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix" aria-expanded="false" style="height: 0px;">
-                                              <div class="panel-body">
-                                            <ul><li>Add Rating levels</li>
-                                            <li>Update Rating levels</li></ul>
-                                              </div>
-                                            </div> -->
                                     </div>
-
-
-
-
-
-
                                 </div>
                             </div>
 
@@ -297,8 +244,6 @@ else
 
                         <div id="chart2"></div>
 
-
-
                         <div class="clearfix"> </div>
                     </div>
                     <!--/float-charts-->
@@ -306,16 +251,6 @@ else
 
                         <h3 class="sub-tittle"></h3>
                         <div id="chartdiv2"></div>
-
-
-
-
-
-
-
-
-
-
 
                     </div>
 

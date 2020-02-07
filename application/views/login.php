@@ -69,7 +69,7 @@ margin-right:5%;
 	
 	</style>
   </head>
-  <body >
+  <body  oncontextmenu="return false">
     
     
     

@@ -55,7 +55,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
 
     </style>
 </head>
-<body >
+<body  oncontextmenu="return false">
 
 
 

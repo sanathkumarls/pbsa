@@ -8,12 +8,40 @@
 
 require_once __DIR__.'/../../models/Employee.php';
 require_once __DIR__.'/../../utilities/Constants.php';
-
-if(isset($_POST['submit']))
+session_start();
+if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
-    $obj = new PrincipalLoginController();
-    $obj->getUserInput();
+    $email =  $_SESSION['email'];
+    $role = $_SESSION['role'];
+    $changePassword = $_SESSION['changePassword'];
+
+    $objEmployee = new Employee();
+    if(!$objEmployee->checkEmailRole($email,Constants::rolePrincipal))//check realtime role
+    {
+        header("Location: ../LogoutController.php");
+        exit();
+    }
+    if($changePassword == 1)
+    {
+        header("Location: ../../views/principal/changePassword.php");
+        exit();
+    }
+    else
+    {
+        header("Location: ../../views/principal/home.php");
+        exit();
+    }
 }
+else
+{
+    if (isset($_POST['submit']))
+    {
+        $obj = new PrincipalLoginController();
+        $obj->getUserInput();
+    }
+}
+
+
 
 class PrincipalLoginController
 {

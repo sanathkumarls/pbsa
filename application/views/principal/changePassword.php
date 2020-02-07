@@ -172,7 +172,7 @@ else
 
 
 </head>
-<body class="body" >
+<body class="body"  oncontextmenu="return false">
 
 
 

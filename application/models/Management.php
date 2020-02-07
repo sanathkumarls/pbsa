@@ -16,7 +16,7 @@ class Management
         $db = new Database();
         $con = $db->open_connection();
 
-        $query ="select * from management where `email` = '$email'";
+        $query ="select * from management where `email` = '$email' and `is_active` = 1";
 
         $result = $con->query($query);
 
@@ -47,13 +47,45 @@ class Management
         return $con->query($query);
     }
 
+    function checkPassword($email,$hashedpassword)//to check old password
+    {
+        $db = new Database();
+        $con = $db->open_connection();
+        $query = "select * from management where email='$email' and password='$hashedpassword' and is_active=1 ";
+        $result = $con->query($query);
+        if($result->num_rows > 0)
+            return true;
+        return false;
+    }
+
     function addManagement($initial,$firstName,$lastName,$email,$phone)
     {
         $db = new Database();
         $con = $db->open_connection();
 
-        $query="insert into management values (NULL,'$initial','$firstName','$lastName','$email','".Constants::defaultPassword."','$phone',NULL,NULL,1)";
+        $photo = "assets/management/images/a.png";
 
+        $query="insert into management values (NULL,'$initial','$firstName','$lastName','$email','".Constants::defaultPassword."','$phone',$photo,NULL,1)";
+
+        return $con->query($query);
+    }
+
+    function getUserDetails($email)
+    {
+        $db=new Database();
+        $con=$db->open_connection();
+
+        $query = "select * from management where `email` = '$email'";
+
+        return $con->query($query);
+    }
+
+    function UpdateProfile($initial,$firstName,$lastName,$email,$dob,$phone,$photo)
+    {
+        $db=new Database();
+        $con=$db->open_connection();
+
+        $query = "UPDATE `management` SET `initial`='$initial',`first_name`='$firstName',`last_name`='$lastName',`dob`='$dob',`phone`='$phone',`photo` = '$photo' WHERE `email`='$email'";
         return $con->query($query);
     }
 }

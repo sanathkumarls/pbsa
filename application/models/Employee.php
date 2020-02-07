@@ -301,6 +301,29 @@ class Employee
             }
             return "";
         }
+
+        function getApprovedUsers()
+        {
+            $db=new Database();
+            $con=$db->open_connection();
+
+            $query = "select * from employee where `is_active` = 1 or `is_active` = 2";
+            return $con->query($query);
+        }
+
+        function changeStatus($status,$e_id)
+        {
+            $db=new Database();
+            $con=$db->open_connection();
+
+            if($status == 1)
+                $status = 2;
+            elseif ($status == 2)
+                $status = 1;
+
+            $query = "update employee set `is_active` = '$status' where `e_id` = '$e_id'";
+            return $con->query($query);
+        }
 }
 
 //$objEmployee = new Employee();

@@ -6,8 +6,8 @@
  * Time: 2:17 AM
  */
 
-require_once __DIR__.'../../models/Management.php';
-require_once __DIR__.'../../utilities/Constants.php';
+require_once __DIR__.'/../../models/Management.php';
+require_once __DIR__.'/../../utilities/Constants.php';
 
 session_start();
 if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
@@ -20,14 +20,17 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     if(!$objMgmt->checkEmail($email))
     {
         header("Location: ../LogoutController.php");
+        exit();
     }
     if($changePassword == 1)
     {
         header("Location: ../../views/management/changePassword.php");
+        exit();
     }
     else
     {
         header("Location: ../../views/management/home.php");
+        exit();
     }
 }
 else
@@ -60,6 +63,7 @@ class ManagementLoginController
         $objManagement = new Management();
         if($objManagement->canLogin($email,$hashPassword))
         {
+            $_SESSION['changePassword'] = 0;
             if($hashPassword == Constants::defaultPassword)
             {
                 $_SESSION['changePassword'] = 1;

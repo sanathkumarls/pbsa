@@ -17,15 +17,23 @@ if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['cha
     if(!$objAdmin->checkEmail($email))//check realtime role
     {
         header("Location: ../LogoutController.php");
+        exit();
+    }
+    if($role != Constants::roleAdmin)
+    {
+        header("Location: ../LogoutController.php");
+        exit();
     }
     if($changePassword == 1)
     {
         header("Location: ../../views/admin/changePassword.php");
+        exit();
     }
 }
 else
 {
     header('Location: ../../views/admin/index.php');
+    exit();
 }
 
 if(isset($_POST['submit']))
@@ -56,12 +64,12 @@ class AdminEditProfile
             if (($size > 5242880))
             {
                 $message = 'File too large. File must be less than 5 megabytes.';
-                echo '<script type="text/javascript">alert("'.$message.'");window.location.href="../../views/admin/editProfile.php"</script>';
+                echo '<script type="text/javascript">alert("'.$message.'");window.location.href="../../views/admin/editProfile.php";</script>';
             }
             elseif ($type != "image/jpg" && $type != "image/jpeg" && $type != "image/png")
             {
                 $message = 'Invalid file type';
-                echo '<script type="text/javascript">alert("'.$message.'");</script>';
+                echo '<script type="text/javascript">alert("'.$message.'");window.location.href="../../views/admin/editProfile.php";</script>';
             }
             else
             {

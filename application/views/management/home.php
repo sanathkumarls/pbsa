@@ -5,28 +5,53 @@
  * Date: 07-11-2019
  * Time: 11:42
  */
-require_once __DIR__.'../../models/Management.php';
+
+require_once __DIR__.'/../../models/Management.php';
+require_once __DIR__.'/../../utilities/Constants.php';
+header('Cache-Control: no cache'); //no cache
+header('Pragma: no-cache');
+session_cache_limiter('private_no_expire'); // works
 session_start();
-if(isset($_SESSION['email']))
+if(isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['changePassword']))
 {
-    $email = $_SESSION['email'];
+    $email =  $_SESSION['email'];
+    $role = $_SESSION['role'];
+    $changePassword = $_SESSION['changePassword'];
+
+
     $objManagement = new Management();
-    if(!$objManagement->checkEmail($email)){
-        session_destroy();
-        header("Location:index.php");
+    if(!$objManagement->checkEmail($email))
+    {
+        header("Location: ../../controllers/LogoutController.php");
+        exit();
+    }
+
+    if($role != Constants::roleManagement)
+    {
+        header("Location: ../../controllers/LogoutController.php");
+        exit();
+    }
+
+    if($changePassword == 1)
+    {
+        header("Location: changePassword.php");
+        exit();
     }
 }
-else {
-    header('Location:index.php');
+else
+{
+    header('Location: index.php');
+    exit();
 }
-	?>
+
+?>
     <!DOCTYPE HTML>
     <html>
     <head>
         <title>Management Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="Skill" />
+        <meta name="keywords" content="PBSA" />
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <!-- Bootstrap Core CSS -->
         <link href="../../../assets/management/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
@@ -149,7 +174,7 @@ else {
         </style>
         <!--//skycons-icons-->
     </head>
-    <body id="b">
+    <body id="b" oncontextmenu="return false">
     <div id ="pc" class="page-container">
         <!--/content-inner-->
         <div class="left-content">
@@ -204,20 +229,11 @@ else {
 
 
                                     <br> <br>
-                                    <form action="verify.php" method="post">
 
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-5"><a href="deptPerformance.php"><img src="../../../assets/hod/images/verify.png"><h3 style="font-family:'Copperplate Gothic Light';color:black;">View Performance</h3></a></div>
+                                    <div class="col-md-1"></div><br> <br> <br> <br> <br> <br> <br> <br>
 
-                                        <button id="bt" class="button">Verify Employee PBSA &nbsp;<i class="fa fa-angle-double-right fa-lg"></i></button>
-
-                                        <br> <br>
-                                    </form>
-                                    <form action="hverify.php" method="post">
-
-
-                                        <button id="btx" class="button">&nbsp;&nbsp;Verify Manager PBSA &nbsp;<i class="fa fa-angle-double-right fa-lg"></i>&nbsp;</button>
-
-                                        <br> <br>
-                                    </form>
                                 </div>
 
 
