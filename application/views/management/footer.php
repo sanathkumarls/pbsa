@@ -1,4 +1,7 @@
 <?php
+/**
+ * Copyright (c) 2020.  Sanath L S
+ */
 
 require_once __DIR__.'/../../models/Management.php';
 require_once __DIR__.'/../../utilities/Constants.php';
