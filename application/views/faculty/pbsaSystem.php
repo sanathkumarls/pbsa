@@ -70,15 +70,15 @@ $c21="";$c21_path="";$c22="";$c22_path="";$c23="";$c23_path="";$c24="";$c24_path
 
 $c31_1="";$c31_2="";$c31_3="";$c31_4="";$c31_5="";$c31_path="";$c32_1="";$c32_2="";$c32_3="";$c32_4="";$c32_5="";$c32_6="";$c32_7="";$c32_8="";$c32_9="";$c32_10="";$c32_11="";$c32_12="";$c32_13="";$c32_14="";$c32_15="";$c32_16="";$c32_17="";$c32_18="";$c32_19="";$c32_path="";
 
-$c41="";$c41_path="";$c42="";$c42_path="";$c43="";$c43_path="";$c44="";$c44_path="";$c45="";$c45_path="";
+$c41_1_1="";$c41_1_2="";$c41_2_1="";$c41_2_2="";$c41_3_1="";$c41_3_2="";$c41_4_1="";$c41_4_2="";$c41_path="";$c42_1_1="";$c42_1_2="";$c42_1_3="";$c42_2_1="";$c42_2_2="";$c42_2_3="";$c42_path="";$c43_1="";$c43_2="";$c43_path="";
 
-$phd="";$c51_1="";$c51_2="";$c51_3="";$c51_path="";$c52="";$c52_path="";$c53="";$c53_path="";
+$phd="";$c51_1="";$c51_2="";$c51_3="";$c51_path="";$c52_1="";$c52_2="";$c52_path="";$c53="";$c53_path="";$c54_1="";$c54_2="";$c54_path="";
 
-$c61="";$c61_path="";$c62="";$c62_path="";$c63="";$c63_path="";$c64="";$c64_path="";
+$c61_1="";$c61_2="";$c61_path="";$c62="";$c62_path="";$c63="";$c63_path="";$c64="";$c64_path="";
 
-$c71="";$c71_path="";$c72="";$c72_path="";$c73="";$c73_path="";$c74="";$c74_path="";
+$c71_1_1="";$c71_1_2="";$c71_1_3="";$c71_2_1="";$c71_2_2="";$c71_2_3="";$c71_path="";$c72_1_1="";$c72_1_2="";$c72_1_3="";$c72_2_1="";$c72_2_2="";$c72_2_3="";$c72_path="";$c73_1="";$c73_2="";$c73_path="";$c74="";$c74_path="";
 
-$c81="";$c81_path="";$c82="";$c82_path="";$c83="";$c83_path="";$c84="";$c84_path="";$c85="";$c85_path="";$c86="";$c86_path="";
+$c81_1_1="";$c81_1_2="";$c81_2_1="";$c81_2_2="";$c81_3_1="";$c81_3_2="";$c81_path="";$c82="";$c82_path="";$c83="";$c83_path="";$c84_1="";$c84_2="";$c84_path="";$c85_1="";$c85_2="";$c85_3="";$c85_4="";$c85_path="";$c86="";$c86_path="";$c87_1="";$c87_2="";$c87_3="";$c87_path="";
 
 $emp_comments="";$rejected_comments="";
 
@@ -94,15 +94,15 @@ if($result)
 
     $c31_1=$row['c31_1'];$c31_2=$row['c31_2'];$c31_3=$row['c31_3'];$c31_4=$row['c31_4'];$c31_5=$row['c31_5'];$c31_path=$row['c31_path'];$c32_1=$row['c32_1'];$c32_2=$row['c32_2'];$c32_3=$row['c32_3'];$c32_4=$row['c32_4'];$c32_5=$row['c32_5'];$c32_6=$row['c32_6'];$c32_7=$row['c32_7'];$c32_8=$row['c32_8'];$c32_9=$row['c32_9'];$c32_10=$row['c32_10'];$c32_11=$row['c32_11'];$c32_12=$row['c32_12'];$c32_13=$row['c32_13'];$c32_14=$row['c32_14'];$c32_15=$row['c32_15'];$c32_16=$row['c32_16'];$c32_17=$row['c32_17'];$c32_18=$row['c32_18'];$c32_19=$row['c32_19'];$c32_path=$row['c32_path'];
 
-    $c41=$row['c41'];$c41_path=$row['c41_path'];$c42=$row['c42'];$c42_path=$row['c42_path'];$c43=$row['c43'];$c43_path=$row['c43_path'];$c44=$row['c44'];$c44_path=$row['c44_path'];$c45=$row['c45'];$c45_path=$row['c45_path'];
+    $c41_1_1=$row['c41_1_1'];$c41_1_2=$row['c41_1_2'];$c41_2_1=$row['c41_2_1'];$c41_2_2=$row['c41_2_2'];$c41_3_1=$row['c41_3_1'];$c41_3_2=$row['c41_3_2'];$c41_4_1=$row['c41_4_1'];$c41_4_2=$row['c41_4_2'];$c41_path=$row['c41_path'];$c42_1_1=$row['c42_1_1'];$c42_1_2=$row['c42_1_2'];$c42_1_3=$row['c42_1_3'];$c42_2_1=$row['c42_2_1'];$c42_2_2=$row['c42_2_2'];$c42_2_3=$row['c42_2_3'];$c42_path=$row['c42_path'];$c43_1=$row['c43_1'];$c43_2=$row['c43_2'];$c43_path=$row['c43_path'];
 
-    $phd=$row['phd'];$c51_1=$row['c51_1'];$c51_2=$row['c51_2'];$c51_3=$row['c51_3'];$c51_path=$row['c51_path'];$c52=$row['c52'];$c52_path=$row['c52_path'];$c53=$row['c53'];$c53_path=$row['c53_path'];
+    $phd=$row['phd'];$c51_1=$row['c51_1'];$c51_2=$row['c51_2'];$c51_3=$row['c51_3'];$c51_path=$row['c51_path'];$c52_1=$row['c52_1'];$c52_2=$row['c52_2'];$c52_path=$row['c52_path'];$c53=$row['c53'];$c53_path=$row['c53_path'];$c54_1=$row['c54_1'];$c54_2=$row['c54_2'];$c54_path=$row['c54_path'];
 
-    $c61=$row['c61'];$c61_path=$row['c61_path'];$c62=$row['c62'];$c62_path=$row['c62_path'];$c63=$row['c63'];$c63_path=$row['c63_path'];$c64=$row['c64'];$c64_path=$row['c64_path'];
+    $c61_1=$row['c61_1'];$c61_2=$row['c61_2'];$c61_path=$row['c61_path'];$c62=$row['c62'];$c62_path=$row['c62_path'];$c63=$row['c63'];$c63_path=$row['c63_path'];$c64=$row['c64'];$c64_path=$row['c64_path'];
 
-    $c71=$row['c71'];$c71_path=$row['c71_path'];$c72=$row['c72'];$c72_path=$row['c72_path'];$c73=$row['c73'];$c73_path=$row['c73_path'];$c74=$row['c74'];$c74_path=$row['c74_path'];
+    $c71_1_1=$row['c71_1_1'];$c71_1_2=$row['c71_1_2'];$c71_1_3=$row['c71_1_3'];$c71_2_1=$row['c71_2_1'];$c71_2_2=$row['c71_2_2'];$c71_2_3=$row['c71_2_3'];$c71_path=$row['c71_path'];$c72_1_1=$row['c72_1_1'];$c72_1_2=$row['c72_1_2'];$c72_1_3=$row['c72_1_3'];$c72_2_1=$row['c72_2_1'];$c72_2_2=$row['c72_2_2'];$c72_2_3=$row['c72_2_3'];$c72_path=$row['c72_path'];$c73_1=$row['c73_1'];$c73_2=$row['c73_2'];$c73_path=$row['c73_path'];$c74=$row['c74'];$c74_path=$row['c74_path'];
 
-    $c81=$row['c81'];$c81_path=$row['c81_path'];$c82=$row['c82'];$c82_path=$row['c82_path'];$c83=$row['c83'];$c83_path=$row['c83_path'];$c84=$row['c84'];$c84_path=$row['c84_path'];$c85=$row['c85'];$c85_path=$row['c85_path'];$c86=$row['c86'];$c86_path=$row['c86_path'];
+    $c81_1_1=$row['c81_1_1'];$c81_1_2=$row['c81_1_2'];$c81_2_1=$row['c81_2_1'];$c81_2_2=$row['c81_2_2'];$c81_3_1=$row['c81_3_1'];$c81_3_2=$row['c81_3_2'];$c81_path=$row['c81_path'];$c82=$row['c82'];$c82_path=$row['c82_path'];$c83=$row['c83'];$c83_path=$row['c83_path'];$c84_1=$row['c84_1'];$c84_2=$row['c84_2'];$c84_path=$row['c84_path'];$c85_1=$row['c85_1'];$c85_2=$row['c85_2'];$c85_3=$row['c85_3'];$c85_4=$row['c85_4'];$c85_path=$row['c85_path'];$c86=$row['c86'];$c86_path=$row['c86_path'];$c87_1=$row['c87_1'];$c87_2=$row['c87_2'];$c87_3=$row['c87_3'];$c87_path=$row['c87_path'];
 
     $emp_comments = $row['emp_comments'];$rejected_comments=$row['rejected_comments'];
 
@@ -127,7 +127,7 @@ if($result)
     <!-- Graph CSS -->
     <link href="../../../assets/faculty/css/font-awesome.css" rel="stylesheet">
     <!-- jQuery -->
-    <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'>
+    <link href='../../../assets/fonts/customFont.css' rel='stylesheet' type='text/css'>
     <!-- lined-icons -->
     <link rel="stylesheet" href="../../../assets/faculty/css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
@@ -136,15 +136,12 @@ if($result)
     <script src="../../../assets/faculty/js/serial.js"></script>
     <script src="../../../assets/faculty/js/light.js"></script>
     <script src="../../../assets/faculty/js/radar.js"></script>
-    <link href="../../../assets/faculty/css/barChart.css" rel='stylesheet' type='text/css' />
     <link href="../../../assets/faculty/css/fabochart.css" rel='stylesheet' type='text/css' />
     <!--clock init-->
     <script src="../../../assets/faculty/js/css3clock.js"></script>
     <!--Easy Pie Chart-->
     <!--skycons-icons-->
     <script src="../../../assets/faculty/js/skycons.js"></script>
-
-    <script src="../../../assets/faculty/js/jquery.easydropdown.js"></script>
 
 
 
@@ -424,6 +421,8 @@ if($result)
                                         * Please check All the values correctly before you submit.<br><br>
 
                                         <div class="panel-group tool-tips graph-form" id="accordion" role="tablist" aria-multiselectable="true">
+                                            <!-- Criteria 1 -->
+                                            <!--------------------------------------------------------------------------------------------------------->
                                             <div class="panel-default">
                                                 <div class="panel-heading" role="tab" id="headingOne">
                                                     <h3 class="panel-title">
@@ -502,6 +501,8 @@ if($result)
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Criteria 2 -->
+                                            <!--------------------------------------------------------------------------------------------------------->
                                             <div class="panel-default">
                                                 <div class="panel-heading" role="tab" id="headingTwo">
                                                     <h4 class="panel-title">
@@ -647,8 +648,8 @@ if($result)
                                                     </div>
                                                 </div>
                                             </div>
-
-
+                                            <!-- Criteria 3 -->
+                                            <!--------------------------------------------------------------------------------------------------------->
                                             <div class="panel-default">
                                                 <div class="panel-heading" role="tab" id="headingThree">
                                                     <h4 class="panel-title">
@@ -1173,6 +1174,8 @@ if($result)
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Criteria 4 -->
+                                            <!--------------------------------------------------------------------------------------------------------->
                                             <div class="panel-default">
                                                 <div class="panel-heading" role="tab" id="headingFour">
                                                     <h4 class="panel-title">
@@ -1188,7 +1191,7 @@ if($result)
                                                             <tr>
                                                                 <th></th>
                                                                 <th class="td">PARTICULARS</th>
-                                                                <th>SCORE(OUT OF 100)</th>
+                                                                <th>DETAILS</th>
                                                                 <th>WEIGHTAGE</th>
                                                                 <th>ATTACH THE RELEVANT DOCUMENTS HERE</th>
                                                             </tr>
@@ -1196,60 +1199,146 @@ if($result)
                                                             <tbody>
                                                             <tr>
                                                                 <td></td>
-                                                                <td> </td>
-                                                                <td></td>
-                                                                <td  rowspan="06">20</td>
-                                                                <td></td>
+                                                                <th>Research Activities</th>
+                                                                <th>NUMBER OF PAPERS</th>
+                                                                <th></th>
+                                                                <th></th>
                                                             </tr>
                                                             <tr>
-                                                                <td>1</td>
-                                                                <td>Research Publications: (in the name of own institution) <br>(UGC RECOGNISED  ONLY)
-                                                                    ( for main and co authors)<br>
-                                                                    International SCI INDEXED-20 marks<br>
-                                                                    SCOPUS/WEB OF SCIENCE/INDERSCIENCE-15 Marks<br>
-                                                                    UGC Recognised  international -10 marks per publication<br>
-                                                                    UGC Recognised National – 5 marks per publication<br>
+                                                                <td rowspan="6">1</td>
+                                                                <td>Research Paper Publications (In The Name Of Own Institution)
+
                                                                 </td>
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c41;?>"   name="c41" id="c41" onchange="validate_c41()" readonly/></td>
-                                                                <script>
-                                                                    function validate_c41()
-                                                                    {
-                                                                        let c41=document.getElementById("c41").value;
-                                                                        if(c41 >= 0 && c41 <= 100)
-                                                                            return true;
-                                                                        alert("Criteria 4 : Research Publications Must Be Between 0 to 100");
-                                                                        return false;
-                                                                    }
-                                                                </script>
-                                                                <!--                                                                <td></td>-->
-                                                                <td><input type="file" name="c41_path" id="c41_path" accept="application/pdf" disabled>
-                                                                    Upload The first page of Pubslished Report.
+                                                                <td>Author Order
+
+                                                                </td>
+                                                                <td rowspan="13">20</td>
+                                                                <td rowspan="06"><input  id="c41_path" type="file" name="c41_path" accept="application/pdf" disabled>Upload The Relevant Document.
                                                                     <br>  <?php if($c41_path != "") {?>
                                                                         <a href="../../../<?php echo $c41_path;?>" target="_blank">
                                                                             <input type="button" value="View Uploaded Document"></a>
-                                                                    <?php }?>
-                                                                </td>
+                                                                    <?php }?>     </td>
+
                                                             </tr>
                                                             <tr>
-                                                                <td>2</td>
-                                                                <td>Any ongoing Research projects for the grant period<br>
-                                                                    fund less than 3 lakhs -10 marks<br>
-                                                                    3 lakhs and more -20 marks
+
+                                                                <td>1.1) In SCI (Science Citation Index) Journals - International
+
                                                                 </td>
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c42;?>"   name="c42" id="c42" onchange="validate_c42()" readonly/></td>
+
+                                                                <td>
+
+                                                                    First &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <input id="c41_1_1" type="text" name="c41_1_1" maxlength="4" pattern="[0-9.]+" title="Numbers Only Allowed" value="<?php echo $c41_1_1; ?>" readonly onchange="validate_c41_1_1()" style="width:50%"><br><br>
+                                                                    Second &nbsp;&nbsp; <input id="c41_1_2" type="text" name="c41_1_2" maxlength="4" pattern="[0-9.]+" title="Numbers Only Allowed" value="<?php echo $c41_1_2; ?>" onchange="validate_c41_1_2()" style="width:50%" readonly></td>
                                                                 <script>
-                                                                    function validate_c42()
+                                                                    function validate_c41_1_1()
                                                                     {
-                                                                        let c42=document.getElementById("c42").value;
-                                                                        if(c42 >= 0 && c42 <= 100)
+                                                                        let c41_1_1=document.getElementById("c41_1_1").value;
+                                                                        if(c41_1_1 >= 0 && c41_1_1 <= 100)
                                                                             return true;
-                                                                        alert("Criteria 4 : Any ongoing Research projects Must Be Between 0 to 100");
+                                                                        alert("Criteria 4 : Science Citation Index - First Author");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c41_1_2()
+                                                                    {
+                                                                        let c41_1_2=document.getElementById("c41_1_2").value;
+                                                                        if(c41_1_2 >= 0 && c41_1_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 4 : Science Citation Index - Second Author");
                                                                         return false;
                                                                     }
                                                                 </script>
-                                                                <!--                                                                <td> </td>-->
-                                                                <td><input type="file" name="c42_path" id="c42_path" accept="application/pdf" disabled>
-                                                                    Upload The first page of Sanctioned Letter.
+
+                                                            <tr>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td> 1.2)<span id="ab">In SCOPUS / WEB OF SCIENCE / INDERSCIENCE
+
+
+</span></td>
+                                                                <td>First &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <input id="c41_2_1" type="text" name="c41_2_1" onchange="validate_c41_2_1()" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c41_2_1; ?>" readonly style="width:50%"><br><br>
+                                                                    Second &nbsp;&nbsp; <input id="c41_2_2" type="text" name="c41_2_2" onchange="validate_c41_2_2()" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c41_2_2; ?>"  style="width:50%"readonly></td>
+                                                                <script>
+                                                                    function validate_c41_2_1()
+                                                                    {
+                                                                        let c41_2_1=document.getElementById("c41_2_1").value;
+                                                                        if(c41_2_1 >= 0 && c41_2_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 4 : SCOPUS / WEB OF SCIENCE / INDERSCIENCE - First Author Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c41_2_2()
+                                                                    {
+                                                                        let c41_2_2=document.getElementById("c41_2_2").value;
+                                                                        if(c41_2_2 >= 0 && c41_2_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 4 : SCOPUS / WEB OF SCIENCE / INDERSCIENCE - Second Author Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> 1.3)<span id="ab"> International Journal (UGC Recognised)
+</span></td>
+                                                                <td>First &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <input id="c41_3_1" type="text" name="c41_3_1" onchange="validate_c41_3_1()" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c41_3_1; ?>" readonly style="width:50%"><br><br>
+                                                                    Second &nbsp;&nbsp; <input id="c41_3_2" type="text" name="c41_3_2" onchange="validate_c41_3_2()" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c41_3_2; ?>"  style="width:50%"readonly></td>
+                                                                <script>
+                                                                    function validate_c41_3_1()
+                                                                    {
+                                                                        let c41_3_1=document.getElementById("c41_3_1").value;
+                                                                        if(c41_3_1 >= 0 && c41_3_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 4 : International Journal - First Author Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c41_3_2()
+                                                                    {
+                                                                        let c41_3_2=document.getElementById("c41_3_2").value;
+                                                                        if(c41_3_2 >= 0 && c41_3_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 4 : International Journal - Second Author Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> 1.4)<span id="ab">  National Journal (UGC Recognised)
+
+</span></td>
+                                                                <td>First &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <input id="c41_4_1" type="text" name="c41_4_1" onchange="validate_c41_4_1()" maxlength="4" pattern="[0-9.]+" title="Numbers Only Allowed" value="<?php echo $c41_4_1;?>" readonly style="width:50%"><br><br>
+                                                                    Second &nbsp;&nbsp; <input id="c41_4_2" type="text" name="c41_4_2" onchange="validate_c41_4_1()" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c41_4_2;?>"  style="width:50%"readonly></td>
+                                                                <script>
+                                                                    function validate_c41_4_1()
+                                                                    {
+                                                                        let c41_4_1=document.getElementById("c41_4_1").value;
+                                                                        if(c41_4_1 >= 0 && c41_4_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 4 : International Journal - First Author Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c41_4_2()
+                                                                    {
+                                                                        let c41_4_2=document.getElementById("c41_4_2").value;
+                                                                        if(c41_4_2 >= 0 && c41_4_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 4 : International Journal - Second Author Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+                                                            </tr>
+                                                            <tr>
+                                                                <td rowspan="4">2</td>
+                                                                <td>Ongoing Research Projects for the Grant Period (<?php echo $selectedYear-(2)." - ".$selectedYear;?>) :                        FIRST 3 AUTHORS ONLY
+                                                                </td>
+                                                                <td># FUNDS
+                                                                </td>
+                                                                <td rowspan="4"><input type="file" name="c42_path" id="c42_path" accept="application/pdf" disabled>
+                                                                    Upload The Relevant Document.
                                                                     <br>  <?php if($c42_path != "") {?>
                                                                         <a href="../../../<?php echo $c42_path;?>" target="_blank">
                                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1257,26 +1346,91 @@ if($result)
                                                                 </td>
 
                                                             </tr>
+
                                                             <tr>
-                                                                <td>3</td>
-                                                                <td>Project proposals submitted
-                                                                    fund less than 3 lakhs -5 marks<br>
-                                                                    3 lakhs and more -10 marks
+                                                            <tr>
+
+                                                                <td>2.1) No. of Projects With Funds Less Than Rs 3 Lakhs (< 3 lakhs)
+
                                                                 </td>
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c43;?>"   name="c43" id="c43" onchange="validate_c43()" readonly/></td>
+                                                                <td class="style1"><?php echo $selectedYear;?>&nbsp;&nbsp;<input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c42_1_1;?>"   name="c42_1_1" id="c42_1_1" onchange="validate_c42_1_1()" readonly style="width:50%"/><br><br>
+                                                                    <?php echo $selectedYear-1;?>&nbsp;&nbsp;<input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c42_1_2; ?>"   name="c42_1_2" id="c42_1_2" onchange="validate_c42_1_2()" readonly style="width:50%"/>
+                                                                    <br><br><?php echo $selectedYear-2;?>&nbsp;&nbsp;<input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c42_1_3;?>"   name="c42_1_3" id="c42_1_3" onchange="validate_c42_1_3()" readonly style="width:50%"/></td>
                                                                 <script>
-                                                                    function validate_c43()
+                                                                    function validate_c42_1_1()
                                                                     {
-                                                                        let c43=document.getElementById("c43").value;
-                                                                        if(c43 >= 0 && c43 <= 100)
+                                                                        let c42_1_1=document.getElementById("c42_1_1").value;
+                                                                        if(c42_1_1 >= 0 && c42_1_1 <= 100)
                                                                             return true;
-                                                                        alert("Criteria 4 : Project proposals submitted Must Be Between 0 to 100");
+                                                                        alert("Criteria 4 : Ongoing Research Projects With Funds Less Than Rs 3 Lakhs - <?php echo $selectedYear;?> Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c42_1_2()
+                                                                    {
+                                                                        let c42_1_2=document.getElementById("c42_1_2").value;
+                                                                        if(c42_1_2 >= 0 && c42_1_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 4 : Ongoing Research Projects With Funds Less Than Rs 3 Lakhs - <?php echo $selectedYear-1;?> Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c42_1_3()
+                                                                    {
+                                                                        let c42_1_3=document.getElementById("c42_1_3").value;
+                                                                        if(c42_1_3 >= 0 && c42_1_3 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 4 : Ongoing Research Projects With Funds Less Than Rs 3 Lakhs - <?php echo $selectedYear-2;?> Must Be Between 0 to 100");
                                                                         return false;
                                                                     }
                                                                 </script>
-                                                                <!--                                                                <td></td>-->
-                                                                <td><input type="file" name="c43_path" id="c43_path" accept="application/pdf" disabled>
-                                                                    Upload The first page of Sanctioned Letter.
+
+                                                            </tr>
+                                                            <tr>
+
+                                                                <td>
+                                                                    2.2) No. of Projects With Funds Rs 3 Lakhs and More (>= 3 lakhs)
+                                                                </td>
+                                                                <td class="style1"><?php echo $selectedYear;?>&nbsp;&nbsp;<input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c42_2_1;?>"   name="c42_2_1" id="c42_2_1" onchange="validate_c42_2_1()" readonly style="width:50%"/><br><br>
+                                                                    <?php echo $selectedYear-1;?>&nbsp;&nbsp;<input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c42_2_2;?>"   name="c42_2_2" id="c42_2_2" onchange="validate_c42_2_2()" readonly style="width:50%"/><br><br>
+                                                                    <?php echo $selectedYear-2;?>&nbsp;&nbsp;<input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c42_2_3;?>"   name="c42_2_3" id="c42_2_3" onchange="validate_c42_2_3()" readonly style="width:50%"/></td>
+                                                                <script>
+                                                                    function validate_c42_2_1()
+                                                                    {
+                                                                        let c42_2_1=document.getElementById("c42_2_1").value;
+                                                                        if(c42_2_1 >= 0 && c42_2_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 4 : Ongoing Research Projects With Funds Less Than Rs 3 Lakhs and More - <?php echo $selectedYear;?> Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c42_2_2()
+                                                                    {
+                                                                        let c42_2_2=document.getElementById("c42_2_2").value;
+                                                                        if(c42_2_2 >= 0 && c42_2_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 4 : Ongoing Research Projects With Funds Less Than Rs 3 Lakhs and More - <?php echo $selectedYear-1;?> Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c42_2_3()
+                                                                    {
+                                                                        let c42_2_3=document.getElementById("c42_2_3").value;
+                                                                        if(c42_2_3 >= 0 && c42_2_3 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 4 : Ongoing Research Projects With Funds Less Than Rs 3 Lakhs and More - <?php echo $selectedYear-2;?> Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td rowspan="3">3</td>
+                                                                <td>Project Proposals Submitted - FIRST 3 AUTHORS ONLY
+
+                                                                </td>
+                                                                <td># PROJECTS
+                                                                </td>
+
+                                                                <td rowspan="3"><input type="file" name="c43_path" id="c43_path" accept="application/pdf" disabled>
+                                                                    Upload The Relevant Document.
                                                                     <br>  <?php if($c43_path != "") {?>
                                                                         <a href="../../../<?php echo $c43_path;?>" target="_blank">
                                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1284,48 +1438,38 @@ if($result)
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>4</td>
-                                                                <td>Number of Patents in pipeline for submission-10 marks
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c44;?>"   name="c44" id="c44" onchange="validate_c44()" readonly/></td>
+
+                                                                <td>3.1) No. of Projects With Funds Less Than Rs 3 Lakhs (< 3 lakhs)
+                                                                </td>
+                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c43_1;?>"   name="c43_1" id="c43_1" onchange="validate_c43_1()" readonly/></td>
                                                                 <script>
-                                                                    function validate_c44()
+                                                                    function validate_c43_1()
                                                                     {
-                                                                        let c44=document.getElementById("c44").value;
-                                                                        if(c44 >= 0 && c44 <= 100)
+                                                                        let c43_1=document.getElementById("c43_1").value;
+                                                                        if(c43_1 >= 0 && c43_1 <= 100)
                                                                             return true;
-                                                                        alert("Criteria 4 : Number of Patents in pipeline Must Be Between 0 to 100");
+                                                                        alert("Criteria 4 : Project Proposals With Funds Less Than Rs 3 Lakhs Must Be Between 0 to 100");
                                                                         return false;
                                                                     }
                                                                 </script>
-                                                                <!--                                                                <td></td>-->
-                                                                <td><input type="file" name="c44_path" id="c44_path" accept="application/pdf" disabled>	Upload The Relevant Document.
-                                                                    <br>  <?php if($c44_path != "") {?>
-                                                                        <a href="../../../<?php echo $c44_path;?>" target="_blank">
-                                                                            <input type="button" value="View Uploaded Document"></a>
-                                                                    <?php }?>
-                                                                </td>
+
                                                             </tr>
                                                             <tr>
-                                                                <td>5</td>
-                                                                <td>Patents awarded -30 marks per patent
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c45;?>"   name="c45" id="c45" onchange="validate_c45()" readonly/></td>
+
+                                                                <td>
+                                                                    3.2) No. of Projects With Funds Rs 3 Lakhs and More (>= 3 lakhs)
+                                                                </td>
+                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c43_2;?>"   name="c43_2" id="c43_2" onchange="" readonly/></td>
                                                                 <script>
-                                                                    function validate_c45()
+                                                                    function validate_c43_2()
                                                                     {
-                                                                        let c45=document.getElementById("c45").value;
-                                                                        if(c45 >= 0 && c45 <= 100)
+                                                                        let c43_2=document.getElementById("c43_2").value;
+                                                                        if(c43_2 >= 0 && c43_2 <= 100)
                                                                             return true;
-                                                                        alert("Criteria 4 : Patents awarded Must Be Between 0 to 100");
+                                                                        alert("Criteria 4 : Project Proposals With Funds Rs 3 Lakhs and More Must Be Between 0 to 100");
                                                                         return false;
                                                                     }
                                                                 </script>
-                                                                <!--                                                                <td></td>-->
-                                                                <td><input type="file" name="c45_path" id="c45_path" accept="application/pdf" disabled>	Upload The Relevant Document.
-                                                                    <br>  <?php if($c45_path != "") {?>
-                                                                        <a href="../../../<?php echo $c45_path;?>" target="_blank">
-                                                                            <input type="button" value="View Uploaded Document"></a>
-                                                                    <?php }?>
-                                                                </td>
                                                             </tr>
 
                                                             </tbody>
@@ -1334,6 +1478,7 @@ if($result)
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Criteria 5 -->
                                           <!--------------------------------------------------------------------------------------------------------->
                                             <div class="panel-default">
                                                 <div class="panel-heading" role="tab" id="researchB">
@@ -1367,7 +1512,7 @@ if($result)
                                                                     For pursuing PhD members
                                                                 </td>
                                                                 <td><input type="checkbox" id="phd" name="phd" <?php if($phd==0) echo "checked";?> disabled> Not Applicable</td>
-                                                                <td rowspan="07">10</td>
+                                                                <td rowspan="11">10</td>
                                                                 <td rowspan="05"><input  id="c51_path" type="file" name="c51_path" accept="application/pdf" disabled>Upload The Letter Of PhD Registration
                                                                     <br>  <?php if($c51_path != "") {?>
                                                                         <a href="../../../<?php echo $c51_path;?>" target="_blank">
@@ -1381,13 +1526,10 @@ if($result)
                                                                     for registration -10 marks up to five years
                                                                 </td>
                                                                 <td><input id="c51_1" type="date" name="c51_1" value="<?php echo $c51_1;?>" readonly></td>
-<!--                                                                <td><input disabled  id="d11" type="file" name="f10[]" multiple="multiple">Upload The Letter Of PhD Registration-->
-<!--                                                                </td>-->
+
                                                             </tr>
                                                             <tr>
-<!--                                                                <th></th>-->
-<!--                                                                <th></th>-->
-<!--                                                                <td></td>-->
+
                                                             </tr>
                                                             <tr>
                                                                 <td> 1.2)<span id="ab">Half yearly reports -10 marks per report</span></td>
@@ -1402,8 +1544,7 @@ if($result)
                                                                         return false;
                                                                     }
                                                                 </script>
-<!--                                                                <td><input disabled id="d21" type="file" name="f11[]"  multiple="multiple">Upload The First Page Of The Report-->
-<!--                                                                </td>-->
+
                                                             </tr>
                                                             <tr>
                                                                 <td> 1.3)<span id="ab">For PhD holders with guide-ship
@@ -1420,29 +1561,15 @@ if($result)
                                                                         return false;
                                                                     }
                                                                 </script>
-<!--                                                                <td><input disabled id="d21" type="file" name="f11[]"  multiple="multiple">Upload The First Page Of The Report-->
-<!--                                                                </td>-->
+
                                                             </tr>
                                                             <tr>
-                                                                <td>2</td>
-                                                                <td>Papers presented<br>
-                                                                    International/National  events related to research<br>
-                                                                    international-10 marks<br>
-                                                                    National – 5 Marks
+                                                                <td rowspan="3">2</td>
+                                                                <td>Research Papers Presented International / National Conferences</td>
 
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c52;?>"   name="c52" id="c52" onchange="validate_c52()" readonly/></td>
-                                                                <script>
-                                                                    function validate_c52()
-                                                                    {
-                                                                        let c52=document.getElementById("c52").value;
-                                                                        if(c52 >= 0 && c52 <= 100)
-                                                                            return true;
-                                                                        alert("Criteria 5 : Papers presented Must Be Between 0 to 100");
-                                                                        return false;
-                                                                    }
-                                                                </script>
+                                                                <td># PAPERS</td>
                                                                 <!--                                                                <td></td>-->
-                                                                <td><input type="file" name="c52_path" id="c52_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                                <td rowspan="3"><input type="file" name="c52_path" id="c52_path" accept="application/pdf" disabled>	Upload The Relevant Document.
                                                                     <br>  <?php if($c52_path != "") {?>
                                                                         <a href="../../../<?php echo $c52_path;?>" target="_blank">
                                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1450,10 +1577,57 @@ if($result)
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>3</td>
-                                                                <td>Publications/presentations   by PhD /    Students
-                                                                    International/National  events
-                                                                    5 marks each
+
+                                                                <td>2.1) International (Abroad)
+
+                                                                </td>
+                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c52_1;?>"   name="c52_1" id="c52_1" onchange="validate_c52_1()" readonly/></td>
+                                                                <script>
+                                                                    function validate_c52_1()
+                                                                    {
+                                                                        let c52_1=document.getElementById("c52_1").value;
+                                                                        if(c52_1 >= 0 && c52_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 5 : Papers presented International (Abroad) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+                                                            </tr>
+                                                            <tr>
+
+                                                                <td>2.2) National / International (In India)
+                                                                </td>
+                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c52_2;?>"   name="c52_2" id="c52_2" onchange="validate_c52_2()" readonly/></td>
+                                                                <script>
+                                                                    function validate_c52_2()
+                                                                    {
+                                                                        let c52_2=document.getElementById("c52_2").value;
+                                                                        if(c52_2 >= 0 && c52_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 5 : Papers presented National / International (In India) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+                                                            </tr>
+                                                            <tr>
+                                                                <td rowspan="2">3</td>
+                                                                <td>Research Publications / Presentations by PhD Students / SRP Students
+
+                                                                <td># PAPERS
+                                                                </td>
+
+                                                                <!--                                                                <td></td>-->
+                                                                <td rowspan="2"><input type="file" name="c53_path" id="c53_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                                    <br>  <?php if($c53_path != "") {?>
+                                                                        <a href="../../../<?php echo $c53_path;?>" target="_blank">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+
+                                                                <td>National / International Level</td>
 
                                                                 <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c53;?>"   name="c53" id="c53" onchange="validate_c53()" readonly/></td>
                                                                 <script>
@@ -1467,18 +1641,56 @@ if($result)
                                                                     }
                                                                 </script>
                                                                 <!--                                                                <td></td>-->
-                                                                <td><input type="file" name="c53_path" id="c53_path" accept="application/pdf" disabled>	Upload The Relevant Document.
-                                                                    <br>  <?php if($c53_path != "") {?>
-                                                                        <a href="../../../<?php echo $c53_path;?>" target="_blank">
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td rowspan="2">4</td>
+                                                                <td>4.1) No. of Patents in Pipeline For Submission
+
+                                                                </td>
+                                                                <td><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c54_1;?>"   name="c54_1" id="c54_1" onchange="validate_c54_1()" readonly/></td>
+                                                                <script>
+                                                                    function validate_c54_1()
+                                                                    {
+                                                                        let c54_1=document.getElementById("c54_1").value;
+                                                                        if(c54_1 >= 0 && c54_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 5 : No. of Patents in Pipeline For Submission Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+                                                                <td rowspan="2"><input type="file" name="c54_path" id="c54_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                                    <br>  <?php if($c54_path != "") {?>
+                                                                        <a href="../../../<?php echo $c54_path;?>" target="_blank">
                                                                             <input type="button" value="View Uploaded Document"></a>
                                                                     <?php }?>
                                                                 </td>
+                                                            </tr>
+                                                            <tr>
+
+                                                                <td>4.2) No. of Patents Awarded in the Year
+
+                                                                </td>
+                                                                <td><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c54_2;?>"   name="c54_2" id="c54_2" onchange="validate_c54_2()" readonly/></td>
+                                                                <script>
+                                                                    function validate_c54_2()
+                                                                    {
+                                                                        let c54_2=document.getElementById("c54_2").value;
+                                                                        if(c54_2 >= 0 && c54_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 5 : No. of Patents Awarded in the Year Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+                                                                <td >5</td>
                                                             </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Criteria 6 -->
+                                            <!--------------------------------------------------------------------------------------------------------->
                                             <div class="panel-default">
                                                 <div class="panel-heading" role="tab" id="headingFive">
                                                     <h4 class="panel-title">
@@ -1494,7 +1706,7 @@ if($result)
                                                             <tr>
                                                                 <th></th>
                                                                 <th class="td">PARTICULARS</th>
-                                                                <th>SCORE(OUT OF 100)</th>
+                                                                <th>DETAILS</th>
                                                                 <th>WEIGHTAGE</th>
                                                                 <th>ATTACH THE RELEVANT DOCUMENTS HERE</th>
                                                             </tr>
@@ -1502,23 +1714,35 @@ if($result)
                                                             <tbody>
                                                             <tr>
                                                                 <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td  rowspan="03">5</td>
+                                                                <td>Extension Activity (One Activity Maximum 3 Staff Members)
+                                                                </td>
+                                                                <td>No. of Staffs Invloved
+                                                                </td>
+                                                                <td  rowspan="04">5</td>
                                                                 <td></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>1</td>
-                                                                <td>Extension/Out reach activity(Academic activities arranged outside the campus/ academic talks/exhibitions/demonstrations arranged out side)
-                                                                    if one staff involved then 5 marks, if more than 1 staff involved -3 marks
-                                                                    (for one event max 3 staff)
+                                                                <td>No. Of Academic Activities Outside The Campus -
+                                                                    Academic Talks / Demonstrations / Exhibitions
+
+
                                                                 </td>
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c61;?>"   name="c61" id="c61" onchange="validate_c61()" readonly/></td>
+                                                                <td class="style1"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;1 Staff &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; >1 Staffs <br><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c61_1;?>"   name="c61_1" id="c61_1" onchange="validate_c61_1()" style="width: 40%" readonly/>
+                                                                    &nbsp; <input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c61_2;?>"   name="c61_2" id="c61_2" onchange="validate_c61_2()" readonly style="width: 40%"/></td>
                                                                 <script>
-                                                                    function validate_c61()
+                                                                    function validate_c61_1()
                                                                     {
-                                                                        let c61=document.getElementById("c61").value;
-                                                                        if(c61 >= 0 && c61 <= 100)
+                                                                        let c61_1=document.getElementById("c61_1").value;
+                                                                        if(c61_1 >= 0 && c61_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 6 : Extension/Out reach activity Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c61_2()
+                                                                    {
+                                                                        let c61_2=document.getElementById("c61_2").value;
+                                                                        if(c61_2 >= 0 && c61_2 <= 100)
                                                                             return true;
                                                                         alert("Criteria 6 : Extension/Out reach activity Must Be Between 0 to 100");
                                                                         return false;
@@ -1534,10 +1758,18 @@ if($result)
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>2</td>
-                                                                <td>Consultancy
-                                                                    (sharing subject knowledge with other academic institutions/ public, ON INVITATION/REQUEST ) –
-                                                                     Number of activities-5 mark per each activity
+                                                                <td rowspan="2">2</td>
+                                                                <td>Consultency
+                                                                </td>
+                                                                <td>NUMBERS (#)
+                                                                </td>
+                                                                <td rowspan="1"></td>
+                                                            </tr>
+                                                            <tr>
+
+                                                                <td>No. Of Activities - Sharing Subject Knowledge With Other Academic Institutions / Public - ON INVITATION / REQUEST
+
+
                                                                 </td>
                                                                 <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c62;?>" name="c62" id="c62" onchange="validate_c62()" readonly/></td>
                                                                 <script>
@@ -1561,21 +1793,8 @@ if($result)
 
                                                             </tr>
                                                             <tr>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td  rowspan="03">5</td>
-                                                                <td></td>
-
-
-                                                            </tr>
-                                                            <tr>
-                                                                <td>3</td>
-                                                                <td>Class seminars
-                                                                    30 minutes duration  maximum 5 seminars – 5 marks /seminar
-
-
-                                                                </td>
+                                                                <td rowspan="2">3</td>
+                                                                <td rowspan="2">No. Of Student Seminars (Min. Duration 20 Minutes)</td>
                                                                 <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c63;?>"   name="c63" id="c63" onchange="validate_c63()" readonly/></td>
                                                                 <script>
                                                                     function validate_c63()
@@ -1587,18 +1806,26 @@ if($result)
                                                                         return false;
                                                                     }
                                                                 </script>
-                                                                <!--                                                                <td></td>-->
+                                                                <td  rowspan="03">5</td>
                                                                 <td><input type="file" name="c63_path" id="c63_path" accept="application/pdf" disabled>
                                                                     Upload The Relevant Document.
                                                                     <br>  <?php if($c63_path != "") {?>
                                                                         <a href="../../../<?php echo $c63_path;?>" target="_blank">
                                                                             <input type="button" value="View Uploaded Document"></a>
-                                                                    <?php }?>
-                                                                </td>
+                                                                    <?php }?></td>
+
+
+                                                            </tr>
+                                                            <tr>
+
+
+
+
                                                             </tr>
                                                             <tr>
                                                                 <td>4</td>
-                                                                <td>Quiz/Debate/Group discussion/etc 5 mark per each (minimum duration 45 minutes)  max 2 pgms
+                                                                <td>No. Of Group Discussion / Debate / Quiz / Aptitude Test (Min. 45 Minutes)
+
                                                                 </td>
                                                                 <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c64;?>"   name="c64" id="c64" onchange="validate_c64()" readonly/></td>
                                                                 <script>
@@ -1625,6 +1852,8 @@ if($result)
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Criteria 7 -->
+                                            <!--------------------------------------------------------------------------------------------------------->
                                             <div class="panel-default">
                                                 <div class="panel-heading" role="tab" id="headingSix">
                                                     <h4 class="panel-title">
@@ -1641,124 +1870,280 @@ if($result)
                                                             <tr>
                                                                 <th></th>
                                                                 <th class="td">PARTICULARS</th>
-                                                                <th>SCORE(OUT OF 100)</th>
+                                                                <th>DETAILS</th>
                                                                 <th>WEIGHTAGE</th>
                                                                 <th>ATTACH THE RELEVANT DOCUMENTS HERE</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
                                                             <tr>
-                                                                <td></td>
-                                                                <td>Organization of seminars </td>
-                                                                <td></td>
-                                                                <td  rowspan="05">5</td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Conferences/Workshops/Training pgms  etc in the college.<br>
-                                                                    With Grants received from GO or NGO<br>
-                                                                    Grants upto 2 lakh -10 marks for convener,5 marks for co convener<br>
-                                                                    Grants 2 lakhs and above  -20 marks for convener,10 morks for co convener<br>
-                                                                    for members of the organizing committee – 5 marks<br>
+                                                                <td rowspan="3">1</td>
+                                                                <td>Organization of No. of Seminars/Conferences/Workshops/Training Programs etc... in the college. With Grants Received from GO / NGO
                                                                 </td>
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c71;?>"   name="c71" id="c71" onchange="validate_c71()" readonly/></td>
-                                                                <script>
-                                                                    function validate_c71()
-                                                                    {
-                                                                        let c71=document.getElementById("c71").value;
-                                                                        if(c71 >= 0 && c71 <= 100)
-                                                                            return true;
-                                                                        alert("Criteria 7 : Conferences/Workshops/Training Must Be Between 0 to 100");
-                                                                        return false;
-                                                                    }
-                                                                </script>
-                                                                <!--                                                                <td></td>-->
-                                                                <td><input type="file" name="c71_path" id="c71_path" accept="application/pdf" disabled>
-                                                                    Upload The Relevant Document.
+                                                                <td># PROGRAMS AS A
+                                                                </td>
+                                                                <td  rowspan="10">5</td>
+                                                                <td rowspan="3"><input type="file" name="c71_path" id="c71_path" accept="application/pdf" disabled>	Upload The Relevant Document.
                                                                     <br>  <?php if($c71_path != "") {?>
                                                                         <a href="../../../<?php echo $c71_path;?>" target="_blank">
                                                                             <input type="button" value="View Uploaded Document"></a>
-                                                                    <?php }?>
-                                                                </td>
+                                                                    <?php }?></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>2</td>
-                                                                <td>For Proposals submitted for any of the above 50% of allotted marks</td>
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c72;?>"   name="c72" id="c72" onchange="validate_c72()" readonly/></td>
+                                                                <td>Grants upto Rs 2 lakh
+                                                                </td>
+                                                                <td>
+                                                                    CONVENER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <input type="text" name="c71_1_1" id="c71_1_1" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c71_1_1;?>" onchange="validate_c71_1_1()" style="width: 30%" readonly><br><br>
+                                                                    <span style="font-size: 12px">CO-CONVENER</span>&nbsp;
+                                                                    <input type="text" name="c71_1_2" id="c71_1_2" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c71_1_2;?>" onchange="validate_c71_1_2()" style="width: 30%" readonly><br><br>
+                                                                    MEMBER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <input type="text" name="c71_1_3" id="c71_1_3" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c71_1_3;?>" onchange="validate_c71_1_3()" style="width: 30%" readonly>
+                                                                </td>
                                                                 <script>
-                                                                    function validate_c72()
+                                                                    function validate_c71_1_1()
                                                                     {
-                                                                        let c72=document.getElementById("c72").value;
-                                                                        if(c72 >= 0 && c72 <= 100)
+                                                                        let c71_1_1=document.getElementById("c71_1_1").value;
+                                                                        if(c71_1_1 >= 0 && c71_1_1 <= 100)
                                                                             return true;
-                                                                        alert("Criteria 7 : Proposals submitted Must Be Between 0 to 100");
+                                                                        alert("Criteria 7 : Organization of No. of Seminars Grant Upto 2 Lakh as (CONVENER) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c71_1_2()
+                                                                    {
+                                                                        let c71_1_2=document.getElementById("c71_1_2").value;
+                                                                        if(c71_1_2 >= 0 && c71_1_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 7 : Organization of No. of Seminars Grant Upto 2 Lakh as (Co-CONVENER) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c71_1_3()
+                                                                    {
+                                                                        let c71_1_3=document.getElementById("c71_1_3").value;
+                                                                        if(c71_1_3 >= 0 && c71_1_3 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 7 : Organization of No. of Seminars Grant Upto 2 Lakh as (MEMBER) Must Be Between 0 to 100");
                                                                         return false;
                                                                     }
                                                                 </script>
-                                                                <!--                                                                <td> </td>-->
-                                                                <td><input type="file" name="c72_path" id="c72_path" accept="application/pdf" disabled>
-                                                                    Upload The Relevant Document.
-                                                                    <br>  <?php if($c72_path != "") {?>
-                                                                        <a href="../../../<?php echo $c72_path;?>" target="_blank">
-                                                                            <input type="button" value="View Uploaded Document"></a>
-                                                                    <?php }?>
-                                                                </td>
 
                                                             </tr>
                                                             <tr>
-                                                                <td>3</td>
-                                                                <td>Coordinator for non funded pgms-5 marks /pgm
-                                                                    Member of organizing committee- 2 per each
+                                                                <td>Grants Rs 2 lakhs and above</td>
+                                                                <td>
+                                                                    CONVENER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <input type="text" name="c71_2_1" id="c71_2_1" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c71_2_1;?>" onchange="validate_c71_2_1()" style="width: 30%" readonly><br><br>
+                                                                    <span style="font-size: 12px">CO-CONVENER</span>&nbsp;
+                                                                    <input type="text" name="c71_2_2" id="c71_2_2" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c71_2_2;?>" onchange="validate_c71_2_2()" style="width: 30%" readonly><br><br>
+                                                                    MEMBER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <input type="text" name="c71_2_3" id="c71_2_3" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c71_2_3;?>" onchange="validate_c71_2_3()" style="width: 30%" readonly>
                                                                 </td>
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c73;?>"   name="c73" id="c73" onchange="validate_c73()" readonly/></td>
                                                                 <script>
-                                                                    function validate_c73()
+                                                                    function validate_c71_2_1()
                                                                     {
-                                                                        let c73=document.getElementById("c73").value;
-                                                                        if(c73 >= 0 && c73 <= 100)
+                                                                        let c71_2_1=document.getElementById("c71_2_1").value;
+                                                                        if(c71_2_1 >= 0 && c71_2_1 <= 100)
                                                                             return true;
-                                                                        alert("Criteria 7 : Coordinator for non funded pgms Must Be Between 0 to 100");
+                                                                        alert("Criteria 7 : Organization of No. of Seminars Grant Above 2 Lakh as (CONVENER) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c71_2_2()
+                                                                    {
+                                                                        let c71_2_2=document.getElementById("c71_2_2").value;
+                                                                        if(c71_2_2 >= 0 && c71_2_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 7 : Organization of No. of Seminars Grant Above 2 Lakh as (Co-CONVENER) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c71_2_3()
+                                                                    {
+                                                                        let c71_2_3=document.getElementById("c71_2_3").value;
+                                                                        if(c71_2_3 >= 0 && c71_2_3 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 7 : Organization of No. of Seminars Grant Above 2 Lakh as (MEMBER) Must Be Between 0 to 100");
                                                                         return false;
                                                                     }
                                                                 </script>
-                                                                <!--                                                                <td></td>-->
-                                                                <td><input type="file" name="c73_path" id="c73_path" accept="application/pdf" disabled>
-                                                                    Upload The Relevant Document.
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td rowspan="3">2</td>
+                                                                <td>"No. of Proposals Submitted for Organising Seminars/Conferences
+                                                                    /Workshops/Training Programs etc... in the college. (With Grants from GO/NGO)
+                                                                    "
+                                                                </td>
+                                                                <td># PROGRAMS AS A
+                                                                </td>
+
+                                                                <td rowspan="3"><input type="file" name="c72_path" id="c72_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                                    <br>  <?php if($c72_path != "") {?>
+                                                                        <a href="../../../<?php echo $c72_path;?>" target="_blank">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Grants upto Rs 2 lakh
+                                                                </td>
+                                                                <td>
+                                                                    CONVENER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <input type="text" name="c72_1_1" id="c72_1_1" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c72_1_1;?>" onchange="validate_c72_1_1()" style="width: 30%" readonly><br><br>
+                                                                    <span style="font-size: 12px">CO-CONVENER</span>&nbsp;
+                                                                    <input type="text" name="c72_1_2" id="c72_1_2" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c72_1_2;?>" onchange="validate_c72_1_2()" style="width: 30%" readonly><br><br>
+                                                                    MEMBER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <input type="text" name="c72_1_3" id="c72_1_3" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c72_1_3;?>" onchange="validate_c72_1_3()" style="width: 30%" readonly>
+                                                                </td>
+                                                                <script>
+                                                                    function validate_c72_1_1()
+                                                                    {
+                                                                        let c72_1_1=document.getElementById("c72_1_1").value;
+                                                                        if(c72_1_1 >= 0 && c72_1_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 7 : No. of Proposals Submitted for Grant Upto 2 Lakh as (CONVENER) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c72_1_2()
+                                                                    {
+                                                                        let c72_1_2=document.getElementById("c72_1_2").value;
+                                                                        if(c72_1_2 >= 0 && c72_1_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 7 : No. of Proposals Submitted for Grant Upto 2 Lakh as (Co-CONVENER) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c72_1_3()
+                                                                    {
+                                                                        let c72_1_3=document.getElementById("c72_1_3").value;
+                                                                        if(c72_1_3 >= 0 && c72_1_3 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 7 : No. of Proposals Submitted for Grant Upto 2 Lakh as (MEMBER) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Grants Rs 2 lakhs and above</td>
+                                                                <td>
+                                                                    CONVENER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <input type="text" name="c72_2_1" id="c72_2_1" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c72_2_1;?>" onchange="validate_c72_2_1()" style="width: 30%" readonly><br><br>
+                                                                    <span style="font-size: 12px">CO-CONVENER</span>&nbsp;
+                                                                    <input type="text" name="c72_2_2" id="c72_2_2" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c72_2_2;?>" onchange="validate_c72_2_2()" style="width: 30%" readonly><br><br>
+                                                                    MEMBER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <input type="text" name="c72_2_3" id="c72_2_3" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c72_2_3;?>" onchange="validate_c72_2_3()" style="width: 30%" readonly>
+                                                                </td>
+                                                                <script>
+                                                                    function validate_c72_2_1()
+                                                                    {
+                                                                        let c72_2_1=document.getElementById("c72_2_1").value;
+                                                                        if(c72_2_1 >= 0 && c72_2_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 7 : No. of Proposals Submitted for Grant Above 2 Lakh as (CONVENER) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c72_2_2()
+                                                                    {
+                                                                        let c72_2_2=document.getElementById("c72_2_2").value;
+                                                                        if(c72_2_2 >= 0 && c72_2_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 7 : No. of Proposals Submitted for Grant Above 2 Lakh as (Co-CONVENER) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c72_2_3()
+                                                                    {
+                                                                        let c72_2_3=document.getElementById("c72_2_3").value;
+                                                                        if(c72_2_3 >= 0 && c72_2_3 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 7 : No. of Proposals Submitted for Grant Above 2 Lakh as (MEMBER) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td rowspan="2">3</td>
+                                                                <td>
+                                                                </td>
+                                                                <td># PROGRAMS AS A
+                                                                </td>
+
+                                                                <td rowspan="2"><input type="file" name="c73_path" id="c73_path" accept="application/pdf" disabled>	Upload The Relevant Document.
                                                                     <br>  <?php if($c73_path != "") {?>
                                                                         <a href="../../../<?php echo $c73_path;?>" target="_blank">
                                                                             <input type="button" value="View Uploaded Document"></a>
-                                                                    <?php }?>
-                                                                </td>
+                                                                    <?php }?></td>
                                                             </tr>
                                                             <tr>
-                                                                <td>4</td>
-                                                                <td>Organising industrial/field visits/study tours/exhibitions/ any such pgms  -minimum 1 days  -5 marks
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c74;?>"   name="c74" id="c74" onchange="validate_c74()" readonly/></td>
+                                                                <td>Organising Non-Funded Programmes in the College
+                                                                </td>
+                                                                <td>
+
+                                                                    <span style="font-size: 12px">COORDINATOR</span>
+                                                                    <input type="text" name="c73_1" id="c73_1" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c73_1;?>" onchange="validate_c73_1()" readonly style="width: 30%"><br><br>
+                                                                    MEMBER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                    <input type="text" name="c73_2" id="c73_2" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c73_2;?>" onchange="validate_c73_2()" readonly style="width: 30%">
+                                                                </td>
+                                                                <script>
+                                                                    function validate_c73_1()
+                                                                    {
+                                                                        let c73_1=document.getElementById("c73_1").value;
+                                                                        if(c73_1 >= 0 && c73_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 7 : Organising Non-Funded Programmes as (COORDINATOR) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c73_2()
+                                                                    {
+                                                                        let c73_2=document.getElementById("c73_2").value;
+                                                                        if(c73_2 >= 0 && c73_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 7 : Organising Non-Funded Programmes as (MEMBER) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td rowspan="2">4</td>
+                                                                <td>
+                                                                </td>
+                                                                <td>NUMBERS (#)
+                                                                </td>
+
+                                                                <td rowspan="2"><input type="file" name="c74_path" id="c74_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                                    <br>  <?php if($c74_path != "") {?>
+                                                                        <a href="../../../<?php echo $c74_path;?>" target="_blank">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Organising Industrial / Field  Visits / Study Tours / Exhibitions /Any Such Programmes (Duration: Min 1 Day)
+
+
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="c74" id="c74" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c74;?>" onchange="validate_c74()" readonly >
+                                                                </td>
                                                                 <script>
                                                                     function validate_c74()
                                                                     {
                                                                         let c74=document.getElementById("c74").value;
                                                                         if(c74 >= 0 && c74 <= 100)
                                                                             return true;
-                                                                        alert("Criteria 7 : Organising industrial/field visits Must Be Between 0 to 100");
+                                                                        alert("Criteria 7 : Organising Industrial / Field  Visits Must Be Between 0 to 100");
                                                                         return false;
                                                                     }
                                                                 </script>
-                                                                <!--                                                                <td></td>-->
-                                                                <td><input type="file" name="c74_path" id="c74_path" accept="application/pdf" disabled>	Upload The Relevant Document.
-                                                                    <br>  <?php if($c74_path != "") {?>
-                                                                        <a href="../../../<?php echo $c74_path;?>" target="_blank">
-                                                                            <input type="button" value="View Uploaded Document"></a>
-                                                                    <?php }?>
-                                                                </td>
+
                                                             </tr>
+
+
                                                             </tbody>
                                                         </table>
                                                         <br>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Criteria 8 -->
+                                            <!--------------------------------------------------------------------------------------------------------->
                                             <div class="panel-default">
                                                 <div class="panel-heading" role="tab" id="headingSeven">
                                                     <h4 class="panel-title">
@@ -1774,51 +2159,119 @@ if($result)
                                                             <tr>
                                                                 <th></th>
                                                                 <th class="td">PARTICULARS</th>
-                                                                <th>SCORE(OUT OF 100)</th>
+                                                                <th>DETAILS</th>
                                                                 <th>WEIGHTAGE</th>
                                                                 <th>ATTACH THE RELEVANT DOCUMENTS HERE</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
                                                             <tr>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td  rowspan="04">3</td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Seminars/Workshops/Conferences/Refresher/orientation/training  pgms attended without paper presentation
-                                                                    for one day duration<br>
-                                                                    International-15  /National  -10 Marks-others -5 marks<br>
-                                                                    for two days and more<br>
-                                                                    International-20  /National  -15 Marks -others -10 marks<br>
-                                                                    Invited as resource person/ inaugurator/Judge-10 marks
+                                                                <td rowspan="4">1</td>
+                                                                <td>No. Of Seminars / Workshops / Conferences / Refresher / Orientation / Training Programmes Attended</td>
+                                                                <td>NUMBERS (#)
                                                                 </td>
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c81;?>"   name="c81" id="c81" onchange="validate_c81()" readonly/></td>
-                                                                <script>
-                                                                    function validate_c81()
-                                                                    {
-                                                                        let c81=document.getElementById("c81").value;
-                                                                        if(c81 >= 0 && c81 <= 100)
-                                                                            return true;
-                                                                        alert("Criteria 8 : Seminars/Workshops/Conferences Must Be Between 0 to 100");
-                                                                        return false;
-                                                                    }
-                                                                </script>
-<!--                                                                <td></td>-->
-                                                                <td><input type="file" name="c81_path" id="c81_path" accept="application/pdf" disabled>
+                                                                <td  rowspan="10">3</td>
+                                                                <td rowspan="4"><input type="file" name="c81_path" id="c81_path" accept="application/pdf" disabled>
                                                                     Upload The Relevant Document.
                                                                     <br>  <?php if($c81_path != "") {?>
                                                                         <a href="../../../<?php echo $c81_path;?>" target="_blank">
                                                                             <input type="button" value="View Uploaded Document"></a>
-                                                                    <?php }?>
+                                                                    <?php }?></td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>International
                                                                 </td>
+                                                                <td> 1 Day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="c81_1_1" id="c81_1_1" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c81_1_1;?>" onchange="validate_c81_1_1()" readonly style="width: 50%"><br><br>
+                                                                    >1 Day&nbsp;&nbsp;&nbsp;<input type="text" name="c81_1_2" id="c81_1_2" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c81_1_2;?>" onchange="validate_c81_1_2()" readonly style="width: 50%"></td>
+                                                                <script>
+                                                                    function validate_c81_1_1()
+                                                                    {
+                                                                        let c81_1_1=document.getElementById("c81_1_1").value;
+                                                                        if(c81_1_1 >= 0 && c81_1_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 8 : No. of Seminars (International) (1 day) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c81_1_2()
+                                                                    {
+                                                                        let c81_1_2=document.getElementById("c81_1_2").value;
+                                                                        if(c81_1_2 >= 0 && c81_1_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 8 : No. of Seminars (International) (>1 day) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+
                                                             </tr>
                                                             <tr>
-                                                                <td>2</td>
-                                                                <td>BOE/BOS members of other Institutions – 10 Marks/institution          </td>
+                                                                <td>National
+                                                                </td>
+                                                                <td> 1 Day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="c81_2_1" id="c81_2_1" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c81_2_1;?>" onchange="validate_c81_2_1()" readonly style="width: 50%"><br><br>
+                                                                    >1 Day&nbsp;&nbsp;&nbsp;<input type="text" name="c81_2_2" id="c81_2_2" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c81_2_2;?>" onchange="validate_c81_2_2()" readonly  style="width: 50%"></td>
+                                                                <script>
+                                                                    function validate_c81_2_1()
+                                                                    {
+                                                                        let c81_2_1=document.getElementById("c81_2_1").value;
+                                                                        if(c81_2_1 >= 0 && c81_2_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 8 : No. of Seminars (National) (1 day) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c81_2_2()
+                                                                    {
+                                                                        let c81_2_2=document.getElementById("c81_2_2").value;
+                                                                        if(c81_2_2 >= 0 && c81_2_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 8 : No. of Seminars (National) (>1 day) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td>State / Other
+                                                                </td>
+                                                                <td> 1 Day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="c81_3_1" id="c81_3_1" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c81_3_1;?>" onchange="validate_c81_3_1()" readonly style="width: 50%"><br><br>
+                                                                    >1 Day&nbsp;&nbsp;&nbsp;<input type="text" name="c81_3_2" id="c81_3_2" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c81_3_2;?>" onchange="validate_c81_3_2()" readonly  style="width: 50%"></td>
+                                                                <script>
+                                                                    function validate_c81_3_1()
+                                                                    {
+                                                                        let c81_3_1=document.getElementById("c81_3_1").value;
+                                                                        if(c81_3_1 >= 0 && c81_3_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 8 : No. of Seminars (State / Other) (1 day) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                    function validate_c81_3_2()
+                                                                    {
+                                                                        let c81_3_2=document.getElementById("c81_3_2").value;
+                                                                        if(c81_3_2 >= 0 && c81_3_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 8 : No. of Seminars (State / Other) (>1 day) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+                                                            </tr>
+                                                            <tr>
+                                                                <td rowspan="2">2</td>
+                                                                <td></td>
+                                                                <td>NUMBERS (#)
+                                                                </td>
+
+                                                                <td rowspan="2"><input type="file" name="c82_path" id="c82_path" accept="application/pdf" disabled>
+                                                                    Upload The Relevant Document.
+                                                                    <br>  <?php if($c82_path != "") {?>
+                                                                        <a href="../../../<?php echo $c82_path;?>" target="_blank">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?></td>
+
+                                                            </tr>
+                                                            <tr>
+
+                                                                <td>No. Of Seminars / Workshops / Conferences / Refresher / Orientation / Training Programmes Attended as a Resource Person / Inaugurator
+
+                                                                </td>
                                                                 <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c82;?>"   name="c82" id="c82" onchange="validate_c82()" readonly/></td>
                                                                 <script>
                                                                     function validate_c82()
@@ -1826,26 +2279,18 @@ if($result)
                                                                         let c82=document.getElementById("c82").value;
                                                                         if(c82 >= 0 && c82 <= 100)
                                                                             return true;
-                                                                        alert("Criteria 8 : BOE/BOS members Must Be Between 0 to 100");
+                                                                        alert("Criteria 8 : Training Programmes Attended as a Resource Person / Inaugurator Must Be Between 0 to 100");
                                                                         return false;
                                                                     }
                                                                 </script>
-<!--                                                                <td> </td>-->
-                                                                <td><input type="file" name="c82_path" id="c82_path" accept="application/pdf" disabled>
-                                                                    Upload The Relevant Document.
-                                                                    <br>  <?php if($c82_path != "") {?>
-                                                                        <a href="../../../<?php echo $c82_path;?>" target="_blank">
-                                                                            <input type="button" value="View Uploaded Document"></a>
-                                                                    <?php }?>
-                                                                </td>
+                                                                <!--                                                                <td> </td>-->
+
 
                                                             </tr>
                                                             <tr>
                                                                 <td>3</td>
-                                                                <td>Acquiring additional Qualification in the assessment year
-                                                                    NET/SLET/PhD -       20 MARKS<br>
-                                                                    Diploma  courses/online certificate courses  - 15 marks<br>
-                                                                    if total exceeds 20 treat it as 10
+                                                                <td>BOE / BOS Members of Other Institutions (No. of Institutions)
+
                                                                 </td>
                                                                 <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c83;?>"   name="c83" id="c83" onchange="validate_c83()" readonly/></td>
                                                                 <script>
@@ -1854,11 +2299,11 @@ if($result)
                                                                         let c83=document.getElementById("c83").value;
                                                                         if(c83 >= 0 && c83 <= 100)
                                                                             return true;
-                                                                        alert("Criteria 8 : Acquiring additional Qualification Must Be Between 0 to 100");
+                                                                        alert("Criteria 8 : BOE / BOS Members of Other Institutions Must Be Between 0 to 100");
                                                                         return false;
                                                                     }
                                                                 </script>
-<!--                                                                <td></td>-->
+                                                                <!--                                                                <td></td>-->
                                                                 <td><input type="file" name="c83_path" id="c83_path" accept="application/pdf" disabled>
                                                                     Upload The Relevant Document.
                                                                     <br>  <?php if($c83_path != "") {?>
@@ -1868,57 +2313,75 @@ if($result)
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td  rowspan="04">2</td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>4</td>
-                                                                <td>General Publications (subject or any topic)<br>
-                                                                    a.	No of Books authored-5/book,(min 25 pages)<br>
-                                                                    b.	No of books co-authered-2 marks/book<br>
-                                                                    c.	No of books edited and re published -2 marks<br>
-                                                                    d.	No of General Articles published in magazines / newspapers/online publications  (min 2 pages in A4 size)– 5/article
+                                                                <td rowspan="3">4</td>
+                                                                <td>No. of Additional Qualifications Acquired in the Assessment Year
                                                                 </td>
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c84;?>"   name="c84" id="c84" onchange="validate_c84()" readonly/></td>
-                                                                <script>
-                                                                    function validate_c84()
-                                                                    {
-                                                                        let c84=document.getElementById("c84").value;
-                                                                        if(c84 >= 0 && c84 <= 100)
-                                                                            return true;
-                                                                        alert("Criteria 8 : General Publications Must Be Between 0 to 100");
-                                                                        return false;
-                                                                    }
-                                                                </script>
-<!--                                                                <td></td>-->
-                                                                <td><input type="file" name="c84_path" id="c84_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                                <td>NUMBERS (#)
+                                                                </td>
+                                                                <td rowspan="3"><input type="file" name="c84_path" id="c84_path" accept="application/pdf" disabled>
+                                                                    Upload The Relevant Document.
                                                                     <br>  <?php if($c84_path != "") {?>
                                                                         <a href="../../../<?php echo $c84_path;?>" target="_blank">
                                                                             <input type="button" value="View Uploaded Document"></a>
-                                                                    <?php }?>
-                                                                </td>
+                                                                    <?php }?></td>
+
                                                             </tr>
                                                             <tr>
-                                                                <td>5</td>
-                                                                <td>No. of lectures/Talks given in non academic programmes /conferences as invitee/inaugurator/resource person/Judge  etc:
-                                                                    5 marks/pgm
+                                                                <td> 4.1) NET / SLET / PhD
                                                                 </td>
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c85;?>"   name="c85" id="c85" onchange="validate_c85()" readonly/></td>
+                                                                <td><input type="text" name="c84_1" id="c84_1" maxlength="4" pattern="[0-9.]+" title="Numbers Only Allowed" value="<?php echo $c84_1;?>" onchange="validate_c84_1()" readonly></td>
+                                                            </tr>
+                                                            <script>
+                                                                function validate_c84_1()
+                                                                {
+                                                                    let c84_1=document.getElementById("c84_1").value;
+                                                                    if(c84_1 >= 0 && c84_1 <= 100)
+                                                                        return true;
+                                                                    alert("Criteria 8 : NET / SLET / PhD Must Be Between 0 to 100");
+                                                                    return false;
+                                                                }
+                                                                </script>
+                                                            <tr>
+                                                                <td>4.2) Diploma  Courses / Online Certificate Courses</td>
+                                                                <td><input type="text" name="c84_2" id="c84_2" maxlength="4" pattern="[0-9.]+" title="Numbers Only Allowed" value="<?php echo $c84_2;?>" onchange="validate_c84_2()" readonly></td>
+                                                            </tr>
+                                                            <script>
+                                                                function validate_c84_2()
+                                                                {
+                                                                    let c84_2=document.getElementById("c84_2").value;
+                                                                    if(c84_2 >= 0 && c84_2 <= 100)
+                                                                        return true;
+                                                                    alert("Criteria 8 : Diploma Courses / Online Certificate Courses Must Be Between 0 to 100");
+                                                                    return false;
+                                                                }
+                                                            </script>
+                                                            <tr>
+                                                                <td rowspan="5">5</td>
+                                                                <td>General Publications (Subject Related / Any Other Topics)
+                                                                </td>
+                                                                <td>NUMBERS (#)
+                                                                </td>
+                                                                <td rowspan="11">2</td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+
+                                                                <td>5.1) No. Of Books Authored (Min 25 Pages)
+
+                                                                </td>
+                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c85_1;?>"   name="c85_1" id="c85_1" onchange="validate_c85_1()" readonly/></td>
                                                                 <script>
-                                                                    function validate_c85()
+                                                                    function validate_c85_1()
                                                                     {
-                                                                        let c85=document.getElementById("c85").value;
-                                                                        if(c85 >= 0 && c85 <= 100)
+                                                                        let c85_1=document.getElementById("c85_1").value;
+                                                                        if(c85_1 >= 0 && c85_1 <= 100)
                                                                             return true;
-                                                                        alert("Criteria 8 : No. of lectures/Talks given Must Be Between 0 to 100");
+                                                                        alert("Criteria 8 : No. Of Books Authored Must Be Between 0 to 100");
                                                                         return false;
                                                                     }
                                                                 </script>
-<!--                                                                <td> </td>-->
-                                                                <td><input type="file" name="c85_path" id="c85_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                                <!--                                                                <td></td>-->
+                                                                <td rowspan="4"><input type="file" name="c85_path" id="c85_path" accept="application/pdf" disabled>	Upload The Relevant Document.
                                                                     <br>  <?php if($c85_path != "") {?>
                                                                         <a href="../../../<?php echo $c85_path;?>" target="_blank">
                                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1926,29 +2389,151 @@ if($result)
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>6</td>
-                                                                <td>Awards(other than phd) / recognition received from registered body/ Government
-                                                                    International/National  -30 marks ,
-                                                                    upto state level 20
+
+                                                                <td>5.2) No. Of Books Co-Authored (Min 25 Pages)
+
                                                                 </td>
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c86;?>" name="c86" id="c86" onchange="validate_c86()" readonly/></td>
+                                                                <td> <input type="text" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c85_2;?>"   name="c85_2" id="c85_2" onchange="validate_c85_2()" readonly></td>
+                                                                <script>
+                                                                    function validate_c85_2()
+                                                                    {
+                                                                        let c85_2=document.getElementById("c85_2").value;
+                                                                        if(c85_2 >= 0 && c85_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 8 : No. Of Books Co-Authored Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>5.3) No. of Books Edited and Re-Published (Min 25 Pages)
+
+                                                                </td>
+                                                                <td><input type="text" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c85_3;?>"   name="c85_3" id="c85_3" onchange="validate_c85_3()" readonly></td>
+                                                                <script>
+                                                                    function validate_c85_3()
+                                                                    {
+                                                                        let c85_3=document.getElementById("c85_3").value;
+                                                                        if(c85_3 >= 0 && c85_3 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 8 : No. Of Books Edited and Re-Published Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>5.4) No Of General Article Published In Magazines / Papers / Online Publications (Min 1 Page In A4 Size)
+
+                                                                </td>
+                                                                <td><input type="text" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c85_4;?>"   name="c85_4" id="c85_4" onchange="validate_c85_4()" readonly></td>
+                                                                <script>
+                                                                    function validate_c85_4()
+                                                                    {
+                                                                        let c85_4=document.getElementById("c85_4").value;
+                                                                        if(c85_4 >= 0 && c85_4 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 8 : No Of General Article Published Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+                                                            </tr>
+                                                            <tr>
+                                                                <td rowspan="2">6</td>
+                                                                <td>
+                                                                </td>
+                                                                <td>NUMBERS (#)
+                                                                </td>
+                                                                <!--                                                                <td> </td>-->
+                                                                <td rowspan="2"><input type="file" name="c86_path" id="c86_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                                    <br>  <?php if($c86_path != "") {?>
+                                                                        <a href="../../../<?php echo $c86_path;?>" target="_blank">
+                                                                            <input type="button" value="View Uploaded Document"></a>
+                                                                    <?php }?>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>No. of Subject Related Talks / Popular Lectures Given in Academic / Non-Academic Programmes - Outside the Campus
+                                                                </td>
+                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c86;?>"   name="c86" id="c86" onchange="validate_c86()" readonly/></td>
                                                                 <script>
                                                                     function validate_c86()
                                                                     {
                                                                         let c86=document.getElementById("c86").value;
                                                                         if(c86 >= 0 && c86 <= 100)
                                                                             return true;
-                                                                        alert("Criteria 8 : Awards Must Be Between 0 to 100");
+                                                                        alert("Criteria 8 : No. of Subject Related Talks Must Be Between 0 to 100");
                                                                         return false;
                                                                     }
                                                                 </script>
-<!--                                                                <td>1</td>-->
-                                                                <td><input type="file" name="c86_path" id="c86_path" accept="application/pdf" disabled>	Upload The Relevant Document.
-                                                                    <br>  <?php if($c86_path != "") {?>
-                                                                        <a href="../../../<?php echo $c86_path;?>" target="_blank">
+                                                            </tr>
+                                                            <tr>
+                                                                <td rowspan="4">7</td>
+                                                                <td>No. Of Awards (Other Than Phd) / Recognition Received from Registered Body / Government
+
+                                                                </td>
+                                                                <td>NUMBERS (#)
+                                                                </td>
+                                                                <td></td>
+                                                                <!--                                                                <td>1</td>-->
+
+                                                            </tr>
+                                                            <tr>
+
+                                                                <td>International
+
+                                                                </td>
+                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c87_1;?>" name="c87_1" id="c87_1" onchange="validate_c87_1()" readonly/></td>
+                                                                <script>
+                                                                    function validate_c87_1()
+                                                                    {
+                                                                        let c87_1=document.getElementById("c87_1").value;
+                                                                        if(c87_1 >= 0 && c87_1 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 8 : No. Of Awards (International) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+                                                                <td rowspan="3"><input type="file" name="c87_path" id="c87_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                                    <br>  <?php if($c87_path != "") {?>
+                                                                        <a href="../../../<?php echo $c87_path;?>" target="_blank">
                                                                             <input type="button" value="View Uploaded Document"></a>
                                                                     <?php }?>
                                                                 </td>
+                                                            </tr>  <tr>
+
+                                                                <td>National
+
+                                                                </td>
+                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c87_2;?>" name="c87_2" id="c87_2" onchange="validate_c87_2()" readonly/></td>
+                                                                <script>
+                                                                    function validate_c87_2()
+                                                                    {
+                                                                        let c87_2=document.getElementById("c87_2").value;
+                                                                        if(c87_2 >= 0 && c87_2 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 8 : No. Of Awards (National) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+
+                                                            </tr>
+                                                            <tr>
+
+                                                                <td>State
+
+                                                                </td>
+                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c87_3;?>" name="c87_3" id="c87_3" onchange="validate_c87_3()" readonly/></td>
+                                                                <script>
+                                                                    function validate_c87_3()
+                                                                    {
+                                                                        let c87_3=document.getElementById("c87_3").value;
+                                                                        if(c87_3 >= 0 && c87_3 <= 100)
+                                                                            return true;
+                                                                        alert("Criteria 8 : No. Of Awards (State) Must Be Between 0 to 100");
+                                                                        return false;
+                                                                    }
+                                                                </script>
+
                                                             </tr>
                                                             </tbody>
                                                         </table>
@@ -1963,6 +2548,8 @@ if($result)
                                                             </tr>
 
 
+
+
                                                         </table>
 
 
@@ -1973,11 +2560,8 @@ if($result)
                                                     </div>
                                                 </div>
                                             </div>
-
-
-
-
-
+                                            <!-- End -->
+                                            <!--------------------------------------------------------------------------------------------------------->
 
                                         </div>
                                     </div>
@@ -2056,30 +2640,68 @@ if($result)
         document.getElementById("c32_17").removeAttribute("readonly");
         document.getElementById("c32_18").removeAttribute("readonly");
         document.getElementById("c32_19").removeAttribute("readonly");
-        document.getElementById("c41").removeAttribute("readonly");
-        document.getElementById("c42").removeAttribute("readonly");
-        document.getElementById("c43").removeAttribute("readonly");
-        document.getElementById("c44").removeAttribute("readonly");
-        document.getElementById("c45").removeAttribute("readonly");
+        document.getElementById("c41_1_1").removeAttribute("readonly");
+        document.getElementById("c41_1_2").removeAttribute("readonly");
+        document.getElementById("c41_2_1").removeAttribute("readonly");
+        document.getElementById("c41_2_2").removeAttribute("readonly");
+        document.getElementById("c41_3_1").removeAttribute("readonly");
+        document.getElementById("c41_3_2").removeAttribute("readonly");
+        document.getElementById("c41_4_1").removeAttribute("readonly");
+        document.getElementById("c41_4_2").removeAttribute("readonly");
+        document.getElementById("c42_1_1").removeAttribute("readonly");
+        document.getElementById("c42_1_2").removeAttribute("readonly");
+        document.getElementById("c42_1_3").removeAttribute("readonly");
+        document.getElementById("c42_2_1").removeAttribute("readonly");
+        document.getElementById("c42_2_2").removeAttribute("readonly");
+        document.getElementById("c42_2_3").removeAttribute("readonly");
+        document.getElementById("c43_1").removeAttribute("readonly");
+        document.getElementById("c43_2").removeAttribute("readonly");
         document.getElementById("c51_1").removeAttribute("readonly");
         document.getElementById("c51_2").removeAttribute("readonly");
         document.getElementById("c51_3").removeAttribute("readonly");
-        document.getElementById("c52").removeAttribute("readonly");
+        document.getElementById("c52_1").removeAttribute("readonly");
+        document.getElementById("c52_2").removeAttribute("readonly");
         document.getElementById("c53").removeAttribute("readonly");
-        document.getElementById("c61").removeAttribute("readonly");
+        document.getElementById("c54_1").removeAttribute("readonly");
+        document.getElementById("c54_2").removeAttribute("readonly");
+        document.getElementById("c61_1").removeAttribute("readonly");
+        document.getElementById("c61_2").removeAttribute("readonly");
         document.getElementById("c62").removeAttribute("readonly");
         document.getElementById("c63").removeAttribute("readonly");
         document.getElementById("c64").removeAttribute("readonly");
-        document.getElementById("c71").removeAttribute("readonly");
-        document.getElementById("c72").removeAttribute("readonly");
-        document.getElementById("c73").removeAttribute("readonly");
+        document.getElementById("c71_1_1").removeAttribute("readonly");
+        document.getElementById("c71_1_2").removeAttribute("readonly");
+        document.getElementById("c71_1_3").removeAttribute("readonly");
+        document.getElementById("c71_2_1").removeAttribute("readonly");
+        document.getElementById("c71_2_2").removeAttribute("readonly");
+        document.getElementById("c71_2_3").removeAttribute("readonly");
+        document.getElementById("c72_1_1").removeAttribute("readonly");
+        document.getElementById("c72_1_2").removeAttribute("readonly");
+        document.getElementById("c72_1_3").removeAttribute("readonly");
+        document.getElementById("c72_2_1").removeAttribute("readonly");
+        document.getElementById("c72_2_2").removeAttribute("readonly");
+        document.getElementById("c72_2_3").removeAttribute("readonly");
+        document.getElementById("c73_1").removeAttribute("readonly");
+        document.getElementById("c73_2").removeAttribute("readonly");
         document.getElementById("c74").removeAttribute("readonly");
-        document.getElementById("c81").removeAttribute("readonly");
+        document.getElementById("c81_1_1").removeAttribute("readonly");
+        document.getElementById("c81_1_2").removeAttribute("readonly");
+        document.getElementById("c81_2_1").removeAttribute("readonly");
+        document.getElementById("c81_2_2").removeAttribute("readonly");
+        document.getElementById("c81_3_1").removeAttribute("readonly");
+        document.getElementById("c81_3_2").removeAttribute("readonly");
         document.getElementById("c82").removeAttribute("readonly");
         document.getElementById("c83").removeAttribute("readonly");
-        document.getElementById("c84").removeAttribute("readonly");
-        document.getElementById("c85").removeAttribute("readonly");
+        document.getElementById("c84_1").removeAttribute("readonly");
+        document.getElementById("c84_2").removeAttribute("readonly");
+        document.getElementById("c85_1").removeAttribute("readonly");
+        document.getElementById("c85_2").removeAttribute("readonly");
+        document.getElementById("c85_3").removeAttribute("readonly");
+        document.getElementById("c85_4").removeAttribute("readonly");
         document.getElementById("c86").removeAttribute("readonly");
+        document.getElementById("c87_1").removeAttribute("readonly");
+        document.getElementById("c87_2").removeAttribute("readonly");
+        document.getElementById("c87_3").removeAttribute("readonly");
         document.getElementById("emp_comments").removeAttribute("readonly");
 
 
@@ -2094,12 +2716,11 @@ if($result)
         document.getElementById("c41_path").removeAttribute("disabled");
         document.getElementById("c42_path").removeAttribute("disabled");
         document.getElementById("c43_path").removeAttribute("disabled");
-        document.getElementById("c44_path").removeAttribute("disabled");
-        document.getElementById("c45_path").removeAttribute("disabled");
         document.getElementById("phd").removeAttribute("disabled");
         document.getElementById("c51_path").removeAttribute("disabled");
         document.getElementById("c52_path").removeAttribute("disabled");
         document.getElementById("c53_path").removeAttribute("disabled");
+        document.getElementById("c54_path").removeAttribute("disabled");
         document.getElementById("c61_path").removeAttribute("disabled");
         document.getElementById("c62_path").removeAttribute("disabled");
         document.getElementById("c63_path").removeAttribute("disabled");
@@ -2114,6 +2735,7 @@ if($result)
         document.getElementById("c84_path").removeAttribute("disabled");
         document.getElementById("c85_path").removeAttribute("disabled");
         document.getElementById("c86_path").removeAttribute("disabled");
+        document.getElementById("c87_path").removeAttribute("disabled");
     }
 
     function addRequired()
@@ -2148,35 +2770,81 @@ if($result)
         document.getElementById("c32_17").setAttribute("required","");
         document.getElementById("c32_18").setAttribute("required","");
         document.getElementById("c32_19").setAttribute("required","");
-        document.getElementById("c41").setAttribute("required","");
-        document.getElementById("c42").setAttribute("required","");
-        document.getElementById("c43").setAttribute("required","");
-        document.getElementById("c44").setAttribute("required","");
-        document.getElementById("c45").setAttribute("required","");
+        document.getElementById("c41_1_1").setAttribute("required","");
+        document.getElementById("c41_1_2").setAttribute("required","");
+        document.getElementById("c41_2_1").setAttribute("required","");
+        document.getElementById("c41_2_2").setAttribute("required","");
+        document.getElementById("c41_3_1").setAttribute("required","");
+        document.getElementById("c41_3_2").setAttribute("required","");
+        document.getElementById("c41_4_1").setAttribute("required","");
+        document.getElementById("c41_4_2").setAttribute("required","");
+        document.getElementById("c42_1_1").setAttribute("required","");
+        document.getElementById("c42_1_2").setAttribute("required","");
+        document.getElementById("c42_1_3").setAttribute("required","");
+        document.getElementById("c42_2_1").setAttribute("required","");
+        document.getElementById("c42_2_2").setAttribute("required","");
+        document.getElementById("c42_2_3").setAttribute("required","");
+        document.getElementById("c43_1").setAttribute("required","");
+        document.getElementById("c43_2").setAttribute("required","");
         //date
         let phd = document.getElementById("phd").checked;
         if(!phd)
+        {
             document.getElementById("c51_1").setAttribute("required","");
+            document.getElementById("c51_2").setAttribute("required","");
+            document.getElementById("c51_3").setAttribute("required","");
+        }
         else
+        {
             document.getElementById("c51_1").removeAttribute("required");
-        document.getElementById("c51_2").setAttribute("required","");
-        document.getElementById("c51_3").setAttribute("required","");
-        document.getElementById("c52").setAttribute("required","");
+            document.getElementById("c51_2").removeAttribute("required");
+            document.getElementById("c51_3").removeAttribute("required");
+        }
+
+
+        document.getElementById("c52_1").setAttribute("required","");
+        document.getElementById("c52_2").setAttribute("required","");
         document.getElementById("c53").setAttribute("required","");
-        document.getElementById("c61").setAttribute("required","");
+        document.getElementById("c54_1").setAttribute("required","");
+        document.getElementById("c54_2").setAttribute("required","");
+        document.getElementById("c61_1").setAttribute("required","");
+        document.getElementById("c61_2").setAttribute("required","");
         document.getElementById("c62").setAttribute("required","");
         document.getElementById("c63").setAttribute("required","");
         document.getElementById("c64").setAttribute("required","");
-        document.getElementById("c71").setAttribute("required","");
-        document.getElementById("c72").setAttribute("required","");
-        document.getElementById("c73").setAttribute("required","");
+        document.getElementById("c71_1_1").setAttribute("required","");
+        document.getElementById("c71_1_2").setAttribute("required","");
+        document.getElementById("c71_1_3").setAttribute("required","");
+        document.getElementById("c71_2_1").setAttribute("required","");
+        document.getElementById("c71_2_2").setAttribute("required","");
+        document.getElementById("c71_2_3").setAttribute("required","");
+        document.getElementById("c72_1_1").setAttribute("required","");
+        document.getElementById("c72_1_2").setAttribute("required","");
+        document.getElementById("c72_1_3").setAttribute("required","");
+        document.getElementById("c72_2_1").setAttribute("required","");
+        document.getElementById("c72_2_2").setAttribute("required","");
+        document.getElementById("c72_2_3").setAttribute("required","");
+        document.getElementById("c73_1").setAttribute("required","");
+        document.getElementById("c73_2").setAttribute("required","");
         document.getElementById("c74").setAttribute("required","");
-        document.getElementById("c81").setAttribute("required","");
+        document.getElementById("c81_1_1").setAttribute("required","");
+        document.getElementById("c81_1_2").setAttribute("required","");
+        document.getElementById("c81_2_1").setAttribute("required","");
+        document.getElementById("c81_2_2").setAttribute("required","");
+        document.getElementById("c81_3_1").setAttribute("required","");
+        document.getElementById("c81_3_2").setAttribute("required","");
         document.getElementById("c82").setAttribute("required","");
         document.getElementById("c83").setAttribute("required","");
-        document.getElementById("c84").setAttribute("required","");
-        document.getElementById("c85").setAttribute("required","");
+        document.getElementById("c84_1").setAttribute("required","");
+        document.getElementById("c84_2").setAttribute("required","");
+        document.getElementById("c85_1").setAttribute("required","");
+        document.getElementById("c85_2").setAttribute("required","");
+        document.getElementById("c85_3").setAttribute("required","");
+        document.getElementById("c85_4").setAttribute("required","");
         document.getElementById("c86").setAttribute("required","");
+        document.getElementById("c87_1").setAttribute("required","");
+        document.getElementById("c87_2").setAttribute("required","");
+        document.getElementById("c87_3").setAttribute("required","");
 
 
 
@@ -2191,8 +2859,6 @@ if($result)
         // document.getElementById("c41_path").setAttribute("required","");
         // document.getElementById("c42_path").setAttribute("required","");
         // document.getElementById("c43_path").setAttribute("required","");
-        // document.getElementById("c44_path").setAttribute("required","");
-        // document.getElementById("c45_path").setAttribute("required","");
         // document.getElementById("c51_path").setAttribute("required","");
         // document.getElementById("c52_path").setAttribute("required","");
         // document.getElementById("c53_path").setAttribute("required","");
@@ -2222,12 +2888,11 @@ if($result)
         canSubmit1 = canSubmit1 && validate_c32_6() && validate_c32_7() && validate_c32_8() && validate_c32_9() && validate_c32_10();
         canSubmit1 = canSubmit1 && validate_c32_11() && validate_c32_12() && validate_c32_13() && validate_c32_14() && validate_c32_15();
         canSubmit1 = canSubmit1 && validate_c32_16() && validate_c32_17() && validate_c32_18() && validate_c32_19();
-        canSubmit1 = canSubmit1 && validate_c41() && validate_c42() && validate_c43() && validate_c44() && validate_c45();
-        canSubmit1 = canSubmit1 && validate_c51_2() && validate_c51_3();
-        canSubmit1 = canSubmit1 && validate_c52() && validate_c53();
-        canSubmit1 = canSubmit1 && validate_c61() && validate_c62() && validate_c63() && validate_c64();
-        canSubmit1 = canSubmit1 && validate_c71() && validate_c72() && validate_c73() && validate_c74();
-        canSubmit1 = canSubmit1 && validate_c81() && validate_c82() && validate_c83() && validate_c84() && validate_c85() && validate_c86();
+        canSubmit1 = canSubmit1 && validate_c41_1_1() && validate_c41_1_2() && validate_c41_2_1() && validate_c41_2_2() && validate_c41_3_1() && validate_c41_3_2() && validate_c41_4_1() && validate_c41_4_2() && validate_c42_1_1() && validate_c42_1_2() && validate_c42_1_3() && validate_c42_2_1() && validate_c42_2_2() && validate_c42_2_3() && validate_c43_1() && validate_c43_2();
+        canSubmit1 = canSubmit1 && validate_c51_2() && validate_c51_3() && validate_c52_1() && validate_c52_2() && validate_c53() && validate_c54_1() && validate_c54_2();
+        canSubmit1 = canSubmit1 && validate_c61_1() && validate_c61_2() && validate_c62() && validate_c63() && validate_c64();
+        canSubmit1 = canSubmit1 && validate_c71_1_1() && validate_c71_1_2() && validate_c71_1_3() && validate_c71_2_1() && validate_c71_2_2() && validate_c71_2_3() && validate_c72_1_1() && validate_c72_1_2() && validate_c72_1_3() && validate_c72_2_1() && validate_c72_2_2() && validate_c72_2_3() && validate_c73_1() && validate_c73_2() && validate_c74();
+        canSubmit1 = canSubmit1 && validate_c81_1_1() && validate_c81_1_2() && validate_c81_2_1() && validate_c81_2_2() && validate_c81_3_1() && validate_c81_3_2() && validate_c82() && validate_c83() && validate_c84_1() && validate_c84_2() && validate_c85_1() && validate_c85_2() && validate_c85_3() && validate_c85_4() && validate_c86() && validate_c87_1() && validate_c87_2() && validate_c87_3();
 
         //files
 
@@ -2269,30 +2934,68 @@ if($result)
         document.getElementById("c32_17").removeAttribute("required");
         document.getElementById("c32_18").removeAttribute("required");
         document.getElementById("c32_19").removeAttribute("required");
-        document.getElementById("c41").removeAttribute("required");
-        document.getElementById("c42").removeAttribute("required");
-        document.getElementById("c43").removeAttribute("required");
-        document.getElementById("c44").removeAttribute("required");
-        document.getElementById("c45").removeAttribute("required");
+        document.getElementById("c41_1_1").removeAttribute("required");
+        document.getElementById("c41_1_2").removeAttribute("required");
+        document.getElementById("c41_2_1").removeAttribute("required");
+        document.getElementById("c41_2_2").removeAttribute("required");
+        document.getElementById("c41_3_1").removeAttribute("required");
+        document.getElementById("c41_3_2").removeAttribute("required");
+        document.getElementById("c41_4_1").removeAttribute("required");
+        document.getElementById("c41_4_2").removeAttribute("required");
+        document.getElementById("c42_1_1").removeAttribute("required");
+        document.getElementById("c42_1_2").removeAttribute("required");
+        document.getElementById("c42_1_3").removeAttribute("required");
+        document.getElementById("c42_2_1").removeAttribute("required");
+        document.getElementById("c42_2_2").removeAttribute("required");
+        document.getElementById("c42_2_3").removeAttribute("required");
+        document.getElementById("c43_1").removeAttribute("required");
+        document.getElementById("c43_2").removeAttribute("required");
         document.getElementById("c51_1").removeAttribute("required");
         document.getElementById("c51_2").removeAttribute("required");
         document.getElementById("c51_3").removeAttribute("required");
-        document.getElementById("c52").removeAttribute("required");
+        document.getElementById("c52_1").removeAttribute("required");
+        document.getElementById("c52_2").removeAttribute("required");
         document.getElementById("c53").removeAttribute("required");
-        document.getElementById("c61").removeAttribute("required");
+        document.getElementById("c54_1").removeAttribute("required");
+        document.getElementById("c54_2").removeAttribute("required");
+        document.getElementById("c61_1").removeAttribute("required");
+        document.getElementById("c61_2").removeAttribute("required");
         document.getElementById("c62").removeAttribute("required");
         document.getElementById("c63").removeAttribute("required");
         document.getElementById("c64").removeAttribute("required");
-        document.getElementById("c71").removeAttribute("required");
-        document.getElementById("c72").removeAttribute("required");
-        document.getElementById("c73").removeAttribute("required");
+        document.getElementById("c71_1_1").removeAttribute("required");
+        document.getElementById("c71_1_2").removeAttribute("required");
+        document.getElementById("c71_1_3").removeAttribute("required");
+        document.getElementById("c71_2_1").removeAttribute("required");
+        document.getElementById("c71_2_2").removeAttribute("required");
+        document.getElementById("c71_2_3").removeAttribute("required");
+        document.getElementById("c72_1_1").removeAttribute("required");
+        document.getElementById("c72_1_2").removeAttribute("required");
+        document.getElementById("c72_1_3").removeAttribute("required");
+        document.getElementById("c72_2_1").removeAttribute("required");
+        document.getElementById("c72_2_2").removeAttribute("required");
+        document.getElementById("c72_2_3").removeAttribute("required");
+        document.getElementById("c73_1").removeAttribute("required");
+        document.getElementById("c73_2").removeAttribute("required");
         document.getElementById("c74").removeAttribute("required");
-        document.getElementById("c81").removeAttribute("required");
+        document.getElementById("c81_1_1").removeAttribute("required");
+        document.getElementById("c81_1_2").removeAttribute("required");
+        document.getElementById("c81_2_1").removeAttribute("required");
+        document.getElementById("c81_2_2").removeAttribute("required");
+        document.getElementById("c81_3_1").removeAttribute("required");
+        document.getElementById("c81_3_2").removeAttribute("required");
         document.getElementById("c82").removeAttribute("required");
         document.getElementById("c83").removeAttribute("required");
-        document.getElementById("c84").removeAttribute("required");
-        document.getElementById("c85").removeAttribute("required");
+        document.getElementById("c84_1").removeAttribute("required");
+        document.getElementById("c84_2").removeAttribute("required");
+        document.getElementById("c85_1").removeAttribute("required");
+        document.getElementById("c85_2").removeAttribute("required");
+        document.getElementById("c85_3").removeAttribute("required");
+        document.getElementById("c85_4").removeAttribute("required");
         document.getElementById("c86").removeAttribute("required");
+        document.getElementById("c87_1").removeAttribute("required");
+        document.getElementById("c87_2").removeAttribute("required");
+        document.getElementById("c87_3").removeAttribute("required");
 
 
 
@@ -2307,11 +3010,10 @@ if($result)
         document.getElementById("c41_path").removeAttribute("required");
         document.getElementById("c42_path").removeAttribute("required");
         document.getElementById("c43_path").removeAttribute("required");
-        document.getElementById("c44_path").removeAttribute("required");
-        document.getElementById("c45_path").removeAttribute("required");
         document.getElementById("c51_path").removeAttribute("required");
         document.getElementById("c52_path").removeAttribute("required");
         document.getElementById("c53_path").removeAttribute("required");
+        document.getElementById("c54_path").removeAttribute("required");
         document.getElementById("c61_path").removeAttribute("required");
         document.getElementById("c62_path").removeAttribute("required");
         document.getElementById("c63_path").removeAttribute("required");
@@ -2326,6 +3028,7 @@ if($result)
         document.getElementById("c84_path").removeAttribute("required");
         document.getElementById("c85_path").removeAttribute("required");
         document.getElementById("c86_path").removeAttribute("required");
+        document.getElementById("c87_path").removeAttribute("required");
 
 
         let canSubmit2 = true;
@@ -2336,12 +3039,11 @@ if($result)
         canSubmit2 = canSubmit2 && validate_c32_6() && validate_c32_7() && validate_c32_8() && validate_c32_9() && validate_c32_10();
         canSubmit2 = canSubmit2 && validate_c32_11() && validate_c32_12() && validate_c32_13() && validate_c32_14() && validate_c32_15();
         canSubmit2 = canSubmit2 && validate_c32_16() && validate_c32_17() && validate_c32_18() && validate_c32_19();
-        canSubmit2 = canSubmit2 && validate_c41() && validate_c42() && validate_c43() && validate_c44() && validate_c45();
-        canSubmit2 = canSubmit2 && validate_c51_2() && validate_c51_3();
-        canSubmit2 = canSubmit2 && validate_c52() && validate_c53();
-        canSubmit2 = canSubmit2 && validate_c61() && validate_c62() && validate_c63() && validate_c64();
-        canSubmit2 = canSubmit2 && validate_c71() && validate_c72() && validate_c73() && validate_c74();
-        canSubmit2 = canSubmit2 && validate_c81() && validate_c82() && validate_c83() && validate_c84() && validate_c85() && validate_c86();
+        canSubmit2 = canSubmit2 && validate_c41_1_1() && validate_c41_1_2() && validate_c41_2_1() && validate_c41_2_2() && validate_c41_3_1() && validate_c41_3_2() && validate_c41_4_1() && validate_c41_4_2() && validate_c42_1_1() && validate_c42_1_2() && validate_c42_1_3() && validate_c42_2_1() && validate_c42_2_2() && validate_c42_2_3() && validate_c43_1() && validate_c43_2();
+        canSubmit2 = canSubmit2 && validate_c51_2() && validate_c51_3() && validate_c52_1() && validate_c52_2() && validate_c53() && validate_c54_1() && validate_c54_2();
+        canSubmit2 = canSubmit2 && validate_c61_1() && validate_c61_2() && validate_c62() && validate_c63() && validate_c64();
+        canSubmit2 = canSubmit2 && validate_c71_1_1() && validate_c71_1_2() && validate_c71_1_3() && validate_c71_2_1() && validate_c71_2_2() && validate_c71_2_3() && validate_c72_1_1() && validate_c72_1_2() && validate_c72_1_3() && validate_c72_2_1() && validate_c72_2_2() && validate_c72_2_3() && validate_c73_1() && validate_c73_2() && validate_c74();
+        canSubmit2 = canSubmit2 && validate_c81_1_1() && validate_c81_1_2() && validate_c81_2_1() && validate_c81_2_2() && validate_c81_3_1() && validate_c81_3_2() && validate_c82() && validate_c83() && validate_c84_1() && validate_c84_2() && validate_c85_1() && validate_c85_2() && validate_c85_3() && validate_c85_4() && validate_c86() && validate_c87_1() && validate_c87_2() && validate_c87_3();
 
         //save
         if(canSubmit2)
@@ -2358,12 +3060,7 @@ if($result)
 
 
                 </div>
-                <!--/candile-->
 
-                <!--/charts-->
-
-                <!--//content-inner-->
-                <!--/sidebar-menu-->
 <?php
 include 'footer.php';
 
