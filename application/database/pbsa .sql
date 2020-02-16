@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 03, 2020 at 03:53 PM
+-- Generation Time: Feb 16, 2020 at 05:14 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -160,16 +160,25 @@ INSERT INTO `c3` (`c3_id`, `c31_1`, `c31_2`, `c31_3`, `c31_4`, `c31_5`, `c31_pat
 
 CREATE TABLE `c4` (
   `c4_id` int(11) NOT NULL,
-  `c41` float DEFAULT NULL,
+  `c41_1_1` float DEFAULT NULL,
+  `c41_1_2` float DEFAULT NULL,
+  `c41_2_1` float DEFAULT NULL,
+  `c41_2_2` float DEFAULT NULL,
+  `c41_3_1` float DEFAULT NULL,
+  `c41_3_2` float DEFAULT NULL,
+  `c41_4_1` float DEFAULT NULL,
+  `c41_4_2` float DEFAULT NULL,
   `c41_path` varchar(50) DEFAULT NULL,
-  `c42` float DEFAULT NULL,
+  `c42_1_1` float DEFAULT NULL,
+  `c42_1_2` float DEFAULT NULL,
+  `c42_1_3` float DEFAULT NULL,
+  `c42_2_1` float DEFAULT NULL,
+  `c42_2_2` float DEFAULT NULL,
+  `c42_2_3` float DEFAULT NULL,
   `c42_path` varchar(50) DEFAULT NULL,
-  `c43` float DEFAULT NULL,
+  `c43_1` float DEFAULT NULL,
+  `c43_2` float DEFAULT NULL,
   `c43_path` varchar(50) DEFAULT NULL,
-  `c44` float DEFAULT NULL,
-  `c44_path` varchar(50) DEFAULT NULL,
-  `c45` float DEFAULT NULL,
-  `c45_path` varchar(50) DEFAULT NULL,
   `c4_total` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -177,12 +186,12 @@ CREATE TABLE `c4` (
 -- Dumping data for table `c4`
 --
 
-INSERT INTO `c4` (`c4_id`, `c41`, `c41_path`, `c42`, `c42_path`, `c43`, `c43_path`, `c44`, `c44_path`, `c45`, `c45_path`, `c4_total`) VALUES
-(1, 0, '', 0, '', 0, '', 0, '', 0, '', 0),
-(2, 0, '', 0, '', 0, '', 0, '', 0, '', 0),
-(3, 0, '', 0, '', 0, '', 0, '', 0, '', 0),
-(4, 0, '', 0, '', 0, '', 0, '', 0, '', 0),
-(5, 0, '', 0, '', 0, '', 0, '', 0, '', 0);
+INSERT INTO `c4` (`c4_id`, `c41_1_1`, `c41_1_2`, `c41_2_1`, `c41_2_2`, `c41_3_1`, `c41_3_2`, `c41_4_1`, `c41_4_2`, `c41_path`, `c42_1_1`, `c42_1_2`, `c42_1_3`, `c42_2_1`, `c42_2_2`, `c42_2_3`, `c42_path`, `c43_1`, `c43_2`, `c43_path`, `c4_total`) VALUES
+(1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, '', 0),
+(2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, '', 0),
+(3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, '', 0),
+(4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, '', 0),
+(5, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, '', 0);
 
 -- --------------------------------------------------------
 
@@ -197,10 +206,14 @@ CREATE TABLE `c5` (
   `c51_2` float DEFAULT NULL,
   `c51_3` float DEFAULT NULL,
   `c51_path` varchar(50) DEFAULT NULL,
-  `c52` float DEFAULT NULL,
+  `c52_1` float DEFAULT NULL,
+  `c52_2` float DEFAULT NULL,
   `c52_path` varchar(50) DEFAULT NULL,
   `c53` float DEFAULT NULL,
   `c53_path` varchar(50) DEFAULT NULL,
+  `c54_1` float DEFAULT NULL,
+  `c54_2` float DEFAULT NULL,
+  `c54_path` varchar(50) DEFAULT NULL,
   `c5_total` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -208,12 +221,12 @@ CREATE TABLE `c5` (
 -- Dumping data for table `c5`
 --
 
-INSERT INTO `c5` (`c5_id`, `phd`, `c51_1`, `c51_2`, `c51_3`, `c51_path`, `c52`, `c52_path`, `c53`, `c53_path`, `c5_total`) VALUES
-(1, 0, '', 0, 0, '', 0, '', 0, '', 0),
-(2, 0, '', 0, 0, '', 0, '', 0, '', 0),
-(3, 0, '', 0, 0, '', 0, '', 0, '', 0),
-(4, 0, '', 0, 0, '', 0, '', 0, '', 0),
-(5, 0, '', 0, 0, '', 0, '', 0, '', 0);
+INSERT INTO `c5` (`c5_id`, `phd`, `c51_1`, `c51_2`, `c51_3`, `c51_path`, `c52_1`, `c52_2`, `c52_path`, `c53`, `c53_path`, `c54_1`, `c54_2`, `c54_path`, `c5_total`) VALUES
+(1, 0, '', 0, 0, '', 0, NULL, '', 0, '', NULL, NULL, NULL, 0),
+(2, 0, '', 0, 0, '', 0, NULL, '', 0, '', NULL, NULL, NULL, 0),
+(3, 0, '', 0, 0, '', 0, NULL, '', 0, '', NULL, NULL, NULL, 0),
+(4, 0, '', 0, 0, '', 0, NULL, '', 0, '', NULL, NULL, NULL, 0),
+(5, 0, '', 0, 0, '', 0, NULL, '', 0, '', NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -223,7 +236,8 @@ INSERT INTO `c5` (`c5_id`, `phd`, `c51_1`, `c51_2`, `c51_3`, `c51_path`, `c52`, 
 
 CREATE TABLE `c6` (
   `c6_id` int(11) NOT NULL,
-  `c61` float DEFAULT NULL,
+  `c61_1` float DEFAULT NULL,
+  `c61_2` float DEFAULT NULL,
   `c61_path` varchar(50) DEFAULT NULL,
   `c62` float DEFAULT NULL,
   `c62_path` varchar(50) DEFAULT NULL,
@@ -238,12 +252,12 @@ CREATE TABLE `c6` (
 -- Dumping data for table `c6`
 --
 
-INSERT INTO `c6` (`c6_id`, `c61`, `c61_path`, `c62`, `c62_path`, `c63`, `c63_path`, `c64`, `c64_path`, `c6_total`) VALUES
-(1, 0, '', 0, '', 0, '', 0, '', 0),
-(2, 0, '', 0, '', 0, '', 0, '', 0),
-(3, 0, '', 0, '', 0, '', 0, '', 0),
-(4, 0, '', 0, '', 0, '', 0, '', 0),
-(5, 0, '', 0, '', 0, '', 0, '', 0);
+INSERT INTO `c6` (`c6_id`, `c61_1`, `c61_2`, `c61_path`, `c62`, `c62_path`, `c63`, `c63_path`, `c64`, `c64_path`, `c6_total`) VALUES
+(1, 0, NULL, '', 0, '', 0, '', 0, '', 0),
+(2, 0, NULL, '', 0, '', 0, '', 0, '', 0),
+(3, 0, NULL, '', 0, '', 0, '', 0, '', 0),
+(4, 0, NULL, '', 0, '', 0, '', 0, '', 0),
+(5, 0, NULL, '', 0, '', 0, '', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -253,11 +267,22 @@ INSERT INTO `c6` (`c6_id`, `c61`, `c61_path`, `c62`, `c62_path`, `c63`, `c63_pat
 
 CREATE TABLE `c7` (
   `c7_id` int(11) NOT NULL,
-  `c71` float DEFAULT NULL,
+  `c71_1_1` float DEFAULT NULL,
+  `c71_1_2` float DEFAULT NULL,
+  `c71_1_3` float DEFAULT NULL,
+  `c71_2_1` float DEFAULT NULL,
+  `c71_2_2` float DEFAULT NULL,
+  `c71_2_3` float DEFAULT NULL,
   `c71_path` varchar(50) DEFAULT NULL,
-  `c72` float DEFAULT NULL,
+  `c72_1_1` float DEFAULT NULL,
+  `c72_1_2` float DEFAULT NULL,
+  `c72_1_3` float DEFAULT NULL,
+  `c72_2_1` float DEFAULT NULL,
+  `c72_2_2` float DEFAULT NULL,
+  `c72_2_3` float DEFAULT NULL,
   `c72_path` varchar(50) DEFAULT NULL,
-  `c73` float DEFAULT NULL,
+  `c73_1` float DEFAULT NULL,
+  `c73_2` float DEFAULT NULL,
   `c73_path` varchar(50) DEFAULT NULL,
   `c74` float DEFAULT NULL,
   `c74_path` varchar(50) DEFAULT NULL,
@@ -268,12 +293,12 @@ CREATE TABLE `c7` (
 -- Dumping data for table `c7`
 --
 
-INSERT INTO `c7` (`c7_id`, `c71`, `c71_path`, `c72`, `c72_path`, `c73`, `c73_path`, `c74`, `c74_path`, `c7_total`) VALUES
-(1, 0, '', 0, '', 0, '', 0, '', 0),
-(2, 0, '', 0, '', 0, '', 0, '', 0),
-(3, 0, '', 0, '', 0, '', 0, '', 0),
-(4, 0, '', 0, '', 0, '', 0, '', 0),
-(5, 0, '', 0, '', 0, '', 0, '', 0);
+INSERT INTO `c7` (`c7_id`, `c71_1_1`, `c71_1_2`, `c71_1_3`, `c71_2_1`, `c71_2_2`, `c71_2_3`, `c71_path`, `c72_1_1`, `c72_1_2`, `c72_1_3`, `c72_2_1`, `c72_2_2`, `c72_2_3`, `c72_path`, `c73_1`, `c73_2`, `c73_path`, `c74`, `c74_path`, `c7_total`) VALUES
+(1, 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, '', 0, '', 0),
+(2, 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, '', 0, '', 0),
+(3, 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, '', 0, '', 0),
+(4, 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, '', 0, '', 0),
+(5, 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, '', 0, NULL, '', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -283,18 +308,31 @@ INSERT INTO `c7` (`c7_id`, `c71`, `c71_path`, `c72`, `c72_path`, `c73`, `c73_pat
 
 CREATE TABLE `c8` (
   `c8_id` int(11) NOT NULL,
-  `c81` float DEFAULT NULL,
+  `c81_1_1` float DEFAULT NULL,
+  `c81_1_2` float DEFAULT NULL,
+  `c81_2_1` float DEFAULT NULL,
+  `c81_2_2` float DEFAULT NULL,
+  `c81_3_1` float DEFAULT NULL,
+  `c81_3_2` float DEFAULT NULL,
   `c81_path` varchar(50) DEFAULT NULL,
   `c82` float DEFAULT NULL,
   `c82_path` varchar(50) DEFAULT NULL,
   `c83` float DEFAULT NULL,
   `c83_path` varchar(50) DEFAULT NULL,
-  `c84` float DEFAULT NULL,
+  `c84_1` float DEFAULT NULL,
+  `c84_2` float DEFAULT NULL,
   `c84_path` varchar(50) DEFAULT NULL,
-  `c85` float DEFAULT NULL,
+  `c85_1` float DEFAULT NULL,
+  `c85_2` float DEFAULT NULL,
+  `c85_3` float DEFAULT NULL,
+  `c85_4` float DEFAULT NULL,
   `c85_path` varchar(50) DEFAULT NULL,
   `c86` float DEFAULT NULL,
   `c86_path` varchar(50) DEFAULT NULL,
+  `c87_1` float DEFAULT NULL,
+  `c87_2` float DEFAULT NULL,
+  `c87_3` float DEFAULT NULL,
+  `c87_path` varchar(50) DEFAULT NULL,
   `c8_total` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -302,12 +340,12 @@ CREATE TABLE `c8` (
 -- Dumping data for table `c8`
 --
 
-INSERT INTO `c8` (`c8_id`, `c81`, `c81_path`, `c82`, `c82_path`, `c83`, `c83_path`, `c84`, `c84_path`, `c85`, `c85_path`, `c86`, `c86_path`, `c8_total`) VALUES
-(1, 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0),
-(2, 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0),
-(3, 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0),
-(4, 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0),
-(5, 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0);
+INSERT INTO `c8` (`c8_id`, `c81_1_1`, `c81_1_2`, `c81_2_1`, `c81_2_2`, `c81_3_1`, `c81_3_2`, `c81_path`, `c82`, `c82_path`, `c83`, `c83_path`, `c84_1`, `c84_2`, `c84_path`, `c85_1`, `c85_2`, `c85_3`, `c85_4`, `c85_path`, `c86`, `c86_path`, `c87_1`, `c87_2`, `c87_3`, `c87_path`, `c8_total`) VALUES
+(1, 0, NULL, NULL, NULL, NULL, NULL, '', 0, '', 0, '', 0, NULL, '', 0, NULL, NULL, NULL, '', 0, '', NULL, NULL, NULL, NULL, 0),
+(2, 0, NULL, NULL, NULL, NULL, NULL, '', 0, '', 0, '', 0, NULL, '', 0, NULL, NULL, NULL, '', 0, '', NULL, NULL, NULL, NULL, 0),
+(3, 0, NULL, NULL, NULL, NULL, NULL, '', 0, '', 0, '', 0, NULL, '', 0, NULL, NULL, NULL, '', 0, '', NULL, NULL, NULL, NULL, 0),
+(4, 0, NULL, NULL, NULL, NULL, NULL, '', 0, '', 0, '', 0, NULL, '', 0, NULL, NULL, NULL, '', 0, '', NULL, NULL, NULL, NULL, 0),
+(5, 0, NULL, NULL, NULL, NULL, NULL, '', 0, '', 0, '', 0, NULL, '', 0, NULL, NULL, NULL, '', 0, '', NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -367,10 +405,12 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`e_id`, `emp_id`, `role`, `department`, `initial`, `first_name`, `last_name`, `email`, `password`, `phone`, `photo`, `dob`, `doj`, `is_active`) VALUES
 (6, '1', 3, NULL, NULL, 'Principal', 'Sdmit', 'principal@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '1212121212', 'assets/principal/images/a.png', NULL, NULL, 1),
-(7, '2', 2, 1, NULL, 'hod', 'bio', 'hodbio@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '1212121212', 'assets/hod/images/a.png', NULL, NULL, 1),
+(7, '2', 2, 1, 'Mr.', 'hod', 'bio', 'hodbio@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '1212121212', 'assets/hod/images/a.png', '2020-02-06', '2020-02-05', 1),
 (8, '3', 2, 2, NULL, 'hod', 'che', 'hodche@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '1212121212', 'assets/hod/images/a.png', NULL, NULL, 1),
 (9, '4', 1, 1, NULL, 'faculty', 'bio', 'facultybio@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '1212121212', 'assets/faculty/images/a.png', NULL, NULL, 1),
-(10, '5', 1, 2, NULL, 'faculty', 'che', 'facultyche@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '1211212121', 'assets/faculty/images/a.png', NULL, NULL, 1);
+(10, '5', 1, 2, NULL, 'faculty', 'che', 'facultyche@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '1211212121', 'assets/faculty/images/a.png', NULL, NULL, 1),
+(11, '5', 1, 6, NULL, 'Sanath', 'S', 'sanath@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '9481694830', 'assets/faculty/images/a.png', NULL, NULL, 1),
+(12, '7', 2, 6, NULL, 'hod', 'english', 'hodenglish@sdmit.in', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '8880733545', 'assets/hod/images/a.png', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -396,7 +436,7 @@ CREATE TABLE `management` (
 --
 
 INSERT INTO `management` (`m_id`, `initial`, `first_name`, `last_name`, `email`, `password`, `phone`, `photo`, `dob`, `is_active`) VALUES
-(1, 'Mr.', 'Sanath', 'S', 'sanathlslokanathapura@gmail.com', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '9481694830', NULL, NULL, 1),
+(1, 'Mr.', 'Sanath', 'L S', 'sanathlslokanathapura@gmail.com', '0dd3e512642c97ca3f747f9a76e374fbda73f9292823c0313be9d78add7cdd8f72235af0c553dd26797e78e1854edee0ae002f8aba074b066dfce1af114e32f8', '9481694830', 'uploads/management/profile/xRyt02acGe.jpeg', '1999-09-16', 1),
 (2, 'Mr.', 'Subramanya', 'Kashyap', 'sukruth21@gmail.com', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', '6677672672', NULL, NULL, 1);
 
 -- --------------------------------------------------------
@@ -436,11 +476,11 @@ CREATE TRIGGER `criteria_id_creater` AFTER INSERT ON `pbsa` FOR EACH ROW BEGIN
 INSERT INTO c1(c1_id, c11,c11_path, c12, c12_path, c1_total) VALUES (NEW.pbsa_id,null,null,null,null,null);
 INSERT INTO `c2`(`c2_id`, `c21`, `c21_path`, `c22`, `c22_path`, `c23`, `c23_path`, `c24`, `c24_path`, `c2_total`)VALUES (NEW.pbsa_id,null,null,null,null,null,null,null,null,null);
 INSERT INTO `c3`(`c3_id`, `c31_1`, `c31_2`, `c31_3`, `c31_4`, `c31_5`, `c31_path`, `c32_1`, `c32_2`, `c32_3`, `c32_4`, `c32_5`, `c32_6`, `c32_7`, `c32_8`, `c32_9`, `c32_10`, `c32_11`, `c32_12`, `c32_13`, `c32_14`, `c32_15`, `c32_16`, `c32_17`, `c32_18`, `c32_19`, `c32_path`, `c3_total`) VALUES (NEW.pbsa_id,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
-INSERT INTO `c4`(`c4_id`, `c41`, `c41_path`, `c42`, `c42_path`, `c43`, `c43_path`, `c44`, `c44_path`, `c45`, `c45_path`, `c4_total`) VALUES (NEW.pbsa_id,null,null,null,null,null,null,null,null,null,null,null);
-INSERT INTO `c5`(`c5_id`, `c51_1`, `c51_2`, `c51_3`, `c51_path`, `c52`, `c52_path`, `c53`, `c53_path`, `c5_total`) VALUES (NEW.pbsa_id,null,null,null,null,null,null,null,null,null);
-INSERT INTO `c6`(`c6_id`, `c61`, `c61_path`, `c62`, `c62_path`, `c63`, `c63_path`, `c64`, `c64_path`, `c6_total`) VALUES (NEW.pbsa_id,null,null,null,null,null,null,null,null,null);
-INSERT INTO `c7`(`c7_id`, `c71`, `c71_path`, `c72`, `c72_path`, `c73`, `c73_path`, `c74`, `c74_path`, `c7_total`)  VALUES (NEW.pbsa_id,null,null,null,null,null,null,null,null,null);
-INSERT INTO `c8`(`c8_id`, `c81`, `c81_path`, `c82`, `c82_path`, `c83`, `c83_path`, `c84`, `c84_path`, `c85`, `c85_path`, `c86`, `c86_path`, `c8_total`) VALUES (NEW.pbsa_id,null,null,null,null,null,null,null,null,null,null,null,null,null);
+INSERT INTO `c4` (`c4_id`, `c41_1_1`, `c41_1_2`, `c41_2_1`, `c41_2_2`, `c41_3_1`, `c41_3_2`, `c41_4_1`, `c41_4_2`, `c41_path`, `c42_1_1`, `c42_1_2`, `c42_1_3`, `c42_2_1`, `c42_2_2`, `c42_2_3`, `c42_path`, `c43_1`, `c43_2`, `c43_path`, `c4_total`) VALUES (NEW.pbsa_id, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `c5` (`c5_id`, `phd`, `c51_1`, `c51_2`, `c51_3`, `c51_path`, `c52_1`, `c52_2`, `c52_path`, `c53`, `c53_path`, `c54_1`, `c54_2`, `c54_path`, `c5_total`) VALUES (NEW.pbsa_id, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `c6` (`c6_id`, `c61_1`, `c61_2`, `c61_path`, `c62`, `c62_path`, `c63`, `c63_path`, `c64`, `c64_path`, `c6_total`) VALUES (NEW.pbsa_id, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `c7` (`c7_id`, `c71_1_1`, `c71_1_2`, `c71_1_3`, `c71_2_1`, `c71_2_2`, `c71_2_3`, `c71_path`, `c72_1_1`, `c72_1_2`, `c72_1_3`, `c72_2_1`, `c72_2_2`, `c72_2_3`, `c72_path`, `c73_1`, `c73_2`, `c73_path`, `c74`, `c74_path`, `c7_total`) VALUES (NEW.pbsa_id, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `c8` (`c8_id`, `c81_1_1`, `c81_1_2`, `c81_2_1`, `c81_2_2`, `c81_3_1`, `c81_3_2`, `c81_path`, `c82`, `c82_path`, `c83`, `c83_path`, `c84_1`, `c84_2`, `c84_path`, `c85_1`, `c85_2`, `c85_3`, `c85_4`, `c85_path`, `c86`, `c86_path`, `c87_1`, `c87_2`, `c87_3`, `c87_path`, `c8_total`) VALUES (NEW.pbsa_id, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 END
 $$
@@ -581,7 +621,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `management`
@@ -593,7 +633,7 @@ ALTER TABLE `management`
 -- AUTO_INCREMENT for table `pbsa`
 --
 ALTER TABLE `pbsa`
-  MODIFY `pbsa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `pbsa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `role`

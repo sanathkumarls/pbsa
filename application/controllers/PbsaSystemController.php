@@ -124,12 +124,11 @@ class PbsaSystemController
                 $c41_path = $row['c41_path'];
                 $c42_path = $row['c42_path'];
                 $c43_path = $row['c43_path'];
-                $c44_path = $row['c44_path'];
-                $c45_path = $row['c45_path'];
 
                 $c51_path = $row['c51_path'];
                 $c52_path = $row['c52_path'];
                 $c53_path = $row['c53_path'];
+                $c54_path = $row['c54_path'];
 
                 $c61_path = $row['c61_path'];
                 $c62_path = $row['c62_path'];
@@ -147,6 +146,7 @@ class PbsaSystemController
                 $c84_path = $row['c84_path'];
                 $c85_path = $row['c85_path'];
                 $c86_path = $row['c86_path'];
+                $c87_path = $row['c87_path'];
             }
             else
                 echo '<script>window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
@@ -156,9 +156,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c11_path']['size'];
                 $type = $_FILES['c11_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -180,9 +180,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c12_path']['size'];
                 $type = $_FILES['c12_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -230,9 +230,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c21_path']['size'];
                 $type = $_FILES['c21_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -254,9 +254,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c22_path']['size'];
                 $type = $_FILES['c22_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -279,9 +279,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c23_path']['size'];
                 $type = $_FILES['c23_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -303,9 +303,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c24_path']['size'];
                 $type = $_FILES['c24_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -356,9 +356,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c31_path']['size'];
                 $type = $_FILES['c31_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -380,9 +380,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c32_path']['size'];
                 $type = $_FILES['c32_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -581,9 +581,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c41_path']['size'];
                 $type = $_FILES['c41_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -605,9 +605,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c42_path']['size'];
                 $type = $_FILES['c42_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -630,9 +630,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c43_path']['size'];
                 $type = $_FILES['c43_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -650,64 +650,27 @@ class PbsaSystemController
                 }
             }
 
-            if(!empty($_FILES['c44_path']['name']))
-            {
-                $size = $_FILES['c44_path']['size'];
-                $type = $_FILES['c44_path']['type'];
-                if (($size > 5242880))
-                {
-                    $message = 'File too large. File must be less than 5 megabytes.';
-                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
-                }
-                elseif ($type != "application/pdf")
-                {
-                    $message = 'Invalid file type';
-                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
-                }
-                else
-                {
-                    $extention= substr_replace($type,"",0,12);
-                    $c44_path = $year."_c44_".$row['e_id'];
 
-                    move_uploaded_file($_FILES['c44_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c44_path.".".$extention);
-                    $c44_path="uploads/".$path."/documents/".$c44_path.".".$extention;
-                }
-            }
-
-            if(!empty($_FILES['c45_path']['name']))
-            {
-                $size = $_FILES['c45_path']['size'];
-                $type = $_FILES['c45_path']['type'];
-                if (($size > 5242880))
-                {
-                    $message = 'File too large. File must be less than 5 megabytes.';
-                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
-                }
-                elseif ($type != "application/pdf")
-                {
-                    $message = 'Invalid file type';
-                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
-                }
-                else
-                {
-                    $extention= substr_replace($type,"",0,12);
-                    $c45_path = $year."_c45_".$row['e_id'];
-
-                    move_uploaded_file($_FILES['c45_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c45_path.".".$extention);
-                    $c45_path="uploads/".$path."/documents/".$c45_path.".".$extention;
-                }
-            }
-
-
-            $c41 = floatval($_POST['c41']); //echo $c41;
-            $c42 = floatval($_POST['c42']); //echo $c42;
-            $c43 = floatval($_POST['c43']); //echo $c43;
-            $c44 = floatval($_POST['c44']); //echo $c44;
-            $c45 = floatval($_POST['c45']); //echo $c45;
+            $c41_1_1 = floatval($_POST['c41_1_1']); //echo $c41_1_1;
+            $c41_1_2 = floatval($_POST['c41_1_2']); //echo $c41_1_2;
+            $c41_2_1 = floatval($_POST['c41_2_1']); //echo $c41_2_1;
+            $c41_2_2 = floatval($_POST['c41_2_2']); //echo $c41_2_2;
+            $c41_3_1 = floatval($_POST['c41_3_1']); //echo $c41_3_1;
+            $c41_3_2 = floatval($_POST['c41_3_2']); //echo $c41_3_2;
+            $c41_4_1 = floatval($_POST['c41_4_1']); //echo $c41_4_1;
+            $c41_4_2 = floatval($_POST['c41_4_2']); //echo $c41_4_2;
+            $c42_1_1 = floatval($_POST['c42_1_1']); //echo $c42_1_1;
+            $c42_1_2 = floatval($_POST['c42_1_2']); //echo $c42_1_2;
+            $c42_1_3 = floatval($_POST['c42_1_3']); //echo $c42_1_3;
+            $c42_2_1 = floatval($_POST['c42_2_1']); //echo $c42_2_1;
+            $c42_2_2 = floatval($_POST['c42_2_2']); //echo $c42_2_2;
+            $c42_2_3 = floatval($_POST['c42_2_3']); //echo $c42_2_3;
+            $c43_1 = floatval($_POST['c43_1']); //echo $c43_1;
+            $c43_2 = floatval($_POST['c43_2']); //echo $c43_2;
             $c4_total = 0;
 
 
-            if($c41 >= 0 && $c41 <= 100 && $c42 >= 0 && $c42 <= 100 && $c43 >= 0 && $c43 <= 100 && $c44 >= 0 && $c44 <= 100 && $c45 >= 0 && $c45 <= 100)
+            if($c41_1_1 >= 0 && $c41_1_1 <= 100 && $c41_1_2 >= 0 && $c41_1_2 <= 100 && $c41_2_1 >= 0 && $c41_2_1 <= 100 && $c41_2_2 >= 0 && $c41_2_2 <= 100 && $c41_3_1 >= 0 && $c41_3_1 <= 100 && $c41_3_2 >= 0 && $c41_3_2 <= 100 && $c41_4_1 >= 0 && $c41_4_1 <= 100 && $c41_4_2 >= 0 && $c41_4_2 <= 100 && $c42_1_1 >= 0 && $c42_1_1 <= 100 && $c42_1_2 >= 0 && $c42_1_2 <= 100 && $c42_1_3 >= 0 && $c42_1_3 <= 100 && $c42_2_1 >= 0 && $c42_2_1 <= 100 && $c42_2_2 >= 0 && $c42_2_2 <= 100 && $c42_2_3 >= 0 && $c42_2_3 <= 100 && $c43_1 >= 0 && $c43_1 <= 100 && $c43_2 >= 0 && $c43_2 <= 100)
             {
                 //validate fields for submit c4 and update total
                 if(isset($_POST['submit']))
@@ -716,7 +679,7 @@ class PbsaSystemController
                 }
 
                 $objC4 = new C4();
-                $objC4->setC4($c41,$c41_path,$c42,$c42_path,$c43,$c43_path,$c44,$c44_path,$c45,$c45_path,$c4_total,$pbsaId);
+                $objC4->setC4($c41_1_1,$c41_1_2,$c41_2_1,$c41_2_2,$c41_3_1,$c41_3_2,$c41_4_1,$c41_4_2,$c41_path,$c42_1_1,$c42_1_2,$c42_1_3,$c42_2_1,$c42_2_2,$c42_2_3,$c42_path,$c43_1,$c43_2,$c43_path,$c4_total,$pbsaId);
 
             }
             else
@@ -736,9 +699,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c51_path']['size'];
                 $type = $_FILES['c51_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -760,9 +723,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c52_path']['size'];
                 $type = $_FILES['c52_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -784,9 +747,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c53_path']['size'];
                 $type = $_FILES['c53_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -804,17 +767,44 @@ class PbsaSystemController
                 }
             }
 
+            if(!empty($_FILES['c54_path']['name']))
+            {
+                $size = $_FILES['c54_path']['size'];
+                $type = $_FILES['c54_path']['type'];
+                if (($size > 3145728))
+                {
+                    $message = 'File too large. File must be less than 3 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c54_path = $year."_c54_".$row['e_id'];
+
+                    move_uploaded_file($_FILES['c54_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c54_path.".".$extention);
+                    $c54_path="uploads/".$path."/documents/".$c54_path.".".$extention;
+                }
+            }
+
             //date
             $c51_1 = $_POST['c51_1']; //echo $c51_1;
             $c51_2 = floatval($_POST['c51_2']); //echo $c51_2;
             $c51_3 = floatval($_POST['c51_3']); //echo $c51_3;
 
-            $c52 = floatval($_POST['c52']); //echo $c52;
+            $c52_1 = floatval($_POST['c52_1']); //echo $c52_1;
+            $c52_2 = floatval($_POST['c52_2']); //echo $c52_2;
             $c53 = floatval($_POST['c53']); //echo $c53;
+            $c54_1 = floatval($_POST['c54_1']); //echo $c54_1;
+            $c54_2 = floatval($_POST['c54_2']); //echo $c54_2;
             $c5_total = 0;
 
 
-            if($c51_2 >= 0 && $c51_2 <= 100 && $c51_3 >= 0 && $c51_3 <= 100 && $c52 >= 0 && $c52 <= 100 && $c53 >= 0 && $c53 <= 100 )
+            if($c51_2 >= 0 && $c51_2 <= 100 && $c51_3 >= 0 && $c51_3 <= 100 && $c52_1 >= 0 && $c52_1 <= 100 && $c52_2 >= 0 && $c52_2 <= 100 && $c53 >= 0 && $c53 <= 100 && $c54_1 >= 0 && $c54_1 <= 100 && $c54_2 >= 0 && $c54_2 <= 100 )
             {
                 //validate fields for submit c5 and update total
                 if(isset($_POST['submit']))
@@ -823,7 +813,7 @@ class PbsaSystemController
                 }
 
                 $objC5 = new C5();
-                $objC5->setC5($phd,$c51_1,$c51_2,$c51_3,$c51_path,$c52,$c52_path,$c53,$c53_path,$c5_total,$pbsaId);
+                $objC5->setC5($phd,$c51_1,$c51_2,$c51_3,$c51_path,$c52_1,$c52_2,$c52_path,$c53,$c53_path,$c54_1,$c54_2,$c54_path,$c5_total,$pbsaId);
 
             }
             else
@@ -832,15 +822,13 @@ class PbsaSystemController
 
 
 
-
-
             if(!empty($_FILES['c61_path']['name']))
             {
                 $size = $_FILES['c61_path']['size'];
                 $type = $_FILES['c61_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -862,9 +850,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c62_path']['size'];
                 $type = $_FILES['c62_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -886,9 +874,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c63_path']['size'];
                 $type = $_FILES['c63_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -910,9 +898,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c64_path']['size'];
                 $type = $_FILES['c64_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -931,14 +919,15 @@ class PbsaSystemController
             }
 
 
-            $c61 = floatval($_POST['c61']); //echo $c61;
+            $c61_1 = floatval($_POST['c61_1']); //echo $c61_1;
+            $c61_2 = floatval($_POST['c61_2']); //echo $c61_2;
             $c62 = floatval($_POST['c62']); //echo $c62;
             $c63 = floatval($_POST['c63']); //echo $c63;
             $c64 = floatval($_POST['c64']); //echo $c64;
             $c6_total = 0;
 
 
-            if($c61 >= 0 && $c61 <= 100 && $c62 >= 0 && $c62 <= 100 && $c63 >= 0 && $c63 <= 100 && $c64 >= 0 && $c64 <= 100 )
+            if($c61_1 >= 0 && $c61_1 <= 100 && $c61_2 >= 0 && $c61_2 <= 100 && $c62 >= 0 && $c62 <= 100 && $c63 >= 0 && $c63 <= 100 && $c64 >= 0 && $c64 <= 100 )
             {
                 //validate fields for submit c6 and update total
                 if(isset($_POST['submit']))
@@ -947,7 +936,7 @@ class PbsaSystemController
                 }
 
                 $objC6 = new C6();
-                $objC6->setC6($c61,$c61_path,$c62,$c62_path,$c63,$c63_path,$c64,$c64_path,$c6_total,$pbsaId);
+                $objC6->setC6($c61_1,$c61_2,$c61_path,$c62,$c62_path,$c63,$c63_path,$c64,$c64_path,$c6_total,$pbsaId);
 
             }
             else
@@ -961,9 +950,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c71_path']['size'];
                 $type = $_FILES['c71_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -985,9 +974,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c72_path']['size'];
                 $type = $_FILES['c72_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -1009,9 +998,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c73_path']['size'];
                 $type = $_FILES['c73_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -1033,9 +1022,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c74_path']['size'];
                 $type = $_FILES['c74_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -1054,14 +1043,25 @@ class PbsaSystemController
             }
 
 
-            $c71 = floatval($_POST['c71']); //echo $c71;
-            $c72 = floatval($_POST['c72']); //echo $c72;
-            $c73 = floatval($_POST['c73']); //echo $c73;
+            $c71_1_1 = floatval($_POST['c71_1_1']); //echo $c71_1_1;
+            $c71_1_2 = floatval($_POST['c71_1_2']); //echo $c71_1_2;
+            $c71_1_3 = floatval($_POST['c71_1_3']); //echo $c71_1_3;
+            $c71_2_1 = floatval($_POST['c71_2_1']); //echo $c71_2_1;
+            $c71_2_2 = floatval($_POST['c71_2_2']); //echo $c71_2_2;
+            $c71_2_3 = floatval($_POST['c71_2_3']); //echo $c71_2_3;
+            $c72_1_1 = floatval($_POST['c72_1_1']); //echo $c72_1_1;
+            $c72_1_2 = floatval($_POST['c72_1_2']); //echo $c72_1_2;
+            $c72_1_3 = floatval($_POST['c72_1_3']); //echo $c72_1_3;
+            $c72_2_1 = floatval($_POST['c72_2_1']); //echo $c72_2_1;
+            $c72_2_2 = floatval($_POST['c72_2_2']); //echo $c72_2_2;
+            $c72_2_3 = floatval($_POST['c72_2_3']); //echo $c72_2_3;
+            $c73_1 = floatval($_POST['c73_1']); //echo $c73_1;
+            $c73_2 = floatval($_POST['c73_2']); //echo $c73_2;
             $c74 = floatval($_POST['c74']); //echo $c74;
             $c7_total = 0;
 
 
-            if($c71 >= 0 && $c71 <= 100 && $c72 >= 0 && $c72 <= 100 && $c73 >= 0 && $c73 <= 100 && $c74 >= 0 && $c74 <= 100 )
+            if($c71_1_1 >= 0 && $c71_1_1 <= 100 && $c71_1_2 >= 0 && $c71_1_2 <= 100 && $c71_1_3 >= 0 && $c71_1_3 <= 100 && $c71_2_1 >= 0 && $c71_2_1 <= 100 && $c71_2_2 >= 0 && $c71_2_2 <= 100 && $c71_2_3 >= 0 && $c71_2_3 <= 100 && $c72_1_1 >= 0 && $c72_1_1 <= 100 && $c72_1_2 >= 0 && $c72_1_2 <= 100 && $c72_1_3 >= 0 && $c72_1_3 <= 100 && $c72_2_1 >= 0 && $c72_2_1 <= 100 && $c72_2_2 >= 0 && $c72_2_2 <= 100 && $c72_2_3 >= 0 && $c72_2_3 <= 100 && $c73_1 >= 0 && $c73_1 <= 100 && $c73_2 >= 0 && $c73_2 <= 100 && $c74 >= 0 && $c74 <= 100 )
             {
                 //validate fields for submit c7 and update total
                 if(isset($_POST['submit']))
@@ -1070,7 +1070,7 @@ class PbsaSystemController
                 }
 
                 $objC7 = new C7();
-                $objC7->setC7($c71,$c71_path,$c72,$c72_path,$c73,$c73_path,$c74,$c74_path,$c7_total,$pbsaId);
+                $objC7->setC7($c71_1_1,$c71_1_2,$c71_1_3,$c71_2_1,$c71_2_2,$c71_2_3,$c71_path,$c72_1_1,$c72_1_2,$c72_1_3,$c72_2_1,$c72_2_2,$c72_2_3,$c72_path,$c73_1,$c73_2,$c73_path,$c74,$c74_path,$c7_total,$pbsaId);
 
             }
             else
@@ -1083,9 +1083,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c81_path']['size'];
                 $type = $_FILES['c81_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -1107,9 +1107,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c82_path']['size'];
                 $type = $_FILES['c82_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -1131,9 +1131,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c83_path']['size'];
                 $type = $_FILES['c83_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -1155,9 +1155,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c84_path']['size'];
                 $type = $_FILES['c84_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -1179,9 +1179,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c85_path']['size'];
                 $type = $_FILES['c85_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -1203,9 +1203,9 @@ class PbsaSystemController
             {
                 $size = $_FILES['c86_path']['size'];
                 $type = $_FILES['c86_path']['type'];
-                if (($size > 5242880))
+                if (($size > 3145728))
                 {
-                    $message = 'File too large. File must be less than 5 megabytes.';
+                    $message = 'File too large. File must be less than 3 megabytes.';
                     echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
                 }
                 elseif ($type != "application/pdf")
@@ -1224,17 +1224,53 @@ class PbsaSystemController
             }
 
 
+            if(!empty($_FILES['c87_path']['name']))
+            {
+                $size = $_FILES['c87_path']['size'];
+                $type = $_FILES['c87_path']['type'];
+                if (($size > 3145728))
+                {
+                    $message = 'File too large. File must be less than 3 megabytes.';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
+                }
+                elseif ($type != "application/pdf")
+                {
+                    $message = 'Invalid file type';
+                    echo '<script>alert("'.$message.'");window.location.href="../views/'.$path.'/pbsaSystem.php?year='.$year.'";</script>';
+                }
+                else
+                {
+                    $extention= substr_replace($type,"",0,12);
+                    $c87_path = $year."_c87_".$row['e_id'];
 
-            $c81 = floatval($_POST['c81']); //echo $c81;
+                    move_uploaded_file($_FILES['c87_path']['tmp_name'],__DIR__.'/../../uploads/'.$path.'/documents/'.$c87_path.".".$extention);
+                    $c87_path="uploads/".$path."/documents/".$c87_path.".".$extention;
+                }
+            }
+
+
+            $c81_1_1 = floatval($_POST['c81_1_1']); //echo $c81_1_1;
+            $c81_1_2 = floatval($_POST['c81_1_2']); //echo $c81_1_2;
+            $c81_2_1 = floatval($_POST['c81_2_1']); //echo $c81_2_1;
+            $c81_2_2 = floatval($_POST['c81_2_2']); //echo $c81_2_2;
+            $c81_3_1 = floatval($_POST['c81_3_1']); //echo $c81_3_1;
+            $c81_3_2 = floatval($_POST['c81_3_2']); //echo $c81_3_2;
             $c82 = floatval($_POST['c82']); //echo $c82;
             $c83 = floatval($_POST['c83']); //echo $c83;
-            $c84 = floatval($_POST['c84']); //echo $c84;
-            $c85 = floatval($_POST['c85']); //echo $c85;
+            $c84_1 = floatval($_POST['c84_1']); //echo $c84_1;
+            $c84_2 = floatval($_POST['c84_2']); //echo $c84_2;
+            $c85_1 = floatval($_POST['c85_1']); //echo $c85_1;
+            $c85_2 = floatval($_POST['c85_2']); //echo $c85_2;
+            $c85_3 = floatval($_POST['c85_3']); //echo $c85_3;
+            $c85_4 = floatval($_POST['c85_4']); //echo $c85_4;
             $c86 = floatval($_POST['c86']); //echo $c86;
+            $c87_1 = floatval($_POST['c87_1']); //echo $c87_1;
+            $c87_2 = floatval($_POST['c87_2']); //echo $c87_2;
+            $c87_3 = floatval($_POST['c87_3']); //echo $c87_3;
             $c8_total = 0;
 
 
-            if($c81 >= 0 && $c81 <= 100 && $c82 >= 0 && $c82 <= 100 && $c83 >= 0 && $c83 <= 100 && $c84 >= 0 && $c84 <= 100 && $c85 >= 0 && $c85 <= 100 && $c86 >= 0 && $c86 <= 100)
+            if($c81_1_1 >= 0 && $c81_1_1 <= 100 && $c81_1_2 >= 0 && $c81_1_2 <= 100 && $c81_2_1 >= 0 && $c81_2_1 <= 100 && $c81_2_2 >= 0 && $c81_2_2 <= 100 && $c81_3_1 >= 0 && $c81_3_1 <= 100 && $c81_3_2 >= 0 && $c81_3_2 <= 100 && $c82 >= 0 && $c82 <= 100 && $c83 >= 0 && $c83 <= 100 && $c84_1 >= 0 && $c84_1 <= 100 && $c84_2 >= 0 && $c84_2 <= 100 && $c85_1 >= 0 && $c85_1 <= 100 && $c85_2 >= 0 && $c85_2 <= 100 && $c85_3 >= 0 && $c85_3 <= 100 && $c85_4 >= 0 && $c85_4 <= 100 && $c86 >= 0 && $c86 <= 100 && $c87_1 >= 0 && $c87_1 <= 100 && $c87_2 >= 0 && $c87_2 <= 100 && $c87_3 >= 0 && $c87_3 <= 100)
             {
                 //validate fields for submit c8 and update total
                 if(isset($_POST['submit']))
@@ -1243,7 +1279,7 @@ class PbsaSystemController
                 }
 
                 $objC8 = new C8();
-                $objC8->setC8($c81,$c81_path,$c82,$c82_path,$c83,$c83_path,$c84,$c84_path,$c85,$c85_path,$c86,$c86_path,$c8_total,$pbsaId);
+                $objC8->setC8($c81_1_1,$c81_1_2,$c81_2_1,$c81_2_2,$c81_3_1,$c81_3_2,$c81_path,$c82,$c82_path,$c83,$c83_path,$c84_1,$c84_2,$c84_path,$c85_1,$c85_2,$c85_3,$c85_4,$c85_path,$c86,$c86_path,$c87_1,$c87_2,$c87_3,$c87_path,$c8_total,$pbsaId);
 
             }
             else

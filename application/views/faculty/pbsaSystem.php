@@ -1311,14 +1311,14 @@ if($result)
 </span></td>
                                                                 <td>First &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                     <input id="c41_4_1" type="text" name="c41_4_1" onchange="validate_c41_4_1()" maxlength="4" pattern="[0-9.]+" title="Numbers Only Allowed" value="<?php echo $c41_4_1;?>" readonly style="width:50%"><br><br>
-                                                                    Second &nbsp;&nbsp; <input id="c41_4_2" type="text" name="c41_4_2" onchange="validate_c41_4_1()" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c41_4_2;?>"  style="width:50%"readonly></td>
+                                                                    Second &nbsp;&nbsp; <input id="c41_4_2" type="text" name="c41_4_2" onchange="validate_c41_4_2()" maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c41_4_2;?>"  style="width:50%"readonly></td>
                                                                 <script>
                                                                     function validate_c41_4_1()
                                                                     {
                                                                         let c41_4_1=document.getElementById("c41_4_1").value;
                                                                         if(c41_4_1 >= 0 && c41_4_1 <= 100)
                                                                             return true;
-                                                                        alert("Criteria 4 : International Journal - First Author Must Be Between 0 to 100");
+                                                                        alert("Criteria 4 :National Journal - First Author Must Be Between 0 to 100");
                                                                         return false;
                                                                     }
                                                                     function validate_c41_4_2()
@@ -1326,7 +1326,7 @@ if($result)
                                                                         let c41_4_2=document.getElementById("c41_4_2").value;
                                                                         if(c41_4_2 >= 0 && c41_4_2 <= 100)
                                                                             return true;
-                                                                        alert("Criteria 4 : International Journal - Second Author Must Be Between 0 to 100");
+                                                                        alert("Criteria 4 : National Journal - Second Author Must Be Between 0 to 100");
                                                                         return false;
                                                                     }
                                                                 </script>
@@ -1459,7 +1459,7 @@ if($result)
                                                                 <td>
                                                                     3.2) No. of Projects With Funds Rs 3 Lakhs and More (>= 3 lakhs)
                                                                 </td>
-                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c43_2;?>"   name="c43_2" id="c43_2" onchange="" readonly/></td>
+                                                                <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c43_2;?>"   name="c43_2" id="c43_2" onchange="validate_c43_2()" readonly/></td>
                                                                 <script>
                                                                     function validate_c43_2()
                                                                     {
