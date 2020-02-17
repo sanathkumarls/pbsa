@@ -464,7 +464,7 @@ if($result)
                                                                 <td><input type="file"  name="c11_path" id="c11_path" accept="application/pdf" disabled>Upload Student Feedback Report Issued By The College<br>
                                                                <?php if($c11_path != "") {?>
                                                                         <a href="../../../<?php echo $c11_path;?>" target="_blank">
-                                                                <input type="button" value="View Uploaded Document">
+                                                                            <input type="button" value="View Uploaded Document"></a>
                                                                             <?php }?>
                                                                  </td>
                                                             </tr>
