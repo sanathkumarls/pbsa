@@ -964,8 +964,8 @@ if($result)
                                                 </td>
                                                 <td># FUNDS
                                                 </td>
-                                                <td rowspan="4"><input type="file" name="c42_path" id="c42_path" accept="application/pdf" disabled>
-                                                    Upload The Relevant Document.
+                                                <td rowspan="4">
+                                                    The Relevant Document.
                                                     <br>  <?php if($c42_path != "") {?>
                                                         <a href="../../../<?php echo $c42_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1008,8 +1008,8 @@ if($result)
                                                 <td># PROJECTS
                                                 </td>
 
-                                                <td rowspan="3"><input type="file" name="c43_path" id="c43_path" accept="application/pdf" disabled>
-                                                    Upload The Relevant Document.
+                                                <td rowspan="3">
+                                                    The Relevant Document.
                                                     <br>  <?php if($c43_path != "") {?>
                                                         <a href="../../../<?php echo $c43_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1076,7 +1076,7 @@ if($result)
                                                 </td>
                                                 <td><input type="checkbox" id="phd" name="phd" <?php if($phd==0) echo "checked";?> disabled> Not Applicable</td>
                                                 <td rowspan="11">10</td>
-                                                <td rowspan="05"><input  id="c51_path" type="file" name="c51_path" accept="application/pdf" disabled>Upload The Letter Of PhD Registration
+                                                <td rowspan="05"> The Letter Of PhD Registration
                                                     <br>  <?php if($c51_path != "") {?>
                                                         <a href="../../../<?php echo $c51_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1115,7 +1115,7 @@ if($result)
 
                                                 <td># PAPERS</td>
                                                 <!--                                                                <td></td>-->
-                                                <td rowspan="3"><input type="file" name="c52_path" id="c52_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                <td rowspan="3"> The Relevant Document.
                                                     <br>  <?php if($c52_path != "") {?>
                                                         <a href="../../../<?php echo $c52_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1148,7 +1148,7 @@ if($result)
                                                 </td>
 
                                                 <!--                                                                <td></td>-->
-                                                <td rowspan="2"><input type="file" name="c53_path" id="c53_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                <td rowspan="2">The Relevant Document.
                                                     <br>  <?php if($c53_path != "") {?>
                                                         <a href="../../../<?php echo $c53_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1175,7 +1175,7 @@ if($result)
                                                 </td>
                                                 <td><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c54_1;?>"   name="c54_1" id="c54_1" onchange="validate_c54_1()" readonly/></td>
 
-                                                <td rowspan="2"><input type="file" name="c54_path" id="c54_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                <td rowspan="2"> The Relevant Document.
                                                     <br>  <?php if($c54_path != "") {?>
                                                         <a href="../../../<?php echo $c54_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1242,8 +1242,8 @@ if($result)
                                                     &nbsp; <input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c61_2;?>"   name="c61_2" id="c61_2" onchange="validate_c61_2()" readonly style="width: 40%"/></td>
 
                                                 <!--                                                                <td></td>-->
-                                                <td><input type="file" name="c61_path" id="c61_path" accept="application/pdf" disabled>
-                                                    Upload The Relevant Document.
+                                                <td>
+                                                     The Relevant Document.
                                                     <br>  <?php if($c61_path != "") {?>
                                                         <a href="../../../<?php echo $c61_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1270,8 +1270,8 @@ if($result)
                                                 <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c62;?>" name="c62" id="c62" onchange="validate_c62()" readonly/></td>
 
                                                 <!--                                                                <td> </td>-->
-                                                <td><input type="file" name="c62_path" id="c62_path" accept="application/pdf" disabled>
-                                                    Upload The Relevant Document.
+                                                <td>
+                                                     The Relevant Document.
                                                     <br>  <?php if($c62_path != "") {?>
                                                         <a href="../../../<?php echo $c62_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1288,8 +1288,8 @@ if($result)
                                                 <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c63;?>"   name="c63" id="c63" onchange="validate_c63()" readonly/></td>
 
                                                 <td  rowspan="03">5</td>
-                                                <td><input type="file" name="c63_path" id="c63_path" accept="application/pdf" disabled>
-                                                    Upload The Relevant Document.
+                                                <td>
+                                                     The Relevant Document.
                                                     <br>  <?php if($c63_path != "") {?>
                                                         <a href="../../../<?php echo $c63_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1311,7 +1311,7 @@ if($result)
                                                 <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c64;?>"   name="c64" id="c64" onchange="validate_c64()" readonly/></td>
 
                                                 <!--                                                                <td></td>-->
-                                                <td><input type="file" name="c64_path" id="c64_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                <td> The Relevant Document.
                                                     <br>  <?php if($c64_path != "") {?>
                                                         <a href="../../../<?php echo $c64_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1358,7 +1358,7 @@ if($result)
                                                 <td># PROGRAMS AS A
                                                 </td>
                                                 <td  rowspan="10">5</td>
-                                                <td rowspan="3"><input type="file" name="c71_path" id="c71_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                <td rowspan="3"> The Relevant Document.
                                                     <br>  <?php if($c71_path != "") {?>
                                                         <a href="../../../<?php echo $c71_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1403,7 +1403,7 @@ if($result)
                                                 <td># PROGRAMS AS A
                                                 </td>
 
-                                                <td rowspan="3"><input type="file" name="c72_path" id="c72_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                <td rowspan="3"> The Relevant Document.
                                                     <br>  <?php if($c72_path != "") {?>
                                                         <a href="../../../<?php echo $c72_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1445,7 +1445,7 @@ if($result)
                                                 <td># PROGRAMS AS A
                                                 </td>
 
-                                                <td rowspan="2"><input type="file" name="c73_path" id="c73_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                <td rowspan="2"> The Relevant Document.
                                                     <br>  <?php if($c73_path != "") {?>
                                                         <a href="../../../<?php echo $c73_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1473,7 +1473,7 @@ if($result)
                                                 <td>NUMBERS (#)
                                                 </td>
 
-                                                <td rowspan="2"><input type="file" name="c74_path" id="c74_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                <td rowspan="2"> The Relevant Document.
                                                     <br>  <?php if($c74_path != "") {?>
                                                         <a href="../../../<?php echo $c74_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1529,8 +1529,8 @@ if($result)
                                                 <td>NUMBERS (#)
                                                 </td>
                                                 <td  rowspan="10">3</td>
-                                                <td rowspan="4"><input type="file" name="c81_path" id="c81_path" accept="application/pdf" disabled>
-                                                    Upload The Relevant Document.
+                                                <td rowspan="4">
+                                                     The Relevant Document.
                                                     <br>  <?php if($c81_path != "") {?>
                                                         <a href="../../../<?php echo $c81_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1567,8 +1567,7 @@ if($result)
                                                 <td>NUMBERS (#)
                                                 </td>
 
-                                                <td rowspan="2"><input type="file" name="c82_path" id="c82_path" accept="application/pdf" disabled>
-                                                    Upload The Relevant Document.
+                                                <td rowspan="2"> The Relevant Document.
                                                     <br>  <?php if($c82_path != "") {?>
                                                         <a href="../../../<?php echo $c82_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1597,8 +1596,7 @@ if($result)
                                                 <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c83;?>"   name="c83" id="c83" onchange="validate_c83()" readonly/></td>
 
                                                 <!--                                                                <td></td>-->
-                                                <td><input type="file" name="c83_path" id="c83_path" accept="application/pdf" disabled>
-                                                    Upload The Relevant Document.
+                                                <td>The Relevant Document.
                                                     <br>  <?php if($c83_path != "") {?>
                                                         <a href="../../../<?php echo $c83_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1614,8 +1612,7 @@ if($result)
                                                 </td>
                                                 <td>NUMBERS (#)
                                                 </td>
-                                                <td rowspan="3"><input type="file" name="c84_path" id="c84_path" accept="application/pdf" disabled>
-                                                    Upload The Relevant Document.
+                                                <td rowspan="3"> The Relevant Document.
                                                     <br>  <?php if($c84_path != "") {?>
                                                         <a href="../../../<?php echo $c84_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1653,7 +1650,7 @@ if($result)
                                                 <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c85_1;?>"   name="c85_1" id="c85_1" onchange="validate_c85_1()" readonly/></td>
 
                                                 <!--                                                                <td></td>-->
-                                                <td rowspan="4"><input type="file" name="c85_path" id="c85_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                <td rowspan="4"> The Relevant Document.
                                                     <br>  <?php if($c85_path != "") {?>
                                                         <a href="../../../<?php echo $c85_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1692,7 +1689,7 @@ if($result)
                                                 <td>NUMBERS (#)
                                                 </td>
                                                 <!--                                                                <td> </td>-->
-                                                <td rowspan="2"><input type="file" name="c86_path" id="c86_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                <td rowspan="2"> The Relevant Document.
                                                     <br>  <?php if($c86_path != "") {?>
                                                         <a href="../../../<?php echo $c86_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
@@ -1726,7 +1723,7 @@ if($result)
                                                 </td>
                                                 <td class="style1"><input type="text"  maxlength="4" pattern="[0-9.]+"  title="Numbers Only Allowed" value="<?php echo $c87_1;?>" name="c87_1" id="c87_1" onchange="validate_c87_1()" readonly/></td>
 
-                                                <td rowspan="3"><input type="file" name="c87_path" id="c87_path" accept="application/pdf" disabled>	Upload The Relevant Document.
+                                                <td rowspan="3"> The Relevant Document.
                                                     <br>  <?php if($c87_path != "") {?>
                                                         <a href="../../../<?php echo $c87_path;?>" target="_blank">
                                                             <input type="button" value="View Uploaded Document"></a>
