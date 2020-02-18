@@ -675,7 +675,14 @@ class PbsaSystemController
                 //validate fields for submit c4 and update total
                 if(isset($_POST['submit']))
                 {
+                    $c4_x = ($c41_1_1 * 20) + ($c41_1_2 * 10) + ($c41_2_1 * 15) + ($c41_2_2 * 8) + ($c41_3_1 * 10) + ($c41_3_2 * 5) + ($c41_4_1 * 10) + ($c41_4_2 * 5);
+                    $c4_x += ($c42_1_1 * 10) + ($c42_1_2 * 8) + ($c42_1_3 * 5) + ($c42_2_1 * 20) + ($c42_2_2 * 15) + ($c42_2_3 * 10);
+                    $c4_x += ($c43_1 * 5) + ($c43_2 * 10);
 
+                    if($c4_x >= 30)// max is 30
+                        $c4_x = 30;
+
+                    $c4_total = $c4_x / 30;
                 }
 
                 $objC4 = new C4();
@@ -809,7 +816,18 @@ class PbsaSystemController
                 //validate fields for submit c5 and update total
                 if(isset($_POST['submit']))
                 {
+                    //phd pending
 
+                    $c5_1x = ($c52_1 * 15) + ($c52_2 * 10) + ($c53 * 5) + ($c54_1 * 5) ;
+                    $c5_2x = ($c54_2 * 5);
+
+                    if($c5_1x >= 30)
+                        $c5_1x = 30;
+
+                    if($c5_2x >= 30)
+                        $c5_2x = 30;
+
+                    $c5_total = (($c5_1x / 30) + ($c5_2x / 30)) / 2;
                 }
 
                 $objC5 = new C5();
@@ -932,7 +950,19 @@ class PbsaSystemController
                 //validate fields for submit c6 and update total
                 if(isset($_POST['submit']))
                 {
+                    $c6_1x = ($c61_1 * 5) + ($c61_2 * 3) + ($c62 * 5);
+                    if($c6_1x >= 20)
+                        $c6_1x = 10;
+                    else
+                        $c6_1x = $c6_1x / 20;
 
+                    $c6_2x = ($c63 * 5) + ($c64 * 5);
+                    if($c6_2x >= 20)
+                        $c6_2x = 10;
+                    else
+                        $c6_2x = $c6_2x / 20;
+
+                    $c6_total = (($c6_1x * 5) + ($c6_2x * 5)) /10;
                 }
 
                 $objC6 = new C6();
@@ -1066,7 +1096,14 @@ class PbsaSystemController
                 //validate fields for submit c7 and update total
                 if(isset($_POST['submit']))
                 {
+                    $c7_x = ($c71_1_1 * 10) + ($c71_1_2 * 5) + ($c71_1_3 * 5) + ($c71_2_1 * 20) + ($c71_2_2 * 10) + ($c71_2_3 * 5);
+                    $c7_x += ($c72_1_1 * 5) + ($c72_1_2 * 3) + ($c72_1_3 * 2) + ($c72_2_1 * 10) + ($c72_2_2 * 5) + ($c72_2_3 * 3);
+                    $c7_x += ($c73_1 * 5) + ($c73_2 * 2) + ($c74 * 5);
 
+                    if($c7_x >= 20)
+                        $c7_x = 20;
+
+                    $c7_total = $c7_x / 20;
                 }
 
                 $objC7 = new C7();
@@ -1275,7 +1312,21 @@ class PbsaSystemController
                 //validate fields for submit c8 and update total
                 if(isset($_POST['submit']))
                 {
+                    $c8_x_1 = ($c81_1_1 * 15) + ($c81_1_2 * 20) + ($c81_2_1 * 10) + ($c81_2_2 * 15) + ($c81_3_1 * 5) + ($c81_3_2 * 10) + ($c82 * 20) + ($c83 * 10) + ($c84_1 * 20) + ($c84_2 * 15);
 
+                    if($c8_x_1 >= 20)
+                        $c8_x_1 = 10;
+                    else
+                        $c8_x_1 = $c8_x_1 /  20;
+
+                    $c8_x_2 = ($c85_1 * 5) + ($c85_2 * 2) + ($c85_3 * 2) + ($c85_4 * 5) + ($c86 * 5) + ($c87_1 * 30) + ($c87_2 * 30) + ($c87_3 * 20);
+
+                    if($c8_x_2 >= 20)
+                        $c8_x_2 = 10;
+                    else
+                        $c8_x_2 = $c8_x_2 / 20;
+
+                    $c8_total = (($c8_x_1 * 3) + ($c8_x_2 * 2)) / 5;
                 }
 
                 $objC8 = new C8();
