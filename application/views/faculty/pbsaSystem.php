@@ -529,12 +529,7 @@ if($result)
                                                                 <td>1</td>
                                                                 <td>Punctuality-
                                                                     Yearly Biometric report (<?php echo $selectedYear-1;?>)<br>
-                                                                    if 0 hrs shortage then  100 marks<br>
-                                                                    0 to 4 hr shortage, then 90 marks<br>
-                                                                    4 to 8 hr shortage, then 80 marks<br>
-                                                                    8 to 12 hr shortage, then 70 marks<br>
-                                                                    12 to 16 hr shortage, then 60 marks<br>
-                                                                    above 16 hr shortage, then 0 marks
+                                                                    (Total No. Of Hours Shortage)
                                                                 </td>
                                                                 <td class="style1">
                                                                     <input type="text"  maxlength="4" pattern="[0-9.]+"   title="Numbers Only Allowed" value="<?php echo $c21;?>"   name="c21" id="c21" onchange="validate_c21()" readonly/>
@@ -560,7 +555,7 @@ if($result)
                                                             </tr>
                                                             <tr>
                                                                 <td>2</td>
-                                                                <td>Library usage in the college library(>=80 hrs per year then 100 marks otherwise no. of hours/0.8 marks.)  </td>
+                                                                <td>Library usage in the college library (Total No. Of Hours)  </td>
                                                                 <td class="style1">
                                                                     <input type="text"  maxlength="4" pattern="[0-9.]+"   title="Numbers Only Allowed" value="<?php echo $c22;?>"   name="c22" id="c22" onchange="validate_c22()" readonly/>
                                                                 </td>
@@ -587,7 +582,7 @@ if($result)
                                                             <tr>
                                                                 <td>3</td>
                                                                 <td>CLASSES CONDUCTED as per time table
-                                                                    (>= 80 % then 100 marks otherwise percentage/0.8 marks.)
+                                                                    (Total No. Of Hours)
                                                                 </td>
                                                                 <td class="style1">
                                                                     <input type="text"  maxlength="4" pattern="[0-9.]+"   title="Numbers Only Allowed" value="<?php echo $c23;?>"   name="c23" id="c23" onchange="validate_c23()" readonly/>
@@ -616,7 +611,6 @@ if($result)
                                                                 <td>Percentage of seats filled in first semester<br>
                                                                     (only for optional subjects.
                                                                     for languages the weightage is added to classes conducted.)
-                                                                    100% then 100 marks otherwise percentage.
 
                                                                 </td>
                                                                 <td class="style1">

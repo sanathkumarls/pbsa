@@ -213,7 +213,8 @@ class PbsaSystemController
                 {
                     $c11_x = $c11 / 10.0;
                     $c12_x = $c12 / 10.0;
-                    $c1_total = ( ($c11_x * 15) + ($c12_x * 15) ) / 30;
+                    $c1_total_x = ( ($c11_x * 15) + ($c12_x * 15) ) / 30;
+                    $c1_total = round($c1_total_x,1);
 
                     //echo "c11 :".$c11." c11x :".$c11_x."c12 : ".$c12." c12x : ".$c12_x."c1t :".$c1_total;return;
                 }
@@ -335,11 +336,38 @@ class PbsaSystemController
                 //validate fields for submit c2 and update total
                 if(isset($_POST['submit']))
                 {
-                    $c21_x = $c21 / 10.0;
-                    $c22_x = $c22 / 10.0;
-                    $c23_x = $c23 / 10.0;
+                    $c21_x = 0;
+                    if($c21 == 0)
+                        $c21_x = 100;
+                    if($c21 > 0 && $c21 <= 4)
+                        $c21_x = 90;
+                    if($c21 > 4 && $c21 <= 8)
+                        $c21_x = 80;
+                    if($c21 > 8 && $c21 <= 12)
+                        $c21_x = 70;
+                    if($c21 > 12 && $c21 <= 16)
+                        $c21_x = 60;
+                    if($c21 > 16)
+                        $c21_x = 0;
+
+                    $c22_x = 0;
+                    if($c22 >= 80)
+                        $c22_x = 100;
+                    else
+                        $c22_x = $c22 / 0.8;
+
+                    $c23_x = 0;
+                    if($c23 >= 80)
+                        $c23_x = 100;
+                    else
+                        $c23_x = $c23 / 0.8;
+
+                    $c21_x = $c21_x / 10.0;
+                    $c22_x = $c22_x / 10.0;
+                    $c23_x = $c23_x / 10.0;
                     $c24_x = $c24 / 10.0;
-                    $c2_total = ( ($c21_x * 3) + ($c22_x * 4) + ($c23_x * 2) + ($c24_x * 1)) / 10;
+                    $c2_total_x = ( ($c21_x * 3) + ($c22_x * 4) + ($c23_x * 2) + ($c24_x * 1)) / 10;
+                    $c2_total = round($c2_total_x,1);
                 }
 
                 $objC2 = new C2();
@@ -563,7 +591,8 @@ class PbsaSystemController
                     if($c32_x >= 50)//190 can be achieved but max is 50
                         $c32_x = 50;
 
-                    $c3_total = ($c31_x + $c32_x) / 10;
+                    $c3_total_x = ($c31_x + $c32_x) / 10;
+                    $c3_total = round($c3_total_x,1);
 
                 }
 
@@ -682,7 +711,8 @@ class PbsaSystemController
                     if($c4_x >= 30)// max is 30
                         $c4_x = 30;
 
-                    $c4_total = $c4_x / 30;
+                    $c4_total_x = $c4_x / 3;
+                    $c4_total = round($c4_total_x,1);
                 }
 
                 $objC4 = new C4();
@@ -827,7 +857,8 @@ class PbsaSystemController
                     if($c5_2x >= 30)
                         $c5_2x = 30;
 
-                    $c5_total = (($c5_1x / 30) + ($c5_2x / 30)) / 2;
+                    $c5_total_x = (($c5_1x / 3) + ($c5_2x / 3)) / 2;
+                    $c5_total = round($c5_total_x,1);
                 }
 
                 $objC5 = new C5();
@@ -962,7 +993,8 @@ class PbsaSystemController
                     else
                         $c6_2x = $c6_2x / 20;
 
-                    $c6_total = (($c6_1x * 5) + ($c6_2x * 5)) /10;
+                    $c6_total_x = (($c6_1x * 5) + ($c6_2x * 5)) /10;
+                    $c6_total = round($c6_total_x,1);
                 }
 
                 $objC6 = new C6();
@@ -1103,7 +1135,8 @@ class PbsaSystemController
                     if($c7_x >= 20)
                         $c7_x = 20;
 
-                    $c7_total = $c7_x / 20;
+                    $c7_total_x = $c7_x / 2;
+                    $c7_total = round($c7_total_x,1);
                 }
 
                 $objC7 = new C7();
@@ -1326,7 +1359,8 @@ class PbsaSystemController
                     else
                         $c8_x_2 = $c8_x_2 / 20;
 
-                    $c8_total = (($c8_x_1 * 3) + ($c8_x_2 * 2)) / 5;
+                    $c8_total_x = (($c8_x_1 * 3) + ($c8_x_2 * 2)) / 5;
+                    $c8_total = round($c8_total_x,1);
                 }
 
                 $objC8 = new C8();

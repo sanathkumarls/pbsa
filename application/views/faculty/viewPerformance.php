@@ -225,7 +225,8 @@ $e_id = $objEmployee->getEid($email);
                                                     while($row = $result->fetch_assoc())
                                                     {
 
-                                                        $cgpa = (($row['c1_total'] * 30) + ($row['c2_total'] * 10) + ($row['c3_total'] * 10) + ($row['c4_total'] * 20) + ($row['c5_total'] * 10) + ($row['c6_total'] * 10) + ($row['c7_total'] * 5) + ($row['c8_total'] * 5)) /100;
+                                                        $cgpa_x = (($row['c1_total'] * 30) + ($row['c2_total'] * 10) + ($row['c3_total'] * 10) + ($row['c4_total'] * 20) + ($row['c5_total'] * 10) + ($row['c6_total'] * 10) + ($row['c7_total'] * 5) + ($row['c8_total'] * 5)) /100;
+                                                        $cgpa = round($cgpa_x,1);
                                                         $cgpa_total+=$cgpa;
                                                         $grade = "";
                                                         if($cgpa >= 9.6 && $cgpa <= 10)
@@ -258,7 +259,8 @@ $e_id = $objEmployee->getEid($email);
                                                                   </tr>';
                                                     }
 
-                                                    $avg = $cgpa_total/$i;
+                                                    $avg_x = $cgpa_total/$i;
+                                                    $avg = round($avg_x,1);
 
                                                     $grade_avg = "";
                                                     if($avg >= 9.6 && $avg <= 10)
@@ -277,7 +279,7 @@ $e_id = $objEmployee->getEid($email);
                                                         $grade_avg = "C++";
                                                     elseif ($avg >= 5.1 && $avg <= 5.5)
                                                         $grade_avg = "C+";
-                                                    elseif ($avg <= 5)
+                                                    elseif ($avg <= 5.0)
                                                         $grade_avg = "C";
 
                                                     echo '<div class="col-md-12"><table class="display" cellspacing="0" align="center"><center><h3 style="font-family:Copperplate Gothic Light;color:black;font-size:40px;">Overall Performance</h3></center>

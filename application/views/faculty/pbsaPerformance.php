@@ -277,7 +277,8 @@ else
                             {
                                 $row = $result->fetch_assoc();
 
-                                $cgpa = (($row['c1_total'] * 30) + ($row['c2_total'] * 10) + ($row['c3_total'] * 10) + ($row['c4_total'] * 20) + ($row['c5_total'] * 10) + ($row['c6_total'] * 10) + ($row['c7_total'] * 5) + ($row['c8_total'] * 5)) /100;
+                                $cgpa_x = (($row['c1_total'] * 30) + ($row['c2_total'] * 10) + ($row['c3_total'] * 10) + ($row['c4_total'] * 20) + ($row['c5_total'] * 10) + ($row['c6_total'] * 10) + ($row['c7_total'] * 5) + ($row['c8_total'] * 5)) /100;
+                                $cgpa = round($cgpa_x,1);
 
                                 $grade = "";
                                 if($cgpa >= 9.6 && $cgpa <= 10)
